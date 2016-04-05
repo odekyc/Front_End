@@ -1,0 +1,107 @@
+body {
+  background-color: white;
+}
+
+#grey-box {
+  background-color: #E8E8E8  ;
+  height: 295%;
+  width: 90%;
+  position: relative;
+  top: 8%;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-bottom: 8%;
+}
+
+#normanborlaug{
+    font-size: 390%;
+    position: relative;
+    text-align: center;
+    top: 3%;
+    font-family: Arial;
+    font-weight: lighter;
+}
+
+h2{
+    font-family: Arial;
+    font-style: italic;
+    font-size: 30;
+    font-weight: lighter;
+    text-align: center;
+    position: relative;
+    top: 2%;
+}
+
+#timeline-text{
+  font-family: Arial;
+  font-weight: lighter;
+  font-size: 150%;
+}
+
+img{
+   top: 9%;
+   margin: 0 auto;
+}
+
+#picture-box{
+    background-color: white;
+    height: 37% ;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5%;
+    text-align: center;
+}
+
+#p-box-text{
+    position: relative;
+    font-size: 15px;
+    font-family: Arial;
+    top: 2%;
+    font-weight: lighter;
+}
+
+#time-line-box{
+  background-color: #E8E8E8;
+  position:relative;
+  height: 38%;
+  width: 60%;
+  top: 1%;
+  margin: 0 auto;
+}
+
+ul{
+  font-size: 92%;
+
+}
+
+li{
+  line-height: 145%;
+  font-family: Arial;
+}
+
+span{
+  font-weight: bolder;
+}
+
+h1{
+  font-size: 130%;
+  line-height: 145%;
+  font-family: Arial;
+  font-weight: lighter;
+}
+
+#prime-minister{
+  font-style: italic;
+  font-family: Arial;
+  color: #8c8c8c;
+  font-size: 90%;
+}
+
+a{
+  color: blue;
+  text-decoration: none;
+}
+
+#bottom{
+  text-align: center;
+}
