@@ -1,0 +1,91 @@
+body{
+    background-color: purple;
+    height: 100%;
+    width: 100%;
+    font-size: 150%;
+}
+
+#middle-box{
+    background-color: white;
+    height: 260px;
+    width: 480px;
+    margin: 0 auto;
+    margin-top: 12%;
+    border-radius: 5px;
+    font-family: Helvetica;
+    padding-right: 60px;
+    word-wrap: break-word; 
+    clear: both;
+
+}
+
+a{
+    height: 300px;
+    width: 500px;
+}
+
+img {
+    width: 35px;
+    padding: 5px;
+    border: 0;
+    box-shadow: 0;
+    display: inline;
+}
+
+#demo{
+    display: inline;
+    position: relative;
+    top: 20px;
+    left: 30px;
+    color: black;
+    font-size: 300% ;
+    font-weight: bold;
+    color: purple;
+}
+
+#new_quote{
+    position: relative;
+    background-color: purple;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    color: white;
+    font-size: 65%;
+    font-family: Arial;
+    display: inline-block;
+    line-height: 40px;
+    left: 220px;
+}
+
+#buttons{
+    position: relative;
+    left: 30px;
+    bottom: -20px;
+}
+
+p{
+    color:white;
+    font-size: 50%;
+    font-family: Arial;
+
+}
+
+#ode{
+    position: absolute;
+    left: 50%;
+}
+
+#quote{
+    position: relative;
+    display: inline;
+    color: purple;
+    font-size: 120%;
+    left: 35px;
+}
+
+#author{
+    position: relative;
+    color: purple;
+    font-size: 64%;
+    left: 330px;
+}
