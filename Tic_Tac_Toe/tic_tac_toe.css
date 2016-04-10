@@ -1,0 +1,76 @@
+body{
+    height: 100%;
+    background-color: #999999;
+}
+
+#board{
+    height: 500px;
+    width: 500px;
+    background-color: black;
+    margin: auto;
+    margin-top: 75px;
+}
+
+#popup{
+    position: absolute;
+    top: 120px;
+    background-color: white;
+    height: 240px;
+    width: 580px;
+    left: 335px;
+    border-radius: 10px;
+}
+
+#blackdiv{
+    position: relative;
+    background-color: black;
+    height: 150px;
+    width: 520px;
+    
+    margin: auto;
+}
+
+#tictactoe{
+    position: relative;
+    top: 20px;
+    left: -120px;
+    color: white;
+    font-size: 230%;
+    font-weight: lighter;
+    font-family: Arial;
+}
+
+h1{
+    position: absolute;
+    color: white;
+    top: 90px;
+    margin-left: 227px;
+    font-size: 90%;
+    font-weight: lighter;
+}
+
+#XObuttons{
+    position: relative;
+    top: 10px;
+    left: 440px;
+}
+
+#X{
+     display: inline-block;
+     top: 20px;
+     display: inline-block;
+     border: 1px solid #bfbfbf;
+     height: 35px;
+     width: 35px;
+     border-radius: 8px;
+}
+
+#O{
+    display: inline-block;
+     margin-left: 15px;
+     border: 1px solid #bfbfbf;
+     height: 35px;
+     width: 35px;
+     border-radius: 8px;
+}
+
