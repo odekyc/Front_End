@@ -13,11 +13,12 @@ body{
 
 #popup{
     position: absolute;
+    visibility: visible;
     top: 120px;
     background-color: white;
     height: 240px;
     width: 580px;
-    left: 335px;
+    left: 360px;
     border-radius: 10px;
 }
 
@@ -60,17 +61,21 @@ h1{
      top: 20px;
      display: inline-block;
      border: 1px solid #bfbfbf;
-     height: 35px;
+     height: 27px;
      width: 35px;
      border-radius: 8px;
+     color:#bfbfbf;
+     padding-top: 8px;
 }
 
 #O{
     display: inline-block;
      margin-left: 15px;
      border: 1px solid #bfbfbf;
-     height: 35px;
+     height: 27px;
      width: 35px;
      border-radius: 8px;
+     color:#bfbfbf;
+     padding-top: 8px;
 }
 
