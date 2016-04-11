@@ -27,7 +27,7 @@ $(document).ready(function() {
         x_or_o="x";
         $("#popup").css("visibility", "hidden");
         $("body").css("background-color", "white");
-        $("line").css("stroke", "#ffff80");
+        $(".borders").css("stroke", "#ffff80");
 
     });
   
@@ -36,7 +36,7 @@ $(document).ready(function() {
         x_or_o="o";
         $("#popup").css("visibility", "hidden");
         $("body").css("background-color", "white");
-        $("line").css("stroke", "#ffff80");
+        $(".borders").css("stroke", "#ffff80");
         
     });
 

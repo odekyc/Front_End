@@ -57,7 +57,7 @@ h1{
 }
 
 #X{
-     display: inline-block;
+    
      top: 20px;
      display: inline-block;
      border: 1px solid #bfbfbf;
@@ -79,3 +79,10 @@ h1{
      padding-top: 8px;
 }
 
+circle{
+    visibility: hidden;
+}
+
+.lines{
+    visibility: hidden;
+}
