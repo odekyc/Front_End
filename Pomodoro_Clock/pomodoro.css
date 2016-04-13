@@ -67,9 +67,9 @@ h1{
     height: 310px;
     width: 310px;
     border-radius: 100%;
-    background-color: #4d4d4d;
-    top: -43px;
-    font-family: Arial;
+    background-color: blue;
+    top: -40px;
+    font-family: sans-serif;
 }
 
 #session{
