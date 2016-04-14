@@ -9,6 +9,7 @@ var audio = $("audio")[0];
 var innercircle_clicked=false;
 var time_value;
 var myVar;
+var break_session;
 
     $("#lminus").click(function(){
     
@@ -61,7 +62,8 @@ var myVar;
         
         countTime =document.getElementById("r").innerHTML; 
         breakTime=document.getElementById("l").innerHTML;
-     
+        
+        
 
         if(innercircle_clicked===false){
           innercircle_clicked=true;
@@ -70,7 +72,7 @@ var myVar;
           innercircle_clicked=false;
         }
  
-        time_value=document.getElementById("time").innerHTML;
+        time_value=countTime;
 
         if(time_value.length<=2){
           time_value=Number(time_value)-1;
@@ -92,6 +94,8 @@ var myVar;
           }
           if(minutes === 0 && seconds === 1){
         //play the sound on both
+        //
+           
             audio.play();
           }
 
@@ -107,13 +111,28 @@ var myVar;
           }
 
           if((minutes === 0 )&& (seconds === 0)){
+            break_session=document.getElementById("session").innerHTML; 
             minutes=0;
             seconds="00";
             document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
-            document.getElementById("session").innerHTML="Break!"
-         }
+            if (break_session === "SESSION"){
 
-          document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
+              break_session="Break!"
+              minutes=breakTime;
+              minutes-=1;
+              seconds=59;
+              document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
+              document.getElementById("session").innerHTML=break_session;
+            }
+            else if (break_session === "Break!"){
+              break_session="SESSION"
+              minutes=countTime;
+              minutes-=1;
+              seconds=59;
+              document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
+              document.getElementById("session").innerHTML=break_session;
+            }              
+         }
         }, 1000);
     
     }
