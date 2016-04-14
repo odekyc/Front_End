@@ -1,6 +1,5 @@
 $(document).ready(function() {
 var value;
-var step=0.02;
 var audio = $("audio")[0]; 
  var countTime = 25;
  var breakTime = 5;
@@ -9,7 +8,7 @@ var audio = $("audio")[0];
  var minutes = 25;
 var innercircle_clicked=false;
 var time_value;
-
+var myVar;
 
     $("#lminus").click(function(){
     
@@ -59,7 +58,7 @@ var time_value;
 
 
     function countdown(){
-
+        
         countTime =document.getElementById("r").innerHTML; 
         breakTime=document.getElementById("l").innerHTML;
      
@@ -72,12 +71,12 @@ var time_value;
         }
  
         time_value=document.getElementById("time").innerHTML;
+
         if(time_value.length<=2){
           time_value=Number(time_value)-1;
           document.getElementById("time").innerHTML=String(time_value)+":59";
           minutes=time_value;
           seconds=59;
-          alert(minutes+":"+ seconds);
         }
      
         if( innercircle_clicked===false){
@@ -85,19 +84,40 @@ var time_value;
           document.getElementById("time").innerHTML=time_value;
         }
 
-        
-
-        if(minutes === 0 && seconds === 1){
+       myVar=setInterval(function(){ 
+          if((minutes>0)&&(seconds===0)){
+            minutes-=1;
+            seconds=59;  
+            document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);  
+          }
+          if(minutes === 0 && seconds === 1){
         //play the sound on both
             audio.play();
-        }
-        if(minutes === 0 && seconds === 0){
-            
-        }
-       
+          }
+
+          if ((minutes>0)|| (seconds>0)){
+              seconds-=1;
+              document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
+          }
+          
+          if((seconds<10)&&(seconds>0)){
+             seconds=String(seconds);
+             seconds="0"+seconds;
+             document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
+          }
+
+          if((minutes === 0 )&& (seconds === 0)){
+            minutes=0;
+            seconds="00";
+            document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
+            document.getElementById("session").innerHTML="Break!"
+         }
+
+          document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
+        }, 1000);
     
     }
 
-
     $("#innercircle").click(countdown);
+    
 });
