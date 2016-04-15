@@ -10,6 +10,7 @@ var innercircle_clicked=false;
 var time_value;
 var myVar;
 var break_session;
+var paused_time;
 
     $("#lminus").click(function(){
     if(innercircle_clicked===false){
@@ -63,7 +64,12 @@ var break_session;
         countTime =document.getElementById("r").innerHTML; 
         breakTime=document.getElementById("l").innerHTML;
         
-        
+        if( pause===false){
+          pause=true;
+        }
+        else if(pause===true){
+          pause=false;
+        }
 
         if(innercircle_clicked===false){
           innercircle_clicked=true;
@@ -71,6 +77,23 @@ var break_session;
         else if(innercircle_clicked===true){
           innercircle_clicked=false;
         }
+        
+        if( pause===false){
+          alert("pausefalse");
+
+          paused_time=document.getElementById("time").innerHTML;
+          alert(paused_time);
+          var i=paused_time.indexOf(":");
+
+          paused_time=Number(paused_time.slice(0,i));
+          paused_time+=1;
+          document.getElementById("time").innerHTML=paused_time;
+          clearInterval(myVar);
+        }
+        
+        else if(pause===true){
+
+       
  
         time_value=countTime;
 
@@ -140,7 +163,7 @@ var break_session;
             }              
          }
         }, 1000);
-    
+     }
     }
 
     $("#innercircle").click(countdown);
