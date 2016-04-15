@@ -12,21 +12,21 @@ var myVar;
 var break_session;
 
     $("#lminus").click(function(){
-    
+    if(innercircle_clicked===false){
        value=Number(document.getElementById("l").innerHTML);
        if(value>1){
         value-=1;
        }
        document.getElementById("l").innerHTML=value;
-     
+     }
     });
 
       $("#lplus").click(function(){
-        
+        if(innercircle_clicked===false){
           value=Number(document.getElementById("l").innerHTML);
           value+=1;
           document.getElementById("l").innerHTML=value;
-        
+      }  
     });
 
        $("#rminus").click(function(){
@@ -108,6 +108,12 @@ var break_session;
              seconds=String(seconds);
              seconds="0"+seconds;
              document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
+          }
+
+          if((minutes > 0 )&& (seconds === 0)){
+             minutes-=1;
+            seconds=59;
+            document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
           }
 
           if((minutes === 0 )&& (seconds === 0)){
