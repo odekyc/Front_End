@@ -1,16 +1,16 @@
 $(document).ready(function() {
-var value;
-var audio = $("audio")[0]; 
- var countTime = 25;
- var breakTime = 5;
- var pause = false;
- var seconds = 0;
- var minutes = 25;
-var innercircle_clicked=false;
-var time_value;
-var myVar;
-var break_session;
-var paused_time;
+  var value;
+  var audio = $("audio")[0]; 
+   var countTime = 25;
+   var breakTime = 5;
+   var pause = false;
+   var seconds = 0;
+   var minutes = 25;
+  var innercircle_clicked=false;
+  var time_value;
+  var myVar;
+  var break_session;
+  var paused_time;
 
     $("#lminus").click(function(){
     
@@ -127,15 +127,17 @@ var paused_time;
         }
 
        myVar=setInterval(function(){ 
+           if((minutes === 0) && (seconds === 1)){
+            alert("hi");
+            audio.play();
+          }
+
           if((minutes>0)&&(seconds===0)){
             minutes-=1;
             seconds=59;  
             document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);  
           }
-          if((minutes === 0) && (seconds === 1)){
-            alert("hi");
-            audio.play();
-          }
+         
 
           if ((minutes>0)|| (seconds>0)){
               seconds-=1;
@@ -143,9 +145,8 @@ var paused_time;
           }
           
           if((seconds<10)&&(seconds>0)){
-             seconds=String(seconds);
-             seconds="0"+seconds;
-             document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
+          
+             document.getElementById("time").innerHTML=String(minutes)+":"+"0"+String(seconds);
           }
 
           if((minutes > 0 )&& (seconds === 0)){
@@ -157,8 +158,8 @@ var paused_time;
           if((minutes === 0 )&& (seconds === 0)){
             break_session=document.getElementById("session").innerHTML; 
             minutes=0;
-            seconds="00";
-            document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
+
+            document.getElementById("time").innerHTML=String(minutes)+":00";
             if (break_session === "SESSION"){
               breakTime=document.getElementById("l").innerHTML;
               break_session="Break!"
