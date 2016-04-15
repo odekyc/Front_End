@@ -13,25 +13,33 @@ var break_session;
 var paused_time;
 
     $("#lminus").click(function(){
+    
     if(innercircle_clicked===false){
-       value=Number(document.getElementById("l").innerHTML);
-       if(value>1){
-        value-=1;
+       time_value=Number(document.getElementById("l").innerHTML);
+       if(time_value>1){
+        time_value-=1;
        }
-       document.getElementById("l").innerHTML=value;
+       document.getElementById("l").innerHTML=time_value;
+        if(break_session=== "Break!"){
+       document.getElementById("time").innerHTML=time_value;
+     }
      }
     });
 
       $("#lplus").click(function(){
         if(innercircle_clicked===false){
-          value=Number(document.getElementById("l").innerHTML);
-          value+=1;
-          document.getElementById("l").innerHTML=value;
+          time_value=Number(document.getElementById("l").innerHTML);
+          time_value+=1;
+          document.getElementById("l").innerHTML=time_value;
+           if(break_session=== "Break!"){
+       document.getElementById("time").innerHTML=time_value;
+     }
       }  
     });
 
        $("#rminus").click(function(){
-        
+        break_session=document.getElementById("session").innerHTML;
+
         if(innercircle_clicked===false){
        value=Number(document.getElementById("r").innerHTML);
        time_value=Number(document.getElementById("time").innerHTML);
@@ -42,7 +50,9 @@ var paused_time;
         if(time_value>1){
         time_value-=1;
        }
+       if(break_session=== "SESSION"){
        document.getElementById("time").innerHTML=time_value;
+     }
      }
     });
 
@@ -53,7 +63,9 @@ var paused_time;
           document.getElementById("r").innerHTML=value;
            time_value=Number(document.getElementById("time").innerHTML);
           time_value+=1;
+          if(break_session=== "SESSION"){
           document.getElementById("time").innerHTML=time_value;
+        }
       }
     });
     
@@ -63,13 +75,15 @@ var paused_time;
         
         countTime =document.getElementById("r").innerHTML; 
         breakTime=document.getElementById("l").innerHTML;
-        
+
+
         if( pause===false){
           pause=true;
         }
         else if(pause===true){
           pause=false;
         }
+        
 
         if(innercircle_clicked===false){
           innercircle_clicked=true;
@@ -77,25 +91,28 @@ var paused_time;
         else if(innercircle_clicked===true){
           innercircle_clicked=false;
         }
-        
+
         if( pause===false){
-          alert("pausefalse");
 
-          paused_time=document.getElementById("time").innerHTML;
-          alert(paused_time);
-          var i=paused_time.indexOf(":");
+          minutes=document.getElementById("time").innerHTML;
+          var i=minutes.indexOf(":");
 
-          paused_time=Number(paused_time.slice(0,i));
-          paused_time+=1;
-          document.getElementById("time").innerHTML=paused_time;
+          minutes=Number(minutes.slice(0,i));
+          minutes+=1;
+          document.getElementById("time").innerHTML=minutes;
           clearInterval(myVar);
         }
         
         else if(pause===true){
 
-       
+        if(break_session==="SESSION"){
+           time_value=countTime;
+        }
+        else if(break_session==="Break!"){
+           time_value=breakTime;
+        }
  
-        time_value=countTime;
+        
 
         if(time_value.length<=2){
           time_value=Number(time_value)-1;
@@ -115,10 +132,8 @@ var paused_time;
             seconds=59;  
             document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);  
           }
-          if(minutes === 0 && seconds === 1){
-        //play the sound on both
-        //
-           
+          if((minutes === 0) && (seconds === 1)){
+            alert("hi");
             audio.play();
           }
 
@@ -145,7 +160,7 @@ var paused_time;
             seconds="00";
             document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
             if (break_session === "SESSION"){
-
+              breakTime=document.getElementById("l").innerHTML;
               break_session="Break!"
               minutes=breakTime;
               minutes-=1;
@@ -154,6 +169,7 @@ var paused_time;
               document.getElementById("session").innerHTML=break_session;
             }
             else if (break_session === "Break!"){
+              countTime =document.getElementById("r").innerHTML; 
               break_session="SESSION"
               minutes=countTime;
               minutes-=1;
