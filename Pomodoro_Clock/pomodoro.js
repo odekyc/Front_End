@@ -1,13 +1,15 @@
 $(document).ready(function() {
-  var value;
+
+  var value=5;
   var audio = $("audio")[0]; 
-   var countTime = 25;
-   var breakTime = 5;
+   var countTime=document.getElementById("r").innerHTML; 
+   var breakTime=document.getElementById("l").innerHTML;
+
    var pause = false;
    var seconds = 0;
    var minutes = 25;
   var innercircle_clicked=false;
-  var time_value;
+  var time_value=25;
   var myVar;
   var break_session;
   var paused_time;
@@ -73,9 +75,10 @@ $(document).ready(function() {
 
     function countdown(){
         
-        countTime =document.getElementById("r").innerHTML; 
-        breakTime=document.getElementById("l").innerHTML;
 
+        countTime=document.getElementById("r").innerHTML; 
+        breakTime=document.getElementById("l").innerHTML;
+        alert(countTime);
 
         if( pause===false){
           pause=true;
@@ -128,7 +131,7 @@ $(document).ready(function() {
 
        myVar=setInterval(function(){ 
            if((minutes === 0) && (seconds === 1)){
-            alert("hi");
+
             audio.play();
           }
 
