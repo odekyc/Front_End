@@ -156,6 +156,7 @@ circle{
     background-color: #ffff66;
     top:-334px;
     left: 170px;
+
 }
 
 #q23{
@@ -166,3 +167,14 @@ circle{
     top:-500px;
     left: 340px;
 }
+
+.in{
+  float: left;
+  position: relative;
+  top: 70px;
+  left:70px;
+  font-family: Arial;
+  font-weight: bolder;
+  font-size: 200%;
+}
+

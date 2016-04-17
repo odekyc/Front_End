@@ -14,7 +14,9 @@ var element_str="";
 var index=0;
 
 $(document).ready(function() {
-    $("#cx1y1").addClass('toggled');
+   
+   
+
     xGenerated=Math.floor((Math.random() * 3) + 1);
     yGenerated=Math.floor((Math.random() * 3) + 1);
         
@@ -24,60 +26,62 @@ $(document).ready(function() {
     function DrawLine(){
 
     }
-
+    
+    element_str+="#q"+yGenerated+xGenerated+"in";
     
     $("#X").click(function(e){
         e.stopPropagation();
-        x_or_o="x";
+        x_or_o="X";
         $("#popup").css("visibility", "hidden");
         $("body").css("background-color", "white");
-        $(".borders").css("stroke", "#ffff80");
-         element_str+="#cx"+xGenerated+"y"+yGenerated;
-       $(element_str).attr("class", "toggled");
+       
+         
+       $(element_str).text("O");
         
-       element_str=".x";
   
     });
   
     $("#O").click(function(e){
         e.stopPropagation();
-        x_or_o="o";
+        x_or_o="O";
         $("#popup").css("visibility", "hidden");
         $("body").css("background-color", "white");
-        $(".borders").css("stroke", "#ffff80");
-        element_str+=".x"+xGenerated+"y"+yGenerated;
-        $(element_str).attr("class", "toggled");
-       element_str="#cx";
+
+       $(element_str).text("X");
     });
 
 
     $("#board").click(function(e){ 
+        element_str="";
+
         already_placed=false;
         x=e.clientX;
         y=e.clientY;
+       
 
-        if (( x >= 396)&&( x<= 566)){
+        if (( x >= 387)&&( x<= 553)){
            xQuadrant=1;
 
         }
-        else if (( x >= 566)&&( x<= 726)){
+        else if (( x >= 553)&&( x<= 726)){
             xQuadrant=2;
         }
-        else if (( x >= 726)&&( x<= 895)){
+        else if (( x >= 726)&&( x<= 890)){
             xQuadrant=3;
         }
 
-        if (( y >= 76)&&( y<= 236)){
+        if (( y >= 78)&&( y<= 243)){
            yQuadrant=1;
 
         }
-        else if (( y >= 236)&&( y<= 396)){
+        else if (( y >= 243)&&( y<= 413)){
             yQuadrant=2;
         }
-        else if (( y >= 396)&&( y<= 577)){
+        else if (( y >= 413)&&( y<= 578)){
             yQuadrant=3;
         }
       
+
         for( var i=0; i<placed_arr.length; i++){
 
             if((placed_arr[i][0]===xQuadrant)&&(placed_arr[i][1]===yQuadrant)){
@@ -94,8 +98,8 @@ $(document).ready(function() {
             else if(already_placed===false){
 
                 placed_arr.push([xQuadrant,yQuadrant]);
-                element_str+=xQuadrant+"y"+yQuadrant;
-                $(element_str).attr("class", "toggled");
+                element_str+="#q"+yQuadrant+xQuadrant+"in";
+                $(element_str).text(x_or_o);
                 numOccupied+=1;
                 element_str="";
                  
@@ -116,16 +120,15 @@ $(document).ready(function() {
 
             }
              
-           
-
-              if(x_or_o==='x'){
-                element_str+="#cx"+xGenerated+"y"+yGenerated;
+              element_str+="#q"+yGenerated+xGenerated+"in";
+              
+              if(x_or_o==="O"){
+                $(element_str).text("X");
               }
-              else if(x_or_o==='o'){
-                element_str+=".x"+xGenerated+"y"+yGenerated;
+              else{
+                $(element_str).text("O");
               }
-
-               $(element_str).attr("class", "toggled");
+               
 
               placed_arr.push([xGenerated,yGenerated]);
               
@@ -135,12 +138,7 @@ $(document).ready(function() {
 
             element_str="";
 
-            if(x_or_o==="x"){
-               element_str+=".x";
-            }
-            else if(x_or_o==="o"){
-                element_str+="#cx";
-            }
+      alert(placed_arr);
 
     });
 
