@@ -14,12 +14,16 @@ var element_str="";
 var index=0;
 
 $(document).ready(function() {
+    $("#cx1y1").addClass('toggled');
     xGenerated=Math.floor((Math.random() * 3) + 1);
     yGenerated=Math.floor((Math.random() * 3) + 1);
         
     placed_arr.push([xGenerated,yGenerated]);
     numOccupied+=1;
-     
+    
+    function DrawLine(){
+
+    }
 
     
     $("#X").click(function(e){
@@ -29,8 +33,8 @@ $(document).ready(function() {
         $("body").css("background-color", "white");
         $(".borders").css("stroke", "#ffff80");
          element_str+="#cx"+xGenerated+"y"+yGenerated;
-       alert(element_str);
-       $(element_str).css("visibility", "visible");
+       $(element_str).attr("class", "toggled");
+        
        element_str=".x";
   
     });
@@ -42,15 +46,13 @@ $(document).ready(function() {
         $("body").css("background-color", "white");
         $(".borders").css("stroke", "#ffff80");
         element_str+=".x"+xGenerated+"y"+yGenerated;
-       alert(element_str);
-       $(element_str).css("visibility", "visible");
+        $(element_str).attr("class", "toggled");
        element_str="#cx";
     });
 
 
-    $("#board").click(function(e){
+    $("#board").click(function(e){ 
         already_placed=false;
-
         x=e.clientX;
         y=e.clientY;
 
@@ -93,7 +95,7 @@ $(document).ready(function() {
 
                 placed_arr.push([xQuadrant,yQuadrant]);
                 element_str+=xQuadrant+"y"+yQuadrant;
-                $(element_str).css("visibility", "visible");
+                $(element_str).attr("class", "toggled");
                 numOccupied+=1;
                 element_str="";
                  
@@ -123,7 +125,7 @@ $(document).ready(function() {
                 element_str+=".x"+xGenerated+"y"+yGenerated;
               }
 
-              $(element_str).css("visibility", "visible");
+               $(element_str).attr("class", "toggled");
 
               placed_arr.push([xGenerated,yGenerated]);
               

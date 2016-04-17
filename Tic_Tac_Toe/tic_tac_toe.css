@@ -4,8 +4,8 @@ body{
 }
 
 #board{
-    height: 500px;
-    width: 500px;
+    height: 504px;
+    width: 504px;
     background-color: black;
     margin: auto;
     margin-top: 75px;
@@ -18,7 +18,7 @@ body{
     background-color: white;
     height: 240px;
     width: 580px;
-    left: 360px;
+    left: 347px;
     border-radius: 10px;
 }
 
@@ -85,4 +85,84 @@ circle{
 
 .lines{
     visibility: hidden;
+}
+
+.toggled{
+    visibility: visible;
+}
+
+#q11{
+    height:166px;
+    width:166px;
+    background-color: #ffff66;
+    display: inline-block;
+}
+
+#q12{
+    height:166px;
+    width:166px;
+    background-color: grey;
+    display: inline-block;
+}
+
+#q13{
+    position: relative;
+    height:166px;
+    width:166px;
+    background-color: #ffff66;
+    left: 340px;
+    top: -170px;
+}
+
+#q31{
+    position:relative;
+    height:166px;
+    width:166px;
+    background-color: #ffff66;
+    top:-496px;
+}
+
+#q32{
+    position: relative;
+    height:166px;
+    width:166px;
+    background-color: grey;
+    left: 170px;
+    top: -662px;
+}
+
+#q33{
+    position: relative;
+    height:166px;
+    width:166px;
+    background-color: #ffff66;
+    left: 340px;
+    top: -828px;
+}
+
+
+#q21{
+    position:relative;
+    height:166px;
+    width:166px;
+    background-color: grey;
+    top: -167px;
+}
+
+#q22{
+    position: relative;
+    height:166px;
+    width:166px;
+    background-color: #ffff66;
+    top:-334px;
+    left: 170px;
+}
+
+#q23{
+    position: relative;
+    height:166px;
+    width:166px;
+    background-color: grey;
+    top:-500px;
+    left: 340px;
 }
