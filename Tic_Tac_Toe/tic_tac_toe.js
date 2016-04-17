@@ -3,31 +3,31 @@ var y;
 var xQuadrant;
 var yQuadrant;
 var x_or_o;
-var placed_arr=[];
+var placed_arr=['11','12','13','21','22','23','31','32','33'];
 var already_placed=false;
-var xGenerated;
-var yGenerated;
-var xQPlaced;
-var yQPlaced;
+var genIndex;
+var clickIndex;
 var numOccupied=0;
 var element_str="";
-var index=0;
-
+var xystr="";
+var arr_len=placed_arr.length;
+var rev_xy;
 $(document).ready(function() {
    
    
+    
+    genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
+    alert(genIndex);
 
-    xGenerated=Math.floor((Math.random() * 3) + 1);
-    yGenerated=Math.floor((Math.random() * 3) + 1);
-        
-    placed_arr.push([xGenerated,yGenerated]);
     numOccupied+=1;
     
     function DrawLine(){
 
     }
     
-    element_str+="#q"+yGenerated+xGenerated+"in";
+    rev_xy=placed_arr[genIndex].split('').reverse().join('');
+
+    element_str+="#q"+rev_xy+"in";
     
     $("#X").click(function(e){
         e.stopPropagation();
@@ -50,6 +50,8 @@ $(document).ready(function() {
        $(element_str).text("X");
     });
 
+    placed_arr.splice(genIndex,1);
+    alert(placed_arr);
 
     $("#board").click(function(e){ 
         element_str="";
@@ -80,47 +82,35 @@ $(document).ready(function() {
         else if (( y >= 413)&&( y<= 578)){
             yQuadrant=3;
         }
-      
+        
+        xystr="";
 
-        for( var i=0; i<placed_arr.length; i++){
+        xystr+=String(xQuadrant)+String(yQuadrant);
+        alert(xystr);
 
-            if((placed_arr[i][0]===xQuadrant)&&(placed_arr[i][1]===yQuadrant)){
-                already_placed=true;
-            }
+        index=placed_arr.indexOf(xystr);
+        
+        alert(index);
 
-        }
-
-
-            if(already_placed===true){
+            if(index===-1){
                 alert("this has already been placed");
             }
 
-            else if(already_placed===false){
-
-                placed_arr.push([xQuadrant,yQuadrant]);
+            else if(index > -1){
                 element_str+="#q"+yQuadrant+xQuadrant+"in";
                 $(element_str).text(x_or_o);
                 numOccupied+=1;
                 element_str="";
                  
-                xGenerated=Math.floor((Math.random() * 3) + 1);
-                yGenerated=Math.floor((Math.random() * 3) + 1);
+                placed_arr.splice(index,1);
 
-            while( index < placed_arr.length){
+                arr_len=placed_arr.length;
 
-                if((placed_arr[index][0]===xGenerated)&&(placed_arr[index][1]===yGenerated)){
-                     xGenerated=Math.floor((Math.random() * 3) + 1);
-                     yGenerated=Math.floor((Math.random() * 3) + 1);
-                     index=0;
-                }  
-                else{
-
-                    index++;
-                }
-
-            }
-             
-              element_str+="#q"+yGenerated+xGenerated+"in";
+                genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
+              
+              rev_xy=placed_arr[genIndex].split('').reverse().join('');
+        
+              element_str+="#q"+rev_xy+"in";
               
               if(x_or_o==="O"){
                 $(element_str).text("X");
@@ -130,15 +120,15 @@ $(document).ready(function() {
               }
                
 
-              placed_arr.push([xGenerated,yGenerated]);
-              
+              placed_arr.splice(genIndex,1);
+
               numOccupied+=1;
                
             }
 
             element_str="";
 
-      alert(placed_arr);
+            alert(placed_arr);
 
     });
 
