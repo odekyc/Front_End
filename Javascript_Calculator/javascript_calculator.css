@@ -47,3 +47,12 @@ p{
     height: 52px;
     width: 70px;
 }
+
+.in{
+    position: relative;
+    float: left;
+    color: #bf8040;
+    font-family: Arial;
+    top: 18px;
+    left: 23px;
+}
