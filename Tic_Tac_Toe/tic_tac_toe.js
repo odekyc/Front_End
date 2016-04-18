@@ -24,23 +24,24 @@ $(document).ready(function() {
 // Get the canvas element and its drawing context
           var canvas = document.getElementById('c');
           context = canvas.getContext('2d');
-        context.beginPath();
+    
+    function DrawLine(){
+        if((occupied_arr.indexOf('11')>-1)&&(occupied_arr.indexOf('12')>-1)&&(occupied_arr.indexOf('13')>-1)){
+            context.beginPath();
          context.moveTo(70, 80);
-         context.lineTo(400, 80);
+         context.lineTo(420, 80);
           context.stroke();
+        }
+         
+    }
 
- 
+         DrawLine();
     
 
 
     numOccupied+=1;
     
-    function DrawLine(){
-        if((occupied_arr.indexOf('11')>-1)&&(occupied_arr.indexOf('12')>-1)&&(occupied_arr.indexOf('13')>-1)){
-       
-        }
-         
-    }
+   
     
     rev_xy=placed_arr[genIndex].split('').reverse().join('');
 
@@ -71,7 +72,9 @@ $(document).ready(function() {
 
     placed_arr.splice(genIndex,1);
     
+     DrawLine();
 
+     
     $("#board").click(function(e){ 
         element_str="";
 
@@ -122,7 +125,7 @@ $(document).ready(function() {
 
                 occupied_arr.push(placed_arr[index]);
                 placed_arr.splice(index,1);
-
+                DrawLine();
                 arr_len=placed_arr.length;
 
                 genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
@@ -143,6 +146,8 @@ $(document).ready(function() {
               placed_arr.splice(genIndex,1);
 
               numOccupied+=1;
+
+              DrawLine();
                
             }
 
@@ -152,5 +157,6 @@ $(document).ready(function() {
 
     });
 
+    DrawLine();
  
 });
