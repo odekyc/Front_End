@@ -12,8 +12,8 @@ var element_str="";
 var xystr="";
 var arr_len=placed_arr.length;
 var rev_xy;
-var occupied_arr=[];
-
+var occupied_arr_user=[];
+var occupied_arr_AI=[];
 
 $(document).ready(function() {
 
@@ -26,22 +26,144 @@ $(document).ready(function() {
           context = canvas.getContext('2d');
     
     function DrawLine(){
-        if((occupied_arr.indexOf('11')>-1)&&(occupied_arr.indexOf('12')>-1)&&(occupied_arr.indexOf('13')>-1)){
+        if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('21')>-1)&&(occupied_arr_AI.indexOf('31')>-1)){
             context.beginPath();
          context.moveTo(70, 80);
          context.lineTo(420, 80);
           context.stroke();
+          alert("AI WINS");
+          occupied_arr_AI=[]
         }
-         
+        else if((occupied_arr_AI.indexOf('12')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('32')>-1)){
+            context.beginPath();
+         context.moveTo(70, 250);
+         context.lineTo(420, 250);
+          context.stroke();
+          alert("AI WINS");
+          occupied_arr_AI=[]
+        }
+        else if((occupied_arr_AI.indexOf('13')>-1)&&(occupied_arr_AI.indexOf('23')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
+        context.beginPath();
+         context.moveTo(70, 420);
+         context.lineTo(420, 420);
+          context.stroke();
+          alert("AI WINS");
+          occupied_arr_AI=[]
+        }
+        else if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('12')>-1)&&(occupied_arr_AI.indexOf('13')>-1)){
+            context.beginPath();
+         context.moveTo(76, 80);
+         context.lineTo(76, 420);
+          context.stroke();
+          alert("AI WINS");
+          occupied_arr_AI=[]
+        }
+        else if((occupied_arr_AI.indexOf('21')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('23')>-1)){
+            context.beginPath();
+         context.moveTo(246, 80);
+         context.lineTo(246, 420);
+          context.stroke();
+          alert("AI WINS");
+          occupied_arr_AI=[]
+        }
+        else if((occupied_arr_AI.indexOf('31')>-1)&&(occupied_arr_AI.indexOf('32')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
+            context.beginPath();
+         context.moveTo(418, 80);
+         context.lineTo(418, 420);
+          context.stroke();
+          alert("AI WINS");
+          occupied_arr_AI=[]
+        }
+        else if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
+            context.beginPath();
+         context.moveTo(70, 80);
+         context.lineTo(418, 420);
+          context.stroke();
+          alert("AI WINS");
+          occupied_arr_AI=[]
+        }
+        else if((occupied_arr_AI.indexOf('31')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('13')>-1)){
+            context.beginPath();
+         context.moveTo(418, 80);
+         context.lineTo(70, 420);
+          context.stroke();
+          alert("AI WINS");
+          occupied_arr_AI=[]
+        }
+
+         if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('21')>-1)&&(occupied_arr_user.indexOf('31')>-1)){
+            context.beginPath();
+         context.moveTo(70, 80);
+         context.lineTo(420, 80);
+          context.stroke();
+          alert("USER WINS");
+          occupied_arr_user=[];
+        }
+        else if((occupied_arr_user.indexOf('12')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('32')>-1)){
+            context.beginPath();
+         context.moveTo(70, 250);
+         context.lineTo(420, 250);
+          context.stroke();
+          alert("USER WINS");
+          occupied_arr_user=[];
+        }
+        else if((occupied_arr_user.indexOf('13')>-1)&&(occupied_arr_user.indexOf('23')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
+        context.beginPath();
+         context.moveTo(70, 420);
+         context.lineTo(420, 420);
+          context.stroke();
+          alert("USER WINS");
+          occupied_arr_user=[];
+        }
+        else if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('12')>-1)&&(occupied_arr_user.indexOf('13')>-1)){
+            context.beginPath();
+         context.moveTo(76, 80);
+         context.lineTo(76, 420);
+          context.stroke();
+          alert("USER WINS");
+          occupied_arr_user=[];
+        }
+        else if((occupied_arr_user.indexOf('21')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('23')>-1)){
+            context.beginPath();
+         context.moveTo(246, 80);
+         context.lineTo(246, 420);
+          context.stroke();
+          alert("USER WINS");
+          occupied_arr_user=[];
+        }
+        else if((occupied_arr_user.indexOf('31')>-1)&&(occupied_arr_user.indexOf('32')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
+            context.beginPath();
+         context.moveTo(418, 80);
+         context.lineTo(418, 420);
+          context.stroke();
+          alert("USER WINS");
+          occupied_arr_user=[];
+        }
+        else if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
+            context.beginPath();
+         context.moveTo(70, 80);
+         context.lineTo(418, 420);
+          context.stroke();
+          alert("USER WINS");
+          occupied_arr_user=[];
+        }
+        else if((occupied_arr_user.indexOf('31')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('13')>-1)){
+            context.beginPath();
+         context.moveTo(418, 80);
+         context.lineTo(70, 420);
+          context.stroke();
+          alert("USER WINS");
+          occupied_arr_user=[];
+        }
     }
 
-         DrawLine();
+       
     
 
 
     numOccupied+=1;
     
-   
+    
     
     rev_xy=placed_arr[genIndex].split('').reverse().join('');
 
@@ -68,13 +190,14 @@ $(document).ready(function() {
        $(element_str).text("X");
     });
 
-    occupied_arr.push(placed_arr[genIndex]);
+  
+    occupied_arr_AI.push(placed_arr[genIndex]);
 
     placed_arr.splice(genIndex,1);
     
-     DrawLine();
+   
 
-     
+
     $("#board").click(function(e){ 
         element_str="";
 
@@ -123,7 +246,7 @@ $(document).ready(function() {
                 numOccupied+=1;
                 element_str="";
 
-                occupied_arr.push(placed_arr[index]);
+                occupied_arr_user.push(placed_arr[index]);
                 placed_arr.splice(index,1);
                 DrawLine();
                 arr_len=placed_arr.length;
@@ -141,7 +264,8 @@ $(document).ready(function() {
                 $(element_str).text("O");
               }
                
-              occupied_arr.push(placed_arr[genIndex]);
+              
+              occupied_arr_AI.push(placed_arr[genIndex]);
 
               placed_arr.splice(genIndex,1);
 
@@ -152,11 +276,8 @@ $(document).ready(function() {
             }
 
             element_str="";
-        alert(occupied_arr);
-        DrawLine();
-
+     
     });
 
-    DrawLine();
- 
+  
 });
