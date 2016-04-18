@@ -12,17 +12,34 @@ var element_str="";
 var xystr="";
 var arr_len=placed_arr.length;
 var rev_xy;
+var occupied_arr=[];
+
+
 $(document).ready(function() {
-   
-   
-    
+
     genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
-    alert(genIndex);
+    
+ 
+ 
+// Get the canvas element and its drawing context
+          var canvas = document.getElementById('c');
+          context = canvas.getContext('2d');
+        context.beginPath();
+         context.moveTo(70, 80);
+         context.lineTo(400, 80);
+          context.stroke();
+
+ 
+    
+
 
     numOccupied+=1;
     
     function DrawLine(){
-
+        if((occupied_arr.indexOf('11')>-1)&&(occupied_arr.indexOf('12')>-1)&&(occupied_arr.indexOf('13')>-1)){
+       
+        }
+         
     }
     
     rev_xy=placed_arr[genIndex].split('').reverse().join('');
@@ -50,8 +67,10 @@ $(document).ready(function() {
        $(element_str).text("X");
     });
 
+    occupied_arr.push(placed_arr[genIndex]);
+
     placed_arr.splice(genIndex,1);
-    alert(placed_arr);
+    
 
     $("#board").click(function(e){ 
         element_str="";
@@ -82,15 +101,14 @@ $(document).ready(function() {
         else if (( y >= 413)&&( y<= 578)){
             yQuadrant=3;
         }
-        
+
         xystr="";
 
         xystr+=String(xQuadrant)+String(yQuadrant);
-        alert(xystr);
 
         index=placed_arr.indexOf(xystr);
         
-        alert(index);
+
 
             if(index===-1){
                 alert("this has already been placed");
@@ -101,7 +119,8 @@ $(document).ready(function() {
                 $(element_str).text(x_or_o);
                 numOccupied+=1;
                 element_str="";
-                 
+
+                occupied_arr.push(placed_arr[index]);
                 placed_arr.splice(index,1);
 
                 arr_len=placed_arr.length;
@@ -119,6 +138,7 @@ $(document).ready(function() {
                 $(element_str).text("O");
               }
                
+              occupied_arr.push(placed_arr[genIndex]);
 
               placed_arr.splice(genIndex,1);
 
@@ -127,8 +147,8 @@ $(document).ready(function() {
             }
 
             element_str="";
-
-            alert(placed_arr);
+        alert(occupied_arr);
+        DrawLine();
 
     });
 

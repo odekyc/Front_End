@@ -20,6 +20,7 @@ body{
     width: 580px;
     left: 341px;
     border-radius: 10px;
+    z-index: 5;
 }
 
 #blackdiv{
@@ -112,6 +113,7 @@ circle{
     background-color: #ffff66;
     left: 340px;
     top: -170px;
+   
 }
 
 #q31{
@@ -178,3 +180,10 @@ circle{
   font-size: 200%;
 }
 
+
+canvas{
+    position: absolute;
+    top: 75px;
+    border: 5px solid red;
+    z-index: 3;
+}
