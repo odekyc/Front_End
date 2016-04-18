@@ -1,0 +1,49 @@
+body{
+    background-color: #734d26;
+}
+
+#calculator{
+    position: relative;
+    margin: auto;
+    width: 340px;
+    height: 400px;
+    background-color: #bf8040;
+    border-radius: 10px;
+    top: 100px;
+}
+
+
+p{
+    position: relative;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+    top:12px;
+    font-family: Helvetica;
+}
+
+#input{
+     position: relative;
+     width: 90%;
+     height: 8%;
+     background-color: white;
+     margin: auto;
+     top: 5px;
+}
+
+#innerkeyboard{
+    position: relative;
+    background-color: red;
+    margin: auto;
+    width: 300px;
+    height: 280px;
+    top: 30px;
+}
+
+.keys{
+    display: inline-block;
+    background-color: white;
+
+    height: 52px;
+    width: 70px;
+}
