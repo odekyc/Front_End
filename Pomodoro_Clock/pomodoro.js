@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+     
   var value=5;
   var audio = $("audio")[0]; 
    var countTime=document.getElementById("r").innerHTML; 
@@ -13,7 +13,8 @@ $(document).ready(function() {
   var myVar;
   var break_session;
   var paused_time;
-
+var backgrd_fill_intv;
+var time_intv;
     $("#lminus").click(function(){
     
     if(innercircle_clicked===false){
@@ -78,7 +79,8 @@ $(document).ready(function() {
 
         countTime=document.getElementById("r").innerHTML; 
         breakTime=document.getElementById("l").innerHTML;
-        alert(countTime);
+       
+
 
         if( pause===false){
           pause=true;
@@ -115,7 +117,12 @@ $(document).ready(function() {
            time_value=breakTime;
         }
  
+        backgrd_fill_intv=time_value/70;
+        time_intv=backgrd_fill_intv*60000;
+
         
+         
+ 
 
         if(time_value.length<=2){
           time_value=Number(time_value)-1;

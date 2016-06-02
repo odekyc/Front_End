@@ -70,10 +70,10 @@ h1{
     top: -40px;
     font-family: sans-serif;
     font-weight: lighter;
-    background: -webkit-linear-gradient(#73e600, yellow); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#73e600, yellow); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#73e600, yellow); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#73e600, yellow); /* Standard syntax */
+    background: -webkit-linear-gradient(bottom, #73e600 20%, yellow 80%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom, #73e600 20%, yellow 80%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom, #73e600 20%, yellow 80%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(bottom, #73e600 20%, yellow 80%); /* Standard syntax */
 }
 
 #session{
