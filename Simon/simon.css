@@ -33,15 +33,16 @@ body{
 	top:10px;
 	left: 10px;
 	color: red;
-	font-size: 550%;
+	font-size: 500%;
 
 }
 
-#disply{
-	position: absolute;
-	top: -14px;
-	left: 44px;
+#display{
+	text-align: center;
+	position:relative;
+	top: -10px;
 }
+
 
 #simon{
 	position:absolute;
@@ -58,7 +59,7 @@ body{
 	left: 354px;
 }
 
-#inner_circle_green{
+#green{
 	background-color: green;
 	position: absolute;
 	height: 325px;
@@ -69,7 +70,7 @@ body{
 	z-index: 1;
 }
 
-#inner_circle_red{
+#red{
 	background-color: red;
 	position:absolute;
 	height: 325px;
@@ -80,7 +81,7 @@ body{
 	z-index: 1;
 }
 
-#inner_circle_yellow{
+#yellow{
 	background-color: yellow;
 	position:absolute;
 	height: 325px;
@@ -91,7 +92,7 @@ body{
 	z-index: 1;
 }
 
-#inner_circle_blue{
+#blue{
 	background-color: blue;
 	position:absolute;
 	height: 325px;
@@ -102,6 +103,13 @@ body{
 	z-index: 1;
 }
 
+#count{
+	position:absolute;
+	top: 300px;
+	left: 76px;
+	font-size: 160%;
+	font-weight: bolder;
+}
 #inner_gray{
 	background-color: grey;
 	position:absolute;
