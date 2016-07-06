@@ -1,0 +1,80 @@
+body{
+	background: url(wood.jpg);
+	background-size: 100%;
+}
+
+#outer_circle{
+	position: absolute;
+    left: 26.5%;
+    top: 10%;
+	height: 700px;
+	width: 700px;
+	background: grey;
+	border-radius: 100%;
+}
+
+#inner_circle_green{
+	background-color: green;
+	position: absolute;
+	height: 325px;
+	width: 325px;
+	border-radius: 100% 5% 5% 5%;
+	top: 20px;
+	left: 20px;
+	z-index: 1;
+}
+
+#inner_circle_red{
+	background-color: red;
+	position:absolute;
+	height: 325px;
+	width: 325px;
+	border-radius: 5% 100% 5% 5%;
+	top: 20px;
+	left: 355px;
+	z-index: 1;
+}
+
+#inner_circle_yellow{
+	background-color: yellow;
+	position:absolute;
+	height: 325px;
+	width: 325px;
+	border-radius: 5% 5% 5% 100%;
+	top: 355px;
+	left: 20px;
+	z-index: 1;
+}
+
+#inner_circle_blue{
+	background-color: blue;
+	position:absolute;
+	height: 325px;
+	width: 325px;
+	border-radius: 5% 5% 100% 5%;
+	top: 355px;
+	left: 355px;
+	z-index: 1;
+}
+
+#inner_gray{
+	background-color: grey;
+	position:absolute;
+	left: 18%;
+	top: 18%;
+	height:450px;
+	width: 450px;
+	border-radius: 100%;
+	z-index: 2;
+}
+
+#control_circle{
+	background-color: white;
+	position:absolute;
+	height: 410px;
+	width: 410px;
+	border-radius: 100%;
+	z-index: 3;
+	left: 20px;
+	top: 20px;
+}

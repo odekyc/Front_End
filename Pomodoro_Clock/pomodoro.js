@@ -160,9 +160,16 @@ var time_intv;
           }
 
           if((minutes > 0 )&& (seconds === 0)){
+          	break_session=document.getElementById("session").innerHTML; 
              minutes-=1;
             seconds=59;
             document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
+            if (break_session === "SESSION"){
+            document.getElementById("r").innerHTML=String(minutes+1);
+            }
+            else if (break_session === "Break!"){
+            	document.getElementById("l").innerHTML=String(minutes+1);
+            }
           }
 
           if((minutes === 0 )&& (seconds === 0)){
