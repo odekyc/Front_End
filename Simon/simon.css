@@ -1,6 +1,7 @@
 body{
-	background: url(wood.jpg);
+	background: url(grass.jpg);
 	background-size: 100%;
+	z-index: -1;
 }
 
 #outer_circle{
@@ -11,6 +12,50 @@ body{
 	width: 700px;
 	background: grey;
 	border-radius: 100%;
+}
+
+#outer_screen{
+	position:absolute;
+	background-color: grey;
+	height: 100px;
+	width: 150px;
+	border-radius: 10% 10%;
+	top: 200px;
+	left: 40px;
+}
+
+#inner_screen{
+	position: absolute;
+	background-color: #660000;
+	height: 80px;
+	width: 130px;
+	border-radius: 10% 10%;
+	top:10px;
+	left: 10px;
+	color: red;
+	font-size: 550%;
+
+}
+
+#disply{
+	position: absolute;
+	top: -14px;
+	left: 44px;
+}
+
+#simon{
+	position:absolute;
+	top: 46px;
+	left: 30px;
+	font-weight: bold;
+	font-size: 700%;
+	font-family: Arial Black;
+}
+
+#trademark{
+	position: absolute;
+	top: 69px;
+	left: 354px;
 }
 
 #inner_circle_green{
