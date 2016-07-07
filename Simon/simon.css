@@ -20,7 +20,7 @@ body{
 	height: 100px;
 	width: 150px;
 	border-radius: 10% 10%;
-	top: 200px;
+	top: 190px;
 	left: 40px;
 }
 
@@ -47,7 +47,7 @@ body{
 	background-color: grey;
 	height: 80px;
 	width: 80px;
-	top: 210px;
+	top: 200px;
 	left: 200px;
 	position:absolute;
 	border-radius: 100%;
@@ -67,7 +67,7 @@ body{
 	background-color: grey;
 	height: 80px;
 	width: 80px;
-	top: 210px;
+	top: 200px;
 	left: 288px;
 	position:absolute;
 	border-radius: 100%;
@@ -111,7 +111,7 @@ body{
 
 #start{
     position:absolute;
-	top: 300px;
+	top: 290px;
 	left: 206px;
 	font-size: 160%;
 	font-weight: bolder;
@@ -119,7 +119,7 @@ body{
 
 #strict{
 	position:absolute;
-	top: 300px;
+	top: 290px;
 	left: 289px;
 	font-size: 160%;
 	font-weight: bolder;
@@ -160,7 +160,7 @@ body{
 
 #count{
 	position:absolute;
-	top: 300px;
+	top: 290px;
 	left: 76px;
 	font-size: 160%;
 	font-weight: bolder;
