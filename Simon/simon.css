@@ -43,6 +43,25 @@ body{
 	top: -10px;
 }
 
+#outer_start{
+	background-color: grey;
+	height: 80px;
+	width: 80px;
+	top: 210px;
+	left: 210px;
+	position:absolute;
+	border-radius: 100%;
+}
+
+#inner_start{
+    background-color: red;
+    width:60px;
+    height: 60px;
+    border-radius: 100%;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
 
 #simon{
 	position:absolute;
