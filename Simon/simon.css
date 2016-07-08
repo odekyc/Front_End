@@ -32,12 +32,13 @@ body{
 	border-radius: 10% 10%;
 	top:10px;
 	left: 10px;
-	color: red;
+	
 	font-size: 500%;
 
 }
 
 #display{
+	color:  #330000;
 	text-align: center;
 	position:relative;
 	top: -10px;
