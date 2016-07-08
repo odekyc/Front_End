@@ -6,11 +6,15 @@ var result_arr=[];
 var user_clicked=[];
 var stricted=false;
 var round_count=0;
+var random_num;
 
 function gameStart(){
    round_count+=1;
    $('#display').text(round_count);
    audio.play();
+   random_num=Math.floor((Math.random() * 3) + 1);
+   alert(random_num);
+   result_arr.push(random_num);
 }
 
 function stopGame() {
@@ -54,10 +58,10 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
   
 
     else if(state===false){
-    	alert("state false");
     	$('#display').text('--');
     	$('#display').css('color', '#330000');
     	stopGame();
+    	alert(result_arr);
     	
     }
 });
