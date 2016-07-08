@@ -24,6 +24,18 @@ body{
 	left: 40px;
 }
 
+#strict_alert{
+   position: absolute;
+   background-color: grey;
+   height: 15px;
+   width: 15px;
+   border-radius: 100%;
+   top: 177px;
+   left: 320px;
+
+}
+
+
 #inner_screen{
 	position: absolute;
 	background-color: #660000;
@@ -127,7 +139,7 @@ body{
 }
 
 #red{
-	background-color: red;
+	background-color: #b30000;
 	position:absolute;
 	height: 325px;
 	width: 325px;
@@ -138,7 +150,7 @@ body{
 }
 
 #yellow{
-	background-color: yellow;
+	background-color: #cccc00;
 	position:absolute;
 	height: 325px;
 	width: 325px;
@@ -149,7 +161,7 @@ body{
 }
 
 #blue{
-	background-color: blue;
+	background-color: #004d99;
 	position:absolute;
 	height: 325px;
 	width: 325px;
