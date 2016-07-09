@@ -45,7 +45,7 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
 
         $('#inner_strict').on('click',function(){
            stricted=!stricted;
-           
+           if(state===true){
             if(stricted===true){
         	    $('#strict_alert').css('background-color', 'red');
         	}
@@ -54,7 +54,7 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
         		$('#strict_alert').css('background-color', 'grey');
         	
        		 }
-           
+           }
         });
 
  
