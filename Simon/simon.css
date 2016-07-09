@@ -14,6 +14,22 @@ body{
 	border-radius: 100%;
 }
 
+.backgroundred{
+    background-color: red;
+}
+
+.backgroundblue{
+    background-color: blue;
+}
+
+.backgroundyellow{
+    background-color: yellow;
+}
+
+.backgroundgreen{
+    background-color: #00cc00;
+}
+
 #outer_screen{
 	position:absolute;
 	background-color: grey;

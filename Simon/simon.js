@@ -16,16 +16,13 @@ function gameStart(){
      
 	round_count+=1;
 
-    
    random_num=Math.floor(Math.random() * 4);
-
+   
    $("#"+color_id[random_num]).css("background-color", color_arr[random_num]); 
     audio.play();
    $('#display').text(round_count);
    result_arr.push(random_num);
-   
 
-  
 }
 
 function stopGame() {
