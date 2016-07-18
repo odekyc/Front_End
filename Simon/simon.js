@@ -9,7 +9,7 @@ var user_clicked=[];
 var stricted=false;
 var round_count=0;
 var random_num=1;
-
+var user_responded=false;
  
 
 function gameStart(){
@@ -22,6 +22,40 @@ function gameStart(){
     audio.play();
    $('#display').text(round_count);
    result_arr.push(random_num);
+
+   setTimeout(function(){ 
+    
+    $("#"+color_id[random_num]).css("background-color", orig_colors[random_num]); 
+    
+    setTimeout(function(){
+
+    }, 900);
+
+    alert("please click on a color");
+  
+     $('#blue').on('click', function(){
+        user_responded=true;
+        user_clicked.push(0);
+     });
+
+     $('#green').on('click', function(){
+       user_responded=true;
+       user_clicked.push(1);
+     });
+
+      $('#red').on('click', function(){
+       user_responded=true;
+       user_clicked.push(2);
+     });
+
+       $('#yellow').on('click', function(){
+       user_responded=true;
+       user_clicked.push(3);
+     });
+
+    }, 1000);
+
+    
 
 }
 
@@ -58,14 +92,13 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
 
     	$('#inner_start').on('click', function(){
           if(stricted===false){
-          myVar=setInterval(function(){ 
-            $("#"+color_id[random_num]).css("background-color",orig_colors[random_num]);
-          	gameStart(); 
-           
+          gameStart();
+          myVar=setInterval(function(){
+          
+          gameStart();
 
-   			
-             
-          }, 1000);
+
+          }, 8000);
          
           }
     	});
@@ -78,6 +111,7 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
     	$('#display').css('color', '#330000');
     	stopGame();
     	alert(result_arr);
+      alert(user_clicked);
     	$("#blue").css("background-color", "#004d99"); 
     	$("#green").css("background-color", "#004d1a"); 
     	$("#red").css("background-color", "#b30000"); 
