@@ -10,7 +10,12 @@ var stricted=false;
 var round_count=0;
 var random_num=1;
 var user_responded=false;
-
+var setTime1;
+var setTime2;
+var setTime3;
+var setTime4;
+var setTime5;
+var switchon=true;
 
 function gameStart(){
      
@@ -19,19 +24,9 @@ function gameStart(){
 
 
 function stopGame() {
-      $('#display').text('--');
-      $('#display').css('color', '#330000');
-    clearInterval(myVar);
-    clearInterval(blink);
-      alert(result_arr);
-      alert(user_clicked);
-      $("#blue").css("background-color", "#004d99"); 
-      $("#green").css("background-color", "#004d1a"); 
-      $("#red").css("background-color", "#b30000"); 
-      $("#yellow").css("background-color", "#b3b300");
-      $("#"+color_id[random_num]).css("background-color", orig_colors[random_num]);  
-      result_arr=[];
-      user_clicked=[];
+    
+    
+
 }
 
 $("[name='my-checkbox']").bootstrapSwitch();
@@ -47,22 +42,28 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
         $('#inner_strict').on('click',function(){
            stricted=!stricted;
            if(state===true){
+            if(switchon===true){
+
             if(stricted===true){
         	    $('#strict_alert').css('background-color', 'red');
-        	}
+            
+        	 }
             else if(stricted===false){
 
         		$('#strict_alert').css('background-color', 'grey');
         	
        		 }
+          }
            }
         });
 
  
 
     	$('#inner_start').on('click', function(){
+
+        if(switchon===true){
           if(stricted===false){
-          gameStart();
+          
           myVar=setInterval(function(){
           
               round_count+=1;
@@ -75,20 +76,16 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
    result_arr.push(random_num);
    
 
-   setTimeout(function(){ 
+   setTime1=setTimeout(function(){ 
     
     $("#"+color_id[random_num]).css("background-color", orig_colors[random_num]); 
     
-     if(state===false){
-   
-      stopGame();
-    
-    }
+     
  
 
     }, 30);
 
-   setTimeout(function(){
+   setTime2=setTimeout(function(){
    
   
      $('#blue').click (function(){
@@ -112,50 +109,32 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
        user_clicked.push(3);
      });
      
-     if(state===false){
-   
-      stopGame();
-    
-    }
-
+     
      }, 1000);
 
-     setTimeout(function(){
+     setTime3=setTimeout(function(){
 
-     if(state===false){
-   
-      stopGame();
-    
-    }
-
+     
     if((result_arr.length>user_clicked.length)||(result_arr[result_arr.length-1]!==user_clicked[user_clicked.length-1])){
 
      blink=setInterval(function(){
       $('#display').text('--');
       $('#display').css('color', '#330000');
 
-      setTimeout(function(){
+      setTime4=setTimeout(function(){
         $('#display').text('!!');
       $('#display').css('color', 'red');
 
-       if(state===false){
-   
-           stopGame();
-    
-         }
+      
 
       }, 500);
 
 
      }, 1000 );
      
-     setTimeout(function(){
+     setTime5=setTimeout(function(){
        clearInterval(blink);
-       if(state===false){
-   
-      stopGame();
-    
-    }
+       
        
      }, 3000);
 
@@ -184,15 +163,30 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
           }, 14000);
          
           }
+        }
     	});
     }
     
   
 
     else if(state===false){
-   
-    	stopGame();
-    
+       switchon=false;
+       alert(switchon);
+       $('#display').text('--');
+      $('#display').css('color', '#330000');
+       $('#strict_alert').css('background-color', 'grey');
+      clearInterval(myVar);
+      clearInterval(blink);
+  
+      alert(result_arr);
+      alert(user_clicked);
+      $("#blue").css("background-color", "#004d99"); 
+      $("#green").css("background-color", "#004d1a"); 
+      $("#red").css("background-color", "#b30000"); 
+      $("#yellow").css("background-color", "#b3b300");
+      $("#"+color_id[random_num]).css("background-color", orig_colors[random_num]);  
+      result_arr=[];
+      user_clicked=[];
     }
 });
 
