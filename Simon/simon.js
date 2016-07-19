@@ -18,54 +18,6 @@ var setTime5;
 var switchon=true;
 
 function gameStart(){
-     
-
-}
-
-
-function stopGame() {
-    
-    
-
-}
-
-$("[name='my-checkbox']").bootstrapSwitch();
-
-
-$('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state) {
-    
-   
-  
-    if(state===true){
-    	$('#display').css('color', 'red');
-
-        $('#inner_strict').on('click',function(){
-           stricted=!stricted;
-           if(state===true){
-            if(switchon===true){
-
-            if(stricted===true){
-        	    $('#strict_alert').css('background-color', 'red');
-            
-        	 }
-            else if(stricted===false){
-
-        		$('#strict_alert').css('background-color', 'grey');
-        	
-       		 }
-          }
-           }
-        });
-
- 
-
-    	$('#inner_start').on('click', function(){
-
-        if(switchon===true){
-          if(stricted===false){
-          
-          myVar=setInterval(function(){
-          
               round_count+=1;
 
    random_num=Math.floor(Math.random() * 4);
@@ -159,8 +111,58 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
 
   }, 7000);
 
+}
 
-          }, 14000);
+
+function stopGame() {
+    
+    
+
+}
+
+$("[name='my-checkbox']").bootstrapSwitch();
+
+
+$('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state) {
+    
+   
+  
+    if(state===true){
+    	$('#display').css('color', 'red');
+
+        $('#inner_strict').on('click',function(){
+           stricted=!stricted;
+           if(state===true){
+            if(switchon===true){
+
+            if(stricted===true){
+        	    $('#strict_alert').css('background-color', 'red');
+            
+        	 }
+            else if(stricted===false){
+
+        		$('#strict_alert').css('background-color', 'grey');
+        	
+       		 }
+          }
+           }
+        });
+
+ 
+
+    	$('#inner_start').on('click', function(){
+
+        if(switchon===true){
+          if(stricted===false){
+          
+            gameStart();
+
+          myVar=setInterval(function(){
+          
+            gameStart();
+
+
+          }, 12000);
          
           }
         }
@@ -177,7 +179,11 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
        $('#strict_alert').css('background-color', 'grey');
       clearInterval(myVar);
       clearInterval(blink);
-  
+      clearTimeout(setTime1);
+      clearTimeout(setTime2);
+      clearTimeout(setTime3);
+      clearTimeout(setTime4);
+      clearTimeout(setTime5);
       alert(result_arr);
       alert(user_clicked);
       $("#blue").css("background-color", "#004d99"); 
