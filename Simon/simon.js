@@ -27,10 +27,12 @@ function gameStart(){
     
     $("#"+color_id[random_num]).css("background-color", orig_colors[random_num]); 
     
-    setTimeout(function(){
 
-    }, 900);
+ 
 
+    }, 30);
+
+   setTimeout(function(){
     alert("please click on a color");
   
      $('#blue').on('click', function(){
@@ -53,11 +55,10 @@ function gameStart(){
        user_clicked.push(3);
      });
 
-    }, 1000);
 
-    
-
+     }, 1000);
 }
+
 
 function stopGame() {
 
@@ -98,7 +99,7 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
           gameStart();
 
 
-          }, 8000);
+          }, 6000);
          
           }
     	});
