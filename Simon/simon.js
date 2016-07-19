@@ -27,6 +27,7 @@ function gameStart(){
    $('#display').text(round_count);
    result_arr.push(random_num);
    
+   if(switchon){
 
    setTime1=setTimeout(function(){ 
     
@@ -36,6 +37,8 @@ function gameStart(){
  
 
     }, 30);
+ }
+   if(switchon){
 
    setTime2=setTimeout(function(){
    
@@ -63,16 +66,19 @@ function gameStart(){
      
      
      }, 1000);
+   }
 
+   
      setTime3=setTimeout(function(){
+   
 
      
     if((result_arr.length>user_clicked.length)||(result_arr[result_arr.length-1]!==user_clicked[user_clicked.length-1])){
-
+    if(switchon){
      blink=setInterval(function(){
       $('#display').text('--');
       $('#display').css('color', '#330000');
-
+       if(switchon){
       setTime4=setTimeout(function(){
         $('#display').text('!!');
       $('#display').css('color', 'red');
@@ -80,16 +86,18 @@ function gameStart(){
       
 
       }, 500);
-
+      }
 
      }, 1000 );
-     
+     }
+
+     if(switchon){
      setTime5=setTimeout(function(){
        clearInterval(blink);
        
        
      }, 3000);
-
+     }
      if(result_arr.length>user_clicked.length){
       result_arr.pop();
 
@@ -109,7 +117,8 @@ function gameStart(){
   }
 
 
-  }, 7000);
+  }
+  , 7000);
 
 }
 
