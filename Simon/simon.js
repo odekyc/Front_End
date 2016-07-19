@@ -37,21 +37,25 @@ function gameStart(){
   
      $('#blue').on('click', function(){
         user_responded=true;
+         user_clicked.pop();
         user_clicked.push(0);
      });
 
      $('#green').on('click', function(){
        user_responded=true;
+        user_clicked.pop();
        user_clicked.push(1);
      });
 
       $('#red').on('click', function(){
        user_responded=true;
+        user_clicked.pop();
        user_clicked.push(2);
      });
 
        $('#yellow').on('click', function(){
        user_responded=true;
+        user_clicked.pop();
        user_clicked.push(3);
      });
 
@@ -81,21 +85,28 @@ function gameStart(){
      
      setTimeout(function(){
        clearInterval(blink);
-        alert("you clicked the wrong color, try again!")
+       
      }, 3000);
 
      if(result_arr.length>user_clicked.length){
       result_arr.pop();
+
+      alert("you didn't click a color, please try again!");
      }
-     if(result_arr[result_arr.length-1]!==user_clicked[user_clicked.length-1]){
+
+     if(result_arr[result_arr.length-1]!== user_clicked[user_clicked.length-1]){
+      
+
       result_arr.pop();
       user_clicked.pop();
+
+      alert("you clicked the wrong color, please try again!")
      }
 
     
   }
   else{
-     alert("you clicked the correct answer, next round!");
+     alert("you clicked the correct color, next round!");
   }
 
   }, 7000);
@@ -160,6 +171,8 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
     	$("#green").css("background-color", "#004d1a"); 
     	$("#red").css("background-color", "#b30000"); 
     	$("#yellow").css("background-color", "#b3b300"); 
+      result_arr=[];
+      user_clicked=[];
     }
 });
 
