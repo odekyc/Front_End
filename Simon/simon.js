@@ -57,12 +57,52 @@ function gameStart(){
 
 
      }, 1000);
+
+     setTimeout(function(){
+
+    
+
+    if((result_arr.length>user_clicked.length)||(result_arr[result_arr.length-1]!==user_clicked[user_clicked.length-1])){
+
+     blink=setInterval(function(){
+      $('#display').text('--');
+      $('#display').css('color', '#330000');
+
+      setTimeout(function(){
+        $('#display').text('!!');
+      $('#display').css('color', 'red');
+
+
+
+      }, 500);
+
+
+     }, 1000 );
+     
+     setTimeout(function(){
+       clearInterval(blink);
+     }, 3000);
+
+     if(result_arr.length>user_clicked.length){
+      result_arr.pop();
+     }
+     if(result_arr[result_arr.length-1]!==user_clicked[user_clicked.length-1]){
+      result_arr.pop();
+      user_clicked.pop();
+     }
+  }
+  else{
+     alert("you entered the correct answer, next round");
+  }
+
+  }, 7000);
 }
 
 
 function stopGame() {
 
     clearInterval(myVar);
+    clearInterval(blink);
 }
 
 $("[name='my-checkbox']").bootstrapSwitch();
@@ -99,7 +139,7 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
           gameStart();
 
 
-          }, 6000);
+          }, 12000);
          
           }
     	});
