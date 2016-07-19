@@ -81,6 +81,7 @@ function gameStart(){
      
      setTimeout(function(){
        clearInterval(blink);
+        alert("you clicked the wrong color, try again!")
      }, 3000);
 
      if(result_arr.length>user_clicked.length){
@@ -90,9 +91,11 @@ function gameStart(){
       result_arr.pop();
       user_clicked.pop();
      }
+
+    
   }
   else{
-     alert("you entered the correct answer, next round");
+     alert("you clicked the correct answer, next round!");
   }
 
   }, 7000);
@@ -139,7 +142,7 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
           gameStart();
 
 
-          }, 12000);
+          }, 14000);
          
           }
     	});
