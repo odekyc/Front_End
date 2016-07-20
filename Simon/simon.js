@@ -20,7 +20,7 @@ var switchon=true;
 var restarted=false;
 
 function gameStart(){
-
+            
            
               round_count++;
 
@@ -185,7 +185,7 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
             
 
           }, 12000);
-         
+          
           }
         }
     	});
@@ -208,7 +208,7 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
       user_clicked=[];
       clearInterval(myVar);
       alert("hi");
-      clearInterval(blink);
+      
 
     }
 });
