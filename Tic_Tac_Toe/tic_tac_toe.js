@@ -199,12 +199,20 @@ $(document).ready(function() {
 
 
     $("#board").click(function(e){ 
-        element_str="";
 
+        
+        element_str="";
+       
         already_placed=false;
+    
+        var xoffSet=e.target.offsetLeft;
+
         x=e.clientX;
         y=e.clientY;
-       
+
+        if(xoffSet<468){
+          x+=xoffSet;
+        }
 
         if (( x >= 387)&&( x<= 553)){
            xQuadrant=1;
