@@ -206,22 +206,26 @@ $(document).ready(function() {
         already_placed=false;
     
         var xoffSet=e.target.offsetLeft;
+        alert(e.target.offsetLeft);
+        alert(e.target.offsetTop);
 
-        x=e.clientX;
-        y=e.clientY;
+        x=e.pageX;
+        y=e.pageY;
+
+        alert("x:"+x);
 
         if(xoffSet<468){
-          x+=xoffSet;
+          x+=(468-xoffSet);
         }
 
-        if (( x >= 387)&&( x<= 553)){
+        if (( x >= 470)&&( x<= 636)){
            xQuadrant=1;
 
         }
-        else if (( x >= 553)&&( x<= 726)){
+        else if (( x >= 637)&&( x<= 806)){
             xQuadrant=2;
         }
-        else if (( x >= 726)&&( x<= 890)){
+        else if (( x >= 807)&&( x<= 973)){
             xQuadrant=3;
         }
 
