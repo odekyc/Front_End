@@ -206,13 +206,11 @@ $(document).ready(function() {
         already_placed=false;
     
         var xoffSet=e.target.offsetLeft;
-        alert(e.target.offsetLeft);
-        alert(e.target.offsetTop);
+        
 
         x=e.pageX;
         y=e.pageY;
 
-        alert("x:"+x);
 
         if(xoffSet<468){
           x+=(468-xoffSet);
