@@ -1,6 +1,7 @@
 $(document).ready(function() {
   
 var audio = $("audio")[0];
+var audio2=$("audio")[1];
 var orig_colors=["#004d99", "#004d1a" ,"#b30000", "#b3b300"];
 var color_arr=["blue","#00cc00","red","yellow"];
 var color_id=["blue","green","red","yellow"];
@@ -16,9 +17,12 @@ var setTime3;
 var setTime4;
 var setTime5;
 var switchon=true;
+var restarted=false;
 
 function gameStart(){
-              round_count+=1;
+
+           
+              round_count++;
 
    random_num=Math.floor(Math.random() * 4);
    
@@ -80,9 +84,10 @@ function gameStart(){
       $('#display').css('color', '#330000');
        if(switchon){
       setTime4=setTimeout(function(){
+        audio2.play();
         $('#display').text('!!');
       $('#display').css('color', 'red');
-
+        
       
 
       }, 500);
@@ -137,6 +142,13 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
    
   
     if(state===true){
+      if(switchon===false){
+        restarted=true;
+      }
+      switchon=true;
+      
+
+
     	$('#display').css('color', 'red');
 
         $('#inner_strict').on('click',function(){
@@ -160,7 +172,7 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
  
 
     	$('#inner_start').on('click', function(){
-
+      
         if(switchon===true){
           if(stricted===false){
           
@@ -169,7 +181,8 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
           myVar=setInterval(function(){
           
             gameStart();
-
+             
+            
 
           }, 12000);
          
@@ -186,15 +199,6 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
        $('#display').text('--');
       $('#display').css('color', '#330000');
        $('#strict_alert').css('background-color', 'grey');
-      clearInterval(myVar);
-      clearInterval(blink);
-      clearTimeout(setTime1);
-      clearTimeout(setTime2);
-      clearTimeout(setTime3);
-      clearTimeout(setTime4);
-      clearTimeout(setTime5);
-      alert(result_arr);
-      alert(user_clicked);
       $("#blue").css("background-color", "#004d99"); 
       $("#green").css("background-color", "#004d1a"); 
       $("#red").css("background-color", "#b30000"); 
@@ -202,6 +206,10 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
       $("#"+color_id[random_num]).css("background-color", orig_colors[random_num]);  
       result_arr=[];
       user_clicked=[];
+      clearInterval(myVar);
+      alert("hi");
+      clearInterval(blink);
+
     }
 });
 
