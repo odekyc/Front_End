@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+d<!DOCTYPE html>
 <html>
 <head>
 <title>Simon</title>
@@ -8,11 +8,12 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link href="bootstrap.css" rel="stylesheet">
-<link href="bootstrap-switch.css" rel="stylesheet">
 <script src="jquery.js"></script>
-<script src="bootstrap-switch.js"></script>
 <script src="simon.js"></script>
 <audio src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></audio>
+<audio src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"></audio>
+<audio src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"></audio>
+<audio src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"></audio>
 <audio src="http://www.freesound.org/data/previews/331/331912_3248244-lq.mp3"></audio>
 
 </head>
@@ -49,16 +50,16 @@
 <p id="count">COUNT</p>
 <p id="start">START</p>
 <p id="strict">STRICT</p>
-<input type="checkbox" id="bootstrapswitch" name="my-checkbox" data-size="large" data-inverse="true" data-off-color="warning" />
+<div id="switchbackground"></div>
 </div>
 </div>
-<div id="green">
+<div id="green" class="fourcolors">
 </div>
-<div id="red">
+<div id="red" class="fourcolors">
 </div>
-<div id="yellow">
+<div id="yellow" class="fourcolors">
 </div>
-<div id="blue" class="color_div">
+<div id="blue" class="fourcolors">
 </div>
 </div>
 
