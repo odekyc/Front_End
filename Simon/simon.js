@@ -9,10 +9,8 @@ var result_arr=[];
 var user_clicked=[];
 var stricton=false;
 var running=false;
-var round_count=1;
-var random_num=1;
-var firsttimeswitchon=true;
-var restarted=false;
+var round_level=1;
+var random_num=null;
 var poweron=false;
 
 
@@ -22,28 +20,14 @@ var poweron=false;
       poweron=true;
        $('#switchoff').css('visibility', 'hidden');
        $('#switchon').css('visibility', 'visible');
-    });
-
-      $('#switchon').click(function(){
-      poweron=false;
-       $('#switchoff').css('visibility', 'visible');
-       $('#switchon').css('visibility', 'hidden');
-    });
-
-
-
-      poweron=true;
-
-      if(poweron){
-
-      if(firsttimeswitchon===false){
-        restarted=true;
-      }
+       if(poweron){
+       
+       alert("power's on");
      
       
 
 
-    	$('#display').css('color', 'red');
+      $('#display').css('color', 'red');
 
         $('#inner_strict').on('click',function(){
           
@@ -55,46 +39,56 @@ var poweron=false;
           
 
             if(stricton===true){
-        	    $('#strict_alert').css('background-color', 'red');
+              $('#strict_alert').css('background-color', 'red');
             
-        	 }
+           }
             else if(stricton===false){
 
-        		$('#strict_alert').css('background-color', 'grey');
-        	
-       		 }
+            $('#strict_alert').css('background-color', 'grey');
+          
+           }
           
            
         });
 
  
 
-    	$('#inner_start').on('click', function(){
+      $('#inner_start').on('click', function(){
          alert("inner_start clicked");
 
-    	});
+      });
     }
+    });
+
+  $('#switchon').click(function(){
+      $('#display').text('--');
+      $('#display').css('color', '#330000');
+       $('#strict_alert').css('background-color', 'grey');
+      $("#blue").css("background-color", "#004d99"); 
+      $("#green").css("background-color", "#004d1a"); 
+      $("#red").css("background-color", "#b30000"); 
+      $("#yellow").css("background-color", "#b3b300");
+      $("#"+color_id[random_num]).css("background-color", orig_colors[random_num]);  
+      result_arr=[];
+      user_clicked=[];
+
+      stricton=false;      
+      round_level=1;
+      poweron=false;
+       $('#switchoff').css('visibility', 'visible');
+       $('#switchon').css('visibility', 'hidden');
+    });
+
+
+
+      
+
+      
     
   
   
 
-   
-      // poweron=false;
-      //  firsttimeswitchon=false;
-      //  $('#display').text('--');
-      // $('#display').css('color', '#330000');
-      //  $('#strict_alert').css('background-color', 'grey');
-      // $("#blue").css("background-color", "#004d99"); 
-      // $("#green").css("background-color", "#004d1a"); 
-      // $("#red").css("background-color", "#b30000"); 
-      // $("#yellow").css("background-color", "#b3b300");
-      // $("#"+color_id[random_num]).css("background-color", orig_colors[random_num]);  
-      // result_arr=[];
-      // user_clicked=[];
-
-      // stricton=false;      
-      // alert("state: "+state);
-      // alert("poweron: "+poweron);
+  
     
     
 
