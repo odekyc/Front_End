@@ -48,7 +48,7 @@ body{
 	width: 65px;
 	height:40px;
 	background-color: #b3e6ff;
-	
+	visibility: visible;
 }
 
 #switchon{
@@ -58,7 +58,7 @@ body{
 	height:40px;
 	left: 65px;
 	background-color: #ccff99;
-
+    visibility: hidden;
 }
 
 
@@ -192,6 +192,7 @@ body{
 	left: 100px;
 	font-size: 120%;
 	font-weight: bolder;
+
 }
 
 #on{
@@ -200,6 +201,7 @@ body{
 	left: 275px;
 	font-size: 120%;
 	font-weight: bolder;
+	
 }
 
 #red{
