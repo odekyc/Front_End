@@ -194,6 +194,14 @@ body{
 	font-weight: bolder;
 }
 
+#on{
+	position:absolute;
+	top: 340px;
+	left: 275px;
+	font-size: 120%;
+	font-weight: bolder;
+}
+
 #red{
 	background-color: #b30000;
 	position:absolute;
