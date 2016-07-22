@@ -39,13 +39,16 @@ body{
 	left: 140px;
 }
 
+
+
+
 #switchoff{
 	position: absolute;
 	padding-top: 8%;
 	width: 65px;
 	height:40px;
 	background-color: #b3e6ff;
-	font-weight: 900;
+	
 }
 
 #switchon{
@@ -55,7 +58,7 @@ body{
 	height:40px;
 	left: 65px;
 	background-color: #ccff99;
-	font-weight: 900;
+
 }
 
 
@@ -180,6 +183,14 @@ body{
 	top: 290px;
 	left: 289px;
 	font-size: 160%;
+	font-weight: bolder;
+}
+
+#off{
+	position:absolute;
+	top: 340px;
+	left: 100px;
+	font-size: 120%;
 	font-weight: bolder;
 }
 
