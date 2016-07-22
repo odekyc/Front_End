@@ -29,14 +29,7 @@ function stopGame() {
 
 }
 
-$("[name='my-checkbox']").bootstrapSwitch();
 
-
-$('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state) {
-    
-   alert(state);
-  
-    if(state===true){
 
       poweron=true;
 
@@ -80,10 +73,10 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
     	});
     }
     
-  }
+  
   
 
-    else if(state===false){
+   
       poweron=false;
        firsttimeswitchon=false;
        $('#display').text('--');
@@ -103,7 +96,7 @@ $('#bootstrapswitch').on('switchChange.bootstrapSwitch', function (event, state)
     
       
 
-    }
+    
 });
 
 // var cur_state=$('#bootstrapswitch').bootstrapSwitch('state');

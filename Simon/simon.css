@@ -39,6 +39,26 @@ body{
 	left: 140px;
 }
 
+#switchoff{
+	position: absolute;
+	padding-top: 8%;
+	width: 65px;
+	height:40px;
+	background-color: #b3e6ff;
+	font-weight: 900;
+}
+
+#switchon{
+	position: absolute;
+	padding-top: 8%;
+	width: 65px;
+	height:40px;
+	left: 65px;
+	background-color: #ccff99;
+	font-weight: 900;
+}
+
+
 #outer_screen{
 	position:absolute;
 	background-color: grey;
@@ -213,6 +233,8 @@ body{
 	border-radius: 100%;
 	z-index: 2;
 }
+
+
 
 #control_circle{
 	background-color: white;
