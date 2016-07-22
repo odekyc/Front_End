@@ -15,19 +15,20 @@ var firsttimeswitchon=true;
 var restarted=false;
 var poweron=false;
 
-function gameStart(){
-            
-           
-           
-
-}
 
 
-function stopGame() {
-    
-    
 
-}
+    $('#switchoff').click(function(){
+      poweron=true;
+       $('#switchoff').css('visibility', 'hidden');
+       $('#switchon').css('visibility', 'visible');
+    });
+
+      $('#switchon').click(function(){
+      poweron=false;
+       $('#switchoff').css('visibility', 'visible');
+       $('#switchon').css('visibility', 'hidden');
+    });
 
 
 
@@ -69,7 +70,8 @@ function stopGame() {
  
 
     	$('#inner_start').on('click', function(){
-      
+         alert("inner_start clicked");
+
     	});
     }
     
@@ -77,27 +79,26 @@ function stopGame() {
   
 
    
-      poweron=false;
-       firsttimeswitchon=false;
-       $('#display').text('--');
-      $('#display').css('color', '#330000');
-       $('#strict_alert').css('background-color', 'grey');
-      $("#blue").css("background-color", "#004d99"); 
-      $("#green").css("background-color", "#004d1a"); 
-      $("#red").css("background-color", "#b30000"); 
-      $("#yellow").css("background-color", "#b3b300");
-      $("#"+color_id[random_num]).css("background-color", orig_colors[random_num]);  
-      result_arr=[];
-      user_clicked=[];
+      // poweron=false;
+      //  firsttimeswitchon=false;
+      //  $('#display').text('--');
+      // $('#display').css('color', '#330000');
+      //  $('#strict_alert').css('background-color', 'grey');
+      // $("#blue").css("background-color", "#004d99"); 
+      // $("#green").css("background-color", "#004d1a"); 
+      // $("#red").css("background-color", "#b30000"); 
+      // $("#yellow").css("background-color", "#b3b300");
+      // $("#"+color_id[random_num]).css("background-color", orig_colors[random_num]);  
+      // result_arr=[];
+      // user_clicked=[];
 
-      stricton=false;      
-      alert("state: "+state);
-      alert("poweron: "+poweron);
+      // stricton=false;      
+      // alert("state: "+state);
+      // alert("poweron: "+poweron);
     
-      
+    
 
-    
-});
+
 
 // var cur_state=$('#bootstrapswitch').bootstrapSwitch('state');
 
