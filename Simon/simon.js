@@ -1,4 +1,4 @@
- $(document).ready(function() {
+$(document).ready(function() {
   
 var audio = $("audio")[0];
 var audio2=$("audio")[1];
@@ -14,6 +14,37 @@ var random_num=null;
 var poweron=false;
 
 
+    $('#inner_strict').on('click',function(){
+          
+
+          if(stricton){
+            stricton=false;
+            alert("stricton: "+stricton);
+            $('#strict_alert').css('background-color', 'grey');
+            
+          }
+          else if(!stricton){
+            stricton=true;
+            alert("stricton: "+stricton);
+            $('#strict_alert').css('background-color', 'red');
+          }
+          
+           
+        });
+
+     $('#inner_start').on('click', function(){
+            running=true;
+            alert("inner_start clicked");
+             if(running){
+             alert("running is true");
+             }
+      });
+
+
+
+    $('.fourcolors').click(function(e){
+        alert(e.target.id);
+    });
 
 
     $('#switchoff').click(function(){
@@ -21,6 +52,7 @@ var poweron=false;
       poweron=true;
        $('#switchoff').css('visibility', 'hidden');
        $('#switchon').css('visibility', 'visible');
+       stricton=false;
        if(poweron){
        
        $('#inner_start').css("pointer-events", "auto");
@@ -33,43 +65,7 @@ var poweron=false;
 
       $('#display').css('color', 'red');
 
-        $('#inner_strict').on('click',function(){
-          
 
-           stricton=!stricton;
-           
-           alert("stricton: "+stricton);
-
-          
-
-            if(stricton===true){
-              $('#strict_alert').css('background-color', 'red');
-            
-           }
-            else if(stricton===false){
-
-            $('#strict_alert').css('background-color', 'grey');
-          
-           }
-          
-           
-        });
-
-        
-
-        $('#inner_start').on('click', function(){
-            running=true;
-            alert("inner_start clicked");
-             if(running){
-             alert("running is true");
-             }
-         });
-
-
-
-       $('.fourcolors').click(function(){
-        alert("fourcolors");
-    });
        }
     });
 
