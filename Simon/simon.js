@@ -61,7 +61,7 @@ var b4runblink;
                    var presetlv1=setTimeout(function(){
                     clearInterval(b4runblink);   
                     $('#display').text('1');
-                   }, 8000);
+                   }, 6500);
                    
                   
                    
