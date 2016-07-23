@@ -17,10 +17,13 @@ var poweron=false;
 
 
     $('#switchoff').click(function(){
+
       poweron=true;
        $('#switchoff').css('visibility', 'hidden');
        $('#switchon').css('visibility', 'visible');
        if(poweron){
+       
+       $('#inner_start').css("pointer-events", "auto");
        
        alert("power's on");
      
@@ -51,13 +54,22 @@ var poweron=false;
            
         });
 
- 
+        
 
-      $('#inner_start').on('click', function(){
-         alert("inner_start clicked");
+        $('#inner_start').on('click', function(){
+            running=true;
+            alert("inner_start clicked");
+             if(running){
+             alert("running is true");
+             }
+         });
 
-      });
-    }
+
+
+       $('.fourcolors').click(function(){
+        alert("fourcolors");
+    });
+       }
     });
 
   $('#switchon').click(function(){
@@ -71,31 +83,17 @@ var poweron=false;
       $("#"+color_id[random_num]).css("background-color", orig_colors[random_num]);  
       result_arr=[];
       user_clicked=[];
-
+      running=false;
       stricton=false;      
       round_level=1;
       poweron=false;
        $('#switchoff').css('visibility', 'visible');
        $('#switchon').css('visibility', 'hidden');
+       $('#inner_start').css("pointer-events", "none");
+       alert("running is false");
     });
 
 
 
-      
-
-      
-    
-  
-  
-
-  
-    
-    
-
-
-
-// var cur_state=$('#bootstrapswitch').bootstrapSwitch('state');
-
-// alert(cur_state);
 
 });

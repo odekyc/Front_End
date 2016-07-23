@@ -47,7 +47,7 @@ body{
 	padding-top: 8%;
 	width: 65px;
 	height:40px;
-	background-color: #b3e6ff;
+	background-color: #66b3ff;
 	visibility: visible;
 }
 
@@ -57,7 +57,7 @@ body{
 	width: 65px;
 	height:40px;
 	left: 65px;
-	background-color: #ccff99;
+	background-color: #99ff33;
     visibility: hidden;
 }
 
@@ -122,6 +122,7 @@ body{
     position: relative;
     top: 10px;
     left: 10px;
+    pointer-events: none;
 }
 
 #outer_strict{
@@ -255,6 +256,9 @@ body{
 	z-index: 2;
 }
 
+.fourcolors{
+	pointer-events: none;
+}
 
 
 #control_circle{
