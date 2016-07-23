@@ -28,6 +28,31 @@ $(document).ready(function() {
             document.getElementById('input').innerHTML=text;
         }
      }
+     else if(id==='+'){
+        text=document.getElementById('input').innerHTML;
+        text+=id;
+        document.getElementById('input').innerHTML=text;
+     }
+     else if(id==='-'){
+        text=document.getElementById('input').innerHTML;
+        text+=id;
+        document.getElementById('input').innerHTML=text;
+     }
+     else if(id==='*'){
+        text=document.getElementById('input').innerHTML;
+        text+=id;
+        document.getElementById('input').innerHTML=text;
+     }
+      else if(id==='/'){
+        text=document.getElementById('input').innerHTML;
+        text+=id;
+        document.getElementById('input').innerHTML=text;
+     }
+    else if(id==='%'){
+        text=document.getElementById('input').innerHTML;
+        text+=id;
+        document.getElementById('input').innerHTML=text;
+     }
 });
 
 });
