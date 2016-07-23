@@ -33,11 +33,21 @@ var poweron=false;
         });
 
      $('#inner_start').on('click', function(){
-            running=true;
+            
             alert("inner_start clicked");
              if(running){
-             alert("running is true");
+              running=false;
+             alert("running is false");
+              $('#inner_strict').css("pointer-events", "auto");
+              $('#inner_start').css("background-color", "red");
              }
+             else if(!running){
+                running=true;
+                alert("running is true");
+                 $('#inner_strict').css("pointer-events", "none");
+                $('#inner_start').css("background-color", "green");
+             }
+           
       });
 
 
