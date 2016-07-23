@@ -24,10 +24,11 @@ var poweron=false;
        if(poweron){
        
        $('#inner_start').css("pointer-events", "auto");
+       $('#inner_strict').css("pointer-events", "auto");
        
        alert("power's on");
      
-      
+       $('.fourcolors').css("pointer-events", "auto");
 
 
       $('#display').css('color', 'red');
@@ -90,6 +91,8 @@ var poweron=false;
        $('#switchoff').css('visibility', 'visible');
        $('#switchon').css('visibility', 'hidden');
        $('#inner_start').css("pointer-events", "none");
+       $('#inner_strict').css("pointer-events", "none");
+       $('.fourcolors').css("pointer-events", "none");
        alert("running is false");
     });
 
