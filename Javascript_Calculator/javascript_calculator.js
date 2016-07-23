@@ -14,9 +14,24 @@ $(document).ready(function() {
      if(id==="AC"){
         $('#input').empty();
      }
+      else if(id==='CE'){
+        alert("hi");
+        var temp_arr=[];
+        text=document.getElementById('input').innerHTML;
+        temp_arr.push(text.lastIndexOf('%'));
+        temp_arr.push(text.lastIndexOf('/'));
+        temp_arr.push(text.lastIndexOf('*'));
+        temp_arr.push(text.lastIndexOf('+'));
+        temp_arr.push(text.lastIndexOf('-'));
+
+        var max=Math.max.apply(Math, temp_arr);
+
+         text=text.slice(0,max);
+         document.getElementById('input').innerHTML=text;
+     }
 
      
-     else if(((Number(id)>=0)&&(Number(id)<=9))||(id==='+')||(id==='-')||(id==='*')||(id==='/')){
+     else if(((Number(id)>=0)&&(Number(id)<=9))||(id==='+')||(id==='-')||(id==='*')||(id==='/')||(id==='%')){
         counter+=1;
         if( counter===1){
             document.getElementById('input').innerHTML=id;
@@ -40,6 +55,7 @@ $(document).ready(function() {
             document.getElementById('input').innerHTML=text;
         }
      }
+
 });
 
 });
