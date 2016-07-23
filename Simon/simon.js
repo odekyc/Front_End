@@ -43,7 +43,7 @@ var b4runblink;
               $('#inner_start').css("background-color", "red");
               $('#display').text('--');
               clearInterval(b4runblink);
-
+              clearTimeout(presetlv1);
              }
              else if(!running){
                 running=true;
@@ -58,16 +58,12 @@ var b4runblink;
                        }, 700);
                    }, 1400);
                    
-                   setTimeout(function(){
+                   var presetlv1=setTimeout(function(){
                     clearInterval(b4runblink);   
-                      
-                   }, 7000);
-                   
-                   setTimeout(function(){
-                    
                     $('#display').text('1');
-                      
                    }, 8000);
+                   
+                  
                    
              }
            
