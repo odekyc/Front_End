@@ -16,7 +16,7 @@ $(document).ready(function() {
      }
 
      
-     else if((Number(id)>=0)&&(Number(id)<=9)){
+     else if(((Number(id)>=0)&&(Number(id)<=9))||(id==='+')||(id==='-')||(id==='*')||(id==='/')){
         counter+=1;
         if( counter===1){
             document.getElementById('input').innerHTML=id;
@@ -28,30 +28,17 @@ $(document).ready(function() {
             document.getElementById('input').innerHTML=text;
         }
      }
-     else if(id==='+'){
-        text=document.getElementById('input').innerHTML;
-        text+=id;
-        document.getElementById('input').innerHTML=text;
-     }
-     else if(id==='-'){
-        text=document.getElementById('input').innerHTML;
-        text+=id;
-        document.getElementById('input').innerHTML=text;
-     }
-     else if(id==='*'){
-        text=document.getElementById('input').innerHTML;
-        text+=id;
-        document.getElementById('input').innerHTML=text;
-     }
-      else if(id==='/'){
-        text=document.getElementById('input').innerHTML;
-        text+=id;
-        document.getElementById('input').innerHTML=text;
-     }
-    else if(id==='%'){
-        text=document.getElementById('input').innerHTML;
-        text+=id;
-        document.getElementById('input').innerHTML=text;
+     else if(id==='dot'){
+        counter+=1;
+        if( counter===1){
+            document.getElementById('input').innerHTML='.';
+
+        }
+        else if(counter>=1){
+            text=document.getElementById('input').innerHTML;
+            text+='.';
+            document.getElementById('input').innerHTML=text;
+        }
      }
 });
 

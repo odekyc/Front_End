@@ -25,11 +25,12 @@ p{
 #input{
      position: relative;
      width: 90%;
-     height: 8%;
+     height: 6%;
      background-color: white;
      margin: auto;
      top: 5px;
      text-align: right;
+     padding-top: 3px;
  }
 
 #innerkeyboard{
@@ -47,6 +48,13 @@ p{
     height: 52px;
     width: 70px;
 }
+
+#dot1{
+    font-size: 2em;
+   position:relative;
+   top: -0.8px;
+}
+
 
 .in{
     position: relative;
