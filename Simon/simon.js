@@ -19,13 +19,13 @@ var poweron=false;
 
           if(stricton){
             stricton=false;
-            alert("stricton: "+stricton);
+          
             $('#strict_alert').css('background-color', 'grey');
             
           }
           else if(!stricton){
             stricton=true;
-            alert("stricton: "+stricton);
+            
             $('#strict_alert').css('background-color', 'red');
           }
           
@@ -34,16 +34,16 @@ var poweron=false;
 
      $('#inner_start').on('click', function(){
             
-            alert("inner_start clicked");
+            
              if(running){
               running=false;
-             alert("running is false");
+             
               $('#inner_strict').css("pointer-events", "auto");
               $('#inner_start').css("background-color", "red");
              }
              else if(!running){
                 running=true;
-                alert("running is true");
+               
                  $('#inner_strict').css("pointer-events", "none");
                 $('#inner_start').css("background-color", "green");
              }
@@ -67,8 +67,6 @@ var poweron=false;
        
        $('#inner_start').css("pointer-events", "auto");
        $('#inner_strict').css("pointer-events", "auto");
-       
-       alert("power's on");
      
        $('.fourcolors').css("pointer-events", "auto");
 
@@ -99,7 +97,8 @@ var poweron=false;
        $('#inner_start').css("pointer-events", "none");
        $('#inner_strict').css("pointer-events", "none");
        $('.fourcolors').css("pointer-events", "none");
-       alert("running is false");
+       $('#inner_start').css("background-color", "red");
+       
     });
 
 
