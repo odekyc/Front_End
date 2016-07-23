@@ -2,8 +2,11 @@ var id;
 var text;
 var inner_div_id;
 var counter=0;
+var result;
 
 $(document).ready(function() {
+
+  
    $( "#AC" ).click(function() {
   $("#input").empty();
 });
@@ -15,7 +18,6 @@ $(document).ready(function() {
         $('#input').empty();
      }
       else if(id==='CE'){
-        alert("hi");
         var temp_arr=[];
         text=document.getElementById('input').innerHTML;
         temp_arr.push(text.lastIndexOf('%'));
@@ -28,6 +30,16 @@ $(document).ready(function() {
 
          text=text.slice(0,max);
          document.getElementById('input').innerHTML=text;
+     }
+     else if(id==="="){
+
+        text=document.getElementById('input').innerHTML;
+        var i=text.search(/[\+\/\-\*\%]/gi);
+        alert(i);
+        while(text.length>0){
+
+        }
+       
      }
 
      
