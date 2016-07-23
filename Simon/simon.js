@@ -12,6 +12,7 @@ var running=false;
 var round_level=1;
 var random_num=null;
 var poweron=false;
+var b4runblink;
 
 
     $('#inner_strict').on('click',function(){
@@ -40,12 +41,34 @@ var poweron=false;
              
               $('#inner_strict').css("pointer-events", "auto");
               $('#inner_start').css("background-color", "red");
+              $('#display').text('--');
+              clearInterval(b4runblink);
+
              }
              else if(!running){
                 running=true;
                
                  $('#inner_strict').css("pointer-events", "none");
                 $('#inner_start').css("background-color", "green");
+               
+                   b4runblink=setInterval(function(){
+                       $('#display').text('');
+                       setTimeout(function(){
+                          $('#display').text('--');
+                       }, 700);
+                   }, 1400);
+                   
+                   setTimeout(function(){
+                    clearInterval(b4runblink);   
+                      
+                   }, 7000);
+                   
+                   setTimeout(function(){
+                    
+                    $('#display').text('1');
+                      
+                   }, 8000);
+                   
              }
            
       });
