@@ -49,7 +49,7 @@ $(document).ready(function() {
           
             while(text.length>0){
                 var x=text.search(/[\+\/\-\*\%]/gi);
-                if(x===-1){
+                if((x===-1)||(x===text.length-1)){
                     
                     if(curOperator==='+'){
                         result+=Number(text);
@@ -68,6 +68,7 @@ $(document).ready(function() {
                     }
                     break;
                 }
+
                 var tempNum1=Number(text.slice(0,x));
                 if(curOperator==='+'){
                     result+=tempNum1;
@@ -85,6 +86,7 @@ $(document).ready(function() {
                     result/=tempNum1;
                 }
                 curOperator=text.slice(x,x+1);
+
                 text=text.slice(x+1);
                 var y=text.search(/[\+\/\-\*\%]/gi);
                 if(y===0){
