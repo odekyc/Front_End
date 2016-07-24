@@ -3,6 +3,7 @@ var text;
 var inner_div_id;
 var counter=0;
 var result;
+var curOperator;
 
 $(document).ready(function() {
 
@@ -35,10 +36,66 @@ $(document).ready(function() {
 
         text=document.getElementById('input').innerHTML;
         var i=text.search(/[\+\/\-\*\%]/gi);
-        alert(i);
-        while(text.length>0){
+         if (i===0){
+            document.getElementById('input').innerHTML='NAN';
+           
+         }
 
-        }
+         else{
+
+            result=Number(text.slice(0,i));
+            curOperator=text.slice(i,1);
+            text=text.slice(i+1);
+          
+            while(text.length>0){
+                var x=text.search(/[\+\/\-\*\%]/gi);
+                var tempNum1=Number(text.slice(0,x));
+                if(curOperator==='+'){
+                    result+=tempNum1;
+                }
+                else if(curOperator==='-'){
+                    result-=tempNum1;
+                }
+                 else if(curOperator==='%'){
+                    result%=tempNum1;
+                }
+                else if(curOperator==='*'){
+                    result*=tempNum1;
+                }
+                 else if(curOperator==='/'){
+                    result/=tempNum1;
+                }
+                curOperator=text[x];
+                text=text.slice(x+1);
+                var y=text.search(/[\+\/\-\*\%]/gi);
+                if(y===0){
+                    document.getElementById('input').innerHTML='NAN';
+                    break;
+                }
+                else if (y===-1){
+                if(curOperator==='+'){
+                    result+=Number(text);
+                }
+                else if(curOperator==='-'){
+                    result-=Number(text);
+                }
+                 else if(curOperator==='%'){
+                    result%=Number(text);
+                }
+                else if(curOperator==='*'){
+                    result*= Number(text);
+                }
+                 else if(curOperator==='/'){
+                    result/=Number(text);
+                }
+                text="";
+                }
+            }
+            document.getElementById('input').innerHTML=result;
+         }
+        
+    
+        
        
      }
 
