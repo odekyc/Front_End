@@ -49,6 +49,25 @@ $(document).ready(function() {
           
             while(text.length>0){
                 var x=text.search(/[\+\/\-\*\%]/gi);
+                if(x===-1){
+                    
+                    if(curOperator==='+'){
+                        result+=Number(text);
+                    }
+                    else if(curOperator==='-'){
+                        result-=Number(text);
+                    }
+                     else if(curOperator==='%'){
+                        result%=Number(text);
+                    }
+                    else if(curOperator==='*'){
+                        result*=Number(text);
+                    }
+                     else if(curOperator==='/'){
+                        result/=Number(text);
+                    }
+                    break;
+                }
                 var tempNum1=Number(text.slice(0,x));
                 if(curOperator==='+'){
                     result+=tempNum1;
