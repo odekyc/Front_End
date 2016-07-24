@@ -13,7 +13,7 @@ var round_level=1;
 var random_num=null;
 var poweron=false;
 var b4runblink;
-
+var gameInt;
 
     $('#inner_strict').on('click',function(){
           
@@ -63,6 +63,15 @@ var b4runblink;
                     $('#display').text('1');
                    }, 6500);
                    
+                   gameInt=setInterval(function(){
+                    alert("in game interval");
+                        $('#display').text(round_level);
+                        Math.floor((Math.random() * 4));
+                        round_level+=1;
+                        
+                        $("#audio2").get(0).cloneNode().play();
+                   },15000);
+
                   
                    
              }
@@ -117,6 +126,7 @@ var b4runblink;
        $('#inner_strict').css("pointer-events", "none");
        $('.fourcolors').css("pointer-events", "none");
        $('#inner_start').css("background-color", "red");
+       clearInterval(gameInt)
        
     });
 
