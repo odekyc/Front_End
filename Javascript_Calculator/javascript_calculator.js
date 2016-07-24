@@ -44,7 +44,7 @@ $(document).ready(function() {
          else{
 
             result=Number(text.slice(0,i));
-            curOperator=text.slice(i,1);
+            curOperator=text.slice(i,i+1);
             text=text.slice(i+1);
           
             while(text.length>0){
@@ -65,7 +65,7 @@ $(document).ready(function() {
                  else if(curOperator==='/'){
                     result/=tempNum1;
                 }
-                curOperator=text[x];
+                curOperator=text.slice(x,x+1);
                 text=text.slice(x+1);
                 var y=text.search(/[\+\/\-\*\%]/gi);
                 if(y===0){
