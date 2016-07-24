@@ -66,10 +66,13 @@ var gameInt;
                    gameInt=setInterval(function(){
                     alert("in game interval");
                         $('#display').text(round_level);
-                        Math.floor((Math.random() * 4));
+                        random_num=Math.floor((Math.random() * 4));
                         round_level+=1;
-                        
-                        $("#audio2").get(0).cloneNode().play();
+                        $('#'+color_id[random_num]).css("background-color",color_arr[random_num]);
+                        $("#audio"+random_num).get(0).cloneNode().play();
+                        setTimeout(function(){
+                            $('#'+color_id[random_num]).css("background-color",orig_colors[random_num]);
+                        }, 1000);
                    },15000);
 
                   
