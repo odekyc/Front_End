@@ -50,12 +50,20 @@ function win(){
              
               $('#inner_strict').css("pointer-events", "auto");
               $('#inner_start').css("background-color", "red");
+              $("#blue").css("background-color", "#004d99"); 
+              $("#green").css("background-color", "#004d1a"); 
+              $("#red").css("background-color", "#b30000"); 
+              $("#yellow").css("background-color", "#b3b300");
               $('#display').text('--');
               clearInterval(b4runblink);
+              clearInterval(playResultInt);
               clearTimeout(presetlv1);
               round_level=1;
               result_arr=[];
               user_clicked=[];
+
+              round_level=1;
+
 
              }
              else if(!running){
@@ -197,7 +205,9 @@ function win(){
        $('#inner_strict').css("pointer-events", "none");
        $('.fourcolors').css("pointer-events", "none");
        $('#inner_start').css("background-color", "red");
-       clearInterval(playResultInt);
+        clearInterval(b4runblink);
+        clearInterval(playResultInt);
+        clearTimeout(presetlv1);
        
     });
 
