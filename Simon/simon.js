@@ -18,6 +18,7 @@ var b4runblink;
 var playResultInt;
 var playIntTime=14700;
 var clicked_num=null;
+var arrsMatch=true;
 
 function win(){
 
@@ -124,15 +125,28 @@ function win(){
 
                      $("#audio"+clicked_num).get(0).cloneNode().play();
 
-                   
+                     user_clicked.push(clicked_num);
+
                      user_clickedCounter++;
+
+
 
                 if(user_clickedCounter===result_arr.length){
                      $('.fourcolors').css("pointer-events", "none");
+
+                     for(var x=0; i<user_clicked.length; x++){
+                          if(user_clicked[x]!==result_arr[x]){
+                            arrsMatch=false;
+                          }
+                     }
+
                      result_arrCounter=0;
-                    random_num=Math.floor((Math.random() * 4));
-                    result_arr.push(random_num);
-                    round_level++;
+                    if(arrsMatch===true){
+                      random_num=Math.floor((Math.random() * 4));
+                      result_arr.push(random_num);
+                      round_level++;
+                    }
+                    
                       playResultInt=setInterval(function(){
                              
                              $('#display').text(round_level);
@@ -146,6 +160,8 @@ function win(){
                                   user_clickedCounter=0;
                                   clearInterval(playResultInt);
                                   $('.fourcolors').css("pointer-events", "auto");  
+                                  arrsMatch=true;
+                                  user_clicked=[];
                                 }
                               }, 1000);
                              
