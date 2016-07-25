@@ -15,9 +15,8 @@ var round_level=1;
 var random_num=null;
 var poweron=false;
 var b4runblink;
-var gameInt;
-var respAlrtTimeOut;
-var gameIntTime=14700;
+var playResultInt;
+var playIntTime=14700;
 var clicked_num=null;
 
 function win(){
@@ -62,7 +61,7 @@ function win(){
              else if(!running){
                 running=true;
                
-                 $('#inner_strict').css("pointer-events", "none");
+                $('#inner_strict').css("pointer-events", "none");
                 $('#inner_start').css("background-color", "green");
 
                 random_num=Math.floor((Math.random() * 4));
@@ -83,14 +82,17 @@ function win(){
                     $("#audio"+random_num).get(0).cloneNode().play();
                     setTimeout(function(){
                           $('#'+color_id[random_num]).css("background-color",orig_colors[random_num]);
+                          
                     }, 1000);
-                        
+                    
                    }, 5100);
+
+                   
                    
                    $('.fourcolors').css("pointer-events", "auto");
                    $(".fourcolors").click(function(e){
                        result_arrCounter=0;
-                       alert("user_clicked");
+                      
                        var clickColor=e.target.id;
                        switch(clickColor){
                         case "blue":
@@ -114,11 +116,35 @@ function win(){
 
                      $("#audio"+clicked_num).get(0).cloneNode().play();
 
-                     round_level++;
+                   
                      user_clickedCounter++;
 
+                if(user_clickedCounter===result_arr.length){
+                     $('.fourcolors').css("pointer-events", "none");
+                     result_arrCounter=0;
+                    random_num=Math.floor((Math.random() * 4));
+                    result_arr.push(random_num);
+                    round_level++;
+                      playResultInt=setInterval(function(){
+                             
+                             $('#display').text(round_level);
+                             $('#'+color_id[result_arr[result_arrCounter]]).css("background-color",color_arr[result_arr[result_arrCounter]]);
+                              $("#audio"+result_arr[result_arrCounter]).get(0).cloneNode().play();
+                              setTimeout(function(){
+                                    $('#'+color_id[result_arr[result_arrCounter]]).css("background-color",orig_colors[result_arr[result_arrCounter]]);
+                                     result_arrCounter++;
+                                    
+                              if(result_arrCounter===result_arr.length){
+                                  user_clickedCounter=0;
+                                  clearInterval(playResultInt);
+                                  $('.fourcolors').css("pointer-events", "auto");  
+                                }
+                              }, 1000);
+                             
+                              
+                      }, 2500);
 
-
+                  }
                    });
                 
                    
@@ -171,7 +197,7 @@ function win(){
        $('#inner_strict').css("pointer-events", "none");
        $('.fourcolors').css("pointer-events", "none");
        $('#inner_start').css("background-color", "red");
-       clearInterval(gameInt)
+       clearInterval(playResultInt);
        
     });
 
