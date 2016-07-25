@@ -27,7 +27,7 @@ body{
 }
 
 .backgroundgreen{
-    background-color: #00cc00;
+    background-color: green;
 }
 
 #switchbackground{
@@ -39,7 +39,9 @@ body{
 	left: 140px;
 }
 
-
+.active{
+	opacity: 0.5;
+}
 
 
 #switchoff{
