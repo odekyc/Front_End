@@ -62,9 +62,10 @@ function win(){
               round_level=1;
               result_arr=[];
               user_clicked=[];
-
+              user_clickedCounter=0;
+              result_arrCounter=0;
               round_level=1;
-
+              arrsMatch=true;
 
              }
              else if(!running){
@@ -129,25 +130,25 @@ function win(){
 
                      user_clickedCounter++;
 
-
+                     if(result_arr[user_clickedCounter-1]!==user_clicked[user_clickedCounter-1]){
+                            alert("not equv");
+                            arrsMatch=false;
+                     }
 
                 if(user_clickedCounter===result_arr.length){
                      $('.fourcolors').css("pointer-events", "none");
 
-                     for(var x=0; i<user_clicked.length; x++){
-                          if(user_clicked[x]!==result_arr[x]){
-                            arrsMatch=false;
-                          }
-                     }
 
                      result_arrCounter=0;
                     if(arrsMatch===true){
+                      alert("in here");
                       random_num=Math.floor((Math.random() * 4));
                       result_arr.push(random_num);
                       round_level++;
+                      
                     }
                     
-                      playResultInt=setInterval(function(){
+                     playResultInt=setInterval(function(){
                              
                              $('#display').text(round_level);
                              $('#'+color_id[result_arr[result_arrCounter]]).css("background-color",color_arr[result_arr[result_arrCounter]]);
@@ -167,6 +168,7 @@ function win(){
                              
                               
                       }, 2500);
+                     
 
                   }
                    });
@@ -224,6 +226,10 @@ function win(){
         clearInterval(b4runblink);
         clearInterval(playResultInt);
         clearTimeout(presetlv1);
+         user_clickedCounter=0;
+        result_arrCounter=0;
+        arrsMatch=true;
+
        
     });
 
