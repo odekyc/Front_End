@@ -1,5 +1,5 @@
 body{
-    background-color: #4d4d4d;
+    background-color: #99ccff;
 }
 
 
@@ -58,7 +58,7 @@ h1{
     height: 320px;
     width: 320px;
     border-radius: 100%;
-    border: solid #73e600 3px;
+    border: solid #33cc33 6px;
     top: 80px;
 }
 
