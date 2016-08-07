@@ -26,12 +26,12 @@ p{
      position: relative;
      width: 90%;
      height: 6%;
-     background-color:  #aaff00;
+     background-color:  white;
      margin: auto;
      top: 5px;
      text-align: right;
      padding-top: 3px;
-     color: blue;
+     color: green;
      font-family: Arial;
      font-weight: bolder;
  }
@@ -50,6 +50,7 @@ p{
     background-color: #ffff99;
     height: 52px;
     width: 70px;
+    font-weight: bold;
 }
 
 #dot1{
