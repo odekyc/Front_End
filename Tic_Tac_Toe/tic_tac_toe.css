@@ -14,11 +14,11 @@ body{
 #popup{
     position: absolute;
     visibility: visible;
-    top: 120px;
+    top: 25%;
     background-color: white;
     height: 240px;
     width: 580px;
-    left: 341px;
+    left: 30%;
     border-radius: 10px;
     z-index: 5;
 }

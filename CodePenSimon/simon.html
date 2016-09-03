@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simon</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="simon.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href="bootstrap.css" rel="stylesheet">
+<script src="jquery.js"></script>
+<script src="simon.js"></script>
+
+<audio id="soundbuttonGre" src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></audio>
+<audio id="soundbuttonRed" src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"></audio>
+<audio id="soundbuttonYel" src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"></audio>
+<audio id="soundbuttonBlu" src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"></audio>
+<audio id="soundbuttonWrong" src="http://www.freesound.org/data/previews/331/331912_3248244-lq.mp3"></audio>
+</head>
+<body>
+<div class="gameContainer noSelect">
+  <div id="buttonGre" class="fourButton"></div>
+  <div id="buttonRed" class="fourButton"></div>
+  <div id="buttonYel" class="fourButton"></div>
+  <div id="buttonBlu" class="fourButton"></div>
+  <div id="center">
+    <div id="textTitle">Simon</div>
+    <div id="countBox">
+      <div id="countDisplay">
+        <div id="displayText">
+          --
+        </div>
+      </div>
+      <div id="countText">Count</div>
+    </div>
+    <div id="startBox">
+      <div id="startButton"></div>
+      <div id="startText">Start</div>
+    </div>
+    <div id="strictBox">
+      <div id="strictButton""></div>
+      <div id="strictText">Strict</div>
+    </div>
+    <div id="powerBox">
+      <div id="onText">ON</div>
+      <div id="powerSwitch">
+        <div id="buttonOn"></div
+        ><div id="buttonOff"></div
+        ></div>
+      <div id="offText">OFF</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

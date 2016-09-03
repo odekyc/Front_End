@@ -9,8 +9,11 @@ var clicked_num=null;
 var arrsMatch=true;
 var blinkFirstRound;
 var showCPUMovesInt;
-var movesIntSec=500;
+var movesIntSec=800;
 var getPlayerMovesInt;
+var roundLevel=1;
+var count;
+var index;
 
 function win(){
 
@@ -35,25 +38,7 @@ function win(){
            
         });
 
-     $('#inner_start').on('click', function(){
-      $('#inner_start').css("pointer-events", "none");
-          genMoves.push(genRandNum());
-          running=true;
-         blinkFirstRound=setInterval(function(){
-          $('#display').text('');
-          setTimeout(function(){
-            $('#display').text('--');
-            }, 700);
-          }, 1400);
-
-         setTimeout(function(){clearInterval(blinkFirstRound);
-            $('#display').text('1');
-            CPUTurn();
-         }, 5000);
-
-
-
-      });
+     $('#inner_start').on('click', startNewGame);
 
 
 
@@ -92,14 +77,31 @@ function win(){
       $(".red").removeAttr("id");
       $(".yellow").removeAttr("id");
       clearInterval(blinkFirstRound);
+      clearInterval(showCPUMovesInt);
       arrsMatch=true;
 
        
     });
 
+function startNewGame(){
+  $('#inner_start').css("pointer-events", "none");
+          genMoves.push(getRandom(1, 4)-1);
+          running=true;
+         blinkFirstRound=setInterval(function(){
+          $('#display').text('');
+          setTimeout(function(){
+            $('#display').text('--');
+            }, 700);
+          }, 1400);
 
-function genRandNum(){
-  return Math.floor((Math.random() * 4));
+         setTimeout(function(){clearInterval(blinkFirstRound);
+            $('#display').text(roundLevel);
+            CPUTurn();
+         }, 5000);
+}
+
+function getRandom(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function showMove(curMoveID){
@@ -112,16 +114,17 @@ function showMove(curMoveID){
 }
 
 function CPUTurn(){
-    var count=genMoves.length;
-
-    var index=0;
+    var movesNum=genMoves.length;
+    $('.fourcolors').css("pointer-events", "none");
+    $('#display').text(roundLevel);
+    var i=0;
    showCPUMovesInt=setInterval(function(){
-      $('#display').text(genMoves.length);
-      if(count>0){
+      
+      if(movesNum>0){
          
-         showMove(genMoves[index]);
-         index++;
-         count--;
+         showMove(genMoves[i]);
+         i++;
+         movesNum--;
      }
      else{
       clearInterval(showCPUMovesInt);
@@ -132,38 +135,55 @@ function CPUTurn(){
 }
 
 function PlayerTurn(){
-
+    $('#inner_start').off();
+    $('#inner_start').css("pointer-events", "none");
     var playerCurMove;
     var colorblock;
     var color;
     var colorID;
-    var count=genMoves.length;
-    var index=0;
+    count=genMoves.length;
+    index=0;
     $('.fourcolors').css("pointer-events", "auto");
-    $('.fourcolors').click(function(){
-      if(count>0){
-        
-        colorblock=$(this).attr("class");
-        color=colorblock.split(' ')[0];
-        colorID=color_id.indexOf(color);
-        playerCurMove=colorID;
-        showMove(colorID);
-        if(playerCurMove===genMoves[index]){
+    $('.fourcolors').off().on('click',function(){
           count--;
-          index++;
-          alert(count);
-          if(count===0){
-             genMoves.push(genRandNum());
-             setTimeout(CPUTurn, 3000);
+          console.log("user clicked a color button");
+          console.log("count="+count);
+          console.log("index="+index);
+          console.log("genMoves length="+genMoves.length);
+          colorblock=$(this).attr("class");
+          color=colorblock.split(' ')[0];
+          colorID=color_id.indexOf(color);
+          playerCurMove=colorID;
+          showMove(colorID);
+          if(playerCurMove!==genMoves[index]){
+             $("#audioerr").get(0).cloneNode().play();
+             count=genMoves.length;
+             index=0;
+            console.log("error, user clicked the wrong move");
+            console.log("count="+count);
+            console.log("index="+index);
+            console.log("genMoves length="+genMoves.length);
+            setTimeout(CPUTurn, 3000);
+            
+            
           }
-        }
-        else{
-          $("#audioerr").get(0).cloneNode().play();
-          setTimeout(CPUTurn, 3000);
-        }
-      }
-   
+          else if(!count){
+                   genMoves.push(getRandom(1, 4)-1);
+                   roundLevel++;
+                   count=genMoves.length;
+                   index=0;
+                   console.log("inside count===0, new move generated ^^");
+                   console.log("count="+count);
+                   console.log("index="+index);
+                   console.log("genMoves length="+genMoves.length);
+                   setTimeout(CPUTurn, 1000);
 
+
+          }
+          else if(count>0){
+            index++;
+          }
+          
     });
     
     
