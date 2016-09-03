@@ -1,28 +1,16 @@
 $(document).ready(function() {
-  
-var audio = $("audio")[0];
-var audio2=$("audio")[1];
-var orig_colors=["#004d99", "#004d1a" ,"#b30000", "#b3b300"];
-var color_arr=["blue","#00cc00","red","yellow"];
 var color_id=["blue","green","red","yellow"];
-var result_arr=[];
-var result_arrCounter=0;
-var user_clicked=[];
-var user_clickedCounter=0;
+var genMoves=[];
 var stricton=false;
 var running=false;
-var round_level=1;
 var random_num=null;
 var poweron=false;
-var b4runblink;
-var playResultInt;
-var playIntTime=14700;
 var clicked_num=null;
 var arrsMatch=true;
-var presetlv1;
-var setTimeout1;
-var setTimeout2;
-var presetlv2;
+var blinkFirstRound;
+var showCPUMovesInt;
+var movesIntSec=500;
+var getPlayerMovesInt;
 
 function win(){
 
@@ -48,115 +36,23 @@ function win(){
         });
 
      $('#inner_start').on('click', function(){
-            
-            
-                running=true;
-               
-                $('#inner_strict').css("pointer-events", "none");
-                $('#inner_start').css("background-color", "green");
+      $('#inner_start').css("pointer-events", "none");
+          genMoves.push(genRandNum());
+          running=true;
+         blinkFirstRound=setInterval(function(){
+          $('#display').text('');
+          setTimeout(function(){
+            $('#display').text('--');
+            }, 700);
+          }, 1400);
 
-                random_num=Math.floor((Math.random() * 4));
-                result_arr.push(random_num);
-                result_arrCounter++;
-               
-                   b4runblink=setInterval(function(){
-                       $('#display').text('');
-                       presetlv1=setTimeout(function(){
-                          $('#display').text('--');
-                       }, 700);
-                   }, 1400);
-                   
-                   presetlv2=setTimeout(function(){
-                    clearInterval(b4runblink);   
-                    $('#display').text('1');
-                    $('#'+color_id[random_num]).css("background-color",color_arr[random_num]);
-                    $("#audio"+random_num).get(0).cloneNode().play();
-                    setTimeout1=setTimeout(function(){
-                          $('#'+color_id[random_num]).css("background-color",orig_colors[random_num]);
-                          
-                    }, 1000);
-                    
-                   }, 5100);
-
-                   
-                   
-                   $('.fourcolors').css("pointer-events", "auto");
-                   $(".fourcolors").click(function(e){
-                       result_arrCounter=0;
-                      
-                       var clickColor=e.target.id;
-                       switch(clickColor){
-                        case "blue":
-                            clicked_num=0;
-                           
-                            break;
-                        case "green":
-                            clicked_num=1;
-                            
-                            break;
-                        case "red":
-                            clicked_num=2;
-                            
-                            break;
-
-                        case "yellow":
-                            clicked_num=3;
-                          
-                            break;
-                       }
-
-                     $("#audio"+clicked_num).get(0).cloneNode().play();
-
-                     user_clicked.push(clicked_num);
-
-                     user_clickedCounter++;
-
-                     if(result_arr[user_clickedCounter-1]!==user_clicked[user_clickedCounter-1]){
-                           
-                            arrsMatch=false;
-                     }
-
-                if(user_clickedCounter===result_arr.length){
-                     $('.fourcolors').css("pointer-events", "none");
+         setTimeout(function(){clearInterval(blinkFirstRound);
+            $('#display').text('1');
+            CPUTurn();
+         }, 5000);
 
 
-                     result_arrCounter=0;
-                    if(arrsMatch===true){
-                    
-                      random_num=Math.floor((Math.random() * 4));
-                      result_arr.push(random_num);
-                      round_level++;
-                      
-                    }
-                    
-                     playResultInt=setInterval(function(){
-                             
-                             $('#display').text(round_level);
-                             $('#'+color_id[result_arr[result_arrCounter]]).css("background-color",color_arr[result_arr[result_arrCounter]]);
-                              $("#audio"+result_arr[result_arrCounter]).get(0).cloneNode().play();
-                              setTimeout2=setTimeout(function(){
-                                    $('#'+color_id[result_arr[result_arrCounter]]).css("background-color",orig_colors[result_arr[result_arrCounter]]);
-                                     result_arrCounter++;
-                                    
-                              if(result_arrCounter===result_arr.length){
-                                  user_clickedCounter=0;
-                                  clearInterval(playResultInt);
-                                  $('.fourcolors').css("pointer-events", "auto");  
-                                  arrsMatch=true;
-                                  user_clicked=[];
-                                }
-                              }, 1000);
-                             
-                              
-                      }, 2500);
-                     
 
-                  }
-                   });
-                
-                   
-             
-           
       });
 
 
@@ -168,35 +64,22 @@ function win(){
       poweron=true;
        $('#switchoff').css('visibility', 'hidden');
        $('#switchon').css('visibility', 'visible');
-       stricton=false;
-       if(poweron){
-       
+       stricton=false;    
        $('#inner_start').css("pointer-events", "auto");
        $('#inner_strict').css("pointer-events", "auto");
-     
-       
-
-
       $('#display').css('color', 'red');
+      // $(".blue").attr("id", "highlight-blue");
 
-
-       }
     });
 
   $('#switchon').click(function(){
       $('#display').text('--');
       $('#display').css('color', '#330000');
        $('#strict_alert').css('background-color', 'grey');
-      $("#blue").css("background-color", "#004d99"); 
-      $("#green").css("background-color", "#004d1a"); 
-      $("#red").css("background-color", "#b30000"); 
-      $("#yellow").css("background-color", "#b3b300");
       $('.fourcolors').css("pointer-events", "none");  
-      result_arr=[];
-      user_clicked=[];
+      genMoves=[];
       running=false;
       stricton=false;      
-      round_level=1;
       poweron=false;
        $('#switchoff').css('visibility', 'visible');
        $('#switchon').css('visibility', 'hidden');
@@ -204,20 +87,89 @@ function win(){
        $('#inner_strict').css("pointer-events", "none");
        $('.fourcolors').css("pointer-events", "none");
        $('#inner_start').css("background-color", "red");
-        clearInterval(b4runblink);
-        clearInterval(playResultInt);
-        clearTimeout(presetlv1);
-        clearTimeout(presetlv2);
-        clearTimeout(setTimeout1);
-        clearTimeout(setTimeout2);
-         user_clickedCounter=0;
-        result_arrCounter=0;
-        arrsMatch=true;
+      $(".blue").removeAttr("id");
+      $(".green").removeAttr("id");
+      $(".red").removeAttr("id");
+      $(".yellow").removeAttr("id");
+      clearInterval(blinkFirstRound);
+      arrsMatch=true;
 
        
     });
 
 
+function genRandNum(){
+  return Math.floor((Math.random() * 4));
+}
+
+function showMove(curMoveID){
+  $('.'+color_id[curMoveID]).attr("id", "highlight-"+color_id[curMoveID]);
+   $("#audio"+curMoveID).get(0).cloneNode().play();
+  setTimeout(function(){
+      $('.'+color_id[curMoveID]).removeAttr("id");               
+                          
+  }, 700);
+}
+
+function CPUTurn(){
+    var count=genMoves.length;
+
+    var index=0;
+   showCPUMovesInt=setInterval(function(){
+      $('#display').text(genMoves.length);
+      if(count>0){
+         
+         showMove(genMoves[index]);
+         index++;
+         count--;
+     }
+     else{
+      clearInterval(showCPUMovesInt);
+      PlayerTurn();
+     }
+   }, movesIntSec);
+   
+}
+
+function PlayerTurn(){
+
+    var playerCurMove;
+    var colorblock;
+    var color;
+    var colorID;
+    var count=genMoves.length;
+    var index=0;
+    $('.fourcolors').css("pointer-events", "auto");
+    $('.fourcolors').click(function(){
+      if(count>0){
+        
+        colorblock=$(this).attr("class");
+        color=colorblock.split(' ')[0];
+        colorID=color_id.indexOf(color);
+        playerCurMove=colorID;
+        showMove(colorID);
+        if(playerCurMove===genMoves[index]){
+          count--;
+          index++;
+          alert(count);
+          if(count===0){
+             genMoves.push(genRandNum());
+             setTimeout(CPUTurn, 3000);
+          }
+        }
+        else{
+          $("#audioerr").get(0).cloneNode().play();
+          setTimeout(CPUTurn, 3000);
+        }
+      }
+   
+
+    });
+    
+    
+
+
+}
 
 
 });

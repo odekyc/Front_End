@@ -14,20 +14,21 @@ body{
 	border-radius: 100%;
 }
 
-.backgroundred{
+#highlight-red{
     background-color: red;
 }
 
-.backgroundblue{
+#highlight-blue{
     background-color: blue;
 }
 
-.backgroundyellow{
+#highlight-yellow{
     background-color: yellow;
 }
 
-.backgroundgreen{
+#highlight-green{
     background-color: green;
+
 }
 
 #switchbackground{
@@ -37,10 +38,6 @@ body{
 	height: 40px;
 	top: 330px;
 	left: 140px;
-}
-
-.active{
-	opacity: 0.5;
 }
 
 
@@ -162,7 +159,7 @@ body{
 	left: 354px;
 }
 
-#green{
+.green{
 	background-color: #004d1a;
 	position: absolute;
 	height: 325px;
@@ -170,7 +167,7 @@ body{
 	border-radius: 100% 5% 5% 5%;
 	top: 20px;
 	left: 20px;
-	z-index: 1;
+
 }
 
 #start{
@@ -207,7 +204,7 @@ body{
 	
 }
 
-#red{
+.red{
 	background-color: #b30000;
 	position:absolute;
 	height: 325px;
@@ -215,10 +212,10 @@ body{
 	border-radius: 5% 100% 5% 5%;
 	top: 20px;
 	left: 355px;
-	z-index: 1;
+
 }
 
-#yellow{
+.yellow{
 	background-color: #b3b300;
 	position:absolute;
 	height: 325px;
@@ -226,10 +223,9 @@ body{
 	border-radius: 5% 5% 5% 100%;
 	top: 355px;
 	left: 20px;
-	z-index: 1;
 }
 
-#blue{
+.blue{
 	background-color: #004d99;
 	position:absolute;
 	height: 325px;
@@ -237,7 +233,6 @@ body{
 	border-radius: 5% 5% 100% 5%;
 	top: 355px;
 	left: 355px;
-	z-index: 1;
 }
 
 #count{
