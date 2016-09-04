@@ -52,14 +52,14 @@ function win(){
        stricton=false;    
        $('#inner_start').css("pointer-events", "auto");
        $('#inner_strict').css("pointer-events", "auto");
-      $('#display').css('color', 'red');
+      $('#display').css('color', 'yellow');
       // $(".blue").attr("id", "highlight-blue");
 
     });
 
   $('#switchon').click(function(){
       $('#display').text('--');
-      $('#display').css('color', '#330000');
+      $('#display').css('color', '#e6b800');
        $('#strict_alert').css('background-color', 'grey');
       $('.fourcolors').css("pointer-events", "none");  
       genMoves=[];
@@ -71,12 +71,13 @@ function win(){
        $('#inner_start').css("pointer-events", "none");
        $('#inner_strict').css("pointer-events", "none");
        $('.fourcolors').css("pointer-events", "none");
-       $('#inner_start').css("background-color", "red");
+       $('#inner_start').css("background-color", "#ff9900");
       $(".blue").removeAttr("id");
       $(".green").removeAttr("id");
       $(".red").removeAttr("id");
       $(".yellow").removeAttr("id");
       clearInterval(blinkFirstRound);
+      $('#display').text('--');
       clearInterval(showCPUMovesInt);
       arrsMatch=true;
 

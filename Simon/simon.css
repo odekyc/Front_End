@@ -1,7 +1,9 @@
 body{
-	background: url(grass.jpg);
-	background-size: 100%;
-	z-index: -1;
+	background-color: #ccccff;
+}
+
+html{
+	background-color: #ffff33;
 }
 
 #outer_circle{
@@ -10,7 +12,7 @@ body{
     top: 10%;
 	height: 700px;
 	width: 700px;
-	background: grey;
+	background: #800080;
 	border-radius: 100%;
 }
 
@@ -27,13 +29,14 @@ body{
 }
 
 #highlight-green{
-    background-color: green;
+    background-color: #ffb366;
 
 }
 
 #switchbackground{
     position:absolute;
-	background-color: grey;
+	background-color: #cc66ff;
+	border: 5px solid red;
 	width: 130px ;
 	height: 40px;
 	top: 330px;
@@ -44,27 +47,27 @@ body{
 #switchoff{
 	position: absolute;
 	padding-top: 8%;
-	width: 65px;
-	height:40px;
-	background-color: #66b3ff;
+	width: 60px;
+	height:30px;
+	background-color: #990099;
 	visibility: visible;
 }
 
 #switchon{
 	position: absolute;
 	padding-top: 8%;
-	width: 65px;
-	height:40px;
-	left: 65px;
-	background-color: #99ff33;
+	width: 60px;
+	height:30px;
+	left: 60px;
+	background-color: #ffff00;
     visibility: hidden;
 }
 
 
 #outer_screen{
 	position:absolute;
-	background-color: grey;
-	height: 100px;
+	background-color: #800080;
+    height: 100px;
 	width: 150px;
 	border-radius: 10% 10%;
 	top: 190px;
@@ -85,7 +88,7 @@ body{
 
 #inner_screen{
 	position: absolute;
-	background-color: #660000;
+	background-color: #cc66ff;
 	height: 80px;
 	width: 130px;
 	border-radius: 10% 10%;
@@ -96,14 +99,14 @@ body{
 }
 
 #display{
-	color:  #330000;
+	color: #e6b800;
 	text-align: center;
 	position:relative;
 	top: -10px;
 }
 
 #outer_start{
-	background-color: grey;
+	background-color: #800080;
 	height: 80px;
 	width: 80px;
 	top: 200px;
@@ -113,7 +116,7 @@ body{
 }
 
 #inner_start{
-    background-color: red;
+    background-color: #ff9900;
     width:60px;
     height: 60px;
     border-radius: 100%;
@@ -124,7 +127,7 @@ body{
 }
 
 #outer_strict{
-	background-color: grey;
+	background-color: #800080;
 	height: 80px;
 	width: 80px;
 	top: 200px;
@@ -160,7 +163,7 @@ body{
 }
 
 .green{
-	background-color: #004d1a;
+	background-color: #ff8000;
 	position: absolute;
 	height: 325px;
 	width: 325px;
@@ -243,7 +246,7 @@ body{
 	font-weight: bolder;
 }
 #inner_gray{
-	background-color: grey;
+	background-color: #800080;
 	position:absolute;
 	left: 18%;
 	top: 18%;
@@ -259,7 +262,7 @@ body{
 
 
 #control_circle{
-	background-color: white;
+	background-color: #ffff99;
 	position:absolute;
 	height: 410px;
 	width: 410px;
