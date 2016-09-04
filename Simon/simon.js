@@ -164,7 +164,14 @@ function PlayerTurn(){
             console.log("count="+count);
             console.log("index="+index);
             console.log("genMoves length="+genMoves.length);
+          if(stricton){
+            genMoves=[];
+            roundLevel=1;
+            setTimeout(startNewGame, 2000);
+          }
+          else{
             setTimeout(CPUTurn, 3000);
+          }
             
             
           }
