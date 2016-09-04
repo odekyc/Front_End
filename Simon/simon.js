@@ -1,5 +1,5 @@
 $(document).ready(function() {
-var color_id=["blue","green","red","yellow"];
+var color_id=["blue","orange","red","yellow"];
 var genMoves=[];
 var stricton=false;
 var running=false;

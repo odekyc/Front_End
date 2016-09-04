@@ -17,7 +17,7 @@ html{
 }
 
 #highlight-red{
-    background-color: red;
+    background-color: #ff4d88;
 }
 
 #highlight-blue{
@@ -28,7 +28,7 @@ html{
     background-color: yellow;
 }
 
-#highlight-green{
+#highlight-orange{
     background-color: #ffb366;
 
 }
@@ -36,7 +36,7 @@ html{
 #switchbackground{
     position:absolute;
 	background-color: #cc66ff;
-	border: 5px solid red;
+	border: 5px solid #800080;
 	width: 130px ;
 	height: 40px;
 	top: 330px;
@@ -49,7 +49,7 @@ html{
 	padding-top: 8%;
 	width: 60px;
 	height:30px;
-	background-color: #990099;
+	background-color: #ff9900;
 	visibility: visible;
 }
 
@@ -162,14 +162,15 @@ html{
 	left: 354px;
 }
 
-.green{
+.orange{
 	background-color: #ff8000;
-	position: absolute;
+	position:absolute;
 	height: 325px;
 	width: 325px;
-	border-radius: 100% 5% 5% 5%;
-	top: 20px;
+	border-radius: 5% 5% 5% 100%;
+	top: 355px;
 	left: 20px;
+	
 
 }
 
@@ -208,7 +209,7 @@ html{
 }
 
 .red{
-	background-color: #b30000;
+	background-color: #cc0044;
 	position:absolute;
 	height: 325px;
 	width: 325px;
@@ -220,12 +221,13 @@ html{
 
 .yellow{
 	background-color: #b3b300;
-	position:absolute;
+	position: absolute;
 	height: 325px;
 	width: 325px;
-	border-radius: 5% 5% 5% 100%;
-	top: 355px;
+	border-radius: 100% 5% 5% 5%;
+	top: 20px;
 	left: 20px;
+
 }
 
 .blue{
