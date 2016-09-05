@@ -16,7 +16,106 @@ var count;
 var index;
 
 function win(){
+  $('.fourcolors').css("pointer-events", "none");
+  setTimeout(function(){
+      showMove(0);
+   }, 2000); 
 
+  setTimeout(function(){
+      showMove(1);
+   }, 3500); 
+
+    setTimeout(function(){
+      showMove(2);
+   }, 4000); 
+
+  setTimeout(function(){
+      showMove(3);
+   }, 4500); 
+
+   setTimeout(function(){
+      showMove(2);
+   }, 5000); 
+
+    setTimeout(function(){
+      showMove(3);
+   }, 5500); 
+
+    setTimeout(function(){
+      showMove(0);
+   }, 6000);
+
+   setTimeout(function(){
+      showMove(0);
+   }, 6500);  
+
+   setTimeout(function(){
+      showMove(0);
+   }, 7000);  
+   
+    setTimeout(function(){
+      showMove(3);
+   }, 7500);  
+
+     setTimeout(function(){
+      showMove(1);
+   }, 8000);  
+
+      setTimeout(function(){
+      showMove(3);
+   }, 8500);  
+
+  setTimeout(function(){
+      showMove(1);
+   }, 8700);  
+
+    setTimeout(function(){
+      showMove(2);
+   }, 8900);  
+
+    setTimeout(function(){
+      showMove(1);
+   }, 9100); 
+
+    setTimeout(function(){
+      showMove(2);
+   }, 9300);  
+
+    setTimeout(function(){
+      showMove(0);
+   }, 9500);  
+
+     setTimeout(function(){
+      showMove(3);
+   }, 9700);  
+
+     setTimeout(function(){
+      showMove(1);
+   }, 9900); 
+
+  setTimeout(function(){
+      showMove(1);
+   }, 10100); 
+
+  setTimeout(function(){
+      showMove(0);
+   }, 10300); 
+
+  setTimeout(function(){
+      showMove(3);
+   }, 10500); 
+
+  setTimeout(function(){
+      showMove(2);
+   }, 10700); 
+
+   setTimeout(function(){
+      showMove(1);
+   }, 10900); 
+   
+    setTimeout(function(){
+      showMove(0);
+   }, 11100); 
 }
 
 
@@ -38,7 +137,10 @@ function win(){
            
         });
 
-     $('#inner_start').on('click', startNewGame);
+     $('#inner_start').on('click', function(){
+      
+      startNewGame();
+    });
 
 
 
@@ -58,17 +160,18 @@ function win(){
     });
 
   $('#switchon').click(function(){
+      alert("switchon clicked");
       $('#display').text('--');
       $('#display').css('color', '#e6b800');
        $('#strict_alert').css('background-color', 'grey');
       $('.fourcolors').css("pointer-events", "none");  
+       $('#inner_start').css("pointer-events", "none");
       genMoves=[];
       running=false;
       stricton=false;      
       poweron=false;
        $('#switchoff').css('visibility', 'visible');
        $('#switchon').css('visibility', 'hidden');
-       $('#inner_start').css("pointer-events", "none");
        $('#inner_strict').css("pointer-events", "none");
        $('.fourcolors').css("pointer-events", "none");
        $('#inner_start').css("background-color", "#ff9900");
@@ -85,7 +188,11 @@ function win(){
     });
 
 function startNewGame(){
-  $('#inner_start').css("pointer-events", "none");
+ 
+    $('.fourcolors').css("pointer-events", "none");
+            genMoves=[];
+            roundLevel=1;
+            index=0;
           genMoves.push(getRandom(1, 4)-1);
           running=true;
          blinkFirstRound=setInterval(function(){
@@ -136,8 +243,6 @@ function CPUTurn(){
 }
 
 function PlayerTurn(){
-    $('#inner_start').off();
-    $('#inner_start').css("pointer-events", "none");
     var playerCurMove;
     var colorblock;
     var color;
@@ -157,6 +262,7 @@ function PlayerTurn(){
           playerCurMove=colorID;
           showMove(colorID);
           if(playerCurMove!==genMoves[index]){
+            $('.fourcolors').css("pointer-events", "none");
              $("#audioerr").get(0).cloneNode().play();
              count=genMoves.length;
              index=0;
@@ -165,8 +271,7 @@ function PlayerTurn(){
             console.log("index="+index);
             console.log("genMoves length="+genMoves.length);
           if(stricton){
-            genMoves=[];
-            roundLevel=1;
+          
             setTimeout(startNewGame, 2000);
           }
           else{
@@ -176,6 +281,15 @@ function PlayerTurn(){
             
           }
           else if(!count){
+
+                  if(roundLevel===2){
+                     
+                    win();
+                    return;
+                  }
+                  else{
+                    alert("else");
+                   $('.fourcolors').css("pointer-events", "none");
                    genMoves.push(getRandom(1, 4)-1);
                    roundLevel++;
                    count=genMoves.length;
@@ -185,7 +299,7 @@ function PlayerTurn(){
                    console.log("index="+index);
                    console.log("genMoves length="+genMoves.length);
                    setTimeout(CPUTurn, 1000);
-
+                  }
 
           }
           else if(count>0){
