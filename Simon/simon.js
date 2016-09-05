@@ -116,6 +116,101 @@ function win(){
     setTimeout(function(){
       showMove(0);
    }, 11100); 
+
+   setTimeout(function(){
+      showMove(3);
+      showMove(2);
+   }, 11300); 
+
+   setTimeout(function(){
+      showMove(3);
+      showMove(2);
+   }, 11400); 
+
+    setTimeout(function(){
+      showMove(0);
+      showMove(1);
+      showMove(3);
+      showMove(2);
+   }, 11600); 
+
+      setTimeout(function(){
+      showMove(0);
+      showMove(1);
+      showMove(3);
+      showMove(2);
+   }, 11800); 
+
+
+        setTimeout(function(){
+      showMove(0);
+      showMove(1);
+      showMove(3);
+      showMove(2);
+   }, 12000); 
+
+       setTimeout(function(){
+
+
+       $('.'+color_id[0]).attr("id", "highlight-"+color_id[0]);
+       $('.'+color_id[1]).attr("id", "highlight-"+color_id[1]);
+       $('.'+color_id[2]).attr("id", "highlight-"+color_id[2]);
+       $('.'+color_id[3]).attr("id", "highlight-"+color_id[3]);
+       $("#audio1").get(0).cloneNode().play();
+       setTimeout(function(){
+          $('.'+color_id[0]).removeAttr("id"); 
+          $('.'+color_id[1]).removeAttr("id");
+          $('.'+color_id[2]).removeAttr("id");  
+          $('.'+color_id[3]).removeAttr("id"); 
+       }, 600);
+   }, 13000); 
+
+
+      setTimeout(function(){
+       $('.'+color_id[0]).attr("id", "highlight-"+color_id[0]);
+       $('.'+color_id[1]).attr("id", "highlight-"+color_id[1]);
+       $('.'+color_id[2]).attr("id", "highlight-"+color_id[2]);
+       $('.'+color_id[3]).attr("id", "highlight-"+color_id[3]);
+       $("#audio3").get(0).cloneNode().play();
+       setTimeout(function(){
+          $('.'+color_id[0]).removeAttr("id"); 
+          $('.'+color_id[1]).removeAttr("id");
+          $('.'+color_id[2]).removeAttr("id");  
+          $('.'+color_id[3]).removeAttr("id"); 
+       }, 600);
+   }, 14000);  
+
+       setTimeout(function(){
+       $('.'+color_id[0]).attr("id", "highlight-"+color_id[0]);
+       $('.'+color_id[1]).attr("id", "highlight-"+color_id[1]);
+       $('.'+color_id[2]).attr("id", "highlight-"+color_id[2]);
+       $('.'+color_id[3]).attr("id", "highlight-"+color_id[3]);
+       $("#audio2").get(0).cloneNode().play();
+       setTimeout(function(){
+          $('.'+color_id[0]).removeAttr("id"); 
+          $('.'+color_id[1]).removeAttr("id");
+          $('.'+color_id[2]).removeAttr("id");  
+          $('.'+color_id[3]).removeAttr("id"); 
+       }, 600);
+   }, 15000); 
+
+
+      setTimeout(function(){
+       $('.'+color_id[0]).attr("id", "highlight-"+color_id[0]);
+       $('.'+color_id[1]).attr("id", "highlight-"+color_id[1]);
+       $('.'+color_id[2]).attr("id", "highlight-"+color_id[2]);
+       $('.'+color_id[3]).attr("id", "highlight-"+color_id[3]);
+       $("#audio0").get(0).cloneNode().play();
+       setTimeout(function(){
+          $('.'+color_id[0]).removeAttr("id"); 
+          $('.'+color_id[1]).removeAttr("id");
+          $('.'+color_id[2]).removeAttr("id");  
+          $('.'+color_id[3]).removeAttr("id"); 
+       }, 600);
+   }, 16000); 
+
+
+  
 }
 
 
@@ -282,7 +377,7 @@ function PlayerTurn(){
           }
           else if(!count){
 
-                  if(roundLevel===2){
+                  if(roundLevel===20){
                      
                     win();
                     return;
