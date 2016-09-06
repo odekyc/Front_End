@@ -383,7 +383,6 @@ function PlayerTurn(){
                     return;
                   }
                   else{
-                    alert("else");
                    $('.fourcolors').css("pointer-events", "none");
                    genMoves.push(getRandom(1, 4)-1);
                    roundLevel++;
