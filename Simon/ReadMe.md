@@ -5,5 +5,6 @@ This is an Advanced Front-End Project from Free Code Camp, built using Javascrip
 The Simon Game is a web application that originates from the Classical Simon Game. 
 
 To understand more about Simon Game:
+<br />
 https://en.wikipedia.org/wiki/Simon_(game)
 http://www.kidsmathgamesonline.com/memory/simon.html
