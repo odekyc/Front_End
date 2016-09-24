@@ -9,3 +9,6 @@ To understand more about Simon Game:
 https://en.wikipedia.org/wiki/Simon_(game)
 <br />
 http://www.kidsmathgamesonline.com/memory/simon.html
+
+###Simon Game rules:
+
