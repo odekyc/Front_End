@@ -11,6 +11,6 @@ https://en.wikipedia.org/wiki/Simon_(game)
 http://www.kidsmathgamesonline.com/memory/simon.html
 
 ####Simon Game rules:
-1. There are 20 rounds in each game. 4 color buttons on the Simon Game round gameboard.
+1. There are 20 rounds in each game. 4 color buttons on the Simon Game circular gameboard.
 2. 
 
