@@ -7,4 +7,5 @@ The Simon Game is a web application that originates from the Classical Simon Gam
 To understand more about Simon Game:
 <br />
 https://en.wikipedia.org/wiki/Simon_(game)
+<br />
 http://www.kidsmathgamesonline.com/memory/simon.html
