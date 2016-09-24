@@ -11,7 +11,8 @@ https://en.wikipedia.org/wiki/Simon_(game)
 http://www.kidsmathgamesonline.com/memory/simon.html
 
 ####Simon Game rules:
-1. There are 20 rounds in each game. 4 color buttons on the Simon Game circular gameboard.
+1. There are 20 rounds in each game. 4 color buttons on the Simon Game circular gameboard. The user would be able to turn strict mode on or not. 
 2. For each round, the AI takes the first turn, the color buttons on the circular gameboard would light up in random orders, for (roundnumber) of times.
-3. The user would then be given the 
+3. The user would then be given the turn to click the color buttons in the order it lighted up. If the user makes a mistake, and strict mode is off, the AI would re-light up the color buttons in the last order they were lighted up. Else, if strict mode is on, the game would reset to round 0 and start off from the beginning.
+4. If the user 
 
