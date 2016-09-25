@@ -4,3 +4,5 @@ This is an Advanced Front-End Project from Free Code Camp, built using Javascrip
 
 The classical tic-tac-toe game, where the AI and the user take turns placing positions on the gameboard, until the first one of them sucessfull
 places three in a row(horizontal, vertical, or diagonal). 
+
+![Tic Tac Toe](https://github.com/odekyc/Front_End/blob/master/Tic_Tac_Toe/tic_tac_toe.png)
