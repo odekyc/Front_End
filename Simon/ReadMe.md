@@ -16,3 +16,5 @@ http://www.kidsmathgamesonline.com/memory/simon.html
 3. The user would then be given the turn to click the color buttons in the order it lighted up. If the user makes a mistake, and strict mode is off, the AI would re-light up the color buttons in the last order they were lighted up. Else, if strict mode is on, the game would reset to round 0 and start off from the beginning.
 4. If the user successfully completes round 20, the user would be welcomed to a winning streak of color button light-ups. 
 
+![Simon](https://github.com/odekyc/Front_End/blob/master/Simon/simon.png)
+
