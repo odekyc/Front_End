@@ -14,11 +14,11 @@ body{
 #popup{
     position: absolute;
     visibility: visible;
-    top: 25%;
+    top: 210px;
     background-color: white;
     height: 240px;
     width: 580px;
-    left: 30%;
+    left: 430px;
     border-radius: 10px;
     z-index: 5;
 }
@@ -185,5 +185,45 @@ canvas{
     position: absolute;
     top: 75px;
     border: 5px solid red;
+    color: blue;
     z-index: 3;
+}
+
+#whowinsdiv{
+    position: absolute;
+    visibility: hidden;
+    top: 210px;
+    background-color: #9966ff;
+    height: 140px;
+    width: 580px;
+    left: 410px;
+    border-radius: 10px;
+    border: 20px solid orange;
+    z-index: 5;
+    color: green;
+    font-weight: 900;
+    font-size: 3em;
+    text-align: center;
+    padding-top: 5%;
+  
+}
+
+
+
+button{
+    position: absolute;
+    background-color: orange;
+    color: blue;
+    font-weight: 900;
+    height: 40px;
+    width: 120px;
+    font-size: 1.1em;
+    left: 1100px;
+    top: 30px;
+      
+}
+
+#winnername{
+  color: red;
+  
 }
