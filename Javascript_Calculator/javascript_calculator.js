@@ -54,12 +54,12 @@ var is_NAN=false;
          document.getElementById('input').innerHTML=text;
      }
      else if(id==="="){
-        alert("id=='='");
+        
         text=document.getElementById('input').innerHTML;
         i=text.search(all_reg);
-        alert("i"+i);
+        
         if(i=== -1){
-           alert("no operator at all");
+           
            $('#input').text(text);
         }
         else if( i === 0 ){
@@ -71,12 +71,12 @@ var is_NAN=false;
           i=revisedText.search(multi_div_reg);
          
           if(i===0){
-            alert("operator at index 0 beginning");
+            
             is_NAN=true;
             $("#input").text("NAN");
           }
           else if(i>0){
-            alert("*\% operators present");
+            
             while(i!== -1){
               firstChunk=revisedText.slice(0,i);
               curOperator=revisedText.slice(i,i+1);
@@ -86,31 +86,31 @@ var is_NAN=false;
               firstChunk_i = Math.max.apply(null, firstChunk_i_arr);
               secondChunk_i = secondChunk.search(all_reg);
               if(firstChunk_i == -1){
-                alert("firstChunk_i == -1");
+               
                 firstChunkfirst="";
                 firstChunksecond=firstChunk;
                 firstChunkOptr= "";
               }
               else{
-                alert("firstChunk_i >0");
+               
                 firstChunkfirst=firstChunk.slice(0,firstChunk_i);
                 firstChunksecond=firstChunk.slice(firstChunk_i+1);
                 firstChunkOptr= firstChunk[firstChunk_i];
               }
 
               if(secondChunk_i == -1){
-                alert("secondChunk_i == -1");
+               
                 secondChunkfirst=secondChunk;
                 secondChunksecond="";
                 secondChunkOptr= "";
               }
               else if(secondChunk_i == 0){
-                alert("secondChunk_i == 0");
+                
                 is_NAN=true;
                 break;
               }
               else{
-                alert("secondChunk_i > 0");
+                
                 secondChunkfirst=secondChunk.slice(0,secondChunk_i);
                 secondChunksecond=secondChunk.slice(secondChunk_i+1);
                 secondChunkOptr= secondChunk[secondChunk_i];
@@ -150,7 +150,7 @@ var is_NAN=false;
               }
               else{
                 while( i!== -1){
-                  alert("inside + - while loop, i="+i);
+                  
                   
                   firstChunk= revisedText.slice(0,i);
                   curOperator= revisedText[i];
@@ -183,7 +183,7 @@ var is_NAN=false;
                     }
                     
                     revisedText=String(result) + secondChunkOptr + secondChunksecond;
-                    alert("at the end of each +- while loop revisedText"+revisedText);
+                    
                   }
                   if(result<0){
                     i=revisedText.slice(1).search(add_sub_reg)+1;

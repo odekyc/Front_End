@@ -255,7 +255,7 @@ function win(){
     });
 
   $('#switchon').click(function(){
-      alert("switchon clicked");
+      
       $('#display').text('--');
       $('#display').css('color', '#e6b800');
        $('#strict_alert').css('background-color', 'grey');
