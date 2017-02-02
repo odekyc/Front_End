@@ -1,6 +1,4 @@
-
 $(document).ready(function() {
-
 var x;
 var y;
 var xQuadrant;
@@ -14,9 +12,10 @@ var numOccupied=0;
 var element_str="";
 var xystr="";
 var arr_len=placed_arr.length;
-var rev_xy;
 var occupied_arr_user=[];
 var occupied_arr_AI=[];
+var gameFinished=false;
+  
 genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
     
  
@@ -24,212 +23,242 @@ genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
 // Get the canvas element and its drawing context
           var canvas = document.getElementById('c');
           context = canvas.getContext('2d');
-    
+   
+  
     function DrawLine(){
+       if(gameFinished){
+         return;
+       }
+       else{
         if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('21')>-1)&&(occupied_arr_AI.indexOf('31')>-1)){
-            context.beginPath();
-         context.moveTo(70, 80);
-         context.lineTo(420, 80);
-          context.lineWidth = 10;
-          context.strokeStyle="blue";
+               context.beginPath();
+             context.moveTo(70, 80);
+           context.lineTo(70, 420);
+           context.lineWidth = 10;
+            context.strokeStyle="blue";
           context.stroke();
-          
-          $("#whowinsdiv").css("visibility","visible");
+          gameFinished=true;
+           $("canvas").css("z-index","3");
+          $("#winnername").text("AI");
+         $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('12')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('32')>-1)){
             context.beginPath();
-         context.moveTo(70, 250);
-         context.lineTo(420, 250);
+            context.moveTo(246, 80);
+         context.lineTo(246, 420);
           context.lineWidth = 10;
           context.strokeStyle="blue";
           context.stroke();
-          
-          $("#whowinsdiv").css("visibility","visible");
+          gameFinished=true;
+           $("canvas").css("z-index","3");
+          $("#winnername").text("AI");
+          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('13')>-1)&&(occupied_arr_AI.indexOf('23')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
         context.beginPath();
-         context.moveTo(70, 420);
-         context.lineTo(420, 420);
+          context.moveTo(418, 80);
+         context.lineTo(418, 420);
           context.lineWidth = 10;
            context.strokeStyle="blue";
           context.stroke();
-         
-          $("#whowinsdiv").css("visibility","visible");
+          gameFinished=true;
+           $("canvas").css("z-index","3");
+         $("#winnername").text("AI");
+          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('12')>-1)&&(occupied_arr_AI.indexOf('13')>-1)){
             context.beginPath();
-         context.moveTo(76, 80);
-         context.lineTo(76, 420);
+           context.moveTo(70, 80);
+         context.lineTo(420, 80);
+     
           context.lineWidth = 10;
           context.strokeStyle="blue";
           context.stroke();
-          
-          $("#whowinsdiv").css("visibility","visible");
+          gameFinished=true;
+           $("canvas").css("z-index","3");
+          $("#winnername").text("AI");
+         $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('21')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('23')>-1)){
             context.beginPath();
-         context.moveTo(246, 80);
-         context.lineTo(246, 420);
+             context.moveTo(70, 250);
+         context.lineTo(420, 250);
           context.lineWidth = 10;
           context.strokeStyle="blue";
           context.stroke();
-          
-          $("#whowinsdiv").css("visibility","visible");
+          gameFinished=true;
+           $("canvas").css("z-index","3");
+          $("#winnername").text("AI");
+          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('31')>-1)&&(occupied_arr_AI.indexOf('32')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
             context.beginPath();
-         context.moveTo(418, 80);
+           context.moveTo(70, 420);
          context.lineTo(418, 420);
           context.lineWidth = 10;
           context.strokeStyle="blue";
           context.stroke();
-          
-          $("#whowinsdiv").css("visibility","visible");
+          gameFinished=true;
+           $("canvas").css("z-index","3");
+          $("#winnername").text("AI");
+          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
-            context.beginPath();
+          context.beginPath();
          context.moveTo(70, 80);
          context.lineTo(418, 420);
           context.lineWidth = 10;
           context.strokeStyle="blue";
           context.stroke();
+          gameFinished=true;
+          $("canvas").css("z-index","3");
+          $("#winnername").text("AI");
+          // $("#whowinsdiv").css("visibility","visible");
+          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
           
-          $("#whowinsdiv").css("visibility","visible");
           occupied_arr_AI=[]
         }
-        else if((occupied_arr_AI.indexOf('31')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('13')>-1)){
+        else if((occupied_arr_AI.indexOf('13')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('31')>-1)){
             context.beginPath();
          context.moveTo(418, 80);
          context.lineTo(70, 420);
           context.lineWidth = 10;
            context.strokeStyle="blue";
           context.stroke();
-         
-          $("#whowinsdiv").css("visibility","visible");
+          gameFinished=true;
+           $("canvas").css("z-index","3");
+         $("#winnername").text("AI");
+          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
           occupied_arr_AI=[]
         }
 
-         if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('21')>-1)&&(occupied_arr_user.indexOf('31')>-1)){
-            context.beginPath();
-         context.moveTo(70, 80);
-         context.lineTo(420, 80);
+        else if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('21')>-1)&&(occupied_arr_user.indexOf('31')>-1)){
+           context.beginPath();
+             context.moveTo(70, 80);
+           context.lineTo(70, 420);
            context.lineWidth = 10;
             context.strokeStyle="blue";
           context.stroke();
-           
-          $("#whowinsdiv").css("visibility","visible");
+           gameFinished=true;
+            $("canvas").css("z-index","3");
           $("#winnername").text("User");
+           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('12')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('32')>-1)){
+            context.beginPath();
+           context.moveTo(246, 80);
+         context.lineTo(246, 420);
+          context.lineWidth = 10;
+          context.strokeStyle="blue";
+          context.stroke();
+          gameFinished=true;
+           $("canvas").css("z-index","3");
+          $("#winnername").text("User");
+          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+          occupied_arr_user=[];
+        }
+        else if((occupied_arr_user.indexOf('13')>-1)&&(occupied_arr_user.indexOf('23')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
+        context.beginPath();
+              context.moveTo(418, 80);
+         context.lineTo(418, 420);
+          context.lineWidth = 10;
+          context.strokeStyle="blue";
+          context.stroke();
+          gameFinished=true;
+           $("canvas").css("z-index","3");
+          $("#winnername").text("User");
+          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+          occupied_arr_user=[];
+        }
+        else if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('12')>-1)&&(occupied_arr_user.indexOf('13')>-1)){
+            context.beginPath();
+            context.moveTo(70, 80);
+         context.lineTo(418, 80);
+          context.lineWidth = 10;
+          context.strokeStyle="blue";
+          context.stroke();
+          gameFinished=true;
+           $("canvas").css("z-index","3");
+          $("#winnername").text("User");
+          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+          occupied_arr_user=[];
+        }
+        else if((occupied_arr_user.indexOf('21')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('23')>-1)){
             context.beginPath();
          context.moveTo(70, 250);
          context.lineTo(420, 250);
           context.lineWidth = 10;
           context.strokeStyle="blue";
           context.stroke();
-          
-          $("#whowinsdiv").css("visibility","visible");
+          gameFinished=true;
+           $("canvas").css("z-index","3");
           $("#winnername").text("User");
-          occupied_arr_user=[];
-        }
-        else if((occupied_arr_user.indexOf('13')>-1)&&(occupied_arr_user.indexOf('23')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
-        context.beginPath();
-         context.moveTo(70, 420);
-         context.lineTo(420, 420);
-          context.lineWidth = 10;
-          context.strokeStyle="blue";
-          context.stroke();
-          $("#whowinsdiv").css("visibility","visible");
-          $("#winnername").text("User");
-          occupied_arr_user=[];
-        }
-        else if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('12')>-1)&&(occupied_arr_user.indexOf('13')>-1)){
-            context.beginPath();
-         context.moveTo(76, 80);
-         context.lineTo(76, 420);
-          context.lineWidth = 10;
-          context.strokeStyle="blue";
-          context.stroke();
-          
-          $("#whowinsdiv").css("visibility","visible");
-          $("#winnername").text("User");
-          occupied_arr_user=[];
-        }
-        else if((occupied_arr_user.indexOf('21')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('23')>-1)){
-            context.beginPath();
-         context.moveTo(246, 80);
-         context.lineTo(246, 420);
-          context.lineWidth = 10;
-          context.strokeStyle="blue";
-          context.stroke();
-          
-          $("#whowinsdiv").css("visibility","visible");
-          $("#winnername").text("User");
+          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('31')>-1)&&(occupied_arr_user.indexOf('32')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
             context.beginPath();
-         context.moveTo(418, 80);
+           context.moveTo(70, 420);
          context.lineTo(418, 420);
           context.lineWidth = 10;
           context.strokeStyle="blue";
           context.stroke();
-          $("#whowinsdiv").css("visibility","visible");
+          gameFinished=true;
+           $("canvas").css("z-index","3");
           $("#winnername").text("User");
+          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
             context.beginPath();
-         context.moveTo(70, 80);
+           context.moveTo(70, 80);
          context.lineTo(418, 420);
           context.lineWidth = 10;
           context.strokeStyle="blue";
           context.stroke();
-          $("#whowinsdiv").css("visibility","visible");
+          gameFinished=true;
+           $("canvas").css("z-index","3");
           $("#winnername").text("User");
+          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
           occupied_arr_user=[];
         }
-        else if((occupied_arr_user.indexOf('31')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('13')>-1)){
+        else if((occupied_arr_user.indexOf('13')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('31')>-1)){
             context.beginPath();
-         context.moveTo(418, 80);
+          context.moveTo(418, 80);
          context.lineTo(70, 420);
           context.lineWidth = 10;
           context.strokeStyle="blue";
           context.stroke();
-          $("#whowinsdiv").css("visibility","visible");
+          gameFinished=true;
+           $("canvas").css("z-index","3");
           $("#winnername").text("User");
+          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
           occupied_arr_user=[];
         }
+      }
     }
 
-       
-    
-
-
     numOccupied+=1;
-    
-    
-    
-    rev_xy=placed_arr[genIndex].split('').reverse().join('');
 
-    element_str+="#q"+rev_xy+"in";
+    element_str+="#q"+placed_arr[genIndex]+"in";
     
     $("#X").click(function(e){
         e.stopPropagation();
         x_or_o="X";
         $("#popup").css("visibility", "hidden");
-        $("body").css("background-color", "white");
+        $("body").css("background-color", "#6666ff");
        
          
        $(element_str).text("O");
         
+        element_str="";
   
     });
   
@@ -237,9 +266,11 @@ genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
         e.stopPropagation();
         x_or_o="O";
         $("#popup").css("visibility", "hidden");
-        $("body").css("background-color", "white");
+        $("body").css("background-color", "#6666ff");
 
        $(element_str).text("X");
+      
+       element_str="";
     });
 
   
@@ -247,12 +278,21 @@ genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
 
     placed_arr.splice(genIndex,1);
     
-   
+   $(".XorO").hover(function(){
+       $(this).css({"background-color":"pink",
+                     "border-width":"5px"
+                   });
+      
+     
+   }, function(){
+       $(this).css({"background-color":"white",
+                     "border-width":"1px"
+                   });
+   });
 
 
     $("#board").click(function(e){ 
 
-        
         element_str="";
        
         already_placed=false;
@@ -269,30 +309,30 @@ genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
         }
 
         if (( x >= 470)&&( x<= 636)){
-           xQuadrant=1;
-
-        }
-        else if (( x >= 637)&&( x<= 806)){
-            xQuadrant=2;
-        }
-        else if (( x >= 807)&&( x<= 973)){
-            xQuadrant=3;
-        }
-
-        if (( y >= 78)&&( y<= 243)){
            yQuadrant=1;
 
         }
-        else if (( y >= 243)&&( y<= 413)){
+        else if (( x >= 637)&&( x<= 806)){
             yQuadrant=2;
         }
-        else if (( y >= 413)&&( y<= 578)){
+        else if (( x >= 807)&&( x<= 973)){
             yQuadrant=3;
+        }
+
+        if (( y >= 78)&&( y<= 243)){
+           xQuadrant=1;
+
+        }
+        else if (( y >= 243)&&( y<= 413)){
+            xQuadrant=2;
+        }
+        else if (( y >= 413)&&( y<= 578)){
+            xQuadrant=3;
         }
 
         xystr="";
 
-        xystr+=String(xQuadrant)+String(yQuadrant);
+        xystr=String(xQuadrant)+String(yQuadrant);
 
         index=placed_arr.indexOf(xystr);
         
@@ -303,7 +343,7 @@ genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
             }
 
             else if(index > -1){
-                element_str+="#q"+yQuadrant+xQuadrant+"in";
+                element_str+="#q"+xystr+"in";
                 $(element_str).text(x_or_o);
                 numOccupied+=1;
                 element_str="";
@@ -312,31 +352,29 @@ genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
                 placed_arr.splice(index,1);
                 DrawLine();
                 arr_len=placed_arr.length;
-
                 genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
+              element_str+="#q"+placed_arr[genIndex]+"in";
               
-              rev_xy=placed_arr[genIndex].split('').reverse().join('');
-        
-              element_str+="#q"+rev_xy+"in";
+               occupied_arr_AI.push(placed_arr[genIndex]);
+
+              placed_arr.splice(genIndex,1);
+              
+              numOccupied+=1;
               
               if(x_or_o==="O"){
                 $(element_str).text("X");
+                
+                 DrawLine();
               }
               else{
                 $(element_str).text("O");
-              }
-               
-              
-              occupied_arr_AI.push(placed_arr[genIndex]);
-
-              placed_arr.splice(genIndex,1);
-
-              numOccupied+=1;
-
-              DrawLine();
+                
+                 DrawLine();
+              } 
                
             }
-
+             
+            xystr="";
             element_str="";
      
     });
@@ -344,8 +382,9 @@ genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
  $("button").click(function(){
       
        context.clearRect(0, 0, canvas.width, canvas.height);
-       $("#whowinsdiv").css("visibility","hidden");
        $(".in").text("");
+       $("canvas").css("z-index","6");
+       $("#whowinsdiv").css("opacity","0");
   x=0;
 y=0;
 xQuadrant=0;
@@ -358,16 +397,14 @@ numOccupied=0;
 element_str="";
 xystr="";
 arr_len=placed_arr.length;
-rev_xy="";
 occupied_arr_user=[];
 occupied_arr_AI=[];
+gameFinished=false;
 genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
    numOccupied+=1;
-  rev_xy=placed_arr[genIndex].split('').reverse().join('');
-
-    element_str+="#q"+rev_xy+"in";
+    element_str+="#q"+placed_arr[genIndex]+"in";
   $("#popup").css("visibility", "visible");
         $("body").css("background-color", "#999999"); 
 });
-
+  
 });
