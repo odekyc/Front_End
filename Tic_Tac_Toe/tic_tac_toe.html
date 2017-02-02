@@ -2,15 +2,23 @@
 <title>Tic Tac Toe!</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+</link>
+
 <link rel="stylesheet" type="text/css" href="tic_tac_toe.css">
+  
 </head>
 <body>
 
 <script src="tic_tac_toe.js"></script>
 <div id="board">
-<canvas id="c" width="502" height="502">	
+<canvas id="c" width="502" height="502">  
 </canvas>
-
+<!-- <div id="circle1" class="circle">
+  </div>
+  <div id="circle2" class="circle">
+  </div> -->
+ 
 <div class="checkbox" id="q11">
   <div class="in" id="q11in"></div>
 </div>
@@ -40,6 +48,10 @@
     <div class="in" id="q33in"></div>
 </div>
 
+<!--    <div id="circle3" class="circle">
+  </div>
+  <div id="circle4" class="circle">
+  </div> -->
 <div id="popup">
 <div id="blackdiv">
 <h1 id="tictactoe"><CENTER>tictactoe.js</CENTER></h1>
@@ -47,8 +59,8 @@
 <h1>X or O</h1>
 </div>
 <div id="XObuttons">
-<div id="X"><CENTER>X</CENTER></div>
-<div id="O"><CENTER>O</CENTER></div>
+<div id="X" class="XorO"><CENTER>X</CENTER></div>
+<div id="O" class="XorO"><CENTER>O</CENTER></div>
 
 </div>
 
@@ -57,6 +69,10 @@
 
  <div id="whowinsdiv"><span><span id="winnername">
    AI</span> HAS WON!
+</span>
+</div>
+  
+<div id="alrdyPlacedDiv"><div id="placedXDiv">X</div><span id="placedSpan"> This Quadrant Has Already Been Selected 
 </span>
 </div>
 </div>

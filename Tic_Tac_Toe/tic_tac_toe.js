@@ -407,6 +407,8 @@ gameFinished=false;
 genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
    numOccupied+=1;
     element_str+="#q"+placed_arr[genIndex]+"in";
+    occupied_arr_AI.push(placed_arr[genIndex]);
+    placed_arr.splice(genIndex,1);
   $("#popup").css("visibility", "visible");
    $("body").css("background-color", "#999999"); 
 });
