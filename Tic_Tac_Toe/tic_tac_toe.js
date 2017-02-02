@@ -289,6 +289,10 @@ genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
                      "border-width":"1px"
                    });
    });
+  
+  $("#placedXDiv").click(function(){ 
+        $("#alrdyPlacedDiv").css("visibility","hidden");
+  });
 
 
     $("#board").click(function(e){ 
@@ -339,7 +343,7 @@ genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
 
 
             if(index===-1){
-                alert("this has already been placed");
+                $("#alrdyPlacedDiv").css("visibility","visible");
             }
 
             else if(index > -1){
@@ -404,7 +408,7 @@ genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
    numOccupied+=1;
     element_str+="#q"+placed_arr[genIndex]+"in";
   $("#popup").css("visibility", "visible");
-        $("body").css("background-color", "#999999"); 
+   $("body").css("background-color", "#999999"); 
 });
   
 });
