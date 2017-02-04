@@ -355,7 +355,7 @@ xystr=$(this).attr('id').slice(1);
       $(".checkbox").css("pointer-events", "none");
        $("#alrdyPlacedDiv").css("pointer-events", "auto");
               
-   $("#placedXDiv").dblclick(function(e){ 
+   $("#placedXDiv").click(function(e){ 
       $(".checkbox").css("pointer-events", "auto");
      $("#alrdyPlacedDiv").css("pointer-events", "auto");
         $("#alrdyPlacedDiv").css("visibility","hidden");
