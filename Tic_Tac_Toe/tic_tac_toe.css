@@ -8,7 +8,9 @@ body{
     width: 504px;
     background-color: black;
     margin: auto;
-    margin-top: 75px;   
+    margin-top: 75px;
+    z-index:7;
+   pointer-events: none;
 }
 
 #popup{
@@ -20,24 +22,26 @@ body{
     width: 580px;
     left: 430px;
     border-radius: 10px;
-    z-index: 7;
+    z-index: 11;
+    pointer-events: auto;
 }
 
 #alrdyPlacedDiv{
-    position: absolute;
+    position:absolute;
     visibility: hidden;
-    top: 210px;
     background-color: yellow;
+    top: 210px;
+    left: 405px;
     height: 240px;
     width: 580px;
-    left: 430px;
     border: 20px double red;
     border-radius: 10px;
-    z-index: 8;
+    z-index: 11;
     color: blue;
     font-size: 1.8em;
     font-weight: bolder;
-    text-align: center;    
+    text-align: center;  
+    pointer-events: auto;
 }
 
 #placedSpan{
@@ -49,14 +53,21 @@ body{
     position: absolute;
     color: green;
     background-color: pink;
+    display: inline-block;
     top: 10px;
     left: 520px;
-    height: 37px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 100%;
-    padding-top: 3px;
-    font-family: Arial;
-    z-index: 10;
+    vertical-align: middle;
+    font-family: Arial; 
+    font-weight: bolder;
+    pointer-events: auto;
+}
+
+#placedXSpan{
+    position: relative;
+    top: 9px;
 }
 
 #blackdiv{
@@ -114,13 +125,6 @@ h1{
      padding-top: 8px;
 }
 
-circle{
-    visibility: hidden;
-}
-
-.lines{
-    visibility: hidden;
-}
 
 .toggled{
     visibility: visible;
@@ -157,6 +161,12 @@ circle{
    top: 375px;
    left: 760px;
 } */
+
+.checkbox{
+     pointer-events: none;
+     z-index: 9;
+  
+}
 
 #q11{
     height:161px;
@@ -260,6 +270,7 @@ circle{
   font-weight: bolder;
   font-size: 3em;
   color: black;
+  z-index:8;
 }
 
 
@@ -271,7 +282,8 @@ canvas{
     border: 20px solid red;
     border-radius: 50px;
     color: blue;
-    z-index: 6;
+    z-index: 10;
+    pointer-events: none;
 }
 
 #whowinsdiv{
@@ -284,7 +296,7 @@ canvas{
     left: 410px;
     border-radius: 10px;
     border: 20px solid orange;
-    z-index: 5;
+    z-index: 11;
     color: green;
     font-weight: 900;
     font-size: 3em;
@@ -305,6 +317,7 @@ button{
     font-size: 1.1em;
     left: 1100px;
     top: 30px;
+    pointer-events: auto;
       
 }
 
