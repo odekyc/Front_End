@@ -309,6 +309,7 @@ var gameFinished=false;
                      "border-width":"5px"
                    });
       
+$("#XorO").get(0).cloneNode().play();
      
    }, function(){
        $(this).css({"background-color":"white",
