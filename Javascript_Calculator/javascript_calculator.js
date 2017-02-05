@@ -1,7 +1,5 @@
 
 
-
-
 $(document).ready(function() {
 
     var id;
@@ -30,6 +28,7 @@ var add_sub_reg= /[\+\-]/gi;
 var is_NAN=false;
   
    $( "#AC" ).click(function() {
+     $("#ACorCE").get(0).cloneNode().play();
   $("#input").empty();
 });
 
@@ -38,8 +37,10 @@ var is_NAN=false;
 
      if(id==="AC"){
         $('#input').empty();
+       $("#ACorCE").get(0).cloneNode().play();
      }
       else if(id==='CE'){
+        $("#ACorCE").get(0).cloneNode().play();
         var temp_arr=[];
         text=document.getElementById('input').innerHTML;
         temp_arr.push(text.lastIndexOf('%'));
@@ -61,10 +62,12 @@ var is_NAN=false;
         if(i=== -1){
            
            $('#input').text(text);
+          $("#Result").get(0).cloneNode().play();
         }
         else if( i === 0 ){
            is_NAN=true;
            $('#input').text("NAN");
+          $("#Error").get(0).cloneNode().play();
         }
         else{
           revisedText=text;
@@ -74,6 +77,7 @@ var is_NAN=false;
             
             is_NAN=true;
             $("#input").text("NAN");
+             $("#Error").get(0).cloneNode().play();
           }
           else if(i>0){
             
@@ -86,20 +90,20 @@ var is_NAN=false;
               firstChunk_i = Math.max.apply(null, firstChunk_i_arr);
               secondChunk_i = secondChunk.search(all_reg);
               if(firstChunk_i == -1){
-               
+                
                 firstChunkfirst="";
                 firstChunksecond=firstChunk;
                 firstChunkOptr= "";
               }
               else{
-               
+                
                 firstChunkfirst=firstChunk.slice(0,firstChunk_i);
                 firstChunksecond=firstChunk.slice(firstChunk_i+1);
                 firstChunkOptr= firstChunk[firstChunk_i];
               }
 
               if(secondChunk_i == -1){
-               
+                
                 secondChunkfirst=secondChunk;
                 secondChunksecond="";
                 secondChunkOptr= "";
@@ -197,9 +201,11 @@ var is_NAN=false;
             }
             if(is_NAN == true){
               $("#input").text("NAN");
+               $("#Error").get(0).cloneNode().play();
             }
             else{
               $("#input").text(revisedText);
+               $("#Result").get(0).cloneNode().play();
             }
                
         }
@@ -208,6 +214,12 @@ var is_NAN=false;
 
      
      else if(((Number(id)>=0)&&(Number(id)<=9))||(id==='+')||(id==='-')||(id==='*')||(id==='/')||(id==='%')){
+       if((Number(id)>=0)&&(Number(id)<=9)){
+         $("#NumbersDot").get(0).cloneNode().play();
+       }
+       else{
+         $("#Operator").get(0).cloneNode().play();
+       }
         counter+=1;
         if( counter===1){
             document.getElementById('input').innerHTML=id;
@@ -220,6 +232,7 @@ var is_NAN=false;
         }
      }
      else if(id==='dot'){
+       $("#NumbersDot").get(0).cloneNode().play();
         counter+=1;
         if( counter===1){
             document.getElementById('input').innerHTML='.';
@@ -235,157 +248,3 @@ var is_NAN=false;
 });
 
 });
-
-
-
-// var id;
-// var text;
-// var inner_div_id;
-// var counter=0;
-// var result;
-// var curOperator;
-
-// $(document).ready(function() {
-
-  
-//    $( "#AC" ).click(function() {
-//   $("#input").empty();
-// });
-
-//  $(".keys").click(function() {
-//      id=$(this).attr('id');
-
-//      if(id==="AC"){
-//         $('#input').empty();
-//      }
-//       else if(id==='CE'){
-//         var temp_arr=[];
-//         text=document.getElementById('input').innerHTML;
-//         temp_arr.push(text.lastIndexOf('%'));
-//         temp_arr.push(text.lastIndexOf('/'));
-//         temp_arr.push(text.lastIndexOf('*'));
-//         temp_arr.push(text.lastIndexOf('+'));
-//         temp_arr.push(text.lastIndexOf('-'));
-
-//         var max=Math.max.apply(Math, temp_arr);
-
-//          text=text.slice(0,max);
-//          document.getElementById('input').innerHTML=text;
-//      }
-//      else if(id==="="){
-
-//         text=document.getElementById('input').innerHTML;
-//         var i=text.search(/[\+\/\-\*\%]/gi);
-//          if (i===0){
-//             document.getElementById('input').innerHTML='NAN';
-           
-//          }
-
-//          else{
-
-//             result=Number(text.slice(0,i));
-//             curOperator=text.slice(i,i+1);
-//             text=text.slice(i+1);
-          
-//             while(text.length>0){
-//                 var x=text.search(/[\+\/\-\*\%]/gi);
-//                 if((x===-1)||(x===text.length-1)){
-                    
-//                     if(curOperator==='+'){
-//                         result+=Number(text);
-//                     }
-//                     else if(curOperator==='-'){
-//                         result-=Number(text);
-//                     }
-//                      else if(curOperator==='%'){
-//                         result%=Number(text);
-//                     }
-//                     else if(curOperator==='*'){
-//                         result*=Number(text);
-//                     }
-//                      else if(curOperator==='/'){
-//                         result/=Number(text);
-//                     }
-//                     break;
-//                 }
-
-//                 var tempNum1=Number(text.slice(0,x));
-//                 if(curOperator==='+'){
-//                     result+=tempNum1;
-//                 }
-//                 else if(curOperator==='-'){
-//                     result-=tempNum1;
-//                 }
-//                  else if(curOperator==='%'){
-//                     result%=tempNum1;
-//                 }
-//                 else if(curOperator==='*'){
-//                     result*=tempNum1;
-//                 }
-//                  else if(curOperator==='/'){
-//                     result/=tempNum1;
-//                 }
-//                 curOperator=text.slice(x,x+1);
-
-//                 text=text.slice(x+1);
-//                 var y=text.search(/[\+\/\-\*\%]/gi);
-//                 if(y===0){
-//                     document.getElementById('input').innerHTML='NAN';
-//                     break;
-//                 }
-//                 else if (y===-1){
-//                 if(curOperator==='+'){
-//                     result+=Number(text);
-//                 }
-//                 else if(curOperator==='-'){
-//                     result-=Number(text);
-//                 }
-//                  else if(curOperator==='%'){
-//                     result%=Number(text);
-//                 }
-//                 else if(curOperator==='*'){
-//                     result*= Number(text);
-//                 }
-//                  else if(curOperator==='/'){
-//                     result/=Number(text);
-//                 }
-//                 text="";
-//                 }
-//             }
-//             document.getElementById('input').innerHTML=result;
-//          }
-        
-    
-        
-       
-//      }
-
-     
-//      else if(((Number(id)>=0)&&(Number(id)<=9))||(id==='+')||(id==='-')||(id==='*')||(id==='/')||(id==='%')){
-//         counter+=1;
-//         if( counter===1){
-//             document.getElementById('input').innerHTML=id;
-
-//         }
-//         else if(counter>=1){
-//             text=document.getElementById('input').innerHTML;
-//             text+=id;
-//             document.getElementById('input').innerHTML=text;
-//         }
-//      }
-//      else if(id==='dot'){
-//         counter+=1;
-//         if( counter===1){
-//             document.getElementById('input').innerHTML='.';
-
-//         }
-//         else if(counter>=1){
-//             text=document.getElementById('input').innerHTML;
-//             text+='.';
-//             document.getElementById('input').innerHTML=text;
-//         }
-//      }
-
-// });
-
-// });
