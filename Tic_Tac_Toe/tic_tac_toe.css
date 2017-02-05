@@ -31,7 +31,7 @@ body{
     visibility: hidden;
     background-color: yellow;
     top: 210px;
-    left: 405px;
+    left: 410px;
     height: 240px;
     width: 580px;
     border: 20px double red;
@@ -264,13 +264,18 @@ h1{
 .in{
   float: left;
   position: relative;
-  top: 55px;
-  left:65px;
+  top: 50px;
+  left:46px;
+  padding-left: 10px;
   font-family: 'Arvo';
   font-weight: bolder;
   font-size: 3em;
   color: black;
   z-index:8;
+  background-color: yellow;
+  width: 46px;
+  border-radius: 50%;
+
 }
 
 
@@ -278,7 +283,7 @@ h1{
 canvas{
     position: absolute;
     top: 55px;
-    left: 445px;
+    left: 450px;
     border: 20px solid red;
     border-radius: 50px;
     color: blue;

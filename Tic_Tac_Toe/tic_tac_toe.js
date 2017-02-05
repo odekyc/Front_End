@@ -260,10 +260,11 @@ var gameFinished=false;
        occupied_arr_AI.push(placed_arr[genIndex]);
        placed_arr.splice(genIndex,1);
        $(element_str).text("O");
-        
+        $(element_str).css("border", "5px solid blue");
         element_str="";
 
       $(".checkbox").css("pointer-events", "auto");
+      $("#AI_move").get(0).cloneNode().play();
     });
   
     $("#O").click(function(e){
@@ -277,9 +278,11 @@ var gameFinished=false;
        occupied_arr_AI.push(placed_arr[genIndex]);
        placed_arr.splice(genIndex,1);
        $(element_str).text("X");
+       $(element_str).css("border", "5px solid blue");
        element_str="";
 
       $(".checkbox").css("pointer-events", "auto");
+      $("#AI_move").get(0).cloneNode().play();
     });
 
   
@@ -365,6 +368,8 @@ xystr=$(this).attr('id').slice(1);
             else if(index > -1){
                 element_str+="#q"+xystr+"in";
                 $(element_str).text(x_or_o);
+  $(element_str).css("border", "5px solid blue");
+              $("#User_move").get(0).cloneNode().play();
                 numOccupied+=1;
                 element_str="";
 
@@ -374,7 +379,7 @@ xystr=$(this).attr('id').slice(1);
                 arr_len=placed_arr.length;
                 genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
               element_str+="#q"+placed_arr[genIndex]+"in";
-              
+       
                occupied_arr_AI.push(placed_arr[genIndex]);
 
               placed_arr.splice(genIndex,1);
@@ -382,13 +387,16 @@ xystr=$(this).attr('id').slice(1);
               numOccupied+=1;
               
               if(x_or_o==="O"){
-                $(element_str).text("X");
-                
+
+                 $(element_str).text("X");
+                $(element_str).css("border", "5px solid blue");
+                // $("#AI_move").get(0).cloneNode().play();   
                  DrawLine();
               }
               else{
                 $(element_str).text("O");
-                
+                $(element_str).css("border", "5px solid blue");
+                // $("#AI_move").get(0).cloneNode().play();
                  DrawLine();
               } 
                
@@ -403,12 +411,14 @@ xystr=$(this).attr('id').slice(1);
       
        context.clearRect(0, 0, canvas.width, canvas.height);
        $(".in").text("");
+     $(".in").css("border", "");
        // $("canvas").css("z-index","6");
        $("#whowinsdiv").css("opacity","0");
     
         $("#alrdyPlacedDiv").css("visibility","hidden");
       $(".checkbox").css("pointer-events", "none");
       $("#alrdyPlacedDiv").css("pointer-events", "auto");
+      $("#New_round").get(0).cloneNode().play();
        
   x=0;
 y=0;
