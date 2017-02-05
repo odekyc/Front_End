@@ -34,6 +34,7 @@ var gameFinished=false;
          return;
        }
        else{
+        
         if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('21')>-1)&&(occupied_arr_AI.indexOf('31')>-1)){
                context.beginPath();
              context.moveTo(70, 80);
@@ -45,6 +46,7 @@ var gameFinished=false;
            // $("canvas").css("z-index","3");
           $("#winnername").text("AI");
          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('12')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('32')>-1)){
@@ -58,6 +60,7 @@ var gameFinished=false;
            // $("canvas").css("z-index","3");
           $("#winnername").text("AI");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('13')>-1)&&(occupied_arr_AI.indexOf('23')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
@@ -71,6 +74,7 @@ var gameFinished=false;
            // $("canvas").css("z-index","3");
          $("#winnername").text("AI");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('12')>-1)&&(occupied_arr_AI.indexOf('13')>-1)){
@@ -84,6 +88,7 @@ var gameFinished=false;
            // $("canvas").css("z-index","3");
           $("#winnername").text("AI");
          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('21')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('23')>-1)){
@@ -97,6 +102,7 @@ var gameFinished=false;
            // $("canvas").css("z-index","3");
           $("#winnername").text("AI");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('31')>-1)&&(occupied_arr_AI.indexOf('32')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
@@ -110,6 +116,7 @@ var gameFinished=false;
            // $("canvas").css("z-index","3");
           $("#winnername").text("AI");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
@@ -124,7 +131,7 @@ var gameFinished=false;
           $("#winnername").text("AI");
           // $("#whowinsdiv").css("visibility","visible");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-          
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('13')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('31')>-1)){
@@ -138,6 +145,7 @@ var gameFinished=false;
            // $("canvas").css("z-index","3");
          $("#winnername").text("AI");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
 
@@ -152,6 +160,7 @@ var gameFinished=false;
             // $("canvas").css("z-index","3");
           $("#winnername").text("User");
            $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('12')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('32')>-1)){
@@ -165,6 +174,7 @@ var gameFinished=false;
            // $("canvas").css("z-index","3");
           $("#winnername").text("User");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('13')>-1)&&(occupied_arr_user.indexOf('23')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
@@ -178,6 +188,7 @@ var gameFinished=false;
            // $("canvas").css("z-index","3");
           $("#winnername").text("User");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('12')>-1)&&(occupied_arr_user.indexOf('13')>-1)){
@@ -191,6 +202,7 @@ var gameFinished=false;
            // $("canvas").css("z-index","3");
           $("#winnername").text("User");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('21')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('23')>-1)){
@@ -204,6 +216,7 @@ var gameFinished=false;
            // $("canvas").css("z-index","3");
           $("#winnername").text("User");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('31')>-1)&&(occupied_arr_user.indexOf('32')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
@@ -217,6 +230,7 @@ var gameFinished=false;
            // $("canvas").css("z-index","3");
           $("#winnername").text("User");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
@@ -230,6 +244,7 @@ var gameFinished=false;
            // $("canvas").css("z-index","3");
           $("#winnername").text("User");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('13')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('31')>-1)){
@@ -243,6 +258,7 @@ var gameFinished=false;
            // $("canvas").css("z-index","3");
           $("#winnername").text("User");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
+           $("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
       }
@@ -355,6 +371,7 @@ xystr=$(this).attr('id').slice(1);
  
             if(index===-1){
        $("#alrdyPlacedDiv").css("visibility","visible");
+       $("#Error").get(0).cloneNode().play();
       $(".checkbox").css("pointer-events", "none");
        $("#alrdyPlacedDiv").css("pointer-events", "auto");
               
