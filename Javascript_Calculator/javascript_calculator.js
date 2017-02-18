@@ -43,15 +43,15 @@ var is_NAN=false;
         $("#ACorCE").get(0).cloneNode().play();
         var temp_arr=[];
         text=document.getElementById('input').innerHTML;
-        temp_arr.push(text.lastIndexOf('%'));
-        temp_arr.push(text.lastIndexOf('/'));
-        temp_arr.push(text.lastIndexOf('*'));
-        temp_arr.push(text.lastIndexOf('+'));
-        temp_arr.push(text.lastIndexOf('-'));
+        // temp_arr.push(text.lastIndexOf('%'));
+        // temp_arr.push(text.lastIndexOf('/'));
+        // temp_arr.push(text.lastIndexOf('*'));
+        // temp_arr.push(text.lastIndexOf('+'));
+        // temp_arr.push(text.lastIndexOf('-'));
 
-        var max=Math.max.apply(Math, temp_arr);
+        // var max=Math.max.apply(Math, temp_arr);
 
-         text=text.slice(0,max);
+         text=text.slice(0,-1);
          document.getElementById('input').innerHTML=text;
      }
      else if(id==="="){
