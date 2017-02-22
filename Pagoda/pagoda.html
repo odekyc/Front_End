@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>pagoda</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<link href='pagoda.css' rel='stylesheet'  type='text/css' data-noprefix>
+</link>
+<script src="prefixfree.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="pagoda.js"></script>
+</head>
+
+<!-- <div id="sun">
+  
+</div> -->
+
+<div id="tridiv">
+  <div class="scene" id="pagoda" style="-webkit-transform:rotateX(5deg) rotateY(-987deg); -moz-transform:rotateX(5deg) rotateY(-987deg); -ms-transform:rotateX(5deg) rotateY(-987deg); transform:rotateX(5deg) rotateY(-987deg); ">
+    <div class="shape pyramid-1 pyr-1">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape cuboid-1 cub-1">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cylinder-1 cyl-1">
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+      <div class="face side s0"></div>
+      <div class="face side s1"></div>
+      <div class="face side s2"></div>
+      <div class="face side s3"></div>
+      <div class="face side s4"></div>
+      <div class="face side s5"></div>
+      <div class="face side s6"></div>
+      <div class="face side s7"></div>
+      <div class="face side s8"></div>
+      <div class="face side s9"></div>
+      <div class="face side s10"></div>
+      <div class="face side s11"></div>
+      <div class="face side s12"></div>
+      <div class="face side s13"></div>
+    </div>
+    <div class="shape cuboid-2 cub-2">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-3 cub-3">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-4 cub-4">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape pyramid-2 pyr-2">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape cuboid-5 cub-5">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape pyramid-3 pyr-3">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape cuboid-6 cub-6">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape pyramid-4 pyr-4">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-5 pyr-5">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-6 pyr-6">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-7 pyr-7">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-8 pyr-8">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-9 pyr-9">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-10 pyr-10">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-11 pyr-11">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape cuboid-7 cub-7">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-8 cub-8">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-9 cub-9">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-10 cub-10">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-11 cub-11">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-12 cub-12">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-13 cub-13">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-14 cub-14">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-15 cub-15">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-16 cub-16">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-17 cub-17">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape pyramid-12 pyr-12">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-13 pyr-13">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape cuboid-18 cub-18">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape pyramid-14 pyr-14">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-15 pyr-15">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-16 pyr-16">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-17 pyr-17">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-18 pyr-18">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-19 pyr-19">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-20 pyr-20">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-21 pyr-21">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape cuboid-19 cub-19">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-20 cub-20">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-21 cub-21">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-22 cub-22">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-23 cub-23">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-24 cub-24">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-25 cub-25">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-26 cub-26">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-27 cub-27">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-28 cub-28">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-29 cub-29">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape pyramid-22 pyr-22">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-23 pyr-23">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape cuboid-30 cub-30">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape pyramid-24 pyr-24">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-25 pyr-25">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-26 pyr-26">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-27 pyr-27">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-28 pyr-28">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-29 pyr-29">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-30 pyr-30">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-31 pyr-31">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape cuboid-31 cub-31">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-32 cub-32">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-33 cub-33">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-34 cub-34">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-35 cub-35">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-36 cub-36">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-37 cub-37">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-38 cub-38">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-39 cub-39">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-40 cub-40">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-41 cub-41">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape pyramid-32 pyr-32">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-33 pyr-33">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape cuboid-42 cub-42">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape pyramid-34 pyr-34">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-35 pyr-35">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-36 pyr-36">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-37 pyr-37">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-38 pyr-38">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-39 pyr-39">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-40 pyr-40">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-41 pyr-41">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-42 pyr-42">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-43 pyr-43">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape cuboid-43 cub-43">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-44 cub-44">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-45 cub-45">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-46 cub-46">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-47 cub-47">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-48 cub-48">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-49 cub-49">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-50 cub-50">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-51 cub-51">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-52 cub-52">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-53 cub-53">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-54 cub-54">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape pyramid-44 pyr-44">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-45 pyr-45">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape cuboid-55 cub-55">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-56 cub-56">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-57 cub-57">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-58 cub-58">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape pyramid-46 pyr-46">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-47 pyr-47">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-48 pyr-48">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape pyramid-49 pyr-49">
+      <div class="face-wrapper ft">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper bk">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper lt">
+        <div class="face"></div>
+      </div>
+      <div class="face-wrapper rt">
+        <div class="face"></div>
+      </div>
+      <div class="face bm"></div>
+    </div>
+    <div class="shape cuboid-59 cub-59">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-60 cub-60">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-61 cub-61">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cylinder-2 cyl-2">
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+      <div class="face side s0"></div>
+      <div class="face side s1"></div>
+      <div class="face side s2"></div>
+      <div class="face side s3"></div>
+      <div class="face side s4"></div>
+      <div class="face side s5"></div>
+      <div class="face side s6"></div>
+      <div class="face side s7"></div>
+      <div class="face side s8"></div>
+      <div class="face side s9"></div>
+      <div class="face side s10"></div>
+      <div class="face side s11"></div>
+      <div class="face side s12"></div>
+      <div class="face side s13"></div>
+    </div>
+    <div class="shape cylinder-3 cyl-3">
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+      <div class="face side s0"></div>
+      <div class="face side s1"></div>
+      <div class="face side s2"></div>
+      <div class="face side s3"></div>
+      <div class="face side s4"></div>
+      <div class="face side s5"></div>
+      <div class="face side s6"></div>
+      <div class="face side s7"></div>
+      <div class="face side s8"></div>
+      <div class="face side s9"></div>
+      <div class="face side s10"></div>
+      <div class="face side s11"></div>
+      <div class="face side s12"></div>
+      <div class="face side s13"></div>
+    </div>
+    <div class="shape cylinder-4 cyl-4">
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+      <div class="face side s0"></div>
+      <div class="face side s1"></div>
+      <div class="face side s2"></div>
+      <div class="face side s3"></div>
+      <div class="face side s4"></div>
+      <div class="face side s5"></div>
+      <div class="face side s6"></div>
+      <div class="face side s7"></div>
+      <div class="face side s8"></div>
+      <div class="face side s9"></div>
+      <div class="face side s10"></div>
+      <div class="face side s11"></div>
+      <div class="face side s12"></div>
+      <div class="face side s13"></div>
+    </div>
+    <div class="shape cylinder-5 cyl-5">
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+      <div class="face side s0"></div>
+      <div class="face side s1"></div>
+      <div class="face side s2"></div>
+      <div class="face side s3"></div>
+      <div class="face side s4"></div>
+      <div class="face side s5"></div>
+      <div class="face side s6"></div>
+      <div class="face side s7"></div>
+      <div class="face side s8"></div>
+      <div class="face side s9"></div>
+      <div class="face side s10"></div>
+      <div class="face side s11"></div>
+      <div class="face side s12"></div>
+      <div class="face side s13"></div>
+    </div>
+    <div class="shape cuboid-62 cub-62">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cylinder-6 cyl-6">
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+      <div class="face side s0"></div>
+      <div class="face side s1"></div>
+      <div class="face side s2"></div>
+      <div class="face side s3"></div>
+      <div class="face side s4"></div>
+      <div class="face side s5"></div>
+      <div class="face side s6"></div>
+      <div class="face side s7"></div>
+      <div class="face side s8"></div>
+      <div class="face side s9"></div>
+      <div class="face side s10"></div>
+      <div class="face side s11"></div>
+      <div class="face side s12"></div>
+      <div class="face side s13"></div>
+    </div>
+    <div class="shape cylinder-7 cyl-7">
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+      <div class="face side s0"></div>
+      <div class="face side s1"></div>
+      <div class="face side s2"></div>
+      <div class="face side s3"></div>
+      <div class="face side s4"></div>
+      <div class="face side s5"></div>
+      <div class="face side s6"></div>
+      <div class="face side s7"></div>
+      <div class="face side s8"></div>
+      <div class="face side s9"></div>
+      <div class="face side s10"></div>
+      <div class="face side s11"></div>
+      <div class="face side s12"></div>
+      <div class="face side s13"></div>
+    </div>
+    <div class="shape cylinder-8 cyl-8">
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+      <div class="face side s0"></div>
+      <div class="face side s1"></div>
+      <div class="face side s2"></div>
+      <div class="face side s3"></div>
+      <div class="face side s4"></div>
+      <div class="face side s5"></div>
+      <div class="face side s6"></div>
+      <div class="face side s7"></div>
+      <div class="face side s8"></div>
+      <div class="face side s9"></div>
+      <div class="face side s10"></div>
+      <div class="face side s11"></div>
+      <div class="face side s12"></div>
+      <div class="face side s13"></div>
+    </div>
+    <div class="shape cuboid-63 cub-63">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cylinder-9 cyl-9">
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+      <div class="face side s0"></div>
+      <div class="face side s1"></div>
+      <div class="face side s2"></div>
+      <div class="face side s3"></div>
+      <div class="face side s4"></div>
+      <div class="face side s5"></div>
+      <div class="face side s6"></div>
+      <div class="face side s7"></div>
+      <div class="face side s8"></div>
+      <div class="face side s9"></div>
+      <div class="face side s10"></div>
+      <div class="face side s11"></div>
+      <div class="face side s12"></div>
+      <div class="face side s13"></div>
+    </div>
+    <div class="shape cylinder-10 cyl-10">
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+      <div class="face side s0"></div>
+      <div class="face side s1"></div>
+      <div class="face side s2"></div>
+      <div class="face side s3"></div>
+      <div class="face side s4"></div>
+      <div class="face side s5"></div>
+      <div class="face side s6"></div>
+      <div class="face side s7"></div>
+      <div class="face side s8"></div>
+      <div class="face side s9"></div>
+      <div class="face side s10"></div>
+      <div class="face side s11"></div>
+      <div class="face side s12"></div>
+      <div class="face side s13"></div>
+    </div>
+    <div class="shape cylinder-11 cyl-11">
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+      <div class="face side s0"></div>
+      <div class="face side s1"></div>
+      <div class="face side s2"></div>
+      <div class="face side s3"></div>
+      <div class="face side s4"></div>
+      <div class="face side s5"></div>
+      <div class="face side s6"></div>
+      <div class="face side s7"></div>
+      <div class="face side s8"></div>
+      <div class="face side s9"></div>
+      <div class="face side s10"></div>
+      <div class="face side s11"></div>
+      <div class="face side s12"></div>
+      <div class="face side s13"></div>
+    </div>
+    <div class="shape cylinder-12 cyl-12">
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+      <div class="face side s0"></div>
+      <div class="face side s1"></div>
+      <div class="face side s2"></div>
+      <div class="face side s3"></div>
+      <div class="face side s4"></div>
+      <div class="face side s5"></div>
+      <div class="face side s6"></div>
+      <div class="face side s7"></div>
+      <div class="face side s8"></div>
+      <div class="face side s9"></div>
+      <div class="face side s10"></div>
+      <div class="face side s11"></div>
+      <div class="face side s12"></div>
+      <div class="face side s13"></div>
+    </div>
+    <div class="shape cylinder-13 cyl-13">
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+      <div class="face side s0"></div>
+      <div class="face side s1"></div>
+      <div class="face side s2"></div>
+      <div class="face side s3"></div>
+      <div class="face side s4"></div>
+      <div class="face side s5"></div>
+      <div class="face side s6"></div>
+      <div class="face side s7"></div>
+      <div class="face side s8"></div>
+      <div class="face side s9"></div>
+      <div class="face side s10"></div>
+      <div class="face side s11"></div>
+      <div class="face side s12"></div>
+      <div class="face side s13"></div>
+    </div>
+    <div class="shape cylinder-14 cyl-14">
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+      <div class="face side s0"></div>
+      <div class="face side s1"></div>
+      <div class="face side s2"></div>
+      <div class="face side s3"></div>
+      <div class="face side s4"></div>
+      <div class="face side s5"></div>
+      <div class="face side s6"></div>
+      <div class="face side s7"></div>
+      <div class="face side s8"></div>
+      <div class="face side s9"></div>
+      <div class="face side s10"></div>
+      <div class="face side s11"></div>
+      <div class="face side s12"></div>
+      <div class="face side s13"></div>
+    </div>
+    <div class="shape cuboid-64 cub-64">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+    <div class="shape cuboid-65 cub-65">
+      <div class="face ft"></div>
+      <div class="face bk"></div>
+      <div class="face rt"></div>
+      <div class="face lt"></div>
+      <div class="face bm"></div>
+      <div class="face tp"></div>
+    </div>
+  </div>
+</div>
+
+</html>
