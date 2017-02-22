@@ -14,14 +14,15 @@ html{
 
 }
 
-/* /!\ You need to add vendor prefixes in order to render the CSS properly (or simply use http://leaverou.github.io/prefixfree/) /!\ */ #tridiv {
+/* /!\ You need to add vendor prefixes in order to render the CSS properly (or simply use http://leaverou.github.io/prefixfree/) /!\ */ 
+#tridiv {
   perspective: 800px;
   position: absolute;
   overflow: hidden;
   width: 100%;
   height: 100%;
   background: transparent;
-  font-size: 1px;
+  font-size: 1.4px;
 }
 .face {
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.4);
