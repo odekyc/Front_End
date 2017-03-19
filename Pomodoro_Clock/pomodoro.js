@@ -1,7 +1,12 @@
 $(document).ready(function() {
      
-  var value=5;
+    var value=5;
   var audio = $("audio")[0]; 
+  var audio1 = $("audio")[1]; 
+  var audio2 = $("audio")[2];
+  var audio3 = $("audio")[3];
+  var audio4 = $("audio")[4];
+
    var countTime=document.getElementById("r").innerHTML; 
    var breakTime=document.getElementById("l").innerHTML;
 
@@ -15,8 +20,11 @@ $(document).ready(function() {
   var paused_time;
 var backgrd_fill_intv;
 var time_intv;
+
+ document.getElementById("time").innerHTML=25;
+
     $("#lminus").click(function(){
-    
+      audio1.play(); 
     if(innercircle_clicked===false){
        time_value=Number(document.getElementById("l").innerHTML);
        if(time_value>1){
@@ -30,6 +38,7 @@ var time_intv;
     });
 
       $("#lplus").click(function(){
+        audio1.play(); 
         if(innercircle_clicked===false){
           time_value=Number(document.getElementById("l").innerHTML);
           time_value+=1;
@@ -41,6 +50,7 @@ var time_intv;
     });
 
        $("#rminus").click(function(){
+         audio1.play(); 
         break_session=document.getElementById("session").innerHTML;
 
         if(innercircle_clicked===false){
@@ -60,14 +70,21 @@ var time_intv;
     });
 
         $("#rplus").click(function(){
-          if(innercircle_clicked===false){
-          value=Number(document.getElementById("r").innerHTML);
-          value+=1;
-          document.getElementById("r").innerHTML=value;
-           time_value=Number(document.getElementById("time").innerHTML);
-          time_value+=1;
-          if(break_session=== "SESSION"){
-          document.getElementById("time").innerHTML=time_value;
+         audio1.play(); 
+         break_session=document.getElementById("session").innerHTML;
+
+        if(innercircle_clicked===false){
+       value=Number(document.getElementById("r").innerHTML);
+       time_value=Number(document.getElementById("time").innerHTML);
+       if(value>1){
+        value+=1;
+       }
+       document.getElementById("r").innerHTML=value;
+        if(time_value>1){
+        time_value+=1;
+       }
+       if(break_session=== "SESSION"){
+       document.getElementById("time").innerHTML=time_value;
         }
       }
     });
@@ -76,7 +93,7 @@ var time_intv;
 
     function countdown(){
         
-
+        audio3.play();
         countTime=document.getElementById("r").innerHTML; 
         breakTime=document.getElementById("l").innerHTML;
        
@@ -98,7 +115,6 @@ var time_intv;
         }
 
         if( pause===false){
-
           minutes=document.getElementById("time").innerHTML;
           var i=minutes.indexOf(":");
 
@@ -137,11 +153,19 @@ var time_intv;
         }
 
        myVar=setInterval(function(){ 
+           audio4.play();
+         
            if((minutes === 0) && (seconds === 1)){
 
             audio.play();
           }
-
+         
+         if(minutes === 25){
+           document.getElementById("time").innerHTML= 25;
+           document.getElementById("r").innerHTML=25;
+           
+         }
+          
           if((minutes>0)&&(seconds===0)){
             minutes-=1;
             seconds=59;  
@@ -160,7 +184,7 @@ var time_intv;
           }
 
           if((minutes > 0 )&& (seconds === 0)){
-          	break_session=document.getElementById("session").innerHTML; 
+            break_session=document.getElementById("session").innerHTML; 
              minutes-=1;
             seconds=59;
             document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
@@ -168,7 +192,7 @@ var time_intv;
             document.getElementById("r").innerHTML=String(minutes+1);
             }
             else if (break_session === "Break!"){
-            	document.getElementById("l").innerHTML=String(minutes+1);
+              document.getElementById("l").innerHTML=String(minutes+1);
             }
           }
 
@@ -178,6 +202,7 @@ var time_intv;
 
             document.getElementById("time").innerHTML=String(minutes)+":00";
             if (break_session === "SESSION"){
+              
               breakTime=document.getElementById("l").innerHTML;
               break_session="Break!"
               minutes=breakTime;
