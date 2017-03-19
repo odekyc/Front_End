@@ -1,13 +1,13 @@
 body{
-    background-color: #99ccff;
+    background-color: black;
 }
 
 
 #title{
   font: 400 80px/1.5 'Pacifico', Helvetica, sans-serif;
-  color: white;
+  color: #ff99ff;
   text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
-  font-weight: bolder;
+  font-weight: bold;
   position: relative;
   top: 20px;
   margin: auto;
@@ -16,12 +16,13 @@ body{
 h6{
     position: relative;
     text-height: auto;
-    font-size: 80%;
+    font-size: 140%;
     color: white;
     font-weight: lighter;
     font-family: Arial;
     display: inline;
     top: 45px;
+    font-weight: bold;
 
 }
 
@@ -31,13 +32,6 @@ h6{
     top: 50px;
 }
 
-h2{
-    display:inline;
-    margin-left: 8px;
-    margin-right: 8px;
-    color: white;
-    font-weight: lighter;
-}
 
 #right-button{
     display:inline;
@@ -51,26 +45,30 @@ h1{
     margin-right: 8px;
     color: white;
     font-weight: lighter;
+    position: relative;
+    top: 20px;
 }
 
 #circle{
     position: relative;
-    height: 320px;
-    width: 320px;
+    height: 420px;
+    width: 420px;
     border-radius: 100%;
-    border: solid #33cc33 6px;
+    border: solid yellow 20px;
     top: 80px;
+    background-color: #9999ff;
 }
 
 #innercircle{
     position: relative;
-    height: 310px;
-    width: 310px;
+    height: 400px;
+    width: 400px;
     border-radius: 100%;
-    top: -40px;
     font-family: sans-serif;
     font-weight: lighter;
-    background: -webkit-linear-gradient(bottom, #73e600 20%, yellow 80%); /* For Safari 5.1 to 6.0 */
+    border: solid black 10px;
+   
+/*     background: -webkit-linear-gradient(bottom, #660033 20%, #60401f 80%); /* For Safari 5.1 to 6.0 */ */
     background: -o-linear-gradient(bottom, #73e600 20%, yellow 80%); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(bottom, #73e600 20%, yellow 80%); /* For Firefox 3.6 to 15 */
     background: linear-gradient(bottom, #73e600 20%, yellow 80%); /* Standard syntax */
@@ -78,9 +76,10 @@ h1{
 
 #session{
     position:relative;
-    font-size: 280%;
+    font-size: 350%;
     top: 80px;
-    color: white;
+    color: green;
+    font-weight: bold;
 }
 
 
@@ -88,6 +87,7 @@ h1{
     position:relative;
     font-size: 390%;
     top: 70px;
-    color: white;
+    color: purple;
+    font-weight: bold;
 
 }
