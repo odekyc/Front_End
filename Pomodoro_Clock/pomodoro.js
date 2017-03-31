@@ -1,4 +1,4 @@
-$(document).ready(function() {
+  $(document).ready(function() {
      
     var value=5;
   var audio = $("audio")[0]; 
@@ -6,54 +6,68 @@ $(document).ready(function() {
   var audio2 = $("audio")[2];
   var audio3 = $("audio")[3];
   var audio4 = $("audio")[4];
+    
+  var firstrun=true;
 
    var countTime=document.getElementById("r").innerHTML; 
    var breakTime=document.getElementById("l").innerHTML;
 
    var pause = false;
-   var seconds = 0;
-   var minutes = 25;
+   var seconds=0;
+   var minutes=25;
   var innercircle_clicked=false;
-  var time_value=25;
+  var time_value =25;
   var myVar;
   var break_session;
   var paused_time;
 var backgrd_fill_intv;
 var time_intv;
+    
+    
+   
 
  document.getElementById("time").innerHTML=25;
 
     $("#lminus").click(function(){
-      audio1.play(); 
+      
     if(innercircle_clicked===false){
+      
+         break_session=document.getElementById("session").innerHTML;
+      audio1.play(); 
        time_value=Number(document.getElementById("l").innerHTML);
        if(time_value>1){
         time_value-=1;
        }
+
+      
        document.getElementById("l").innerHTML=time_value;
         if(break_session=== "Break!"){
        document.getElementById("time").innerHTML=time_value;
-     }
+       }
+      seconds=59;
      }
     });
 
       $("#lplus").click(function(){
-        audio1.play(); 
+        
         if(innercircle_clicked===false){
+          break_session=document.getElementById("session").innerHTML;
+           audio1.play();
           time_value=Number(document.getElementById("l").innerHTML);
           time_value+=1;
           document.getElementById("l").innerHTML=time_value;
            if(break_session=== "Break!"){
-       document.getElementById("time").innerHTML=time_value;
-     }
+             document.getElementById("time").innerHTML=time_value;
+           }
+          seconds=59;
       }  
     });
 
        $("#rminus").click(function(){
-         audio1.play(); 
-        break_session=document.getElementById("session").innerHTML;
 
         if(innercircle_clicked===false){
+          break_session=document.getElementById("session").innerHTML;
+          audio1.play(); 
        value=Number(document.getElementById("r").innerHTML);
        time_value=Number(document.getElementById("time").innerHTML);
        if(value>1){
@@ -63,29 +77,33 @@ var time_intv;
         if(time_value>1){
         time_value-=1;
        }
+  
        if(break_session=== "SESSION"){
        document.getElementById("time").innerHTML=time_value;
      }
+          seconds=59;
      }
     });
 
-        $("#rplus").click(function(){
-         audio1.play(); 
-         break_session=document.getElementById("session").innerHTML;
+    $("#rplus").click(function(){
+         
 
         if(innercircle_clicked===false){
+          audio1.play(); 
+         break_session=document.getElementById("session").innerHTML;
        value=Number(document.getElementById("r").innerHTML);
        time_value=Number(document.getElementById("time").innerHTML);
-       if(value>1){
+       if(value>=1){
         value+=1;
        }
        document.getElementById("r").innerHTML=value;
-        if(time_value>1){
+      if(time_value>=1){
         time_value+=1;
        }
        if(break_session=== "SESSION"){
        document.getElementById("time").innerHTML=time_value;
         }
+          seconds=59;
       }
     });
     
@@ -93,7 +111,8 @@ var time_intv;
 
     function countdown(){
         
-        audio3.play();
+        
+       audio3.play();
         countTime=document.getElementById("r").innerHTML; 
         breakTime=document.getElementById("l").innerHTML;
        
@@ -118,8 +137,10 @@ var time_intv;
           minutes=document.getElementById("time").innerHTML;
           var i=minutes.indexOf(":");
 
-          minutes=Number(minutes.slice(0,i));
+          minutes=Number(minutes.slice(0,i));  
+          
           minutes+=1;
+          
           document.getElementById("time").innerHTML=minutes;
           clearInterval(myVar);
         }
@@ -135,55 +156,42 @@ var time_intv;
  
         backgrd_fill_intv=time_value/70;
         time_intv=backgrd_fill_intv*60000;
-
+       
+          time_value=Number(time_value);
+          minutes=time_value-1;
+          
+          if(firstrun){
+            seconds=59;
+          }
+          
+          document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
         
-         
- 
-
-        if(time_value.length<=2){
-          time_value=Number(time_value)-1;
-          document.getElementById("time").innerHTML=String(time_value)+":59";
-          minutes=time_value;
-          seconds=59;
-        }
      
         if( innercircle_clicked===false){
           time_value=Number(document.getElementById("r").innerHTML);
           document.getElementById("time").innerHTML=time_value;
         }
+          
 
        myVar=setInterval(function(){ 
            audio4.play();
          
-           if((minutes === 0) && (seconds === 1)){
-
-            audio.play();
-          }
-         
-         if(minutes === 25){
-           document.getElementById("time").innerHTML= 25;
-           document.getElementById("r").innerHTML=25;
-           
-         }
-          
-          if((minutes>0)&&(seconds===0)){
+         if((minutes>0)&&(seconds===0)){
             minutes-=1;
             seconds=59;  
             document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);  
           }
          
-
-          if ((minutes>0)|| (seconds>0)){
+          else if ((minutes>=0)&& (seconds>0)&&(seconds>10)){
               seconds-=1;
               document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
-          }
-          
-          if((seconds<10)&&(seconds>0)){
-          
+          }  
+          else if((seconds<=10)&&(seconds>0)&&(minutes>=0)){
+             seconds-=1;
              document.getElementById("time").innerHTML=String(minutes)+":"+"0"+String(seconds);
           }
 
-          if((minutes > 0 )&& (seconds === 0)){
+          else if((minutes > 0 )&& (seconds === 0)){
             break_session=document.getElementById("session").innerHTML; 
              minutes-=1;
             seconds=59;
@@ -196,7 +204,9 @@ var time_intv;
             }
           }
 
-          if((minutes === 0 )&& (seconds === 0)){
+          else if((minutes === 0 )&& (seconds === 0)){
+            audio.play();
+            
             break_session=document.getElementById("session").innerHTML; 
             minutes=0;
 
@@ -219,10 +229,13 @@ var time_intv;
               seconds=59;
               document.getElementById("time").innerHTML=String(minutes)+":"+String(seconds);
               document.getElementById("session").innerHTML=break_session;
-            }              
-         }
+            }    
+         }        
         }, 1000);
      }
+      
+      firstrun=false;
+      
     }
 
     $("#innercircle").click(countdown);
