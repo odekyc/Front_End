@@ -1,6 +1,6 @@
 #Tic Tac Toe
 
-http://codepen.io/odekyc/pen/XKqOwx
+http://codepen.io/odelva/pen/XKqOwx
 
 This is an Advanced Front-End Project from Free Code Camp, built using Javascript, HTML5, CSS3, https://www.freecodecamp.com/challenges/build-a-tic-tac-toe-game.
 
