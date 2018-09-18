@@ -1,6 +1,6 @@
 #Random Quote Generator
 
-http://codepen.io/odekyc/pen/jBYKNN
+http://codepen.io/odelva/pen/jBYKNN
 
 a webpage that, upon user clicks on a button, would refresh and generate a new quote.
 
