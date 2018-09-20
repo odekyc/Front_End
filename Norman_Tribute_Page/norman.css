@@ -1,11 +1,12 @@
 body {
   background-color: white;
+  height: 100%;
 }
 
 #grey-box {
   background-color: #E8E8E8  ;
-  height: 295%;
-  width: 90%;
+  height: 280%;
+  width: 86%;
   position: relative;
   top: 8%;
   margin: 0 auto;
@@ -25,7 +26,7 @@ body {
 h2{
     font-family: Arial;
     font-style: italic;
-    font-size: 30;
+    font-size: 120%;
     font-weight: lighter;
     text-align: center;
     position: relative;
@@ -41,11 +42,12 @@ h2{
 img{
    top: 9%;
    margin: 0 auto;
+   width: 100%;
 }
 
 #picture-box{
     background-color: white;
-    height: 37% ;
+    height: 38% ;
     width: 90%;
     margin: 0 auto;
     margin-top: 5%;
@@ -54,9 +56,9 @@ img{
 
 #p-box-text{
     position: relative;
-    font-size: 15px;
+    font-size: 90%;
     font-family: Arial;
-    top: 5%;
+    top: 3%;
     font-weight: lighter;
 }
 
