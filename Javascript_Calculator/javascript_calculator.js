@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 
-    var id;
+var id;
 var text;
 var inner_div_id;
 var counter=0;
@@ -28,21 +28,25 @@ var add_sub_reg= /[\+\-]/gi;
 var is_NAN=false;
   
    $( "#AC" ).click(function() {
+     $('#input').attr('readonly', false);
      $("#ACorCE").get(0).cloneNode().play();
-  $("#input").empty();
+     $("#input").empty();
 });
 
  $(".keys").click(function() {
+
      id=$(this).attr('id');
 
      if(id==="AC"){
+        $('#input').attr('readonly', false);
         $('#input').empty();
        $("#ACorCE").get(0).cloneNode().play();
      }
       else if(id==='CE'){
+        $('#input').attr('readonly', false);
         $("#ACorCE").get(0).cloneNode().play();
         var temp_arr=[];
-        text=document.getElementById('input').innerHTML;
+        text=$("#input").text();
         // temp_arr.push(text.lastIndexOf('%'));
         // temp_arr.push(text.lastIndexOf('/'));
         // temp_arr.push(text.lastIndexOf('*'));
@@ -52,11 +56,11 @@ var is_NAN=false;
         // var max=Math.max.apply(Math, temp_arr);
 
          text=text.slice(0,-1);
-         document.getElementById('input').innerHTML=text;
+         $("#input").text(text);
      }
      else if(id==="="){
-        
-        text=document.getElementById('input').innerHTML;
+        $('#input').attr('readonly', false);
+        text=$("#input").text();
         i=text.search(all_reg);
         
         if(i=== -1){
@@ -214,35 +218,53 @@ var is_NAN=false;
 
      
      else if(((Number(id)>=0)&&(Number(id)<=9))||(id==='+')||(id==='-')||(id==='*')||(id==='/')||(id==='%')){
-       if((Number(id)>=0)&&(Number(id)<=9)){
-         $("#NumbersDot").get(0).cloneNode().play();
-       }
-       else{
-         $("#Operator").get(0).cloneNode().play();
-       }
-        counter+=1;
-        if( counter===1){
-            document.getElementById('input').innerHTML=id;
-
+        var inputTextLen = $("#input").text().length;
+        if(inputTextLen==34){
+          $("#Error").get(0).cloneNode().play();
+          $('#input').attr('readonly', true);
         }
-        else if(counter>=1){
-            text=document.getElementById('input').innerHTML;
-            text+=id;
-            document.getElementById('input').innerHTML=text;
+        else{
+            $('#input').attr('readonly', false);
+            if((Number(id)>=0)&&(Number(id)<=9)){
+          
+                $("#NumbersDot").get(0).cloneNode().play();
+              
+            }
+           else{
+             $("#Operator").get(0).cloneNode().play();
+           }
+            counter+=1;
+            if( counter===1){
+                $("#input").text(id);
+
+            }
+            else if(counter>=1){
+                text=$("#input").text();
+                text+=id;
+                $("#input").text(text);
+            }
         }
      }
      else if(id==='dot'){
-       $("#NumbersDot").get(0).cloneNode().play();
-        counter+=1;
-        if( counter===1){
-            document.getElementById('input').innerHTML='.';
+      var inputTextLen = $("#input").text().length;
+      if(inputTextLen==34){
+        $("#Error").get(0).cloneNode().play();
+        $('#input').attr('readonly', true);
+      }
+      else{
+         $('#input').attr('readonly', false);
+         $("#NumbersDot").get(0).cloneNode().play();
+          counter+=1;
+          if( counter===1){
+              $("#input").text('.');
 
-        }
-        else if(counter>=1){
-            text=document.getElementById('input').innerHTML;
-            text+='.';
-            document.getElementById('input').innerHTML=text;
-        }
+          }
+          else if(counter>=1){
+              text=$("#input").text();
+              text+='.';
+              $("#input").text(text);
+          }
+      }
      }
 
 });
