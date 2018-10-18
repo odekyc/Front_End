@@ -17,6 +17,8 @@ var occupied_arr_AI=[];
 var gameFinished=false;
 var surroundPlcsArr=[];
 var surroundEmptyPlcsArr=[];
+var lastPlc="";
+
  
    $(".XorO").hover(function(){
        $(this).css({"background-color":"pink",
@@ -497,7 +499,165 @@ yxstr=$(this).attr('id').slice(1);
                     }
                   }
                 }
+                if(AIOccupiedLen==2){
+                   if(occupied_arr_AI.indexOf("22")>-1){
+                      if(occupied_arr_AI.indexOf("11")>-1){
+                         lastPlc="33";
+                      }
+                      else if(occupied_arr_AI.indexOf("12")>-1){
+                         lastPlc="32";
+                      }
+                      else if(occupied_arr_AI.indexOf("13")>-1){
+                         lastPlc="31";
+                      }
+                      else if(occupied_arr_AI.indexOf("21")>-1){
+                         lastPlc="23";
+                      }
+                      else if(occupied_arr_AI.indexOf("23")>-1){
+                         lastPlc="21";
+                      }
+                      else if(occupied_arr_AI.indexOf("31")>-1){
+                         lastPlc="13";
+                      }
+                      else if(occupied_arr_AI.indexOf("33")>-1){
+                         lastPlc="11";
+                      }
 
+                      genIndex=EmptyPlcsArr.indexOf(lastPlc);
+
+                      if(genIndex>-1){
+                         element_str+="#q"+lastPlc+"in";
+                         occupied_arr_AI.push(lastPlc);
+                         EmptyPlcsArr.splice(genIndex,1);
+                      }
+                      else{
+                          var tempUserPlc0=occupied_arr_user[0];
+                          if(tempUserPlc0=="11"){
+                            surroundPlcsArr=["12","21"];
+                          }
+                          else if(tempUserPlc0=="12"){
+                            surroundPlcsArr=["11","13"];
+                          }
+                          else if(tempUserPlc0=="13"){
+                            surroundPlcsArr=["12","23"];
+                          }
+                          else if(tempUserPlc0=="21"){
+                            surroundPlcsArr=["11","31"];
+                          }
+                          else if(tempUserPlc0=="23"){
+                            surroundPlcsArr=["13","33"];
+                          }
+                          else if(tempUserPlc0=="31"){
+                            surroundPlcsArr=["21","32"];
+                          }
+                          else if(tempUserPlc0=="32"){
+                            surroundPlcsArr=["31","33"];
+                          }
+                          else if(tempUserPlc0=="33"){
+                            surroundPlcsArr=["23","32"];
+                          }
+                        for(var i=0; i<surroundPlcsArr.length; i++){
+                            surPlcIndex=EmptyPlcsArr.indexOf(surroundPlcsArr[i])
+                            if(surPlcIndex>-1){
+                              surroundEmptyPlcsArr.push(surroundPlcsArr[i]);
+                            }
+                        }
+                          
+                            surEmptyArrLen=surroundEmptyPlcsArr.length;
+                            genIndex=Math.floor((Math.random() * surEmptyArrLen) + 1)-1;
+                            element_str+="#q"+surroundEmptyPlcsArr[genIndex]+"in";
+                     
+                             occupied_arr_AI.push(surroundEmptyPlcsArr[genIndex]);
+
+                            EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(surroundEmptyPlcsArr[genIndex]);
+
+                            EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
+                      
+
+                      }
+                   }
+                   else{
+                       if(occupied_arr_user.indexOf("22")>-1){
+                          if(occupied_arr_user.indexOf("11")>-1){
+                             lastPlc="33";
+                           }
+                          else if(occupied_arr_user.indexOf("12")>-1){
+                             lastPlc="32";
+                          }
+                          else if(occupied_arr_user.indexOf("13")>-1){
+                             lastPlc="31";
+                          }
+                          else if(occupied_arr_user.indexOf("21")>-1){
+                             lastPlc="23";
+                          }
+                          else if(occupied_arr_user.indexOf("23")>-1){
+                             lastPlc="21";
+                          }
+                          else if(occupied_arr_user.indexOf("31")>-1){
+                             lastPlc="13";
+                          }
+                          else if(occupied_arr_user.indexOf("33")>-1){
+                             lastPlc="11";
+                          }
+                          genIndex=EmptyPlcsArr.indexOf(lastPlc);          
+                           element_str+="#q"+lastPlc+"in";
+                           occupied_arr_AI.push(lastPlc);
+                           EmptyPlcsArr.splice(genIndex,1);
+                      }
+                      else{
+                          if(occupied_arr_user.indexOf("11")>-1){
+                             if(occupied_arr_user.indexOf("12")>-1){
+                                lastPlc="13";
+                             }
+                             else if(occupied_arr_user.indexOf("21")>-1){
+                                lastPlc="31";
+                             }
+                             else if(occupied_arr_user.indexOf("13")>-1){
+                                lastPlc="12";
+                             }
+                             else if(occupied_arr_user.indexOf("31")>-1){
+                                lastPlc="21";
+                             }
+                             else{
+                                lastPlc="22";
+                             }
+                          }
+                          else if(occupied_arr_user.indexOf("33")>-1){
+                             if(occupied_arr_user.indexOf("23")>-1){
+                                lastPlc="13";
+                             }
+                             else if(occupied_arr_user.indexOf("13")>-1){
+                                lastPlc="23";
+                             }
+                             else if(occupied_arr_user.indexOf("31")>-1){
+                                lastPlc="32";
+                             }
+                             else if(occupied_arr_user.indexOf("32")>-1){
+                                lastPlc="31";
+                             }
+                             else{
+                                lastPlc="22";
+                             }
+                          }
+                         genIndex=EmptyPlcsArr.indexOf(lastPlc);
+
+                          if(genIndex>-1){
+                             element_str+="#q"+lastPlc+"in";
+                             occupied_arr_AI.push(lastPlc);
+                             EmptyPlcsArr.splice(genIndex,1);
+                          }
+                          else{
+                              arr_len=EmptyPlcsArr.length;
+                              
+                              genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
+                              element_str+="#q"+EmptyPlcsArr[genIndex]+"in";
+                              occupied_arr_AI.push(EmptyPlcsArr[genIndex]);
+                              EmptyPlcsArr.splice(genIndex,1);
+                          } 
+                      }
+                   }
+
+                }
                 // if(yxstr[0]=="1"){
                 //     if(yxstr[1]=="1"){
                 //       surroundPlcsArr=["12","21", "22"]
