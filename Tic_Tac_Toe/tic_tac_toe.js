@@ -4,25 +4,38 @@ var y;
 var xQuadrant;
 var yQuadrant;
 var x_or_o;
-var placed_arr=['11','12','13','21','22','23','31','32','33'];
+var EmptyPlcsArr=['11','12','13','21','22','23','31','32','33'];
 var already_placed=false;
 var genIndex;
 var clickIndex;
 var numOccupied=0;
 var element_str="";
-var xystr="";
-var arr_len=placed_arr.length;
+var yxstr="";
+var arr_len=EmptyPlcsArr.length;
 var occupied_arr_user=[];
 var occupied_arr_AI=[];
 var gameFinished=false;
-  
-
+var surroundPlcsArr=[];
+var surroundEmptyPlcsArr=[];
+ 
+   $(".XorO").hover(function(){
+       $(this).css({"background-color":"pink",
+                     "border-width":"5px"
+                   });
+		      
+		$("#XorO").get(0).cloneNode().play();
+		     
+		   }, function(){
+		       $(this).css({"background-color":"white",
+		                     "border-width":"1px"
+		                   });
+   });
     
  
  
 // Get the canvas element and its drawing context
     var canvas = document.getElementById('c');
-    context = canvas.getContext('2d');
+    var context = canvas.getContext('2d');
  
          // context.moveTo(70, 250);
          // context.lineTo(420, 250);
@@ -270,11 +283,15 @@ var gameFinished=false;
         x_or_o="X";
         $("#popup").css("visibility", "hidden");
         $("body").css("background-color", "#6666ff");
-       genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
-    numOccupied+=1;
-    element_str+="#q"+placed_arr[genIndex]+"in";
-       occupied_arr_AI.push(placed_arr[genIndex]);
-       placed_arr.splice(genIndex,1);
+       genIndex=Math.floor((Math.random() * 8) + 1)-1;
+       var tempArr1=['11','12','13','21','23','31','32','33']
+       var tempArr2=[tempArr1[genIndex],'22']
+       genIndex=Math.floor((Math.random() * 2) + 1)-1;
+       numOccupied+=1;
+       element_str+="#q"+ tempArr2[genIndex]+"in";
+       occupied_arr_AI.push(tempArr2[genIndex]);
+       genIndex=EmptyPlcsArr.indexOf(tempArr2[genIndex])
+       EmptyPlcsArr.splice(genIndex,1);
        $(element_str).text("O");
         $(element_str).css("border", "5px solid blue");
         element_str="";
@@ -288,11 +305,15 @@ var gameFinished=false;
         x_or_o="O";
         $("#popup").css("visibility", "hidden");
         $("body").css("background-color", "#6666ff");
-        genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
-    numOccupied+=1;
-    element_str+="#q"+placed_arr[genIndex]+"in";
-       occupied_arr_AI.push(placed_arr[genIndex]);
-       placed_arr.splice(genIndex,1);
+         genIndex=Math.floor((Math.random() * 8) + 1)-1;
+       var tempArr1=['11','12','13','21','23','31','32','33']
+       var tempArr2=[tempArr1[genIndex],'22']
+       genIndex=Math.floor((Math.random() * 2) + 1)-1;
+       numOccupied+=1;
+       element_str+="#q"+ tempArr2[genIndex]+"in";
+       occupied_arr_AI.push(tempArr2[genIndex]);
+       genIndex=EmptyPlcsArr.indexOf(tempArr2[genIndex])
+       EmptyPlcsArr.splice(genIndex,1);
        $(element_str).text("X");
        $(element_str).css("border", "5px solid blue");
        element_str="";
@@ -303,21 +324,8 @@ var gameFinished=false;
 
   
   
-    
-   $(".XorO").hover(function(){
-       $(this).css({"background-color":"pink",
-                     "border-width":"5px"
-                   });
-      
-$("#XorO").get(0).cloneNode().play();
-     
-   }, function(){
-       $(this).css({"background-color":"white",
-                     "border-width":"1px"
-                   });
-   });
-  
-
+   
+ 
 
 
     $(".checkbox").click(function(e){ 
@@ -328,6 +336,10 @@ $("#XorO").get(0).cloneNode().play();
         element_str="";
        
         already_placed=false;
+
+        var surPlcIndex;
+        var surEmptyArrLen;
+        var EmptyPlcsSpliceIndex;
     
 //         var xoffSet=e.target.offsetLeft;
         
@@ -365,12 +377,13 @@ $("#XorO").get(0).cloneNode().play();
 //         xystr="";
 
 //         xystr=String(xQuadrant)+String(yQuadrant);
-xystr=$(this).attr('id').slice(1);
+yxstr=$(this).attr('id').slice(1);
+ 
      
-        index=placed_arr.indexOf(xystr);
+        clickIndex=EmptyPlcsArr.indexOf(yxstr);
         
  
-            if(index===-1){
+            if(clickIndex===-1){
        $("#alrdyPlacedDiv").css("visibility","visible");
        $("#Error").get(0).cloneNode().play();
       $(".checkbox").css("pointer-events", "none");
@@ -383,25 +396,173 @@ xystr=$(this).attr('id').slice(1);
   });
             }
 
-            else if(index > -1){
-                element_str+="#q"+xystr+"in";
+            else if(clickIndex > -1){
+                element_str+="#q"+yxstr+"in";
                 $(element_str).text(x_or_o);
-  $(element_str).css("border", "5px solid blue");
+               $(element_str).css("border", "5px solid blue");
               $("#User_move").get(0).cloneNode().play();
                 numOccupied+=1;
                 element_str="";
-
-                occupied_arr_user.push(placed_arr[index]);
-                placed_arr.splice(index,1);
+                alert(clickIndex);
+                alert(EmptyPlcsArr);
+                alert(EmptyPlcsArr[clickIndex]);
+                occupied_arr_user.push(EmptyPlcsArr[clickIndex]);
+                EmptyPlcsArr.splice(clickIndex,1);
                 DrawLine();
-                arr_len=placed_arr.length;
-                genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
-              element_str+="#q"+placed_arr[genIndex]+"in";
-       
-               occupied_arr_AI.push(placed_arr[genIndex]);
 
-              placed_arr.splice(genIndex,1);
+                var AIOccupiedLen=occupied_arr_AI.length;
+
+                if(AIOccupiedLen==1){
+                  var tempAIPlc0=occupied_arr_AI[0];
+                  var tempUserPlc0=occupied_arr_user[0];
+                  if(tempAIPlc0=="22"){
+                     if(tempUserPlc0=="11"){
+                        surroundEmptyPlcsArr=["12","21"];
+                      }
+                      else if(tempUserPlc0=="12"){
+                        surroundEmptyPlcsArr=["11","13"];
+                      }
+                      else if(tempUserPlc0=="13"){
+                        surroundEmptyPlcsArr=["12","23"];
+                      }
+                      else if(tempUserPlc0=="21"){
+                        surroundEmptyPlcsArr=["11","31"];
+                      }
+                      else if(tempUserPlc0=="23"){
+                        surroundEmptyPlcsArr=["13","33"];
+                      }
+                      else if(tempUserPlc0=="31"){
+                        surroundEmptyPlcsArr=["21","32"];
+                      }
+                      else if(tempUserPlc0=="32"){
+                        surroundEmptyPlcsArr=["31","33"];
+                      }
+                      else if(tempUserPlc0=="33"){
+                        surroundEmptyPlcsArr=["23","32"];
+                      }
+                    genIndex=Math.floor((Math.random() * 2) + 1)-1;
+                    occupied_arr_AI.push(surroundEmptyPlcsArr[genIndex]);
+                    element_str+="#q"+surroundEmptyPlcsArr[genIndex]+"in";
+                    EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(surroundEmptyPlcsArr[genIndex]);
+                    EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
+                  }
+                  else{
+                    if(EmptyPlcsArr.indexOf("22")>-1){
+                      genIndex=EmptyPlcsArr.indexOf("22");
+                       occupied_arr_AI.push("22");
+                       element_str+="#q22in";
+                       EmptyPlcsArr.splice(genIndex,1);
+                    }
+                    else{
+                        if(tempAIPlc0=="11"){
+                          surroundPlcsArr=["12","21"];
+                        }
+                        else if(tempAIPlc0=="12"){
+                          surroundPlcsArr=["11","13"];
+                        }
+                        else if(tempAIPlc0=="13"){
+                          surroundPlcsArr=["12","23"];
+                        }
+                        else if(tempAIPlc0=="21"){
+                          surroundPlcsArr=["11","31"];
+                        }
+                        else if(tempAIPlc0=="23"){
+                          surroundPlcsArr=["13","33"];
+                        }
+                        else if(tempAIPlc0=="31"){
+                          surroundPlcsArr=["21","32"];
+                        }
+                        else if(tempAIPlc0=="32"){
+                          surroundPlcsArr=["31","33"];
+                        }
+                        else if(tempAIPlc0=="33"){
+                          surroundPlcsArr=["23","32"];
+                        }
+                        for(var i=0; i<surroundPlcsArr.length; i++){
+                            surPlcIndex=EmptyPlcsArr.indexOf(surroundPlcsArr[i])
+                            if(surPlcIndex>-1){
+                              surroundEmptyPlcsArr.push(surroundPlcsArr[i]);
+                            }
+                        }
+                        surEmptyArrLen=surroundEmptyPlcsArr.length;
+
+     
+                    
+                        genIndex=Math.floor((Math.random() * surEmptyArrLen) + 1)-1;
+                        element_str+="#q"+surroundEmptyPlcsArr[genIndex]+"in";
+                 
+                         occupied_arr_AI.push(surroundEmptyPlcsArr[genIndex]);
+                         EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(surroundEmptyPlcsArr[genIndex]);
+                         EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
+                    }
+                  }
+                }
+
+                // if(yxstr[0]=="1"){
+                //     if(yxstr[1]=="1"){
+                //       surroundPlcsArr=["12","21", "22"]
+
+                //     }
+                //     else if(yxstr[1]=="2"){
+                //         surroundPlcsArr=["11","13", "22"]
+                //     }
+                //     else if(yxstr[1]=="3"){
+                //         surroundPlcsArr=["12", "22", "23"]
+                //     }
+                // }
+                // else if(yxstr[0]=="2"){
+                //     if(yxstr[1]=="1"){
+                //       surroundPlcsArr=["11", "22", "31"]
+                //     }
+                //     else if(yxstr[1]=="2"){
+                //       surroundPlcsArr=["11", "12", "13", "21", "23", "31", "32", "33"]
+                //     }
+                //     else if(yxstr[1]=="3"){
+                //       surroundPlcsArr=["13","22", "33"]
+                //     }
+                // }
+                // else if(yxstr[0]=="3"){
+                //     if(yxstr[1]=="1"){
+                //       surroundPlcsArr=["21","22", "32"]
+                //     }
+                //     else if(yxstr[1]=="2"){
+                //       surroundPlcsArr=["13","22", "33"]
+                //     }
+                //     else if(yxstr[1]=="3"){
+                //       surroundPlcsArr=["23","22", "32"]
+                //     }
+                // }
+
+
+                // for(var i=0; i<surroundPlcsArr.length; i++){
+                //     surPlcIndex=EmptyPlcsArr.indexOf(surroundPlcsArr[i])
+                //     if(surPlcIndex>-1){
+                //       surroundEmptyPlcsArr.push(surroundPlcsArr[i]);
+                //     }
+                // }
+                
+                // surEmptyArrLen=surroundEmptyPlcsArr.length;
+
+                // if(surEmptyArrLen==0){
+                //      arr_len=EmptyPlcsArr.length;
+                //      genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
+                //      element_str+="#q"+EmptyPlcsArr[genIndex]+"in";
+                //      occupied_arr_AI.push(EmptyPlcsArr[genIndex]);
+                //      EmptyPlcsArr.splice(genIndex,1);
+                // }
+                // else if(surEmptyArrLen > 0){
+                //     genIndex=Math.floor((Math.random() * surEmptyArrLen) + 1)-1;
+                //     element_str+="#q"+surroundEmptyPlcsArr[genIndex]+"in";
+             
+                //      occupied_arr_AI.push(surroundEmptyPlcsArr[genIndex]);
+
+                //     EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(surroundEmptyPlcsArr[genIndex]);
+
+                //     EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
               
+                // }
+                
+               
               numOccupied+=1;
               
               if(x_or_o==="O"){
@@ -420,8 +581,10 @@ xystr=$(this).attr('id').slice(1);
                
             }
              
-            xystr="";
+            yxstr="";
             element_str="";
+            surroundPlcsArr=[];
+            surroundEmptyPlcsArr=[];
      
     });
 
@@ -443,16 +606,18 @@ y=0;
 xQuadrant=0;
 yQuadrant=0;
 x_or_o="";
-placed_arr=['11','12','13','21','22','23','31','32','33'];
+EmptyPlcsArr=['11','12','13','21','22','23','31','32','33'];
 already_placed=false;
 clickIndex=0;
 numOccupied=0;
 element_str="";
-xystr="";
-arr_len=placed_arr.length;
+yxstr="";
+arr_len= EmptyPlcsArr.length;
 occupied_arr_user=[];
 occupied_arr_AI=[];
 gameFinished=false;
+surroundPlcsArr=[];
+surroundEmptyPlcsArr=[];
 
   $("#popup").css("visibility", "visible");
    $("body").css("background-color", "#999999"); 
