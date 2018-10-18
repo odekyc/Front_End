@@ -386,16 +386,16 @@ yxstr=$(this).attr('id').slice(1);
         
  
             if(clickIndex===-1){
-       $("#alrdyPlacedDiv").css("visibility","visible");
-       $("#Error").get(0).cloneNode().play();
-      $(".checkbox").css("pointer-events", "none");
-       $("#alrdyPlacedDiv").css("pointer-events", "auto");
-              
-   $("#placedXDiv").click(function(e){ 
-      $(".checkbox").css("pointer-events", "auto");
-     $("#alrdyPlacedDiv").css("pointer-events", "auto");
-        $("#alrdyPlacedDiv").css("visibility","hidden");
-  });
+               $("#alrdyPlacedDiv").css("visibility","visible");
+               $("#Error").get(0).cloneNode().play();
+               $(".checkbox").css("pointer-events", "none");
+               $("#alrdyPlacedDiv").css("pointer-events", "auto");
+                      
+               $("#placedXDiv").click(function(e){ 
+               $(".checkbox").css("pointer-events", "auto");
+               $("#alrdyPlacedDiv").css("pointer-events", "auto");
+               $("#alrdyPlacedDiv").css("visibility","hidden");
+              });
             }
 
             else if(clickIndex > -1){
@@ -405,9 +405,9 @@ yxstr=$(this).attr('id').slice(1);
               $("#User_move").get(0).cloneNode().play();
                 numOccupied+=1;
                 element_str="";
-                alert(clickIndex);
-                alert(EmptyPlcsArr);
-                alert(EmptyPlcsArr[clickIndex]);
+                // alert(clickIndex);
+                // alert(EmptyPlcsArr);
+                // alert(EmptyPlcsArr[clickIndex]);
                 occupied_arr_user.push(EmptyPlcsArr[clickIndex]);
                 EmptyPlcsArr.splice(clickIndex,1);
                 DrawLine();
@@ -653,11 +653,13 @@ yxstr=$(this).attr('id').slice(1);
                               element_str+="#q"+EmptyPlcsArr[genIndex]+"in";
                               occupied_arr_AI.push(EmptyPlcsArr[genIndex]);
                               EmptyPlcsArr.splice(genIndex,1);
-                          } 
+                            } 
+                          }
+                        }
+                      }  
+                      if(AIOccupiedLen>=3){
+                        alert("hi");
                       }
-                   }
-
-                }
                 // if(yxstr[0]=="1"){
                 //     if(yxstr[1]=="1"){
                 //       surroundPlcsArr=["12","21", "22"]
