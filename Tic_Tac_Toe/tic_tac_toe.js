@@ -345,7 +345,14 @@ var lastPlcsEmptyArrLen;
         var surPlcIndex;
         var surEmptyArrLen;
         var EmptyPlcsSpliceIndex;
-    
+          element_str="";
+          surroundPlcsArr=[];
+          surroundEmptyPlcsArr=[];
+          lastPlc="";
+          lastPlcsArr=[];
+          lastPlcsEmptyArr=[];
+          lastPlcsEmptyArrLen;
+  
 //         var xoffSet=e.target.offsetLeft;
         
 
@@ -502,7 +509,7 @@ yxstr=$(this).attr('id').slice(1);
                     }
                   }
                 }
-                if(AIOccupiedLen==2){
+                else if(AIOccupiedLen==2){
                    if(occupied_arr_AI.indexOf("22")>-1){
                       if(occupied_arr_AI.indexOf("11")>-1){
                          lastPlc="33";
@@ -660,8 +667,12 @@ yxstr=$(this).attr('id').slice(1);
                       //     }
                         }
                       }  
-                      if(AIOccupiedLen>=3){
+                      else if(AIOccupiedLen>=3){
                          if(occupied_arr_AI.indexOf("22")>-1){
+                              alert("hi");
+
+                               lastPlcsArr=[];
+        
                               if(occupied_arr_AI.indexOf("11")>-1){
                                  lastPlcsArr.push("33");
                               }
@@ -686,6 +697,7 @@ yxstr=$(this).attr('id').slice(1);
                               if(occupied_arr_AI.indexOf("33")>-1){
                                  lastPlcsArr.push("11");
                               }
+
                         }
                         else{
                             if(occupied_arr_AI.indexOf("11")>-1){
@@ -723,14 +735,18 @@ yxstr=$(this).attr('id').slice(1);
                             }
 
                             for(var i=0; i<lastPlcsArr.length; i++){
+                                  alert("in loop");
                                   if(EmptyPlcsArr.indexOf(lastPlcsArr[i])>-1){
                                     lastPlcsEmptyArr.push(lastPlcsArr[i]);
                                   }
                             }
 
+                            alert(lastPlcsEmptyArr);
+
                             lastPlcsEmptyArrLen=lastPlcsEmptyArr.length;
 
                             if (lastPlcsEmptyArrLen>0){
+                                alert("length>=3 AI has'22' lastPlcsEmptyArrLen>0");
                                 genIndex=Math.floor((Math.random() * lastPlcsEmptyArrLen) + 1)-1;
                                 element_str+="#q"+lastPlcsEmptyArr[genIndex]+"in";
                                 occupied_arr_AI.push(lastPlcsEmptyArr[genIndex]);
@@ -739,6 +755,7 @@ yxstr=$(this).attr('id').slice(1);
 
                             }
                             else if(lastPlcsEmptyArrLen==0){
+                                  alert("length>=3 AI has'22' lastPlcsEmptyArrLen==0");
                                   if(occupied_arr_user.indexOf("22")>-1){
                                         if(occupied_arr_user.indexOf("11")>-1){
                                            lastPlcsArr.push("33");
@@ -807,6 +824,7 @@ yxstr=$(this).attr('id').slice(1);
                                    lastPlcsEmptyArrLen=lastPlcsEmptyArr.length;
 
                                     if (lastPlcsEmptyArrLen>0){
+
                                         genIndex=Math.floor((Math.random() * lastPlcsEmptyArrLen) + 1)-1;
                                         element_str+="#q"+lastPlcsEmptyArr[genIndex]+"in";
                                         occupied_arr_AI.push(lastPlcsEmptyArr[genIndex]);
@@ -815,6 +833,7 @@ yxstr=$(this).attr('id').slice(1);
 
                                     }
                                     else if(lastPlcsEmptyArrLen==0){
+                                        alert("Hello!");
                                         arr_len = EmptyPlcsArr.length;
                                         genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
                                         element_str+="#q"+EmptyPlcsArr[genIndex]+"in";
@@ -907,6 +926,10 @@ yxstr=$(this).attr('id').slice(1);
               } 
                
             }
+            alert("numOccupied"+numOccupied);
+            alert("occupied_arr_AI"+occupied_arr_AI);
+            alert("occupied_arr_user"+occupied_arr_user);
+            alert("EmptyPlcsArr"+EmptyPlcsArr);
              
             yxstr="";
             element_str="";
