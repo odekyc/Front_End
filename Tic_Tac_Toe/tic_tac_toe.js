@@ -686,7 +686,7 @@ yxstr=$(this).attr('id').slice(1);
                                  lastPlcsArr.push("23");
                               }
                               if(occupied_arr_AI.indexOf("23")>-1){
-                                 lastPlcs.Arr.push("21");
+                                 lastPlcsArr.push("21");
                               }
                               if(occupied_arr_AI.indexOf("31")>-1){
                                  lastPlcsArr.push("13");
@@ -697,7 +697,7 @@ yxstr=$(this).attr('id').slice(1);
                               if(occupied_arr_AI.indexOf("33")>-1){
                                  lastPlcsArr.push("11");
                               }
-
+                           
                         }
                         else{
                             if(occupied_arr_AI.indexOf("11")>-1){
