@@ -769,7 +769,7 @@ yxstr=$(this).attr('id').slice(1);
                                            lastPlcsArr.push("23");
                                         }
                                         if(occupied_arr_user.indexOf("23")>-1){
-                                           lastPlcs.Arr.push("21");
+                                           lastPlcsArr.push("21");
                                         }
                                         if(occupied_arr_user.indexOf("31")>-1){
                                            lastPlcsArr.push("13");
