@@ -18,6 +18,9 @@ var gameFinished=false;
 var surroundPlcsArr=[];
 var surroundEmptyPlcsArr=[];
 var lastPlc="";
+var lastPlcsArr=[];
+var lastPlcsEmptyArr=[];
+var lastPlcsEmptyArrLen;
 
  
    $(".XorO").hover(function(){
@@ -604,61 +607,223 @@ yxstr=$(this).attr('id').slice(1);
                            occupied_arr_AI.push(lastPlc);
                            EmptyPlcsArr.splice(genIndex,1);
                       }
-                      else{
-                          if(occupied_arr_user.indexOf("11")>-1){
-                             if(occupied_arr_user.indexOf("12")>-1){
-                                lastPlc="13";
-                             }
-                             else if(occupied_arr_user.indexOf("21")>-1){
-                                lastPlc="31";
-                             }
-                             else if(occupied_arr_user.indexOf("13")>-1){
-                                lastPlc="12";
-                             }
-                             else if(occupied_arr_user.indexOf("31")>-1){
-                                lastPlc="21";
-                             }
-                             else{
-                                lastPlc="22";
-                             }
-                          }
-                          else if(occupied_arr_user.indexOf("33")>-1){
-                             if(occupied_arr_user.indexOf("23")>-1){
-                                lastPlc="13";
-                             }
-                             else if(occupied_arr_user.indexOf("13")>-1){
-                                lastPlc="23";
-                             }
-                             else if(occupied_arr_user.indexOf("31")>-1){
-                                lastPlc="32";
-                             }
-                             else if(occupied_arr_user.indexOf("32")>-1){
-                                lastPlc="31";
-                             }
-                             else{
-                                lastPlc="22";
-                             }
-                          }
-                         genIndex=EmptyPlcsArr.indexOf(lastPlc);
+                      // else{
+                      //     if(occupied_arr_user.indexOf("11")>-1){
+                      //        if(occupied_arr_user.indexOf("12")>-1){
+                      //           lastPlc="13";
+                      //        }
+                      //        else if(occupied_arr_user.indexOf("21")>-1){
+                      //           lastPlc="31";
+                      //        }
+                      //        else if(occupied_arr_user.indexOf("13")>-1){
+                      //           lastPlc="12";
+                      //        }
+                      //        else if(occupied_arr_user.indexOf("31")>-1){
+                      //           lastPlc="21";
+                      //        }
+                      //        else{
+                      //           lastPlc="22";
+                      //        }
+                      //     }
+                      //     else if(occupied_arr_user.indexOf("33")>-1){
+                      //        if(occupied_arr_user.indexOf("23")>-1){
+                      //           lastPlc="13";
+                      //        }
+                      //        else if(occupied_arr_user.indexOf("13")>-1){
+                      //           lastPlc="23";
+                      //        }
+                      //        else if(occupied_arr_user.indexOf("31")>-1){
+                      //           lastPlc="32";
+                      //        }
+                      //        else if(occupied_arr_user.indexOf("32")>-1){
+                      //           lastPlc="31";
+                      //        }
+                      //        else{
+                      //           lastPlc="22";
+                      //        }
+                      //     }
+                      //    genIndex=EmptyPlcsArr.indexOf(lastPlc);
 
-                          if(genIndex>-1){
-                             element_str+="#q"+lastPlc+"in";
-                             occupied_arr_AI.push(lastPlc);
-                             EmptyPlcsArr.splice(genIndex,1);
-                          }
-                          else{
-                              arr_len=EmptyPlcsArr.length;
+                      //     if(genIndex>-1){
+                      //        element_str+="#q"+lastPlc+"in";
+                      //        occupied_arr_AI.push(lastPlc);
+                      //        EmptyPlcsArr.splice(genIndex,1);
+                      //     }
+                      //     else{
+                      //         arr_len=EmptyPlcsArr.length;
                               
-                              genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
-                              element_str+="#q"+EmptyPlcsArr[genIndex]+"in";
-                              occupied_arr_AI.push(EmptyPlcsArr[genIndex]);
-                              EmptyPlcsArr.splice(genIndex,1);
-                            } 
-                          }
+                      //         genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
+                      //         element_str+="#q"+EmptyPlcsArr[genIndex]+"in";
+                      //         occupied_arr_AI.push(EmptyPlcsArr[genIndex]);
+                      //         EmptyPlcsArr.splice(genIndex,1);
+                      //       } 
+                      //     }
                         }
                       }  
                       if(AIOccupiedLen>=3){
-                        alert("hi");
+                         if(occupied_arr_AI.indexOf("22")>-1){
+                              if(occupied_arr_AI.indexOf("11")>-1){
+                                 lastPlcsArr.push("33");
+                              }
+                              if(occupied_arr_AI.indexOf("12")>-1){
+                                 lastPlcsArr.push("32");
+                              }
+                              if(occupied_arr_AI.indexOf("13")>-1){
+                                 lastPlcsArr.push("31");
+                              }
+                              if(occupied_arr_AI.indexOf("21")>-1){
+                                 lastPlcsArr.push("23");
+                              }
+                              if(occupied_arr_AI.indexOf("23")>-1){
+                                 lastPlcs.Arr.push("21");
+                              }
+                              if(occupied_arr_AI.indexOf("31")>-1){
+                                 lastPlcsArr.push("13");
+                              }
+                               if(occupied_arr_AI.indexOf("32")>-1){
+                                 lastPlcsArr.push("12");
+                              }
+                              if(occupied_arr_AI.indexOf("33")>-1){
+                                 lastPlcsArr.push("11");
+                              }
+                        }
+                        else{
+                            if(occupied_arr_AI.indexOf("11")>-1){
+                                 if(occupied_arr_AI.indexOf("13")>-1){
+                                     lastPlcsArr.push("12");
+                                 }
+                                 if(occupied_arr_AI.indexOf("31")>-1){
+                                     lastPlcsArr.push("21");
+                                 }
+                                 if(occupied_arr_AI.indexOf("12")>-1){
+                                     lastPlcsArr.push("13");
+                                 }
+                                 if(occupied_arr_AI.indexOf("21")>-1){
+                                     lastPlcsArr.push("31");
+                                 }
+                                 if(occupied_arr_AI.indexOf("33")>-1){
+                                     lastPlcsArr.push("22");
+                                 }
+                                 
+                              }
+                              else if(occupied_arr_AI.indexOf("33")>-1){
+                                  if(occupied_arr_AI.indexOf("13")>-1){
+                                     lastPlcsArr.push("23");
+                                  }
+                                  if(occupied_arr_AI.indexOf("23")>-1){
+                                     lastPlcsArr.push("13");
+                                  }
+                                  if(occupied_arr_AI.indexOf("31")>-1){
+                                     lastPlcsArr.push("32");
+                                  }
+                                  if(occupied_arr_AI.indexOf("32")>-1){
+                                     lastPlcsArr.push("31");
+                                  }
+                              }                            
+                            }
+
+                            for(var i=0; i<lastPlcsArr.length; i++){
+                                  if(EmptyPlcsArr.indexOf(lastPlcsArr[i])>-1){
+                                    lastPlcsEmptyArr.push(lastPlcsArr[i]);
+                                  }
+                            }
+
+                            lastPlcsEmptyArrLen=lastPlcsEmptyArr.length;
+
+                            if (lastPlcsEmptyArrLen>0){
+                                genIndex=Math.floor((Math.random() * lastPlcsEmptyArrLen) + 1)-1;
+                                element_str+="#q"+lastPlcsEmptyArr[genIndex]+"in";
+                                occupied_arr_AI.push(lastPlcsEmptyArr[genIndex]);
+                                genIndex=EmptyPlcsArr.indexOf(lastPlcsEmptyArr[genIndex]);  
+                                EmptyPlcsArr.splice(genIndex,1);
+
+                            }
+                            else if(lastPlcsEmptyArrLen==0){
+                                  if(occupied_arr_user.indexOf("22")>-1){
+                                        if(occupied_arr_user.indexOf("11")>-1){
+                                           lastPlcsArr.push("33");
+                                        }
+                                        if(occupied_arr_user.indexOf("12")>-1){
+                                           lastPlcsArr.push("32");
+                                        }
+                                        if(occupied_arr_user.indexOf("13")>-1){
+                                           lastPlcsArr.push("31");
+                                        }
+                                        if(occupied_arr_user.indexOf("21")>-1){
+                                           lastPlcsArr.push("23");
+                                        }
+                                        if(occupied_arr_user.indexOf("23")>-1){
+                                           lastPlcs.Arr.push("21");
+                                        }
+                                        if(occupied_arr_user.indexOf("31")>-1){
+                                           lastPlcsArr.push("13");
+                                        }
+                                         if(occupied_arr_user.indexOf("32")>-1){
+                                           lastPlcsArr.push("12");
+                                        }
+                                        if(occupied_arr_user.indexOf("33")>-1){
+                                           lastPlcsArr.push("11");
+                                        }
+                                }
+                                else{
+                                    if(occupied_arr_user.indexOf("11")>-1){
+                                         if(occupied_arr_user.indexOf("13")>-1){
+                                             lastPlcsArr.push("12");
+                                         }
+                                         if(occupied_arr_user.indexOf("31")>-1){
+                                             lastPlcsArr.push("21");
+                                         }
+                                         if(occupied_arr_user.indexOf("12")>-1){
+                                             lastPlcsArr.push("13");
+                                         }
+                                         if(occupied_arr_user.indexOf("21")>-1){
+                                             lastPlcsArr.push("31");
+                                         }
+                                         if(occupied_arr_user.indexOf("33")>-1){
+                                             lastPlcsArr.push("22");
+                                         }
+                                         
+                                      }
+                                      else if(occupied_arr_user.indexOf("33")>-1){
+                                          if(occupied_arr_user.indexOf("13")>-1){
+                                             lastPlcsArr.push("23");
+                                          }
+                                          if(occupied_arr_user.indexOf("23")>-1){
+                                             lastPlcsArr.push("13");
+                                          }
+                                          if(occupied_arr_user.indexOf("31")>-1){
+                                             lastPlcsArr.push("32");
+                                          }
+                                          if(occupied_arr_user.indexOf("32")>-1){
+                                             lastPlcsArr.push("31");
+                                          }
+                                      }
+                                  }
+                                  for(var i=0; i<lastPlcsArr.length; i++){
+                                        if(EmptyPlcsArr.indexOf(lastPlcsArr[i])>-1){
+                                             lastPlcsEmptyArr.push(lastPlcsArr[i]);
+                                        }
+                                  }
+                                   lastPlcsEmptyArrLen=lastPlcsEmptyArr.length;
+
+                                    if (lastPlcsEmptyArrLen>0){
+                                        genIndex=Math.floor((Math.random() * lastPlcsEmptyArrLen) + 1)-1;
+                                        element_str+="#q"+lastPlcsEmptyArr[genIndex]+"in";
+                                        occupied_arr_AI.push(lastPlcsEmptyArr[genIndex]);
+                                        genIndex=EmptyPlcsArr.indexOf(lastPlcsEmptyArr[genIndex]);  
+                                        EmptyPlcsArr.splice(genIndex,1);
+
+                                    }
+                                    else if(lastPlcsEmptyArrLen==0){
+                                        arr_len = EmptyPlcsArr.length;
+                                        genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
+                                        element_str+="#q"+EmptyPlcsArr[genIndex]+"in";
+                                        occupied_arr_AI.push(EmptyPlcsArr[genIndex]);
+                                        EmptyPlcsArr.splice(genIndex,1);
+
+                                    }
+                            }
+
                       }
                 // if(yxstr[0]=="1"){
                 //     if(yxstr[1]=="1"){
@@ -747,6 +912,10 @@ yxstr=$(this).attr('id').slice(1);
             element_str="";
             surroundPlcsArr=[];
             surroundEmptyPlcsArr=[];
+            lastPlc="";
+            lastPlcsArr=[];
+            lastPlcsEmptyArr=[];
+            lastPlcsEmptyArrLen;
      
     });
 
@@ -763,7 +932,7 @@ yxstr=$(this).attr('id').slice(1);
       $("#alrdyPlacedDiv").css("pointer-events", "auto");
       $("#New_round").get(0).cloneNode().play();
        
-  x=0;
+x=0;
 y=0;
 xQuadrant=0;
 yQuadrant=0;
@@ -780,6 +949,10 @@ occupied_arr_AI=[];
 gameFinished=false;
 surroundPlcsArr=[];
 surroundEmptyPlcsArr=[];
+lastPlc="";
+lastPlcsArr=[];
+lastPlcsEmptyArr=[];
+lastPlcsEmptyArrLen;
 
   $("#popup").css("visibility", "visible");
    $("body").css("background-color", "#999999"); 
