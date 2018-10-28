@@ -319,7 +319,7 @@ button{
     font-weight: 900;
     height: 40px;
     width: 120px;
-    font-size: 1.1em;
+    font-size: 100%;
     left: 1100px;
     top: 30px;
     pointer-events: auto;
