@@ -8,10 +8,12 @@ html{
 
 #outer_circle{
 	position: absolute;
-    left: 26.5%;
-    top: 7%;
+    left: 50%;
+    top: 50%;
 	height: 700px;
 	width: 700px;
+	margin-left: -350px;
+    margin-top: -350px;
 	background: #800080;
 	border-radius: 100%;
 }
