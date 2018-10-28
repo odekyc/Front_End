@@ -1,21 +1,22 @@
 body{
-	background-color: #ccccff;
-	position: relative;
+	background-color: #ffff33;
+
 }
 
 html{
 	background-color: #ffff33;
 }
 
+#all_container{
+	background-color: #ffff33;
+}
+
 #outer_circle{
-	position: absolute;
-    left: 50%;
-    top: 50%;
+	position: relative;
 	height: 700px;
 	width: 700px;
-	margin-left: -350px;
-    margin-top: -350px;
-	background: #800080;
+    margin: auto;
+	background-color: #800080;
 	border-radius: 100%;
 }
 
