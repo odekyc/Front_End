@@ -12,10 +12,10 @@ html{
 }
 
 #outer_circle{
-	position: fixed;
+	position: relative;
 	height: 700px;
 	width: 700px;
-    left: 27%;
+    margin: auto;
 	background-color: #800080;
 	border-radius: 100%;
 }
