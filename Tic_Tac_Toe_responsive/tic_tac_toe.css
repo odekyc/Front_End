@@ -68,11 +68,11 @@ body{
     color: green;
     background-color: pink;
     display: inline-block;
-    padding-top: 1%;
+    padding-top: 0%;
     top: 5%;
     left: 79%;
     height: 9%;
-    width: 4.5%;
+    width: 5%;
     border-radius: 100%;
     vertical-align: middle;
     font-family: Arial; 

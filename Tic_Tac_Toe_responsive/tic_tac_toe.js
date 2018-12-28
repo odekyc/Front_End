@@ -102,7 +102,7 @@ var lastPlcsEmptyArrLen;
         else if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('12')>-1)&&(occupied_arr_AI.indexOf('13')>-1)){
             context.beginPath();
            context.moveTo(110, 21);
-         context.lineTo(180, 21);
+         context.lineTo(190, 21);
           context.lineWidth = 4;
           context.strokeStyle="blue";
           context.stroke();
@@ -393,7 +393,7 @@ var lastPlcsEmptyArrLen;
 //         xystr="";
 
 //         xystr=String(xQuadrant)+String(yQuadrant);
-        yxstr=$(this).attr('id').slice(1);
+yxstr=$(this).attr('id').slice(1);
  
      
         clickIndex=EmptyPlcsArr.indexOf(yxstr);
@@ -610,11 +610,16 @@ var lastPlcsEmptyArrLen;
                           else if(occupied_arr_user.indexOf("31")>-1){
                              lastPlc="13";
                           }
+                           else if(occupied_arr_user.indexOf("32")>-1){
+                             lastPlc="12";
+                          }
                           else if(occupied_arr_user.indexOf("33")>-1){
                              lastPlc="11";
                           }
-                          genIndex=EmptyPlcsArr.indexOf(lastPlc);          
+                          genIndex=EmptyPlcsArr.indexOf(lastPlc); 
+                          alert(genIndex);         
                            element_str+="#q"+lastPlc+"in";
+                           alert(element_str)
                            occupied_arr_AI.push(lastPlc);
                            EmptyPlcsArr.splice(genIndex,1);
                       }
@@ -918,14 +923,12 @@ var lastPlcsEmptyArrLen;
 
                  $(element_str).text("X");
                 $(element_str).css("visibility", "visible");
- 
                 // $("#AI_move").get(0).cloneNode().play();   
                  DrawLine();
               }
               else{
                 $(element_str).text("O");
                 $(element_str).css("visibility", "visible");
-
                 // $("#AI_move").get(0).cloneNode().play();
                  DrawLine();
               } 
@@ -948,11 +951,9 @@ var lastPlcsEmptyArrLen;
       
        context.clearRect(0, 0, canvas.width, canvas.height);
        $(".in").text("");
-     $(".in").css("border", "");
      $(".in").css("visibility", "hidden");
        // $("canvas").css("z-index","6");
        $("#whowinsdiv").css("opacity","0");
-
     
         $("#alrdyPlacedDiv").css("visibility","hidden");
       $(".checkbox").css("pointer-events", "none");
