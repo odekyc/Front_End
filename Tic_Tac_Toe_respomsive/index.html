@@ -1,0 +1,115 @@
+
+<html>
+<head>
+<title>Tic Tac Toe!</title>
+<meta name="viewport" content="width=device-width, initial-scale=0.6">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+</link>
+
+<link rel="stylesheet" type="text/css" href="tic_tac_toe.css">
+  
+
+</head>
+
+
+<body>
+
+
+
+
+
+<audio id="User_move" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/User_move.wav">
+</audio>
+
+<audio id="AI_move" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/AI_move.wav" type="audio/wav">
+</audio>
+  <audio id="Who_won" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/Won_anime.wav" type="audio/wav">
+</audio>
+  
+ 
+
+  
+<audio id="New_round" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/chess.wav" type="audio/wav">
+</audio>
+  
+<audio id="Error" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/error.wav" type="audio/wav">
+</audio>
+  
+<audio id="XorO" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/click-sound.wav" type="audio/wav" preload="auto" >
+</audio>
+  
+  
+<canvas id="c">  
+</canvas>
+
+
+
+<div id="board">
+
+<!-- <div id="circle1" class="circle">
+  </div>
+  <div id="circle2" class="circle">
+  </div> -->
+
+<div class="checkbox" id="q11">
+  <div class="in" id="q11in"><span class="inspan" id="q11inspan"></span></div>
+</div>
+<div class="checkbox" id="q12">
+    <div class="in" id="q12in"><span class="inspan" id="q12inspan"></span></div>
+</div>
+<div class="checkbox" id="q13">
+     <div class="in" id="q13in"><span class="inspan" id="q13inspan"></span></div>
+</div>
+<div class="checkbox" id="q21">
+    <div class="in" id="q21in"><span class="inspan" id="q21inspan"></span></div>
+</div>
+<div class="checkbox" id="q22">
+    <div class="in" id="q22in"></div>
+</div>
+
+<div class="checkbox" id="q23">
+    <div class="in" id="q23in"><span class="inspan" id="q23inspan"></span></div>
+</div>
+<div class="checkbox" id="q31">
+    <div class="in" id="q31in"><span class="inspan" id="q31inspan"></span></div>
+</div>
+<div class="checkbox" id="q32">
+    <div class="in" id="q32in"><span class="inspan" id="q32inspan"></span></div>
+</div>
+<div class="checkbox" id="q33">
+    <div class="in" id="q33in"><span class="inspan" id="q33inspan"></span></div>
+</div>
+<!--    <div id="circle3" class="circle">
+  </div>
+  <div id="circle4" class="circle">
+  </div> -->
+<div id="popup">
+<div id="blackdiv">
+<h1 id="tictactoe"><CENTER>tictactoe.js</CENTER></h1>
+
+<h1>X or O</h1>
+</div>
+<div id="XObuttons">
+<div id="X" class="XorO">X</div>
+<div id="O" class="XorO">O</div>
+</div>
+</div>
+
+ <div id="whowinsdiv"><span><span id="winnername">
+   AI</span> HAS WON!
+</span>
+</div>
+ 
+  <div id="alrdyPlacedDiv"><div id="placedXDiv"><CENTER><span id="placedXSpan">X</span></CENTER></div>
+<span id="placedSpan"> This Quadrant Has Already Been Selected 
+</span>
+</div>
+  </div>
+
+  <button>Start Over!</button>
+  <script src="jquery1-8-3.min.js"></script>
+<script src="jquery-ui1-9-2.js"></script>
+<script src="tic_tac_toe.js"></script>
+</body>
+</html>
