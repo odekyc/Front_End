@@ -622,6 +622,8 @@ yxstr=$(this).attr('id').slice(1);
                            alert(element_str)
                            occupied_arr_AI.push(lastPlc);
                            EmptyPlcsArr.splice(genIndex,1);
+                           $(element_str).text("Y");
+                           $(element_str).css("visibility", "visible");
                       }
                       // else{
                       //     if(occupied_arr_user.indexOf("11")>-1){
