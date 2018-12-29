@@ -22,6 +22,49 @@ var lastPlcsArr=[];
 var lastPlcsEmptyArr=[];
 var lastPlcsEmptyArrLen;
 
+
+   var board_width = $("#board").width();
+
+   $("#board").css({"height": board_width+"px"});
+
+   var popup_width = $("#popup").width();
+
+   $("#popup").css({"height": 0.45*popup_width+"px",
+                    "top": 0.42*board_width+"px"
+});
+
+    var alrdyPlacedDiv_width = $("#alrdyPlacedDiv").width();
+    $("#alrdyPlacedDiv").css({"height": 0.45*alrdyPlacedDiv_width+"px",
+                    "top": 0.42*board_width+"px"
+});
+
+     var whowinsdiv_width = $("#whowinsdiv").width();
+    $("#whowinsdiv").css({"height": 0.30*whowinsdiv_width+"px",
+                    "top": 0.42*board_width+"px"
+});
+
+   $(window).resize(function(){
+      var board_width = $("#board").width();
+
+   $("#board").css({"height": board_width+"px"});
+     var popup_width = $("#popup").width();
+
+   $("#popup").css({"height": 0.45*popup_width+"px",
+                    "top": 0.42*board_width+"px"
+    });
+
+    var alrdyPlacedDiv_width = $("#alrdyPlacedDiv").width();
+    $("#alrdyPlacedDiv").css({"height": 0.45*popup_width+"px",
+                    "top": 0.42*board_width+"px"
+    });
+
+
+    var whowinsdiv_width = $("#whowinsdiv").width();
+    $("#whowinsdiv").css({"height": 0.30*whowinsdiv_width+"px",
+                    "top": 0.42*board_width+"px"
+    });
+});
+
  
    $(".XorO").hover(function(){
        $(this).css({"background-color":"pink",
