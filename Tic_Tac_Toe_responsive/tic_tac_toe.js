@@ -617,13 +617,23 @@ yxstr=$(this).attr('id').slice(1);
                              lastPlc="11";
                           }
                           genIndex=EmptyPlcsArr.indexOf(lastPlc); 
-                          alert(genIndex);         
-                           element_str+="#q"+lastPlc+"in";
-                           alert(element_str)
-                           occupied_arr_AI.push(lastPlc);
-                           EmptyPlcsArr.splice(genIndex,1);
-                           $(element_str).text("Y");
-                           $(element_str).css("visibility", "visible");
+                          if(genIndex == -1){
+                             genIndex=Math.floor((Math.random() * EmptyPlcsArr.length) + 1)-1;
+                             element_str+="#q"+EmptyPlcsArr[genIndex]+"in";
+                             occupied_arr_AI.push(EmptyPlcsArr[genIndex]);
+	                         EmptyPlcsArr.splice(genIndex,1);
+	                         
+                          }
+                          else{
+	                                 
+	                           element_str+="#q"+lastPlc+"in";
+	                           
+	                           occupied_arr_AI.push(lastPlc);
+	                           EmptyPlcsArr.splice(genIndex,1);
+	                          
+
+                          }
+                          
                       }
                       // else{
                       //     if(occupied_arr_user.indexOf("11")>-1){
