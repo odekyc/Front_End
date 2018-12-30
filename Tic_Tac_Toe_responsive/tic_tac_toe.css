@@ -304,9 +304,9 @@ h1{
 
 canvas{
     position: absolute;
-    height: 100%;
     width: 100%;
-    opacity: 1.0;
+    height: 100%;
+    opacity: 0.9;
     border-radius: 0px;
     color: blue;
     z-index: 10;

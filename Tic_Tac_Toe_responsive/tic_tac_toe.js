@@ -21,7 +21,6 @@ var lastPlc="";
 var lastPlcsArr=[];
 var lastPlcsEmptyArr=[];
 var lastPlcsEmptyArrLen;
-var c_pos;
 
 
 
@@ -31,7 +30,7 @@ var c_pos;
 
     var context = canvas.getContext('2d');
 
-  
+   
 
 
    var board_width = $("#board").width();
@@ -66,10 +65,12 @@ var c_pos;
 
 
    $(window).resize(function(){
+      
 
-   	
+   
+   	  
 
-       var board_width = $("#board").width();
+       board_width = $("#board").width();
 	   $("#board").css({"height": board_width+"px"});
 	     var popup_width = $("#popup").width();
 
@@ -77,22 +78,22 @@ var c_pos;
 	                    "top": 0.42*board_width+"px"
 	    });
 
-	    var alrdyPlacedDiv_width = $("#alrdyPlacedDiv").width();
+	    alrdyPlacedDiv_width = $("#alrdyPlacedDiv").width();
 	    $("#alrdyPlacedDiv").css({"height": 0.45*popup_width+"px",
 	                    "top": 0.42*board_width+"px"
 	    });
 
 
-	    var whowinsdiv_width = $("#whowinsdiv").width();
+	    whowinsdiv_width = $("#whowinsdiv").width();
 	    $("#whowinsdiv").css({"height": 0.30*whowinsdiv_width+"px",
 	                    "top": 0.42*board_width+"px"
 	    });
 
-	    var canvas_width = $("canvas").width();
+	     canvas_width = $("canvas").width();
 
-	     $("canvas").css({"height": canvas_width+"px"});
+            $("canvas").css({"height": canvas_width+"px"});
 
-	     var button_width = $("button").width();
+	     button_width = $("button").width();
 
 	   $("button").css({"height": 0.45*button_width+"px"});
 
@@ -112,9 +113,9 @@ var c_pos;
 		                     "border-width":"1px"
 		                   });
    });
-    
- 
- 
+
+
+
     
 
 
