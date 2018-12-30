@@ -21,6 +21,17 @@ var lastPlc="";
 var lastPlcsArr=[];
 var lastPlcsEmptyArr=[];
 var lastPlcsEmptyArrLen;
+var c_pos;
+
+
+
+// Get the canvas element and its drawing context
+    var canvas = document.getElementById('c');
+
+
+    var context = canvas.getContext('2d');
+
+  
 
 
    var board_width = $("#board").width();
@@ -53,34 +64,39 @@ var lastPlcsEmptyArrLen;
 
    $("button").css({"height": 0.45*button_width+"px"});
 
+
    $(window).resize(function(){
-      var board_width = $("#board").width();
 
-   $("#board").css({"height": board_width+"px"});
-     var popup_width = $("#popup").width();
+   	
 
-   $("#popup").css({"height": 0.45*popup_width+"px",
-                    "top": 0.42*board_width+"px"
-    });
+       var board_width = $("#board").width();
+	   $("#board").css({"height": board_width+"px"});
+	     var popup_width = $("#popup").width();
 
-    var alrdyPlacedDiv_width = $("#alrdyPlacedDiv").width();
-    $("#alrdyPlacedDiv").css({"height": 0.45*popup_width+"px",
-                    "top": 0.42*board_width+"px"
-    });
+	   $("#popup").css({"height": 0.45*popup_width+"px",
+	                    "top": 0.42*board_width+"px"
+	    });
+
+	    var alrdyPlacedDiv_width = $("#alrdyPlacedDiv").width();
+	    $("#alrdyPlacedDiv").css({"height": 0.45*popup_width+"px",
+	                    "top": 0.42*board_width+"px"
+	    });
 
 
-    var whowinsdiv_width = $("#whowinsdiv").width();
-    $("#whowinsdiv").css({"height": 0.30*whowinsdiv_width+"px",
-                    "top": 0.42*board_width+"px"
-    });
+	    var whowinsdiv_width = $("#whowinsdiv").width();
+	    $("#whowinsdiv").css({"height": 0.30*whowinsdiv_width+"px",
+	                    "top": 0.42*board_width+"px"
+	    });
 
-    var canvas_width = $("canvas").width();
+	    var canvas_width = $("canvas").width();
 
-     $("canvas").css({"height": canvas_width+"px"});
+	     $("canvas").css({"height": canvas_width+"px"});
 
-     var button_width = $("button").width();
+	     var button_width = $("button").width();
 
-   $("button").css({"height": 0.45*button_width+"px"});
+	   $("button").css({"height": 0.45*button_width+"px"});
+
+
 });
 
  
@@ -99,11 +115,8 @@ var lastPlcsEmptyArrLen;
     
  
  
-// Get the canvas element and its drawing context
-    var canvas = document.getElementById('c');
+    
 
-
-    var context = canvas.getContext('2d');
 
  
          // context.moveTo(70, 250);
@@ -120,9 +133,9 @@ var lastPlcsEmptyArrLen;
         
         if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('21')>-1)&&(occupied_arr_AI.indexOf('31')>-1)){
                context.beginPath();
-              context.moveTo(111, 21);
-         context.lineTo(111, 89);
-          context.lineWidth = 4;
+            context.moveTo(111, 9);
+            context.lineTo(111, 55);
+            context.lineWidth = 4;
             context.strokeStyle="blue";
           context.stroke();
           gameFinished=true;
@@ -134,8 +147,8 @@ var lastPlcsEmptyArrLen;
         }
         else if((occupied_arr_AI.indexOf('12')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('32')>-1)){
             context.beginPath();
-       context.moveTo(151, 21);
-         context.lineTo(151, 89);
+       context.moveTo(151, 9);
+         context.lineTo(151, 55);
           context.lineWidth = 4;
           context.strokeStyle="blue";
           context.stroke();
@@ -148,8 +161,8 @@ var lastPlcsEmptyArrLen;
         }
         else if((occupied_arr_AI.indexOf('13')>-1)&&(occupied_arr_AI.indexOf('23')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
         context.beginPath();
-           context.moveTo(190, 21);
-         context.lineTo(190, 89);
+           context.moveTo(190, 9);
+         context.lineTo(190, 55);
           context.lineWidth = 4;
            context.strokeStyle="blue";
           context.stroke();
@@ -162,9 +175,9 @@ var lastPlcsEmptyArrLen;
         }
         else if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('12')>-1)&&(occupied_arr_AI.indexOf('13')>-1)){
             context.beginPath();
-           context.moveTo(110, 21);
-         context.lineTo(190, 21);
-          context.lineWidth = 4;
+       context.moveTo(111, 11);
+     context.lineTo(190, 11);
+     context.lineWidth = 2.5;
           context.strokeStyle="blue";
           context.stroke();
           gameFinished=true;
@@ -176,9 +189,9 @@ var lastPlcsEmptyArrLen;
         }
         else if((occupied_arr_AI.indexOf('21')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('23')>-1)){
             context.beginPath();
-            context.moveTo(110, 55);
-         context.lineTo(191, 55);
-          context.lineWidth = 4;
+           context.moveTo(111, 31);
+          context.lineTo(190, 31);
+          context.lineWidth = 2.5;
           context.strokeStyle="blue";
           context.stroke();
           gameFinished=true;
@@ -190,9 +203,9 @@ var lastPlcsEmptyArrLen;
         }
         else if((occupied_arr_AI.indexOf('31')>-1)&&(occupied_arr_AI.indexOf('32')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
             context.beginPath();
-           context.moveTo(110, 89);
-         context.lineTo(190, 89);
-          context.lineWidth = 4;
+        context.moveTo(111, 50);
+     context.lineTo(190, 50);
+     context.lineWidth = 2.5;
           context.strokeStyle="blue";
           context.stroke();
           gameFinished=true;
@@ -204,9 +217,9 @@ var lastPlcsEmptyArrLen;
         }
         else if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
           context.beginPath();
-         context.moveTo(110, 21);
-         context.lineTo(190, 89);
-          context.lineWidth = 4;
+          context.moveTo(111, 10);
+          context.lineTo(190, 50);
+          context.lineWidth = 2.5;
           context.strokeStyle="blue";
           context.stroke();
           gameFinished=true;
@@ -219,9 +232,9 @@ var lastPlcsEmptyArrLen;
         }
         else if((occupied_arr_AI.indexOf('13')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('31')>-1)){
             context.beginPath();
-         context.moveTo(190, 21);
-         context.lineTo(111, 89);
-          context.lineWidth = 4;
+         context.moveTo(190, 10);
+           context.lineTo(111, 50);
+          context.lineWidth = 2.5;
            context.strokeStyle="blue";
           context.stroke();
           gameFinished=true;
@@ -234,9 +247,9 @@ var lastPlcsEmptyArrLen;
 
         else if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('21')>-1)&&(occupied_arr_user.indexOf('31')>-1)){
            context.beginPath();
-             context.moveTo(111, 21);
-           context.lineTo(111, 89);
-           context.lineWidth = 4;
+             context.moveTo(111, 9);
+            context.lineTo(111, 55);
+            context.lineWidth = 4;
             context.strokeStyle="blue";
           context.stroke();
            gameFinished=true;
@@ -248,8 +261,8 @@ var lastPlcsEmptyArrLen;
         }
         else if((occupied_arr_user.indexOf('12')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('32')>-1)){
             context.beginPath();
-           context.moveTo(151, 21);
-         context.lineTo(151, 89);
+          context.moveTo(151, 9);
+         context.lineTo(151, 55);
           context.lineWidth = 4;
           context.strokeStyle="blue";
           context.stroke();
@@ -262,8 +275,8 @@ var lastPlcsEmptyArrLen;
         }
         else if((occupied_arr_user.indexOf('13')>-1)&&(occupied_arr_user.indexOf('23')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
         context.beginPath();
-              context.moveTo(190, 21);
-         context.lineTo(190, 89);
+            context.moveTo(190, 9);
+         context.lineTo(190, 55);
           context.lineWidth = 4;
           context.strokeStyle="blue";
           context.stroke();
@@ -276,9 +289,9 @@ var lastPlcsEmptyArrLen;
         }
         else if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('12')>-1)&&(occupied_arr_user.indexOf('13')>-1)){
             context.beginPath();
-            context.moveTo(110, 21);
-         context.lineTo(190, 21);
-          context.lineWidth = 4;
+             context.moveTo(111, 11);
+            context.lineTo(190, 11);
+            context.lineWidth = 2.5;
           context.strokeStyle="blue";
           context.stroke();
           gameFinished=true;
@@ -290,9 +303,9 @@ var lastPlcsEmptyArrLen;
         }
         else if((occupied_arr_user.indexOf('21')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('23')>-1)){
             context.beginPath();
-         context.moveTo(110, 55);
-         context.lineTo(190, 55);
-          context.lineWidth = 4;
+         context.moveTo(111, 31);
+          context.lineTo(190, 31);
+          context.lineWidth = 2.5;
           context.strokeStyle="blue";
           context.stroke();
           gameFinished=true;
@@ -304,9 +317,9 @@ var lastPlcsEmptyArrLen;
         }
         else if((occupied_arr_user.indexOf('31')>-1)&&(occupied_arr_user.indexOf('32')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
             context.beginPath();
-            context.moveTo(110, 89);
-         context.lineTo(191, 89);
-          context.lineWidth = 4;
+             context.moveTo(111, 50);
+	     context.lineTo(190, 50);
+	     context.lineWidth = 2.5;
           context.strokeStyle="blue";
           context.stroke();
           gameFinished=true;
@@ -318,9 +331,9 @@ var lastPlcsEmptyArrLen;
         }
         else if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
             context.beginPath();
-           context.moveTo(111, 21);
-         context.lineTo(190, 89);
-          context.lineWidth = 4;
+           context.moveTo(111, 10);
+          context.lineTo(190, 50);
+          context.lineWidth = 2.5;
           context.strokeStyle="blue";
           context.stroke();
           gameFinished=true;
@@ -332,9 +345,9 @@ var lastPlcsEmptyArrLen;
         }
         else if((occupied_arr_user.indexOf('13')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('31')>-1)){
             context.beginPath();
-          context.moveTo(190, 21);
-         context.lineTo(111, 89);
-          context.lineWidth = 4;
+          context.moveTo(190, 10);
+           context.lineTo(111, 50);
+          context.lineWidth = 2.5;
           context.strokeStyle="blue";
           context.stroke();
           gameFinished=true;

@@ -306,8 +306,7 @@ canvas{
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: pink;
-    opacity: 0.5;
+    opacity: 0;
     border-radius: 0px;
     color: blue;
     z-index: 10;
