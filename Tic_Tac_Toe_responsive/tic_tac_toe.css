@@ -180,7 +180,7 @@ h1{
    left: 760px;
 } */
 
-.checkbox{
+.chessbox{
      pointer-events: none;
      z-index: 9;
   
@@ -342,29 +342,38 @@ button{
     width: 7%;
     font-size: 1vw;
     pointer-events: auto;
+    box-sizing: content-box;
       
 }
+
+
 
 #startOverBut{
 	background-color: orange;
 	color: blue;
 	left: 75%;
-    top: 5%;
+  top: 5%;
 }
 
 #userMoveFirst{
 	background-color: #47d147;
 	left: 10%;
-	top: 5%;
+	top: 4.3%;
 
 }
 
 #AIMoveFirst{
 	background-color: pink;
-	left: 19%;
+	left: 20%;
 	top: 5%;
 
 }
+
+.active-button{
+    border: 0.5vw solid red;
+    border-radius: 15%;
+}
+
 
 #winnername{
   color: red;

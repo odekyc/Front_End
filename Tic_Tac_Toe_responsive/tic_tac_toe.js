@@ -3,28 +3,41 @@ var x;
 var y;
 var xQuadrant;
 var yQuadrant;
-var x_or_o;
-var EmptyPlcsArr=['11','12','13','21','22','23','31','32','33'];
-var already_placed=false;
-var genIndex;
-var clickIndex;
-var numOccupied=0;
-var element_str="";
+var x_or_o; // X or O, which one the user has selected to represent the User in the game
+var EmptyPlcsArr=['11','12','13','21','22','23','31','32','33']; // an array holding all the currently empty places(chessboxes) on the board
+var already_placed=false; 
+var genIndex;  //the index position randomly selected from an array of possible chessboxes
+var clickIndex;  // the index position of the chessbox the user clicks on within the EmptyPlacsArr, used to check whether clickIndex==-1 (user has
+//clicked on a chessbox that is already occupied by the User or AI) or the chessbox the user clicked is still empty
+var numOccupied=0;  // number of chessboxed already occupied by both user and AI added together
+var element_str="";  // the value of id attribute of the chessbox(for class .in) 
 var yxstr="";
-var arr_len=EmptyPlcsArr.length;
-var occupied_arr_user=[];
-var occupied_arr_AI=[];
-var gameFinished=false;
-var surroundPlcsArr=[];
-var surroundEmptyPlcsArr=[];
-var surPlcIndex;
-var surEmptyArrLen;
-var EmptyPlcsSpliceIndex;
-var lastPlc="";
-var lastPlcsArr=[];
-var lastPlcsEmptyArr=[];
-var lastPlcsEmptyArrLen;
-var whoFirstMove = "AI";
+var arr_len=EmptyPlcsArr.length;  //the length of the EmptyPlacsArr
+var occupied_arr_user=[];  // an array holding all the places(chessboxes) currently occupied by the User's chesses
+var occupied_arr_AI=[];    // an array holding all the places(chessboxes) currently occupied by the AI's chesses
+var gameFinished=false;     //whether User or AI has already won and a line connecting 3 adjacent chesses(chessboxes) has already been drawn.
+//used in cases when both the User and AI has 3 adjacent chesses and wins in the same step. to prevent drawing winning line connecting
+//3 adjacent chesses twice for both User and AI, gameFinished will be set to True and game will end as soon as either User or AI 
+//wins first and a winning line connecting 3 adjacent chesses has already been drawn. 
+
+var surroundPlcsArr=[];  // an array containing all(may or may not be empty) the places(chessboxes) which surrounds an already occupied chessbox
+var surroundEmptyPlcsArr=[];  //an array containing all the empty, unoccupied places(chessboxes) which surrounds an already occupied chessbox 
+var surPlcIndex;  // the index position of a chessbox(place) from surroundPlcsArr within EmptyPlcsArr
+var surEmptyArrLen;  // the length of surroundEmptyPlcsArr
+var EmptyPlcsSpliceIndex;  // after a empty chessbox place is randomly selected from surroundEmptyPlcsArr, EmptyPlcsSpliceIndex is the index
+// of this selected empty chessbox place in EmptyPlcsArr. used to splice out this empty chessbox place from all the empty chessboxes places 
+//from EmptyPlcsArr after this selected empty chessbox is added to occupied_arr_AI and become one of the AI occupied chessboxes(no longer empty).
+var lastPlc=""; //the last chessbox(place) (may or may not be empty)that the user/AI can occupy to make a line connecting 3 adjacent chesses(chessboxes) and win the game 
+// for instance, if the user currently already has chesses on chessboxes '11' and  '22', '33' would be the last chessbox(place) the user need to occupy
+//to successfully make a line connecting 3 adjacent chesses(chessboxes) and win the game
+var lastPlcsArr=[];  // an array of all the last chessboxes(places), which may or may not be empty, that the user/AI can occupy to make
+//line connecting 3 adjacent chesses(chessboxes) and win the game. for instance, if the user currently already has chesses on 
+//chessboxes '11' and '22', the lastPlc the user can occupy to win the game would be '33'. however, if, besides these the user also currently
+//already has chess on '21', the lastPlacsArr containing all the possible lastPlc places/chessboxes would be ['33','31','23'].(all the possible 
+//winning line combinations are: '11'+'22'+'33', '11'+'21'+'31', '21'+'22'+'23').
+var lastPlcsEmptyArr=[];  // all the empty, occupied chessboxes(places) from lastPlcsArr
+var lastPlcsEmptyArrLen;  // the length of lastPlcsEmptyArr
+var whoFirstMove = "User";  //User or AI, who has the first move. Default is User
 
 
 
@@ -119,16 +132,27 @@ var whoFirstMove = "AI";
    });
 
 
+    $("#userMoveFirst").click(function(e){
+       $("#userMoveFirst").addClass("active-button");
+       $("#AIMoveFirst").removeClass("active-button");
+       $("#userMoveFirst").css("top", "4.3%");
+       $("#AIMoveFirst").css("top", "5%");
+       whoFirstMove="User";
+   });
+   
+ 
+ $("#AIMoveFirst").click(function(e){
+      $("#AIMoveFirst").addClass("active-button");
+      $("#userMoveFirst").removeClass("active-button");
+      $("#AIMoveFirst").css("top", "4.3%");
+      $("#userMoveFirst").css("top", "5%");
+      whoFirstMove="AI";
+   });
 
     
 
 
  
-         // context.moveTo(70, 250);
-         // context.lineTo(420, 250);
-         //  context.lineWidth = 10;
-         //  context.strokeStyle="blue";
-         //  context.stroke();
     function DrawLine(){
        if(gameFinished){
          return;
@@ -367,56 +391,61 @@ var whoFirstMove = "AI";
 
     
     $("#X").click(function(e){
+      $("#userMoveFirst").css("pointer-events", "none");
+       $("#AIMoveFirst").css("pointer-events", "none");
         e.stopPropagation();
         x_or_o="X";
         $("#popup").css("visibility", "hidden");
         $("body").css("background-color", "#6666ff");
-       genIndex=Math.floor((Math.random() * 8) + 1)-1;
-       var tempArr1=['11','12','13','21','23','31','32','33']
-       var tempArr2=[tempArr1[genIndex],'22']
-       genIndex=Math.floor((Math.random() * 2) + 1)-1;
-       numOccupied+=1;
-       element_str+="#q"+ tempArr2[genIndex]+"in";
-       occupied_arr_AI.push(tempArr2[genIndex]);
-       genIndex=EmptyPlcsArr.indexOf(tempArr2[genIndex])
-       EmptyPlcsArr.splice(genIndex,1);
-       $(element_str).text("O");
-        $(element_str).css("visibility", "visible");
-        element_str="";
-
-      $(".checkbox").css("pointer-events", "auto");
-      $("#AI_move").get(0).cloneNode().play();
+        $(".chessbox").css("pointer-events", "auto");
+        $("#Game_start").get(0).cloneNode().play();
+        if(whoFirstMove == 'AI'){
+           genIndex=Math.floor((Math.random() * 8) + 1)-1;
+           var tempArr1=['11','12','13','21','23','31','32','33']
+           var tempArr2=[tempArr1[genIndex],'22']
+           genIndex=Math.floor((Math.random() * 2) + 1)-1;
+           numOccupied+=1;
+           element_str+="#q"+ tempArr2[genIndex]+"in";
+           occupied_arr_AI.push(tempArr2[genIndex]);
+           genIndex=EmptyPlcsArr.indexOf(tempArr2[genIndex])
+           EmptyPlcsArr.splice(genIndex,1);
+           $(element_str).text("O");
+          $(element_str).css("visibility", "visible");
+          element_str="";
+          
+        }
     });
   
     $("#O").click(function(e){
+      $("#userMoveFirst").css("pointer-events", "none");
+       $("#AIMoveFirst").css("pointer-events", "none");
         e.stopPropagation();
         x_or_o="O";
         $("#popup").css("visibility", "hidden");
         $("body").css("background-color", "#6666ff");
-         genIndex=Math.floor((Math.random() * 8) + 1)-1;
-       var tempArr1=['11','12','13','21','23','31','32','33']
-       var tempArr2=[tempArr1[genIndex],'22']
-       genIndex=Math.floor((Math.random() * 2) + 1)-1;
-       numOccupied+=1;
-       element_str+="#q"+ tempArr2[genIndex]+"in";
-       occupied_arr_AI.push(tempArr2[genIndex]);
-       genIndex=EmptyPlcsArr.indexOf(tempArr2[genIndex])
-       EmptyPlcsArr.splice(genIndex,1);
-       $(element_str).text("X");
-       $(element_str).css("visibility", "visible");
-       element_str="";
-
-      $(".checkbox").css("pointer-events", "auto");
-      $("#AI_move").get(0).cloneNode().play();
+        $(".chessbox").css("pointer-events", "auto");
+        $("#Game_start").get(0).cloneNode().play();
+        if(whoFirstMove == 'AI'){
+           genIndex=Math.floor((Math.random() * 8) + 1)-1;
+           var tempArr1=['11','12','13','21','23','31','32','33']
+           var tempArr2=[tempArr1[genIndex],'22']
+           genIndex=Math.floor((Math.random() * 2) + 1)-1;
+           numOccupied+=1;
+           element_str+="#q"+ tempArr2[genIndex]+"in";
+           occupied_arr_AI.push(tempArr2[genIndex]);
+           genIndex=EmptyPlcsArr.indexOf(tempArr2[genIndex])
+           EmptyPlcsArr.splice(genIndex,1);
+           $(element_str).text("X");
+           $(element_str).css("visibility", "visible");
+           element_str="";           
+      }
     });
 
   
-  
-   
- 
 
 
-    $(".checkbox").click(function(e){ 
+
+    $(".chessbox").click(function(e){ 
      
   
        $("#alrdyPlacedDiv").css("visibility","hidden");
@@ -472,7 +501,7 @@ var whoFirstMove = "AI";
 //         xystr="";
 
 //         xystr=String(xQuadrant)+String(yQuadrant);
-yxstr=$(this).attr('id').slice(1);
+        yxstr=$(this).attr('id').slice(1);
  
      
         clickIndex=EmptyPlcsArr.indexOf(yxstr);
@@ -905,13 +934,13 @@ yxstr=$(this).attr('id').slice(1);
 
                  $(element_str).text("X");
                 $(element_str).css("visibility", "visible");
-                // $("#AI_move").get(0).cloneNode().play();   
+  
                  DrawLine();
               }
               else{
                 $(element_str).text("O");
                 $(element_str).css("visibility", "visible");
-                // $("#AI_move").get(0).cloneNode().play();
+
                  DrawLine();
               } 
                
@@ -938,9 +967,11 @@ yxstr=$(this).attr('id').slice(1);
        $("#whowinsdiv").css("opacity","0");
     
         $("#alrdyPlacedDiv").css("visibility","hidden");
-      $(".checkbox").css("pointer-events", "none");
+      $(".chessbox").css("pointer-events", "none");
       $("#alrdyPlacedDiv").css("pointer-events", "auto");
       $("#New_round").get(0).cloneNode().play();
+      $("#userMoveFirst").css("pointer-events", "auto");
+       $("#AIMoveFirst").css("pointer-events", "auto");
        
 x=0;
 y=0;
@@ -963,6 +994,9 @@ lastPlc="";
 lastPlcsArr=[];
 lastPlcsEmptyArr=[];
 lastPlcsEmptyArrLen;
+surPlcIndex;
+surEmptyArrLen;
+EmptyPlcsSpliceIndex;
 
   $("#popup").css("visibility", "visible");
    $("body").css("background-color", "#999999"); 
