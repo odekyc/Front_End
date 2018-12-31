@@ -337,16 +337,33 @@ canvas{
 
 button{
     position: absolute;
-    background-color: orange;
-    color: blue;
     font-weight: 900;
     height: 5%;
     width: 7%;
     font-size: 1vw;
-    left: 75%;
-    top: 5%;
     pointer-events: auto;
       
+}
+
+#startOverBut{
+	background-color: orange;
+	color: blue;
+	left: 75%;
+    top: 5%;
+}
+
+#userMoveFirst{
+	background-color: #99ccff;
+	left: 10%;
+	top: 5%;
+
+}
+
+#AIMoveFirst{
+	background-color: pink;
+	left: 19%;
+	top: 5%;
+
 }
 
 #winnername{

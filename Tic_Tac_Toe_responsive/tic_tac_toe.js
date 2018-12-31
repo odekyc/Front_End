@@ -21,6 +21,7 @@ var lastPlc="";
 var lastPlcsArr=[];
 var lastPlcsEmptyArr=[];
 var lastPlcsEmptyArrLen;
+var whoFirstMove = "AI";
 
 
 
@@ -1037,7 +1038,7 @@ yxstr=$(this).attr('id').slice(1);
      
     });
 
- $("button").click(function(e){
+ $("#startOverBut").click(function(e){
       
        context.clearRect(0, 0, canvas.width, canvas.height);
        $(".in").text("");
