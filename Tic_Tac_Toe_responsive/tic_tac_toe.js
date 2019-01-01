@@ -137,6 +137,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
        $("#AIMoveFirst").removeClass("active-button");
        $("#userMoveFirst").css("top", "4.3%");
        $("#AIMoveFirst").css("top", "5%");
+       $("#Pick_who_first").get(0).cloneNode().play();
        whoFirstMove="User";
    });
    
@@ -146,6 +147,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
       $("#userMoveFirst").removeClass("active-button");
       $("#AIMoveFirst").css("top", "4.3%");
       $("#userMoveFirst").css("top", "5%");
+      $("#Pick_who_first").get(0).cloneNode().play();
       whoFirstMove="AI";
    });
 
@@ -534,6 +536,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                 EmptyPlcsArr.splice(clickIndex,1);
                 DrawLine();
 
+            if(whoFirstMove == "AI"){
+              alert("AI First");
                 var AIOccupiedLen=occupied_arr_AI.length;
 
                 if(AIOccupiedLen==1){
@@ -925,7 +929,11 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                             }
 
                       }
-                
+                }
+                else if(whoFirstMove == "User"){
+                   alert("User First");
+
+                }
                 
                
               numOccupied+=1;
