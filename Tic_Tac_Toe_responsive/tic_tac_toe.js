@@ -1164,7 +1164,18 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                                   }
                                 }
                                 else if(occupied_arr_user.indexOf('33')>-1){
-
+                                  if(occupied_arr_user.indexOf('12')>-1){
+                                     tempAllPossiblePlcs.push('23');
+                                     tempAllPossiblePlcs.push('32');
+                                     tempAllPossiblePlcs.push('11');
+                                     tempAllPossiblePlcs.push('13');
+                                  }
+                                  else if(occupied_arr_user.indexOf('21')>-1){
+                                     tempAllPossiblePlcs.push('23');
+                                     tempAllPossiblePlcs.push('32');
+                                     tempAllPossiblePlcs.push('11');
+                                     tempAllPossiblePlcs.push('31');
+                                  }
                                 }
                           }
                        }
