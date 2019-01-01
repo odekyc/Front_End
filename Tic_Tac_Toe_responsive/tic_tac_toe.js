@@ -6,7 +6,7 @@ var yQuadrant;
 var x_or_o; // X or O, which one the user has selected to represent the User in the game
 var EmptyPlcsArr=['11','12','13','21','22','23','31','32','33']; // an array holding all the currently empty places(chessboxes) on the board
 var already_placed=false; 
-var genIndex;  //the index position randomly selected from an array of empty, occupiable chessboxes
+var genIndex;  //the index position randomly generated from an array of empty, occupiable chessboxes
 var clickIndex;  // the index position of the chessbox the user clicks on within the EmptyPlacsArr, used to check whether clickIndex==-1 (user has
 //clicked on a chessbox that is already occupied by the User or AI) or the chessbox the user clicked is still empty
 var numOccupied=0;  // number of chessboxed already occupied by both user and AI added together
@@ -1009,7 +1009,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                               EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                           }
                        }
-                       else if(occupied_arr_user[0] !='22'){
+                       else if(occupied_arr_user[0]!='22'){
                            if(occupied_arr_user.indexOf('11')>-1 && occupied_arr_user.indexOf('12')>-1){
                                 lastPlc="13";
                                 element_str="#q"+lastPlc+"in";
@@ -1105,6 +1105,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                           }
 
                           else{
+                                alert("in the right place");
+                                alert(occupied_arr_user);
                                 var tempAllPossiblePlcs=[]
                                 if(occupied_arr_user.indexOf('11')>-1){
                                   if(occupied_arr_user.indexOf('33')>-1){
@@ -1165,6 +1167,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                                 }
                                 else if(occupied_arr_user.indexOf('33')>-1){
                                   if(occupied_arr_user.indexOf('12')>-1){
+                                     alert("in the right place again");
                                      tempAllPossiblePlcs.push('23');
                                      tempAllPossiblePlcs.push('32');
                                      tempAllPossiblePlcs.push('11');
@@ -1177,6 +1180,67 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                                      tempAllPossiblePlcs.push('31');
                                   }
                                 }
+                            
+                            alert("tempAllPossiblePlcs"+tempAllPossiblePlcs);
+                            alert("occupied_arr_user"+occupied_arr_user);
+                            var bestAIMovesPlcs=[]; 
+
+                            for(var i=0; i < tempAllPossiblePlcs.length; i++){
+                              if(tempAllPossiblePlcs[i]=='11'){
+                                  if(occupied_arr_user.indexOf('33')==-1){
+                                    alert("in the right place again, great");
+                                     bestAIMovesPlcs.push('11');
+                                     alert(bestAIMovesPlcs);
+                                  }
+                              }
+                              else if(tempAllPossiblePlcs[i]=='12'){
+                                  if(occupied_arr_user.indexOf('32')==-1){
+                                     bestAIMovesPlcs.push('12');
+                                  }
+                              }
+                              else if(tempAllPossiblePlcs[i]=='13'){
+                                  if(occupied_arr_user.indexOf('31')==-1){
+                                     alert("in the right place again, great");
+                                     bestAIMovesPlcs.push('13');
+                                     alert(bestAIMovesPlcs);
+                                  }
+                              }
+                              else if(tempAllPossiblePlcs[i]=='21'){
+                                  if(occupied_arr_user.indexOf('23')==-1){
+                                     bestAIMovesPlcs.push('21');
+                                  }
+                              }
+                              else if(tempAllPossiblePlcs[i]=='23'){
+                                  if(occupied_arr_user.indexOf('21')==-1){
+                                     bestAIMovesPlcs.push('23');
+                                  }
+                              }
+                              else if(tempAllPossiblePlcs[i]=='31'){
+                                  if(occupied_arr_user.indexOf('13')==-1){
+                                     bestAIMovesPlcs.push('31');
+                                  }
+                              }
+                              else if(tempAllPossiblePlcs[i]=='32'){
+                                  if(occupied_arr_user.indexOf('12')==-1){
+                                     bestAIMovesPlcs.push('32');
+                                  }
+                              }
+
+                              else if(tempAllPossiblePlcs[i]=='33'){
+                                  if(occupied_arr_user.indexOf('11')==-1){
+                                     bestAIMovesPlcs.push('33');
+                                  }
+                              }
+                          }
+                            alert("bestAIMovesPlcs"+bestAIMovesPlcs);
+                            genIndex=Math.floor((Math.random() * bestAIMovesPlcs.length) + 1)-1;
+                            occupied_arr_AI.push(bestAIMovesPlcs[genIndex]);
+                            element_str="#q"+bestAIMovesPlcs[genIndex]+"in";
+                            EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(bestAIMovesPlcs[genIndex]);
+                            EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
+
+                           
+
                           }
                        }
                    }
