@@ -1108,12 +1108,11 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                                 alert("in the right place");
                                 alert(occupied_arr_user);
                                 var tempAllPossiblePlcs=[]
+                                var bestAIMovesPlcs=[]; 
                                 if(occupied_arr_user.indexOf('11')>-1){
                                   if(occupied_arr_user.indexOf('33')>-1){
-                                     tempAllPossiblePlcs.push('12');
-                                     tempAllPossiblePlcs.push('21');
-                                     tempAllPossiblePlcs.push('23');
-                                     tempAllPossiblePlcs.push('32');
+                                     bestAIMovesPlcs.push('13');
+                                     bestAIMovesPlcs.push('31');
                                   }
                                   else if(occupied_arr_user.indexOf('23')>-1){
                                      tempAllPossiblePlcs.push('12');
@@ -1132,10 +1131,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                                 }
                                 else if(occupied_arr_user.indexOf('13')>-1){
                                   if(occupied_arr_user.indexOf('31')>-1){
-                                     tempAllPossiblePlcs.push('12');
-                                     tempAllPossiblePlcs.push('23');
-                                     tempAllPossiblePlcs.push('21');
-                                     tempAllPossiblePlcs.push('32');
+                                      bestAIMovesPlcs.push('11');
+                                      bestAIMovesPlcs.push('33'); 
                                   }
                                   else if(occupied_arr_user.indexOf('21')>-1){
                                      tempAllPossiblePlcs.push('12');
@@ -1183,55 +1180,59 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                             
                             alert("tempAllPossiblePlcs"+tempAllPossiblePlcs);
                             alert("occupied_arr_user"+occupied_arr_user);
-                            var bestAIMovesPlcs=[]; 
+                            var tempAllPossiblePlcsLen=tempAllPossiblePlcs.length;
 
-                            for(var i=0; i < tempAllPossiblePlcs.length; i++){
-                              if(tempAllPossiblePlcs[i]=='11'){
-                                  if(occupied_arr_user.indexOf('33')==-1){
-                                    alert("in the right place again, great");
-                                     bestAIMovesPlcs.push('11');
-                                     alert(bestAIMovesPlcs);
-                                  }
-                              }
-                              else if(tempAllPossiblePlcs[i]=='12'){
-                                  if(occupied_arr_user.indexOf('32')==-1){
-                                     bestAIMovesPlcs.push('12');
-                                  }
-                              }
-                              else if(tempAllPossiblePlcs[i]=='13'){
-                                  if(occupied_arr_user.indexOf('31')==-1){
-                                     alert("in the right place again, great");
-                                     bestAIMovesPlcs.push('13');
-                                     alert(bestAIMovesPlcs);
-                                  }
-                              }
-                              else if(tempAllPossiblePlcs[i]=='21'){
-                                  if(occupied_arr_user.indexOf('23')==-1){
-                                     bestAIMovesPlcs.push('21');
-                                  }
-                              }
-                              else if(tempAllPossiblePlcs[i]=='23'){
-                                  if(occupied_arr_user.indexOf('21')==-1){
-                                     bestAIMovesPlcs.push('23');
-                                  }
-                              }
-                              else if(tempAllPossiblePlcs[i]=='31'){
-                                  if(occupied_arr_user.indexOf('13')==-1){
-                                     bestAIMovesPlcs.push('31');
-                                  }
-                              }
-                              else if(tempAllPossiblePlcs[i]=='32'){
-                                  if(occupied_arr_user.indexOf('12')==-1){
-                                     bestAIMovesPlcs.push('32');
-                                  }
-                              }
+                            if(tempAllPossiblePlcsLen){
+                                for(var i=0; i < tempAllPossiblePlcsLen; i++){
+                                    if(tempAllPossiblePlcs[i]=='11'){
+                                        if(occupied_arr_user.indexOf('33')==-1){
+                                          alert("in the right place again, great");
+                                           bestAIMovesPlcs.push('11');
+                                           alert(bestAIMovesPlcs);
+                                        }
+                                    }
+                                    else if(tempAllPossiblePlcs[i]=='12'){
+                                        if(occupied_arr_user.indexOf('32')==-1){
+                                           bestAIMovesPlcs.push('12');
+                                        }
+                                    }
+                                    else if(tempAllPossiblePlcs[i]=='13'){
+                                        if(occupied_arr_user.indexOf('31')==-1){
+                                           alert("in the right place again, great");
+                                           bestAIMovesPlcs.push('13');
+                                           alert(bestAIMovesPlcs);
+                                        }
+                                    }
+                                    else if(tempAllPossiblePlcs[i]=='21'){
+                                        if(occupied_arr_user.indexOf('23')==-1){
+                                           bestAIMovesPlcs.push('21');
+                                        }
+                                    }
+                                    else if(tempAllPossiblePlcs[i]=='23'){
+                                        if(occupied_arr_user.indexOf('21')==-1){
+                                           bestAIMovesPlcs.push('23');
+                                        }
+                                    }
+                                    else if(tempAllPossiblePlcs[i]=='31'){
+                                        if(occupied_arr_user.indexOf('13')==-1){
+                                           bestAIMovesPlcs.push('31');
+                                        }
+                                    }
+                                    else if(tempAllPossiblePlcs[i]=='32'){
+                                        if(occupied_arr_user.indexOf('12')==-1){
+                                           bestAIMovesPlcs.push('32');
+                                        }
+                                    }
 
-                              else if(tempAllPossiblePlcs[i]=='33'){
-                                  if(occupied_arr_user.indexOf('11')==-1){
-                                     bestAIMovesPlcs.push('33');
-                                  }
-                              }
-                          }
+                                    else if(tempAllPossiblePlcs[i]=='33'){
+                                        if(occupied_arr_user.indexOf('11')==-1){
+                                           bestAIMovesPlcs.push('33');
+                                        }
+                                    }
+                                }
+                            }
+
+                            
                             alert("bestAIMovesPlcs"+bestAIMovesPlcs);
                             genIndex=Math.floor((Math.random() * bestAIMovesPlcs.length) + 1)-1;
                             occupied_arr_AI.push(bestAIMovesPlcs[genIndex]);
@@ -1243,6 +1244,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
 
                           }
                        }
+                   }
+                   else if(AIOccupiedLen>=2){
                    }
                 }
                 
