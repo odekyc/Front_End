@@ -281,6 +281,7 @@ h1{
 
 .in{
   float: left;
+  display: table-cell;
   position: relative;
   top: 30%;
   left: 30%;
@@ -296,10 +297,27 @@ h1{
   visibility: hidden;
   border: 5px solid blue;
   text-align: center;
-
+  vertical-align: middle;
 }
 
+@-moz-document url-prefix() {
+  .in{
+    padding-top: 4%;
+    height: 33%;
+  }
 
+
+	#X{ 	    
+	     padding-top: 1.9%;
+	     height: 9%;
+	}
+
+	#O{
+	     padding-top: 1.9%;
+	     height: 9%;
+	    
+	}
+}
 
 
 canvas{
