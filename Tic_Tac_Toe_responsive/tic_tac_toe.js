@@ -6,7 +6,7 @@ var yQuadrant;
 var x_or_o; // X or O, which one the user has selected to represent the User in the game
 var EmptyPlcsArr=['11','12','13','21','22','23','31','32','33']; // an array holding all the currently empty places(chessboxes) on the board
 var already_placed=false; 
-var genIndex;  //the index position randomly selected from an array of possible chessboxes
+var genIndex;  //the index position randomly selected from an array of empty, occupiable chessboxes
 var clickIndex;  // the index position of the chessbox the user clicks on within the EmptyPlacsArr, used to check whether clickIndex==-1 (user has
 //clicked on a chessbox that is already occupied by the User or AI) or the chessbox the user clicked is still empty
 var numOccupied=0;  // number of chessboxed already occupied by both user and AI added together
@@ -20,17 +20,19 @@ var gameFinished=false;     //whether User or AI has already won and a line conn
 //3 adjacent chesses twice for both User and AI, gameFinished will be set to True and game will end as soon as either User or AI 
 //wins first and a winning line connecting 3 adjacent chesses has already been drawn. 
 
-var surroundPlcsArr=[];  // an array containing all(may or may not be empty) the places(chessboxes) which surrounds an already occupied chessbox
-var surroundEmptyPlcsArr=[];  //an array containing all the empty, unoccupied places(chessboxes) which surrounds an already occupied chessbox 
+var surroundPlcsArr=[];  // an array containing all(may or may not be empty) the places(chessboxes) which are immediately adjacent to and 
+//surrounds an already occupied chessbox
+var surroundEmptyPlcsArr=[];  //an array containing all the empty, unoccupied places(chessboxes) which are immediately adjacent to and 
+//surrounds an already occupied chessbox 
 var surPlcIndex;  // the index position of a chessbox(place) from surroundPlcsArr within EmptyPlcsArr
 var surEmptyArrLen;  // the length of surroundEmptyPlcsArr
 var EmptyPlcsSpliceIndex;  // after a empty chessbox place is randomly selected from surroundEmptyPlcsArr, EmptyPlcsSpliceIndex is the index
-// of this selected empty chessbox place in EmptyPlcsArr. used to splice out this empty chessbox place from all the empty chessboxes places 
+// of this selected empty chessbox place within EmptyPlcsArr. used to splice out this empty chessbox place from all the empty chessboxes places 
 //from EmptyPlcsArr after this selected empty chessbox is added to occupied_arr_AI and become one of the AI occupied chessboxes(no longer empty).
 var lastPlc=""; //the last chessbox(place) (may or may not be empty)that the user/AI can occupy to make a line connecting 3 adjacent chesses(chessboxes) and win the game 
 // for instance, if the user currently already has chesses on chessboxes '11' and  '22', '33' would be the last chessbox(place) the user need to occupy
 //to successfully make a line connecting 3 adjacent chesses(chessboxes) and win the game
-var lastPlcsArr=[];  // an array of all the last chessboxes(places), which may or may not be empty, that the user/AI can occupy to make
+var lastPlcsArr=[];  // an array of all the lastPlc(last chessboxes(places)), which may or may not be empty, that the user/AI can occupy to make
 //line connecting 3 adjacent chesses(chessboxes) and win the game. for instance, if the user currently already has chesses on 
 //chessboxes '11' and '22', the lastPlc the user can occupy to win the game would be '33'. however, if, besides these the user also currently
 //already has chess on '21', the lastPlacsArr containing all the possible lastPlc places/chessboxes would be ['33','31','23'].(all the possible 
@@ -932,7 +934,82 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                 }
                 else if(whoFirstMove == "User"){
                    alert("User First");
+                   var AIOccupiedLen=occupied_arr_AI.length;
+                   if(AIOccupiedLen==0){
 
+                       EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf('22');
+                       if (EmptyPlcsSpliceIndex>-1){
+                            occupied_arr_AI.push('22');
+                            EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
+                            element_str="#q22in";
+                       }
+                       else{
+                          var temp4CornersArr = ['11', '13', '31', '33'];
+                          genIndex=Math.floor((Math.random() * 4) + 1)-1;
+                          element_str="#q"+temp4CornersArr[genIndex]+"in";
+                          occupied_arr_AI.push(temp4CornersArr[genIndex]);
+                          EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(temp4CornersArr[genIndex]);
+                          EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
+                       }
+ 
+                   }
+                   else if(AIOccupiedLen==1){
+
+                       if(occupied_arr_user[0]=='22'){
+                          alert("user first move is 22");
+                          if(occupied_arr_user[1]=='11'){
+                              lastPlc="33";
+                          }
+                          else if(occupied_arr_user[1]=='12'){
+                              lastPlc="32";
+                          }
+                          else if(occupied_arr_user[1]=='13'){
+                              lastPlc="31";
+                          }
+                          else if(occupied_arr_user[1]=='21'){
+                              lastPlc="23";
+                          }
+                          else if(occupied_arr_user[1]=='23'){
+                              lastPlc="21";
+                          }
+                          else if(occupied_arr_user[1]=='31'){
+                              lastPlc="13";
+                          }
+                          else if(occupied_arr_user[1]=='33'){
+                              lastPlc="11";
+                          }
+
+                          if(occupied_arr_AI[0] == lastPlc){
+
+                              var tempPossibleCornersArr=[];
+
+                               if(occupied_arr_AI[0]=='11'){
+                                    tempPossibleCornersArr=['13','31'];
+                                }
+                                else if(occupied_arr_AI[0]=='13'){
+                                    tempPossibleCornersArr=['11','33'];
+                                }
+                                else if(occupied_arr_AI[0]=='31'){
+                                    tempPossibleCornersArr=['11','33'];
+                                }
+                                else if(occupied_arr_AI[0]=='33'){
+                                    tempPossibleCornersArr=['13','31'];
+                                }
+                                genIndex = Math.floor((Math.random() * 2) + 1)-1;
+                                element_str="#q"+tempPossibleCornersArr[genIndex]+"in";
+                                occupied_arr_AI.push(tempPossibleCornersArr[genIndex]);
+                                EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(tempPossibleCornersArr[genIndex]);
+                                EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
+
+                          }
+                          else{
+                              element_str="#q"+lastPlc+"in";
+                              occupied_arr_AI.push(element_str);
+                              EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
+                              EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
+                          }
+                       }
+                   }
                 }
                 
                
