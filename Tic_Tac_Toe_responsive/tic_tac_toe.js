@@ -1090,7 +1090,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
 
                           else if(occupied_arr_user.indexOf('33')>-1 && occupied_arr_user.indexOf('23')>-1){
                                 lastPlc="13";
-                                 element_str="#q"+lastPlc+"in";
+                                element_str="#q"+lastPlc+"in";
                                 occupied_arr_AI.push(element_str);
                                 EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                                 EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
@@ -1105,7 +1105,67 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                           }
 
                           else{
-                            
+                                var tempAllPossiblePlcs=[]
+                                if(occupied_arr_user.indexOf('11')>-1){
+                                  if(occupied_arr_user.indexOf('33')>-1){
+                                     tempAllPossiblePlcs.push('12');
+                                     tempAllPossiblePlcs.push('21');
+                                     tempAllPossiblePlcs.push('23');
+                                     tempAllPossiblePlcs.push('32');
+                                  }
+                                  else if(occupied_arr_user.indexOf('23')>-1){
+                                     tempAllPossiblePlcs.push('12');
+                                     tempAllPossiblePlcs.push('21');
+                                     tempAllPossiblePlcs.push('13');
+                                     tempAllPossiblePlcs.push('32');
+                                  }
+                                  else if(occupied_arr_user.indexOf('32')>-1){
+                                     tempAllPossiblePlcs.push('12');
+                                     tempAllPossiblePlcs.push('21');
+                                     tempAllPossiblePlcs.push('31');
+                                     tempAllPossiblePlcs.push('33');
+
+                                  }
+
+                                }
+                                else if(occupied_arr_user.indexOf('13')>-1){
+                                  if(occupied_arr_user.indexOf('31')>-1){
+                                     tempAllPossiblePlcs.push('12');
+                                     tempAllPossiblePlcs.push('23');
+                                     tempAllPossiblePlcs.push('21');
+                                     tempAllPossiblePlcs.push('32');
+                                  }
+                                  else if(occupied_arr_user.indexOf('21')>-1){
+                                     tempAllPossiblePlcs.push('12');
+                                     tempAllPossiblePlcs.push('23');
+                                     tempAllPossiblePlcs.push('11');
+                                     tempAllPossiblePlcs.push('31');
+
+                                  }
+                                  else if(occupied_arr_user.indexOf('32')>-1){
+                                     tempAllPossiblePlcs.push('12');
+                                     tempAllPossiblePlcs.push('23');
+                                     tempAllPossiblePlcs.push('31');
+                                     tempAllPossiblePlcs.push('33');
+                                  }
+                                }
+                                else if(occupied_arr_user.indexOf('31')>-1){
+                                  if(occupied_arr_user.indexOf('12')>-1){
+                                     tempAllPossiblePlcs.push('21');
+                                     tempAllPossiblePlcs.push('32');
+                                     tempAllPossiblePlcs.push('11');
+                                     tempAllPossiblePlcs.push('13');
+                                  }
+                                  else if(occupied_arr_user.indexOf('23')>-1){
+                                     tempAllPossiblePlcs.push('21');
+                                     tempAllPossiblePlcs.push('32');
+                                     tempAllPossiblePlcs.push('13');
+                                     tempAllPossiblePlcs.push('33');
+                                  }
+                                }
+                                else if(occupied_arr_user.indexOf('33')>-1){
+
+                                }
                           }
                        }
                    }
