@@ -1009,6 +1009,38 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                               EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                           }
                        }
+                       else if(occupied_arr_user[0] !='22'){
+                           if(occupied_arr_user.indexOf('11')>-1 && occupied_arr_user.indexOf('12')>-1){
+                                lastPlc="13";
+                           }
+                           else if(occupied_arr_user.indexOf('11')>-1 && occupied_arr_user.indexOf('21')>-1){
+                                lastPlc="31";
+                           }
+                           else if(occupied_arr_user.indexOf('11')>-1 && occupied_arr_user.indexOf('13')>-1){
+                                lastPlc="12";
+                           }
+                           else if(occupied_arr_user.indexOf('11')>-1 && occupied_arr_user.indexOf('31')>-1){
+                                lastPlc="21";
+                           }
+                            else if(occupied_arr_user.indexOf('11')>-1 && occupied_arr_user.indexOf('31')>-1){
+                                lastPlc="21";
+                           }
+                           else if(occupied_arr_user.indexOf('13')>-1 && occupied_arr_user.indexOf('33')>-1){
+                                lastPlc="23";
+                           }
+                          else if(occupied_arr_user.indexOf('13')>-1 && occupied_arr_user.indexOf('12')>-1){
+                                lastPlc="11";
+                          }
+                          else if(occupied_arr_user.indexOf('31')>-1 && occupied_arr_user.indexOf('33')>-1){
+                                lastPlc="32";
+                           }
+                          else if(occupied_arr_user.indexOf('31')>-1 && occupied_arr_user.indexOf('21')>-1){
+                                lastPlc="11";
+                           }
+                          else if(occupied_arr_user.indexOf('31')>-1 && occupied_arr_user.indexOf('32')>-1){
+                                lastPlc="33";
+                           }
+                       }
                    }
                 }
                 
