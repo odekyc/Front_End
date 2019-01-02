@@ -1007,7 +1007,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                           }
                           else{
                               element_str="#q"+lastPlc+"in";
-                              occupied_arr_AI.push(element_str);
+                              occupied_arr_AI.push(lastPlc);
                               EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                               EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                           }
@@ -1016,77 +1016,77 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                            if(occupied_arr_user.indexOf('11')>-1 && occupied_arr_user.indexOf('12')>-1){
                                 lastPlc="13";
                                 element_str="#q"+lastPlc+"in";
-                                occupied_arr_AI.push(element_str);
+                                occupied_arr_AI.push(lastPlc);
                                 EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                                 EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                            }
                            else if(occupied_arr_user.indexOf('11')>-1 && occupied_arr_user.indexOf('21')>-1){
                                 lastPlc="31";
                                 element_str="#q"+lastPlc+"in";
-                                occupied_arr_AI.push(element_str);
+                                occupied_arr_AI.push(lastPlc);
                                 EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                                 EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                            }
                            else if(occupied_arr_user.indexOf('11')>-1 && occupied_arr_user.indexOf('13')>-1){
                                 lastPlc="12";
                                 element_str="#q"+lastPlc+"in";
-                                occupied_arr_AI.push(element_str);
+                                occupied_arr_AI.push(lastPlc);
                                 EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                                 EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                            }
                            else if(occupied_arr_user.indexOf('11')>-1 && occupied_arr_user.indexOf('31')>-1){
                                 lastPlc="21";
                                 element_str="#q"+lastPlc+"in";
-                                occupied_arr_AI.push(element_str);
+                                occupied_arr_AI.push(lastPlc);
                                 EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                                 EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                            }
                             else if(occupied_arr_user.indexOf('11')>-1 && occupied_arr_user.indexOf('31')>-1){
                                 lastPlc="21";
                                 element_str="#q"+lastPlc+"in";
-                                occupied_arr_AI.push(element_str);
+                                occupied_arr_AI.push(lastPlc);
                                 EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                                 EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                            }
                            else if(occupied_arr_user.indexOf('13')>-1 && occupied_arr_user.indexOf('33')>-1){
                                 lastPlc="23";
                                  element_str="#q"+lastPlc+"in";
-                                occupied_arr_AI.push(element_str);
+                                occupied_arr_AI.push(lastPlc);
                                 EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                                 EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                            }
                           else if(occupied_arr_user.indexOf('13')>-1 && occupied_arr_user.indexOf('12')>-1){
                                 lastPlc="11";
                                  element_str="#q"+lastPlc+"in";
-                                occupied_arr_AI.push(element_str);
+                                occupied_arr_AI.push(lastPlc);
                                 EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                                 EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                           }
                           else if(occupied_arr_user.indexOf('13')>-1 && occupied_arr_user.indexOf('23')>-1){
                                 lastPlc="33";
                                  element_str="#q"+lastPlc+"in";
-                                occupied_arr_AI.push(element_str);
+                                occupied_arr_AI.push(lastPlc);
                                 EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                                 EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                           }
                           else if(occupied_arr_user.indexOf('31')>-1 && occupied_arr_user.indexOf('33')>-1){
                                 lastPlc="32";
                                  element_str="#q"+lastPlc+"in";
-                                occupied_arr_AI.push(element_str);
+                                occupied_arr_AI.push(lastPlc);
                                 EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                                 EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                            }
                           else if(occupied_arr_user.indexOf('31')>-1 && occupied_arr_user.indexOf('21')>-1){
                                 lastPlc="11";
                                  element_str="#q"+lastPlc+"in";
-                                occupied_arr_AI.push(element_str);
+                                occupied_arr_AI.push(lastPlc);
                                 EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                                 EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                            }
                           else if(occupied_arr_user.indexOf('31')>-1 && occupied_arr_user.indexOf('32')>-1){
                                 lastPlc="33";
                                  element_str="#q"+lastPlc+"in";
-                                occupied_arr_AI.push(element_str);
+                                occupied_arr_AI.push(lastPlc);
                                 EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                                 EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                            }
@@ -1094,7 +1094,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                           else if(occupied_arr_user.indexOf('33')>-1 && occupied_arr_user.indexOf('23')>-1){
                                 lastPlc="13";
                                 element_str="#q"+lastPlc+"in";
-                                occupied_arr_AI.push(element_str);
+                                occupied_arr_AI.push(lastPlc);
                                 EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                                 EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                           }
@@ -1102,7 +1102,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                           else if(occupied_arr_user.indexOf('33')>-1 && occupied_arr_user.indexOf('32')>-1){
                                 lastPlc="31";
                                 element_str="#q"+lastPlc+"in";
-                                occupied_arr_AI.push(element_str);
+                                occupied_arr_AI.push(lastPlc);
                                 EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(lastPlc);
                                 EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
                           }
@@ -1249,6 +1249,92 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                        }
                    }
                    else if(AIOccupiedLen>=2){
+                       if(occupied_arr_AI.indexOf("22")>-1){
+        
+                               alert("in here at last");
+                               alert("occupied_arr_AI"+occupied_arr_AI)
+                               lastPlcsArr=[];
+        
+                              if(occupied_arr_AI.indexOf("11")>-1){
+                                 lastPlcsArr.push("33");
+                              }
+                              if(occupied_arr_AI.indexOf("12")>-1){
+                                 lastPlcsArr.push("32");
+                              }
+                              if(occupied_arr_AI.indexOf("13")>-1){
+                                 lastPlcsArr.push("31");
+                              }
+                              if(occupied_arr_AI.indexOf("21")>-1){
+                                 lastPlcsArr.push("23");
+                              }
+                              if(occupied_arr_AI.indexOf("23")>-1){
+                                 lastPlcsArr.push("21");
+                              }
+                              if(occupied_arr_AI.indexOf("31")>-1){
+                                 lastPlcsArr.push("13");
+                                 alert("in here in here");
+                              }
+                               if(occupied_arr_AI.indexOf("32")>-1){
+                                 lastPlcsArr.push("12");
+                              }
+                              if(occupied_arr_AI.indexOf("33")>-1){
+                                 lastPlcsArr.push("11");
+                              }
+                           
+                        }
+                        else{
+                            if(occupied_arr_AI.indexOf("11")>-1){
+                                 if(occupied_arr_AI.indexOf("13")>-1){
+                                     lastPlcsArr.push("12");
+                                 }
+                                 if(occupied_arr_AI.indexOf("31")>-1){
+                                     lastPlcsArr.push("21");
+                                 }
+                                 if(occupied_arr_AI.indexOf("12")>-1){
+                                     lastPlcsArr.push("13");
+                                 }
+                                 if(occupied_arr_AI.indexOf("21")>-1){
+                                     lastPlcsArr.push("31");
+                                 }
+                                 if(occupied_arr_AI.indexOf("33")>-1){
+                                     lastPlcsArr.push("22");
+                                 }
+                                 
+                              }
+                              else if(occupied_arr_AI.indexOf("33")>-1){
+                                  if(occupied_arr_AI.indexOf("13")>-1){
+                                     lastPlcsArr.push("23");
+                                  }
+                                  if(occupied_arr_AI.indexOf("23")>-1){
+                                     lastPlcsArr.push("13");
+                                  }
+                                  if(occupied_arr_AI.indexOf("31")>-1){
+                                     lastPlcsArr.push("32");
+                                  }
+                                  if(occupied_arr_AI.indexOf("32")>-1){
+                                     lastPlcsArr.push("31");
+                                  }
+                              }                            
+                            }
+
+                            for(var i=0; i<lastPlcsArr.length; i++){
+                                  
+                                  if(EmptyPlcsArr.indexOf(lastPlcsArr[i])>-1){
+                                    lastPlcsEmptyArr.push(lastPlcsArr[i]);
+                                  }
+                            }
+
+
+                            lastPlcsEmptyArrLen=lastPlcsEmptyArr.length;
+
+                            if (lastPlcsEmptyArrLen>0){
+                                genIndex=Math.floor((Math.random() * lastPlcsEmptyArrLen) + 1)-1;
+                                element_str+="#q"+lastPlcsEmptyArr[genIndex]+"in";
+                                occupied_arr_AI.push(lastPlcsEmptyArr[genIndex]);
+                                genIndex=EmptyPlcsArr.indexOf(lastPlcsEmptyArr[genIndex]);  
+                                EmptyPlcsArr.splice(genIndex,1);
+
+                            }
                    }
                 }
                 
