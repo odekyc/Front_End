@@ -975,6 +975,9 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                           else if(occupied_arr_user[1]=='31'){
                               lastPlc="13";
                           }
+                           else if(occupied_arr_user[1]=='32'){
+                              lastPlc="12";
+                          }
                           else if(occupied_arr_user[1]=='33'){
                               lastPlc="11";
                           }
