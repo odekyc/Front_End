@@ -1335,6 +1335,94 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                                 EmptyPlcsArr.splice(genIndex,1);
 
                             }
+                            else if(lastPlcsEmptyArrLen==0){
+                                  
+                                  if(occupied_arr_user.indexOf("22")>-1){
+                                        if(occupied_arr_user.indexOf("11")>-1){
+                                           lastPlcsArr.push("33");
+                                        }
+                                        if(occupied_arr_user.indexOf("12")>-1){
+                                           lastPlcsArr.push("32");
+                                        }
+                                        if(occupied_arr_user.indexOf("13")>-1){
+                                           lastPlcsArr.push("31");
+                                        }
+                                        if(occupied_arr_user.indexOf("21")>-1){
+                                           lastPlcsArr.push("23");
+                                        }
+                                        if(occupied_arr_user.indexOf("23")>-1){
+                                           lastPlcsArr.push("21");
+                                        }
+                                        if(occupied_arr_user.indexOf("31")>-1){
+                                           lastPlcsArr.push("13");
+                                        }
+                                         if(occupied_arr_user.indexOf("32")>-1){
+                                           lastPlcsArr.push("12");
+                                        }
+                                        if(occupied_arr_user.indexOf("33")>-1){
+                                           lastPlcsArr.push("11");
+                                        }
+                                }
+                                else{
+                                    if(occupied_arr_user.indexOf("11")>-1){
+                                         if(occupied_arr_user.indexOf("13")>-1){
+                                             lastPlcsArr.push("12");
+                                         }
+                                         if(occupied_arr_user.indexOf("31")>-1){
+                                             lastPlcsArr.push("21");
+                                         }
+                                         if(occupied_arr_user.indexOf("12")>-1){
+                                             lastPlcsArr.push("13");
+                                         }
+                                         if(occupied_arr_user.indexOf("21")>-1){
+                                             lastPlcsArr.push("31");
+                                         }
+                                         if(occupied_arr_user.indexOf("33")>-1){
+                                             lastPlcsArr.push("22");
+                                         }
+                                         
+                                      }
+                                      else if(occupied_arr_user.indexOf("33")>-1){
+                                          if(occupied_arr_user.indexOf("13")>-1){
+                                             lastPlcsArr.push("23");
+                                          }
+                                          if(occupied_arr_user.indexOf("23")>-1){
+                                             lastPlcsArr.push("13");
+                                          }
+                                          if(occupied_arr_user.indexOf("31")>-1){
+                                             lastPlcsArr.push("32");
+                                          }
+                                          if(occupied_arr_user.indexOf("32")>-1){
+                                             lastPlcsArr.push("31");
+                                          }
+                                      }
+                                  }
+                                  for(var i=0; i<lastPlcsArr.length; i++){
+                                        if(EmptyPlcsArr.indexOf(lastPlcsArr[i])>-1){
+                                             lastPlcsEmptyArr.push(lastPlcsArr[i]);
+                                        }
+                                  }
+                                   lastPlcsEmptyArrLen=lastPlcsEmptyArr.length;
+
+                                    if (lastPlcsEmptyArrLen>0){
+
+                                        genIndex=Math.floor((Math.random() * lastPlcsEmptyArrLen) + 1)-1;
+                                        element_str+="#q"+lastPlcsEmptyArr[genIndex]+"in";
+                                        occupied_arr_AI.push(lastPlcsEmptyArr[genIndex]);
+                                        genIndex=EmptyPlcsArr.indexOf(lastPlcsEmptyArr[genIndex]);  
+                                        EmptyPlcsArr.splice(genIndex,1);
+
+                                    }
+                                    else if(lastPlcsEmptyArrLen==0){
+                                        
+                                        arr_len = EmptyPlcsArr.length;
+                                        genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
+                                        element_str+="#q"+EmptyPlcsArr[genIndex]+"in";
+                                        occupied_arr_AI.push(EmptyPlcsArr[genIndex]);
+                                        EmptyPlcsArr.splice(genIndex,1);
+
+                                    }
+                            }
                    }
                 }
                 
