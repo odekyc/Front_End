@@ -1475,7 +1475,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                                         if(occupied_arr_user.indexOf('33')==-1){
                                          
                                            bestAIMovesPlcs.push('11');
-                                           alert(bestAIMovesPlcs);
+                                           
                                         }
                                     }
                                     else if(tempAllPossiblePlcs[i]=='12'){
@@ -1487,7 +1487,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                                         if(occupied_arr_user.indexOf('31')==-1){
                                          
                                            bestAIMovesPlcs.push('13');
-                                           alert(bestAIMovesPlcs);
+                                           
                                         }
                                     }
                                     else if(tempAllPossiblePlcs[i]=='21'){
