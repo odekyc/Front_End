@@ -19,7 +19,9 @@ var gameFinished=false;     //whether User or AI has already won and a line conn
 //used in cases when both the User and AI has 3 adjacent chesses and wins in the same step. to prevent drawing winning line connecting
 //3 adjacent chesses twice for both User and AI, gameFinished will be set to True and game will end as soon as either User or AI 
 //wins first and a winning line connecting 3 adjacent chesses has already been drawn. 
-
+var bestAIMovesPlcs=[]; // of all the possible moves for AI, this arr contains the best tactical moves (all moves in this arr rank
+//tactically equivalent to one another in terms of how good it ranks among all possible moves to help AI win the game)
+var bestAIMovesPlcsLen;  // length of bestAIMovesPlcs arr. 
 var surroundPlcsArr=[];  // an array containing all(may or may not be empty) the places(chessboxes) which are immediately adjacent to and 
 //surrounds an already occupied chessbox
 var surroundEmptyPlcsArr=[];  //an array containing all the empty, unoccupied places(chessboxes) which are immediately adjacent to and 
@@ -1111,7 +1113,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                                 alert("in the right place");
                                 alert(occupied_arr_user);
                                 var tempAllPossiblePlcs=[]
-                                var bestAIMovesPlcs=[]; 
+                                bestAIMovesPlcs=[]; 
                                 if(occupied_arr_user.indexOf('11')>-1){
                                   if(occupied_arr_user.indexOf('33')>-1){
                                      bestAIMovesPlcs.push('13');
@@ -1384,6 +1386,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                                       }
                                       else if(occupied_arr_user.indexOf("33")>-1){
                                           if(occupied_arr_user.indexOf("13")>-1){
+                                             alert("in occupied_arr_user.indexOf(33)>-1; occupied_arr_user.indexOf(13)>-1");
                                              lastPlcsArr.push("23");
                                           }
                                           if(occupied_arr_user.indexOf("23")>-1){
@@ -1397,11 +1400,15 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                                           }
                                       }
                                   }
+
+                                  alert("lastPlcsArr"+lastPlcsArr);
                                   for(var i=0; i<lastPlcsArr.length; i++){
                                         if(EmptyPlcsArr.indexOf(lastPlcsArr[i])>-1){
                                              lastPlcsEmptyArr.push(lastPlcsArr[i]);
                                         }
                                   }
+
+                                  alert("lastPlcsEmptyArr"+lastPlcsEmptyArr);
                                    lastPlcsEmptyArrLen=lastPlcsEmptyArr.length;
 
                                     if (lastPlcsEmptyArrLen>0){
@@ -1414,12 +1421,285 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
 
                                     }
                                     else if(lastPlcsEmptyArrLen==0){
+
+                                        var tempArr1;
+                                        if(occupied_arr_AI.indexOf("11")>-1){
+                                          tempArr1 = ['12', '22', '21'];
+
+                                          for(var i=0; i < tempArr1.length; i++){
+                                              if(!surroundPlcsArr.includes(tempArr1[i])){
+                                                 surroundPlcsArr.push(tempArr1[i]);
+                                              }
+                                              
+                                          }
+                                        }
+                                        if(occupied_arr_AI.indexOf("12")>-1){
+                                          tempArr1 = ['11', '22', '13'];
+
+                                          for(var i=0; i < tempArr1.length; i++){
+                                              if(!surroundPlcsArr.includes(tempArr1[i])){
+                                                 surroundPlcsArr.push(tempArr1[i]);
+                                              }
+                                              
+                                          }
+                                        }
+
+                                        if(occupied_arr_AI.indexOf("13")>-1){
+                                          tempArr1 = ['12', '22', '23'];
+
+                                          for(var i=0; i < tempArr1.length; i++){
+                                              if(!surroundPlcsArr.includes(tempArr1[i])){
+                                                 surroundPlcsArr.push(tempArr1[i]);
+                                              }
+                                              
+                                          }
+                                        }
+                                        if(occupied_arr_AI.indexOf("21")>-1){
+                                          tempArr1 = ['11', '22', '31'];
+
+                                          for(var i=0; i < tempArr1.length; i++){
+                                              if(!surroundPlcsArr.includes(tempArr1[i])){
+                                                 surroundPlcsArr.push(tempArr1[i]);
+                                              }
+                                              
+                                          }
+                                        }
+
+                                        if(occupied_arr_AI.indexOf("22")>-1){
+                                          tempArr1 = ['11', '12', '13', '21', '23', '31', '32', '33'];
+
+                                          for(var i=0; i < tempArr1.length; i++){
+                                              if(!surroundPlcsArr.includes(tempArr1[i])){
+                                                 surroundPlcsArr.push(tempArr1[i]);
+                                              }
+                                              
+                                          }
+                                        }
+
+                                    
                                         
-                                        arr_len = EmptyPlcsArr.length;
-                                        genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
-                                        element_str+="#q"+EmptyPlcsArr[genIndex]+"in";
-                                        occupied_arr_AI.push(EmptyPlcsArr[genIndex]);
-                                        EmptyPlcsArr.splice(genIndex,1);
+                                        if(occupied_arr_AI.indexOf("23")>-1){
+                                          tempArr1 = ['13', '22', '33'];
+
+                                          for(var i=0; i < tempArr1.length; i++){
+                                              if(!surroundPlcsArr.includes(tempArr1[i])){
+                                                 surroundPlcsArr.push(tempArr1[i]);
+                                              }
+                                              
+                                          }
+                                        }
+
+                                        if(occupied_arr_AI.indexOf("31")>-1){
+                                          tempArr1 = ['21', '22', '32'];
+
+                                          for(var i=0; i < tempArr1.length; i++){
+                                              if(!surroundPlcsArr.includes(tempArr1[i])){
+                                                 surroundPlcsArr.push(tempArr1[i]);
+                                              }
+                                              
+                                          }
+                                        }
+
+                                        if(occupied_arr_AI.indexOf("32")>-1){
+                                          tempArr1 = ['31', '22', '33'];
+
+                                          for(var i=0; i < tempArr1.length; i++){
+                                              if(!surroundPlcsArr.includes(tempArr1[i])){
+                                                 surroundPlcsArr.push(tempArr1[i]);
+                                              }
+                                             
+                                          }
+                                        }
+
+                                        if(occupied_arr_AI.indexOf("33")>-1){
+                                          tempArr1 = ['23', '22', '32'];
+
+                                          for(var i=0; i < tempArr1.length; i++){
+                                              if(!surroundPlcsArr.includes(tempArr1[i])){
+                                                 surroundPlcsArr.push(tempArr1[i]);
+                                              }
+                                              
+                                          }
+                                        }
+
+                                        for (var i=0; i<surroundPlcsArr.length; i++){
+                                             if(EmptyPlcsArr.indexOf(surroundPlcsArr[i])>-1){
+                                                  surroundEmptyPlcsArr.push(surroundPlcsArr[i]);
+                                             }
+                                        }
+
+                                        alert("EmptyPlcsArr"+EmptyPlcsArr);
+                                        alert("surroundEmptyPlcsArr"+surroundEmptyPlcsArr);
+                                        bestAIMovesPlcs=[];
+                                        for (var i=0; i<surroundEmptyPlcsArr.length; i++){
+                                              if(surroundEmptyPlcsArr[i]=='11'){
+                                                  if((occupied_arr_AI.includes('22')) && (EmptyPlcsArr.indexOf('33') >-1)){
+                                                      bestAIMovesPlcs.push('11');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('12')) && (EmptyPlcsArr.indexOf('13') >-1)){
+                                                      bestAIMovesPlcs.push('11');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('13')) && (EmptyPlcsArr.indexOf('12') >-1)){
+                                                      bestAIMovesPlcs.push('11');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('21')) && (EmptyPlcsArr.indexOf('31') >-1)){
+                                                      bestAIMovesPlcs.push('11');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('31')) && (EmptyPlcsArr.indexOf('21') >-1)){
+                                                      bestAIMovesPlcs.push('11');
+                                                  }
+
+                                              }
+                                              else if(surroundEmptyPlcsArr[i]=='12'){
+                                                  if((occupied_arr_AI.includes('22')) && (EmptyPlcsArr.indexOf('32') >-1)){
+                                                      bestAIMovesPlcs.push('12');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('11')) && (EmptyPlcsArr.indexOf('13') >-1)){
+                                                      bestAIMovesPlcs.push('12');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('13')) && (EmptyPlcsArr.indexOf('11') >-1)){
+                                                      bestAIMovesPlcs.push('12');
+                                                  }
+
+                                              }
+                                              else if(surroundEmptyPlcsArr[i]=='13'){
+
+                                                  if((occupied_arr_AI.includes('22')) && (EmptyPlcsArr.indexOf('31') >-1)){
+                                                      bestAIMovesPlcs.push('13');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('12')) && (EmptyPlcsArr.indexOf('11') >-1)){
+                                                      bestAIMovesPlcs.push('13');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('11')) && (EmptyPlcsArr.indexOf('12') >-1)){
+                                                      bestAIMovesPlcs.push('13');
+                                                  }
+                                                  if((occupied_arr_AI.includes('23')) && (EmptyPlcsArr.indexOf('33') >-1)){
+                                                      bestAIMovesPlcs.push('13');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('33')) && (EmptyPlcsArr.indexOf('23') >-1)){
+                                                      bestAIMovesPlcs.push('13');
+                                                  }
+
+                                              }
+                                              else if(surroundEmptyPlcsArr[i]=='21'){
+                                                  
+                                                  if((occupied_arr_AI.includes('22')) && (EmptyPlcsArr.indexOf('23') >-1)){
+                                                      bestAIMovesPlcs.push('21');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('11')) && (EmptyPlcsArr.indexOf('31') >-1)){
+                                                      bestAIMovesPlcs.push('21');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('31')) && (EmptyPlcsArr.indexOf('11') >-1)){
+                                                      bestAIMovesPlcs.push('21');
+                                                  }
+
+                                              }
+                                              else if(surroundEmptyPlcsArr[i]=='23'){
+
+                                                  if((occupied_arr_AI.includes('22')) && (EmptyPlcsArr.indexOf('21') >-1)){
+                                                      bestAIMovesPlcs.push('23');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('13')) && (EmptyPlcsArr.indexOf('33') >-1)){
+                                                      bestAIMovesPlcs.push('23');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('33')) && (EmptyPlcsArr.indexOf('13') >-1)){
+                                                      bestAIMovesPlcs.push('23');
+                                                  }
+
+
+                                              }
+                                              else if(surroundEmptyPlcsArr[i]=='31'){
+
+                                                  if((occupied_arr_AI.includes('22')) && (EmptyPlcsArr.indexOf('13') >-1)){
+                                                      bestAIMovesPlcs.push('31');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('21')) && (EmptyPlcsArr.indexOf('11') >-1)){
+                                                      bestAIMovesPlcs.push('31');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('11')) && (EmptyPlcsArr.indexOf('21') >-1)){
+                                                      bestAIMovesPlcs.push('31');
+                                                  }
+                                                  if((occupied_arr_AI.includes('32')) && (EmptyPlcsArr.indexOf('33') >-1)){
+                                                      bestAIMovesPlcs.push('31');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('33')) && (EmptyPlcsArr.indexOf('32') >-1)){
+                                                      bestAIMovesPlcs.push('31');
+                                                  }
+
+                                              }
+                                              else if(surroundEmptyPlcsArr[i]=='32'){
+
+                                                  if((occupied_arr_AI.includes('22')) && (EmptyPlcsArr.indexOf('12') >-1)){
+                                                      bestAIMovesPlcs.push('32');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('31')) && (EmptyPlcsArr.indexOf('33') >-1)){
+                                                      bestAIMovesPlcs.push('32');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('33')) && (EmptyPlcsArr.indexOf('31') >-1)){
+                                                      bestAIMovesPlcs.push('32');
+                                                  }
+
+                                              }
+                                              else if(surroundEmptyPlcsArr[i]=='33'){
+
+                                                  if((occupied_arr_AI.includes('22')) && (EmptyPlcsArr.indexOf('11') >-1)){
+                                                      bestAIMovesPlcs.push('33');
+                                                  }
+
+                                                  if((occupied_arr_AI.includes('23')) && (EmptyPlcsArr.indexOf('13') >-1)){
+                                                      bestAIMovesPlcs.push('33');
+                                                  }
+                                                  if((occupied_arr_AI.includes('13')) && (EmptyPlcsArr.indexOf('23') >-1)){
+                                                      bestAIMovesPlcs.push('33');
+                                                  }
+                                                  if((occupied_arr_AI.includes('32')) && (EmptyPlcsArr.indexOf('31') >-1)){
+                                                      bestAIMovesPlcs.push('33');
+                                                  }
+                                                  if((occupied_arr_AI.includes('31')) && (EmptyPlcsArr.indexOf('32') >-1)){
+                                                      bestAIMovesPlcs.push('33');
+                                                  }
+                                              }
+                                        }
+                                       
+                                        bestAIMovesPlcsLen=bestAIMovesPlcs.length;
+
+                                        alert("bestAIMovesPlcsLen"+bestAIMovesPlcsLen);
+                                        alert("bestAIMovesPlcs"+bestAIMovesPlcs);
+                                        if(bestAIMovesPlcsLen>0){
+                                            genIndex=Math.floor((Math.random() * bestAIMovesPlcsLen) + 1)-1;
+                                            occupied_arr_AI.push(bestAIMovesPlcs[genIndex]);
+                                            element_str+="#q"+bestAIMovesPlcs[genIndex]+"in";
+                                            EmptyPlcsSpliceIndex=EmptyPlcsArr.indexOf(bestAIMovesPlcs[genIndex]);
+                                            EmptyPlcsArr.splice(EmptyPlcsSpliceIndex,1);
+                                        }
+                                        if(bestAIMovesPlcsLen==0){
+                                            alert("at last at last");
+                                            arr_len = EmptyPlcsArr.length;
+                                            genIndex=Math.floor((Math.random() * arr_len) + 1)-1;
+                                            element_str+="#q"+EmptyPlcsArr[genIndex]+"in";
+                                            occupied_arr_AI.push(EmptyPlcsArr[genIndex]);
+                                            EmptyPlcsArr.splice(genIndex,1);
+                                        }
+
+                                      
 
                                     }
                             }
@@ -1454,6 +1734,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
             lastPlcsArr=[];
             lastPlcsEmptyArr=[];
             lastPlcsEmptyArrLen;
+            bestAIMovesPlcs=[];
      
     });
 
