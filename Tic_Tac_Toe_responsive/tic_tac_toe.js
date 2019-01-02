@@ -470,7 +470,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
               }
               if(occupied_arr_AI.indexOf("31")>-1){
                  lastPlcsArr.push("13");
-                 alert("in here in here");
+                 
               }
                if(occupied_arr_AI.indexOf("32")>-1){
                  lastPlcsArr.push("12");
