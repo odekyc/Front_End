@@ -471,7 +471,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
         $("#popup").css("visibility", "hidden");
         $("body").css("background-color", "#6666ff");
         $(".chessbox").css("pointer-events", "auto");
-        $("#Game_start").get(0).cloneNode().play();
+         soundManager.play("Game_start");
+        //$("#Game_start").get(0).cloneNode().play();
         if(whoFirstMove == 'AI'){
            genIndex=Math.floor((Math.random() * 8) + 1)-1;
            var tempArr1=['11','12','13','21','23','31','32','33']
@@ -497,7 +498,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
         $("#popup").css("visibility", "hidden");
         $("body").css("background-color", "#6666ff");
         $(".chessbox").css("pointer-events", "auto");
-        $("#Game_start").get(0).cloneNode().play();
+        soundManager.play("Game_start");
+        // $("#Game_start").get(0).cloneNode().play();
         if(whoFirstMove == 'AI'){
            genIndex=Math.floor((Math.random() * 8) + 1)-1;
            var tempArr1=['11','12','13','21','23','31','32','33']
@@ -1029,7 +1031,9 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
  
             if(clickIndex===-1){
                $("#alrdyPlacedDiv").css("visibility","visible");
-               $("#Error").get(0).cloneNode().play();
+
+               soundManager.play("Error");
+               //$("#Error").get(0).cloneNode().play();
                $(".checkbox").css("pointer-events", "none");
                $("#alrdyPlacedDiv").css("pointer-events", "auto");
                       
@@ -1044,7 +1048,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
                 element_str+="#q"+yxstr+"in";
                 $(element_str).text(x_or_o);
                $(element_str).css("visibility", "visible");
-              $("#User_move").get(0).cloneNode().play();
+               soundManager.play("User_move");
+              //$("#User_move").get(0).cloneNode().play();
                 numOccupied+=1;
                 element_str="";
                 // alert(clickIndex);
@@ -1651,6 +1656,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
         $("#alrdyPlacedDiv").css("visibility","hidden");
       $(".chessbox").css("pointer-events", "none");
       $("#alrdyPlacedDiv").css("pointer-events", "auto");
+      soundManager.play("New_round");
+      //$("#New_round").get(0).cloneNode().play();
       $("#New_round").get(0).cloneNode().play();
       $("#userMoveFirst").css("pointer-events", "auto");
        $("#AIMoveFirst").css("pointer-events", "auto");
