@@ -174,8 +174,9 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
        $(this).css({"background-color":"pink",
                      "border-width":"5px"
                    });
-		      
-		$("#XorO").get(0).cloneNode().play();
+
+		soundManager.play("XorO");
+		// $("#XorO").get(0).cloneNode().play();
 		     
 		   }, function(){
 		       $(this).css({"background-color":"white",
@@ -189,9 +190,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
        $("#AIMoveFirst").removeClass("active-button");
        $("#userMoveFirst").css("top", "4.3%");
        $("#AIMoveFirst").css("top", "5%");
-
-
-        
+       soundManager.play("Pick_who_first");
        // $("#Pick_who_first").get(0).cloneNode().play();
        whoFirstMove="User";
    });
@@ -202,6 +201,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
       $("#userMoveFirst").removeClass("active-button");
       $("#AIMoveFirst").css("top", "4.3%");
       $("#userMoveFirst").css("top", "5%");
+      soundManager.play("Pick_who_first");
       // $("#Pick_who_first").get(0).cloneNode().play();
       whoFirstMove="AI";
    });
@@ -228,7 +228,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
            // $("canvas").css("z-index","3");yes
           $("#winnername").text("AI");
          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+           soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('12')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('32')>-1)){
@@ -242,7 +243,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
            // $("canvas").css("z-index","3");yes
           $("#winnername").text("AI");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+           soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('13')>-1)&&(occupied_arr_AI.indexOf('23')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
@@ -256,7 +258,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
            // $("canvas").css("z-index","3");yes
          $("#winnername").text("AI");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+           soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('12')>-1)&&(occupied_arr_AI.indexOf('13')>-1)){
@@ -270,7 +273,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
            // $("canvas").css("z-index","3");yes
           $("#winnername").text("AI");
          $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+           soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('21')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('23')>-1)){
@@ -284,7 +288,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
            // $("canvas").css("z-index","3");yes
           $("#winnername").text("AI");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+           soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('31')>-1)&&(occupied_arr_AI.indexOf('32')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
@@ -298,7 +303,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
            // $("canvas").css("z-index","3");yes
           $("#winnername").text("AI");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+           soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('11')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('33')>-1)){
@@ -313,7 +319,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
           $("#winnername").text("AI");
           // $("#whowinsdiv").css("visibility","visible");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+           soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
         else if((occupied_arr_AI.indexOf('13')>-1)&&(occupied_arr_AI.indexOf('22')>-1)&&(occupied_arr_AI.indexOf('31')>-1)){
@@ -327,7 +334,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
            // $("canvas").css("z-index","3");yes
          $("#winnername").text("AI");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+            soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_AI=[]
         }
 
@@ -342,7 +350,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
             // $("canvas").css("z-index","3");yes
           $("#winnername").text("User");
            $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+            soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('12')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('32')>-1)){
@@ -356,7 +365,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
            // $("canvas").css("z-index","3");yes
           $("#winnername").text("User");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+           soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('13')>-1)&&(occupied_arr_user.indexOf('23')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
@@ -370,7 +380,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
            // $("canvas").css("z-index","3");yes
           $("#winnername").text("User");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+           soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('12')>-1)&&(occupied_arr_user.indexOf('13')>-1)){
@@ -384,7 +395,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
            // $("canvas").css("z-index","3");yes
           $("#winnername").text("User");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+           soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('21')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('23')>-1)){
@@ -398,7 +410,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
            // $("canvas").css("z-index","3");yes
           $("#winnername").text("User");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+           soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('31')>-1)&&(occupied_arr_user.indexOf('32')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
@@ -412,7 +425,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
            // $("canvas").css("z-index","3");yes
           $("#winnername").text("User");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+           soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('11')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('33')>-1)){
@@ -426,7 +440,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
            // $("canvas").css("z-index","3");yes
           $("#winnername").text("User");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+           soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
         else if((occupied_arr_user.indexOf('13')>-1)&&(occupied_arr_user.indexOf('22')>-1)&&(occupied_arr_user.indexOf('31')>-1)){
@@ -440,7 +455,8 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
            // $("canvas").css("z-index","3");yes
           $("#winnername").text("User");
           $("#whowinsdiv").animate({ opacity: '1.0'}, 1200);
-           $("#Who_won").get(0).cloneNode().play();
+           soundManager.play("Who_won");
+           //$("#Who_won").get(0).cloneNode().play();
           occupied_arr_user=[];
         }
       }
