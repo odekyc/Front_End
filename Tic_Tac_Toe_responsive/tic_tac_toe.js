@@ -51,7 +51,55 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
 
     var context = canvas.getContext('2d');
 
-   
+    soundManager.setup({
+    url: './soundmanager2-swf/',
+    flashVersion: 9,
+    preferFlash: true,
+    onready: function() {
+        soundManager.createSound({
+            id: "Game_start",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/tictactow-game_start.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+        soundManager.createSound({
+            id: "Who_won",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/tictactoe-won_anime.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+        soundManager.createSound({
+            id: "New_round",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/tictactoe-new_game.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+        soundManager.createSound({
+            id: "Error",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/tictactoe-error.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+        soundManager.createSound({
+            id: "XorO",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/tictactoe-XorO.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+        soundManager.createSound({
+            id: "Pick_who_first",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/tictactoe-pick_who_first.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+        soundManager.createSound({
+            id: "User_move",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/tictactoe-user_move.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+    }
+});
 
 
    var board_width = $("#board").width();
@@ -141,7 +189,10 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
        $("#AIMoveFirst").removeClass("active-button");
        $("#userMoveFirst").css("top", "4.3%");
        $("#AIMoveFirst").css("top", "5%");
-       $("#Pick_who_first").get(0).cloneNode().play();
+
+
+        
+       // $("#Pick_who_first").get(0).cloneNode().play();
        whoFirstMove="User";
    });
    
@@ -151,7 +202,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
       $("#userMoveFirst").removeClass("active-button");
       $("#AIMoveFirst").css("top", "4.3%");
       $("#userMoveFirst").css("top", "5%");
-      $("#Pick_who_first").get(0).cloneNode().play();
+      // $("#Pick_who_first").get(0).cloneNode().play();
       whoFirstMove="AI";
    });
 
