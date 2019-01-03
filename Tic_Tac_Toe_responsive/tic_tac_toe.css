@@ -67,11 +67,13 @@ body{
     position: relative;
     color: green;
     background-color: pink;
+    box-sizing: content-box;
     display: inline-block;
     top: 5%;
     left: 79%;
-    height: 12%;
+    height: 9.5%;
     width: 5%;
+    padding-top: 0%;
     border-radius: 100%;
     vertical-align: middle;
     font-family: Arial; 
@@ -307,17 +309,22 @@ h1{
   }
 
 
-	#X{ 	    
-	     padding-top: 1.9%;
-	     height: 9%;
-	}
+  #X{       
+       padding-top: 1.9%;
+       height: 9%;
+  }
 
-	#O{
-	     padding-top: 1.9%;
-	     height: 9%;
-	    
-	}
+  #O{
+       padding-top: 1.9%;
+       height: 9%;
+      
+  }
+
+  #placedXDiv{
+    height: 10.5%;
+  }
 }
+
 
 
 canvas{
@@ -367,23 +374,23 @@ button{
 
 
 #startOverBut{
-	background-color: orange;
-	color: blue;
-	left: 75%;
+  background-color: orange;
+  color: blue;
+  left: 75%;
   top: 5%;
 }
 
 #userMoveFirst{
-	background-color: #47d147;
-	left: 10%;
-	top: 4.3%;
+  background-color: #47d147;
+  left: 10%;
+  top: 4.3%;
 
 }
 
 #AIMoveFirst{
-	background-color: pink;
-	left: 20%;
-	top: 5%;
+  background-color: pink;
+  left: 20%;
+  top: 5%;
 
 }
 

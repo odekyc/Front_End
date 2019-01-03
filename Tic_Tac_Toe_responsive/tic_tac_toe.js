@@ -1658,7 +1658,7 @@ var whoFirstMove = "User";  //User or AI, who has the first move. Default is Use
       $("#alrdyPlacedDiv").css("pointer-events", "auto");
       soundManager.play("New_round");
       //$("#New_round").get(0).cloneNode().play();
-      $("#New_round").get(0).cloneNode().play();
+      
       $("#userMoveFirst").css("pointer-events", "auto");
        $("#AIMoveFirst").css("pointer-events", "auto");
        
