@@ -1,0 +1,60 @@
+
+<html>
+<head>
+<title>Javascript Calculator!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="jquery1-8-3.min.js"></script>
+<script src="jquery-ui1-9-2.js"></script>
+<link rel="stylesheet" type="text/css" href="javascript_calculator.css">
+  
+ <audio id="ACorCE" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/click-sound.wav" type="audio/wav">
+</audio>
+  <audio id="NumbersDot" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/clean-button-click.wav" type="audio/wav"></audio>
+ <audio id="Operator" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/interface.wav" type="audio/wav">
+</audio>
+ <audio id="Result" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/marimba-sparkle.wav" type="audio/wav">
+</audio>
+   <audio id="Error" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/error.wav" type="audio/wav">
+</audio>
+</head>
+<body>
+
+<div id="calculator">
+<p>Javascript Calculator</p>
+<div id="input"></div>
+<div id="innerkeyboard">
+<CENTER>
+    <div class="keys" id="AC"><div class="in" id="AC1">AC</div></div>
+    <div class="keys" id="CE"><div class="in" id="CE1">CE</div></div>
+    <div class="keys" id="%"><div class="in" id="%1">%</div></div>
+    <div class="keys" id="/"><div class="in" id="/1">/</div></div>
+    </CENTER>
+<CENTER>
+    <div class="keys" id="7"><div class="in" id="71">7</div></div>
+    <div class="keys" id="8"><div class="in" id="81">8</div></div>
+    <div class="keys" id="9"><div class="in" id="91">9</div></div>
+    <div class="keys" id="*"><div class="in" id="*1">*</div></div>
+</CENTER>
+<CENTER>
+    <div class="keys" id="4"><div class="in" id="41">4</div></div>
+    <div class="keys" id="5"><div class="in" id="51">5</div></div>
+    <div class="keys" id="6"><div class="in" id="61">6</div></div>
+    <div class="keys" id="-"><div class="in" id="-1">-</div></div>
+</CENTER>
+<CENTER>
+    <div class="keys" id="1"><div class="in" id="11">1</div></div>
+    <div class="keys" id="2"><div class="in" id="21">2</div></div>
+    <div class="keys" id="3"><div class="in" id="31">3</div></div>
+    <div class="keys" id="+"><div class="in" id="+1">+</div></div>
+</CENTER>
+<CENTER>
+    <div class="keys"></div>
+    <div class="keys" id="0"><div class="in" id="01">0</div></div>
+    <div class="keys" id="dot"><div class="in" id="dot1"><strong>.</strong></div></div>
+    <div class="keys" id="="><div class="in" id="=1">=</div></div>
+</CENTER>
+</div>
+</div>
+<script src="javascript_calculator.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+body{
+    background-color: #ace600;
+}
+
+#calculator{
+    position: relative;
+    margin: auto;
+    width: 35%;
+    height: 83%;
+    background-color: #6699ff;
+    border-radius: 3%;
+    top: 15%;
+}
+
+
+p{
+    position: relative;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+    top: 5%;
+    font-family: Helvetica;
+    font-size: 1.7vw;
+}
+
+#input{
+     position: relative;
+     width: 87%;
+     height: 9%;
+     background-color:  white;
+     margin: auto;
+     top: 6%;
+     text-align: right;
+     padding-top: 2%;
+     color: green;
+     font-family: Arial;
+     font-weight: bolder;
+     font-size: 2.5vw;
+ }
+
+#innerkeyboard{
+    position: relative;
+    background-color: blue;
+    margin: auto;
+    width: 82%;
+    height: 63%;
+    top: 14%;
+}
+
+.keys{
+    display: inline-block;
+    background-color: #ffff99;
+    height: 19%;
+    width: 22%;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+#dot1{
+   font-size: 3.7vw;
+   position:relative;
+   top: -1.8%;
+}
+
+
+.in{
+    position: relative;
+    top: 37%;
+    left: 40%;
+    float: left;
+    color: green;
+    font-family: Arial;
+    font-size: 1.5vw;
+    
+}
