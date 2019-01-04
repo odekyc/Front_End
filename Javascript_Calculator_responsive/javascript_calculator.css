@@ -76,9 +76,3 @@ p{
     
 }
 
-@media screen and (max-width: 479px) {
-   #calculator{     
-        width: 270px;
-      
-    }
-}
