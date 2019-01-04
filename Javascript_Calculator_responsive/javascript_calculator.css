@@ -44,7 +44,6 @@ p{
     margin: auto;
     width: 82%;
     height: auto;
-    height: ;
     top: 14%;
 
 }
@@ -52,7 +51,7 @@ p{
 .keys{
     display: inline-block;
     background-color: #ffff99;
-    height: 11%;
+    height: 10%;
     width: 22%;
     font-weight: bold;
     margin: 0 auto;
@@ -77,11 +76,9 @@ p{
     
 }
 
-.clear {
-  clear: both;
-}
-
-.clear::after {
-  clear: both;
-  display: block;
+@media screen and (max-width: 479px) {
+   #calculator{     
+        width: 270px;
+      
+    }
 }

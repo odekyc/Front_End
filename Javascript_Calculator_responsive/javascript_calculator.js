@@ -28,16 +28,15 @@ var add_sub_reg= /[\+\-]/gi;
 var is_NAN=false;
 
 
- var window_width = window.innerWidth;
+ var window_width = $(window).width();
 
   $("#calculator").css({"width": 0.35*window_width+"px"});
    $("#calculator").css({"height": 0.45*window_width+"px"});
 
    $(window).resize(function(){
-      window_width = window.innerWidth;
+      window_width = $(window).width();
       $("#calculator").css({"width": 0.35*window_width+"px"});
       $("#calculator").css({"height": 0.45*window_width+"px"});
-
 });
   
    $( "#AC" ).click(function() {
