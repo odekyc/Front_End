@@ -43,17 +43,20 @@ p{
     background-color: blue;
     margin: auto;
     width: 82%;
-    height: 57%;
+    height: auto;
+    height: ;
     top: 14%;
+
 }
 
 .keys{
     display: inline-block;
     background-color: #ffff99;
-    height: 19%;
+    height: 11%;
     width: 22%;
     font-weight: bold;
     margin: 0 auto;
+
 }
 
 #dot1{
@@ -72,4 +75,13 @@ p{
     font-family: Arial;
     font-size: 1.5vw;
     
+}
+
+.clear {
+  clear: both;
+}
+
+.clear::after {
+  clear: both;
+  display: block;
 }

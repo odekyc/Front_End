@@ -32,6 +32,13 @@ var is_NAN=false;
 
   $("#calculator").css({"width": 0.35*window_width+"px"});
    $("#calculator").css({"height": 0.45*window_width+"px"});
+
+   $(window).resize(function(){
+      window_width = window.innerWidth;
+      $("#calculator").css({"width": 0.35*window_width+"px"});
+      $("#calculator").css({"height": 0.45*window_width+"px"});
+
+});
   
    $( "#AC" ).click(function() {
      $('#input').attr('readonly', false);
