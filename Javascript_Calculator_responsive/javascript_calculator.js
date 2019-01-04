@@ -26,6 +26,11 @@ var all_reg=/[\+\/\-\*\%]/gi;
 var multi_div_reg= /[\/\*\%]/gi;
 var add_sub_reg= /[\+\-]/gi;
 var is_NAN=false;
+
+
+ var calculator_width = $("#calculator").width();
+
+   $("#calculator").css({"height": 2.45*calculator_width+"px"});
   
    $( "#AC" ).click(function() {
      $('#input').attr('readonly', false);
@@ -219,7 +224,7 @@ var is_NAN=false;
      
      else if(((Number(id)>=0)&&(Number(id)<=9))||(id==='+')||(id==='-')||(id==='*')||(id==='/')||(id==='%')){
         var inputTextLen = $("#input").text().length;
-        if(inputTextLen==21){
+        if(inputTextLen==20){
           $("#Error").get(0).cloneNode().play();
           $('#input').attr('readonly', true);
         }
@@ -247,7 +252,7 @@ var is_NAN=false;
      }
      else if(id==='dot'){
       var inputTextLen = $("#input").text().length;
-      if(inputTextLen==21){
+      if(inputTextLen==20){
         $("#Error").get(0).cloneNode().play();
         $('#input').attr('readonly', true);
       }
