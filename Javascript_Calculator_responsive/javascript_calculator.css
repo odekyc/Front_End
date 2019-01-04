@@ -6,10 +6,10 @@ body{
     position: relative;
     margin: auto;
     width: 35%;
-    height: 83%;
+    height: 85%;
     background-color: #6699ff;
     border-radius: 3%;
-    top: 15%;
+    top: 10%;
 }
 
 
@@ -43,7 +43,7 @@ p{
     background-color: blue;
     margin: auto;
     width: 82%;
-    height: 63%;
+    height: 57%;
     top: 14%;
 }
 

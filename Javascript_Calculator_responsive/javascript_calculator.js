@@ -28,9 +28,10 @@ var add_sub_reg= /[\+\-]/gi;
 var is_NAN=false;
 
 
- var calculator_width = $("#calculator").width();
+ var window_width = window.innerWidth;
 
-   $("#calculator").css({"height": 2.45*calculator_width+"px"});
+  $("#calculator").css({"width": 0.35*window_width+"px"});
+   $("#calculator").css({"height": 0.45*window_width+"px"});
   
    $( "#AC" ).click(function() {
      $('#input').attr('readonly', false);
