@@ -38,10 +38,51 @@ var is_NAN=false;
       $("#calculator").css({"width": 0.35*window_width+"px"});
       $("#calculator").css({"height": 0.45*window_width+"px"});
 });
+
+
+   soundManager.setup({
+    url: './soundmanager2-swf/',
+    flashVersion: 9,
+    preferFlash: true,
+    onready: function() {
+        soundManager.createSound({
+            id: "ACorCE",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/js_calculator-click-sound.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+        soundManager.createSound({
+            id: "NumbersDot",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/js_calculator-clean-button-click.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+        soundManager.createSound({
+            id: "Operator",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/js_calculator-interface.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+        soundManager.createSound({
+            id: "Result",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/js_calculator-marimba-sparkle.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+        soundManager.createSound({
+            id: "Error",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/js_calculator-calculator_error.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+    }
+});
+
   
    $( "#AC" ).click(function() {
      $('#input').attr('readonly', false);
-     $("#ACorCE").get(0).cloneNode().play();
+     soundManager.play("ACorCE");
+     // $("#ACorCE").get(0).cloneNode().play();
      $("#input").empty();
 });
 
@@ -52,11 +93,13 @@ var is_NAN=false;
      if(id==="AC"){
         $('#input').attr('readonly', false);
         $('#input').empty();
-       $("#ACorCE").get(0).cloneNode().play();
+        soundManager.play("ACorCE");
+       // $("#ACorCE").get(0).cloneNode().play();
      }
       else if(id==='CE'){
         $('#input').attr('readonly', false);
-        $("#ACorCE").get(0).cloneNode().play();
+        soundManager.play("ACorCE");
+        // $("#ACorCE").get(0).cloneNode().play();
         var temp_arr=[];
         text=$("#input").text();
         // temp_arr.push(text.lastIndexOf('%'));
@@ -78,12 +121,14 @@ var is_NAN=false;
         if(i=== -1){
            
            $('#input').text(text);
-          $("#Result").get(0).cloneNode().play();
+           soundManager.play("Result");
+          // $("#Result").get(0).cloneNode().play();
         }
         else if( i === 0 ){
            is_NAN=true;
            $('#input').text("NAN");
-          $("#Error").get(0).cloneNode().play();
+           soundManager.play("Error");
+          // $("#Error").get(0).cloneNode().play();
         }
         else{
           revisedText=text;
@@ -93,7 +138,8 @@ var is_NAN=false;
             
             is_NAN=true;
             $("#input").text("NAN");
-             $("#Error").get(0).cloneNode().play();
+            soundManager.play("Error");
+             // $("#Error").get(0).cloneNode().play();
           }
           else if(i>0){
             
@@ -217,11 +263,13 @@ var is_NAN=false;
             }
             if(is_NAN == true){
               $("#input").text("NAN");
-               $("#Error").get(0).cloneNode().play();
+              soundManager.play("Error");
+               // $("#Error").get(0).cloneNode().play();
             }
             else{
               $("#input").text(revisedText);
-               $("#Result").get(0).cloneNode().play();
+              soundManager.play("Result");
+               // $("#Result").get(0).cloneNode().play();
             }
                
         }
@@ -231,19 +279,21 @@ var is_NAN=false;
      
      else if(((Number(id)>=0)&&(Number(id)<=9))||(id==='+')||(id==='-')||(id==='*')||(id==='/')||(id==='%')){
         var inputTextLen = $("#input").text().length;
-        if(inputTextLen==20){
-          $("#Error").get(0).cloneNode().play();
+        if(inputTextLen==22){
+          soundManager.play("Error");
+          // $("#Error").get(0).cloneNode().play();
           $('#input').attr('readonly', true);
         }
         else{
             $('#input').attr('readonly', false);
             if((Number(id)>=0)&&(Number(id)<=9)){
-          
-                $("#NumbersDot").get(0).cloneNode().play();
+            soundManager.play("NumbersDot");
+            // $("#NumbersDot").get(0).cloneNode().play();
               
             }
            else{
-             $("#Operator").get(0).cloneNode().play();
+            soundManager.play("Operator");
+             // $("#Operator").get(0).cloneNode().play();
            }
             counter+=1;
             if( counter===1){
@@ -259,13 +309,15 @@ var is_NAN=false;
      }
      else if(id==='dot'){
       var inputTextLen = $("#input").text().length;
-      if(inputTextLen==20){
-        $("#Error").get(0).cloneNode().play();
+      if(inputTextLen==22){
+        soundManager.play("Error");
+        // $("#Error").get(0).cloneNode().play();
         $('#input').attr('readonly', true);
       }
       else{
          $('#input').attr('readonly', false);
-         $("#NumbersDot").get(0).cloneNode().play();
+         soundManager.play("NumbersDot");
+         // $("#NumbersDot").get(0).cloneNode().play();
           counter+=1;
           if( counter===1){
               $("#input").text('.');

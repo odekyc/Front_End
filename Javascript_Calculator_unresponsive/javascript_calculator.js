@@ -219,7 +219,7 @@ var is_NAN=false;
      
      else if(((Number(id)>=0)&&(Number(id)<=9))||(id==='+')||(id==='-')||(id==='*')||(id==='/')||(id==='%')){
         var inputTextLen = $("#input").text().length;
-        if(inputTextLen==34){
+        if(inputTextLen==20){
           $("#Error").get(0).cloneNode().play();
           $('#input').attr('readonly', true);
         }
@@ -247,7 +247,7 @@ var is_NAN=false;
      }
      else if(id==='dot'){
       var inputTextLen = $("#input").text().length;
-      if(inputTextLen==34){
+      if(inputTextLen==20){
         $("#Error").get(0).cloneNode().play();
         $('#input').attr('readonly', true);
       }
