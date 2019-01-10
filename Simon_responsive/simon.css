@@ -81,11 +81,11 @@ html{
 #strict_alert{
    position: absolute;
    background-color: grey;
-   height: 15px;
-   width: 15px;
+   height: 4%;
+   width: 4%;
    border-radius: 100%;
-   top: 177px;
-   left: 320px;
+   top: 43.5%;
+   left: 79%;
 
 }
 
