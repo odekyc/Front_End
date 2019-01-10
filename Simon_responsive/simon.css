@@ -282,3 +282,30 @@ html{
 	left: 4.5%;
 	top: 4.5%;
 }
+
+@media only screen and (max-width: 630px) {
+  #simon{
+
+	top: 3%;
+
+  }
+
+  #trademark{
+	top: 9%;
+
+  }
+}
+
+
+@media only screen and (max-width: 360px) {
+  #simon{
+
+	top: 0%;
+
+  }
+
+  #trademark{
+	top: 0%;
+
+  }
+}
