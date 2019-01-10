@@ -15,6 +15,46 @@ var roundLevel=1;
 var count;
 var index;
 
+
+ soundManager.setup({
+    url: './soundmanager2-swf/',
+    flashVersion: 9,
+    preferFlash: true,
+    onready: function() {
+        soundManager.createSound({
+            id: "audio0",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/simonSound1.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+        soundManager.createSound({
+            id: "audio1",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/simonSound2.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+        soundManager.createSound({
+            id: "audio2",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/simonSound3.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+        soundManager.createSound({
+            id: "audio3",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/simonSound4.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+        soundManager.createSound({
+            id: "audioerr",
+            url: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/simonError.mp3"],
+            autoLoad: true,
+            autoPlay: false
+        });
+    }
+});
+
+
 function win(){
   $('.fourcolors').css("pointer-events", "none");
   setTimeout(function(){
@@ -156,7 +196,7 @@ function win(){
        $('.'+color_id[1]).attr("id", "highlight-"+color_id[1]);
        $('.'+color_id[2]).attr("id", "highlight-"+color_id[2]);
        $('.'+color_id[3]).attr("id", "highlight-"+color_id[3]);
-       $("#audio1").get(0).cloneNode().play();
+       soundManager.play("audio1");
        setTimeout(function(){
           $('.'+color_id[0]).removeAttr("id"); 
           $('.'+color_id[1]).removeAttr("id");
@@ -171,7 +211,7 @@ function win(){
        $('.'+color_id[1]).attr("id", "highlight-"+color_id[1]);
        $('.'+color_id[2]).attr("id", "highlight-"+color_id[2]);
        $('.'+color_id[3]).attr("id", "highlight-"+color_id[3]);
-       $("#audio3").get(0).cloneNode().play();
+       soundManager.play("audio3");
        setTimeout(function(){
           $('.'+color_id[0]).removeAttr("id"); 
           $('.'+color_id[1]).removeAttr("id");
@@ -185,7 +225,7 @@ function win(){
        $('.'+color_id[1]).attr("id", "highlight-"+color_id[1]);
        $('.'+color_id[2]).attr("id", "highlight-"+color_id[2]);
        $('.'+color_id[3]).attr("id", "highlight-"+color_id[3]);
-       $("#audio2").get(0).cloneNode().play();
+       soundManager.play("audio2");
        setTimeout(function(){
           $('.'+color_id[0]).removeAttr("id"); 
           $('.'+color_id[1]).removeAttr("id");
@@ -200,7 +240,7 @@ function win(){
        $('.'+color_id[1]).attr("id", "highlight-"+color_id[1]);
        $('.'+color_id[2]).attr("id", "highlight-"+color_id[2]);
        $('.'+color_id[3]).attr("id", "highlight-"+color_id[3]);
-       $("#audio0").get(0).cloneNode().play();
+       soundManager.play("audio0");
        setTimeout(function(){
           $('.'+color_id[0]).removeAttr("id"); 
           $('.'+color_id[1]).removeAttr("id");
@@ -309,7 +349,7 @@ function getRandom(min, max) {
 
 function showMove(curMoveID){
   $('.'+color_id[curMoveID]).attr("id", "highlight-"+color_id[curMoveID]);
-   $("#audio"+curMoveID).get(0).cloneNode().play();
+   soundManager.play("audio"+curMoveID);
   setTimeout(function(){
       $('.'+color_id[curMoveID]).removeAttr("id");               
                           
@@ -358,7 +398,7 @@ function PlayerTurn(){
           showMove(colorID);
           if(playerCurMove!==genMoves[index]){
             $('.fourcolors').css("pointer-events", "none");
-             $("#audioerr").get(0).cloneNode().play();
+             soundManager.play("audioerr");
              count=genMoves.length;
              index=0;
             console.log("error, user clicked the wrong move");
