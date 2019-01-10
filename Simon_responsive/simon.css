@@ -9,6 +9,8 @@ html{
 
 #all_container{
 	background-color: #ffff33;
+	position: relative;
+	margin-top: 3%;
 }
 
 #outer_circle{
