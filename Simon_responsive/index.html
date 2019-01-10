@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simon</title>
+<meta name="viewport" content="width=device-width, initial-scale=0.6">
+<script src="jquery1-8-3.min.js"></script>
+<script src="jquery-ui1-9-2.js"></script>
+<link rel="stylesheet" type="text/css" href="simon.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="bootstrap3-3-6.css">
+<script src="jquery.js"></script>
+
+<audio id="audio0" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/simonSound1.mp3"></audio>
+<audio id="audio1" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/simonSound2.mp3"></audio>
+<audio id="audio2" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/simonSound3.mp3"></audio>
+<audio id="audio3" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/simonSound4.mp3"></audio>
+
+<audio id="audioerr" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/734159/simonError.mp3"></audio>
+
+</head>
+<body>
+
+
+<div id="all_container">
+<div id="outer_circle">
+<div id="inner_gray">
+<div id="control_circle">
+<h1 id="simon">Simon<h2 id="trademark">&reg</h2></h1>
+
+<div id="outer_screen">
+<div id="inner_screen">
+
+ <p id="display">--</p>
+
+</div>
+
+</div>
+
+<div id="outer_start">
+<div id="inner_start">
+</div>
+</div>
+
+<div id="outer_strict">
+<div id="inner_strict">
+</div>
+</div>
+<div id="strict_alert">
+</div>
+
+<p id="count">COUNT</p>
+<p id="start">START</p>
+<p id="strict">STRICT</p>
+<div>
+
+<p id="off">OFF</p>
+<p id="on">ON</p>
+<div id="switchbackground">
+	<div id="switchoff"></div>
+	<div id="switchon"></div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+<div class="orange fourcolors">
+</div>
+<div class="red fourcolors">
+</div>
+<div class="yellow fourcolors">
+</div>
+<div class="blue fourcolors">
+</div>
+</div>
+</div>
+<script src="simon.js"></script>
+</body>
+</html>
