@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
 
 var id;
@@ -123,7 +121,6 @@ var is_NAN=false;
      else if(id==="="){
         $('#input').attr('readonly', false);
         text=$("#input").text();
-
         i=text.search(all_reg);
         
         if(i=== -1){
@@ -132,95 +129,77 @@ var is_NAN=false;
            soundManager.play("Result");
           // $("#Result").get(0).cloneNode().play();
         }
-       else if(i === text.length-1){
-           
-            is_NAN=true;
-            $('#input').text("NaN");
-            soundManager.play("Error");
-        }
         else if( i === 0 ){
            is_NAN=true;
-           $('#input').text("NaN");
+           $('#input').text("NAN");
            soundManager.play("Error");
           // $("#Error").get(0).cloneNode().play();
         }
         else{
-          var input_len=text.length;
-          var input_last_digit=text.charAt(input_len-1);
-
-
-          if(input_last_digit==="+"||input_last_digit==="-"||input_last_digit==="*"||input_last_digit==="/"||input_last_digit==="%"||input_last_digit==="."){
-             is_NAN=true;
-             $('#input').text("NaN");
-             soundManager.play("Error");
+          revisedText=text;
+          i=revisedText.search(multi_div_reg);
+         
+          if(i===0){
+            
+            is_NAN=true;
+            $("#input").text("NAN");
+            soundManager.play("Error");
+             // $("#Error").get(0).cloneNode().play();
           }
-    
-          else{
-              revisedText=text;
-              i=revisedText.search(multi_div_reg);
-             
-              if(i===0){
+          else if(i>0){
+            
+            while(i!== -1){
+              firstChunk=revisedText.slice(0,i);
+              curOperator=revisedText.slice(i,i+1);
+              secondChunk=revisedText.slice(i+1);
+              firstChunk_i_arr.push(firstChunk.lastIndexOf("+"));
+              firstChunk_i_arr.push(firstChunk.lastIndexOf("-")); 
+              firstChunk_i = Math.max.apply(null, firstChunk_i_arr);
+              secondChunk_i = secondChunk.search(all_reg);
+              if(firstChunk_i == -1){
+                
+                firstChunkfirst="";
+                firstChunksecond=firstChunk;
+                firstChunkOptr= "";
+              }
+              else{
+                
+                firstChunkfirst=firstChunk.slice(0,firstChunk_i);
+                firstChunksecond=firstChunk.slice(firstChunk_i+1);
+                firstChunkOptr= firstChunk[firstChunk_i];
+              }
+
+              if(secondChunk_i == -1){
+                
+                secondChunkfirst=secondChunk;
+                secondChunksecond="";
+                secondChunkOptr= "";
+              }
+              else if(secondChunk_i == 0){
                 
                 is_NAN=true;
-                $("#input").text("NaN");
-                soundManager.play("Error");
-                 // $("#Error").get(0).cloneNode().play();
+                break;
               }
-              else if(i>0){
+              else{
                 
-                while(i!== -1){
-                  firstChunk=revisedText.slice(0,i);
-                  curOperator=revisedText.slice(i,i+1);
-                  secondChunk=revisedText.slice(i+1);
-                  firstChunk_i_arr.push(firstChunk.lastIndexOf("+"));
-                  firstChunk_i_arr.push(firstChunk.lastIndexOf("-")); 
-                  firstChunk_i = Math.max.apply(null, firstChunk_i_arr);
-                  secondChunk_i = secondChunk.search(all_reg);
-                  if(firstChunk_i == -1){
-                    
-                    firstChunkfirst="";
-                    firstChunksecond=firstChunk;
-                    firstChunkOptr= "";
-                  }
-                  else{
-                    
-                    firstChunkfirst=firstChunk.slice(0,firstChunk_i);
-                    firstChunksecond=firstChunk.slice(firstChunk_i+1);
-                    firstChunkOptr= firstChunk[firstChunk_i];
-                  }
-
-                  if(secondChunk_i == -1){
-                    
-                    secondChunkfirst=secondChunk;
-                    secondChunksecond="";
-                    secondChunkOptr= "";
-                  }
-                  else if(secondChunk_i == 0){
-                    
-                    is_NAN=true;
-                    break;
-                  }
-                  else{
-                    
-                    secondChunkfirst=secondChunk.slice(0,secondChunk_i);
-                    secondChunksecond=secondChunk.slice(secondChunk_i+1);
-                    secondChunkOptr= secondChunk[secondChunk_i];
-                  }
-                  if(curOperator == "*"){
-                    result= Number(firstChunksecond) * Number(secondChunkfirst);
-                  }
-                  else if(curOperator == "/"){
-                    result= Number(firstChunksecond) / Number(secondChunkfirst);
-                  }
-                  else if(curOperator == "%"){
-                    result= Number(firstChunksecond) % Number(secondChunkfirst);
-                  }     
-                  revisedText=String(firstChunkfirst)+firstChunkOptr+String(result)+secondChunkOptr+String(secondChunksecond);
-
-                  i=revisedText.search(multi_div_reg);
-                }
+                secondChunkfirst=secondChunk.slice(0,secondChunk_i);
+                secondChunksecond=secondChunk.slice(secondChunk_i+1);
+                secondChunkOptr= secondChunk[secondChunk_i];
               }
-        }
+              if(curOperator == "*"){
+                result= Number(firstChunksecond) * Number(secondChunkfirst);
+              }
+              else if(curOperator == "/"){
+                result= Number(firstChunksecond) / Number(secondChunkfirst);
+              }
+              else if(curOperator == "%"){
+                result= Number(firstChunksecond) % Number(secondChunkfirst);
+              }     
+              revisedText=String(firstChunkfirst)+firstChunkOptr+String(result)+secondChunkOptr+String(secondChunksecond);
+
+              i=revisedText.search(multi_div_reg);
+            }
+          }
             curOperator="";
             firstChunkfirst="";
             firstChunksecond="";
@@ -240,7 +219,6 @@ var is_NAN=false;
               if(i== 0){
                 is_NAN=true;
               }
-
               else{
                 while( i!== -1){
                   
@@ -254,7 +232,6 @@ var is_NAN=false;
                     is_NAN=true;
                     break;
                   }
-              
                   else if(secondChunk_i == -1){
                     if(curOperator=="+"){
                       result = Number(firstChunk)+Number(secondChunk);   
@@ -290,7 +267,7 @@ var is_NAN=false;
               }
             }
             if(is_NAN == true){
-              $("#input").text("NaN");
+              $("#input").text("NAN");
               soundManager.play("Error");
                // $("#Error").get(0).cloneNode().play();
             }
