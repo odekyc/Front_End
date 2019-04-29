@@ -5,10 +5,9 @@ body{
 #calculator{
     position: relative;
     margin: auto;
-    width: 35%;
     background-color: #6699ff;
-    border-radius: 3%;
-    top: 10%;
+    border-radius: 1.5vw;
+    top: 7vw;
 }
 
 
@@ -17,20 +16,20 @@ p{
     color: white;
     font-weight: bolder;
     text-align: center;
-    top: 5%;
+    top: 2.5vw;
     font-family: Helvetica;
     font-size: 1.7vw;
 }
 
 #input{
      position: relative;
-     width: 87%;
-     height: 9%;
+     width: 28vw;
+     height: 3vw;
      background-color:  white;
      margin: auto;
-     top: 6%;
+     top: 3vw;
      text-align: right;
-     padding-top: 2%;
+     padding-top: 1vw;
      color: green;
      font-family: Arial;
      font-weight: bolder;
@@ -41,9 +40,8 @@ p{
     position: relative;
     background-color: blue;
     margin: auto;
-    width: 82%;
     height: auto;
-    top: 14%;
+    top: 6vw;
 
 }
 
@@ -59,14 +57,14 @@ p{
 #dot1{
    font-size: 3.7vw;
    position:relative;
-   top: -1.8%;
+   top: -0.7vw;
 }
 
 
 .in{
     position: relative;
-    top: 37%;
-    left: 40%;
+    top: 1.7vw;
+    left: 2.5vw;
     float: left;
     color: green;
     font-family: Arial;
