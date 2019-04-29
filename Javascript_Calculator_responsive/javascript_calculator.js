@@ -32,11 +32,18 @@ var is_NAN=false;
 
   $("#calculator").css({"width": 0.35*window_width+"px"});
    $("#calculator").css({"height": 0.45*window_width+"px"});
-
+    $("#innerkeyboard").css({"width": 0.28*window_width+"px"});
+    $("#innerkeyboard").css({"height": 0.27*window_width+"px"});
+    $(".keys").css({"width": 0.06*window_width+"px"});
+    $(".keys").css({"height": 0.045*window_width+"px"});
    $(window).resize(function(){
       window_width = $(window).width();
       $("#calculator").css({"width": 0.35*window_width+"px"});
       $("#calculator").css({"height": 0.45*window_width+"px"});
+      $("#innerkeyboard").css({"width": 0.28*window_width+"px"});
+      $("#innerkeyboard").css({"height": 0.27*window_width+"px"});
+      $(".keys").css({"width": 0.06*window_width+"px"});
+      $(".keys").css({"height": 0.045*window_width+"px"});
 });
 
 

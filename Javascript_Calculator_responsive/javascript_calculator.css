@@ -6,7 +6,6 @@ body{
     position: relative;
     margin: auto;
     width: 35%;
-    height: 85%;
     background-color: #6699ff;
     border-radius: 3%;
     top: 10%;
@@ -51,8 +50,7 @@ p{
 .keys{
     display: inline-block;
     background-color: #ffff99;
-    height: 10%;
-    width: 22%;
+    
     font-weight: bold;
     margin: 0 auto;
 
