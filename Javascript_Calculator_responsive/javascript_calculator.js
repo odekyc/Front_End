@@ -45,7 +45,7 @@ var is_NAN=false;
 });
 
 
-   soundManager.setup({
+  soundManager.setup({
     url: './soundmanager2-swf/',
     flashVersion: 9,
     preferFlash: true,
