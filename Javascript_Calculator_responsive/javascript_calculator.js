@@ -24,6 +24,8 @@ var all_reg=/[\+\/\-\*\%]/gi;
 var multi_div_reg= /[\/\*\%]/gi;
 var add_sub_reg= /[\+\-]/gi;
 var is_NAN=false;
+var is_first_sec_chunk_neg=false;
+var is_sec_first_chunk_neg=false;
 
 
  var window_width = $(window).width();
@@ -83,6 +85,10 @@ var is_NAN=false;
     }
 });
 
+// function pos_to_neg(num)
+// {
+//     return -Math.abs(num);
+// }
   
    $( "#AC" ).click(function() {
      $('#input').attr('readonly', false);
@@ -129,32 +135,37 @@ var is_NAN=false;
            soundManager.play("Result");
           // $("#Result").get(0).cloneNode().play();
         }
-        else if( i === 0 ){
-           is_NAN=true;
-           $('#input').text("NAN");
-           soundManager.play("Error");
-          // $("#Error").get(0).cloneNode().play();
-        }
         else{
+           if(i===0){
+              if(text.charAt(0) !== "-"){
+                  is_NAN=true;
+                  $('#input').text("NaN");
+                  soundManager.play("Error");
+               // $("#Error").get(0).cloneNode().play();
+              }
+           }
+          
+        
           revisedText=text;
           i=revisedText.search(multi_div_reg);
          
-          if(i===0){
-            
-            is_NAN=true;
-            $("#input").text("NAN");
-            soundManager.play("Error");
-             // $("#Error").get(0).cloneNode().play();
-          }
-          else if(i>0){
             
             while(i!== -1){
+
+              if(is_NAN){
+                break;
+              }
+            
               firstChunk=revisedText.slice(0,i);
+              // alert("firstChunk"+firstChunk);
               curOperator=revisedText.slice(i,i+1);
               secondChunk=revisedText.slice(i+1);
+              // alert("secondChunk"+secondChunk);
+              firstChunk_i_arr.length = 0;
               firstChunk_i_arr.push(firstChunk.lastIndexOf("+"));
               firstChunk_i_arr.push(firstChunk.lastIndexOf("-")); 
               firstChunk_i = Math.max.apply(null, firstChunk_i_arr);
+              // alert(firstChunk_i_arr);
               secondChunk_i = secondChunk.search(all_reg);
               if(firstChunk_i == -1){
                 
@@ -163,10 +174,20 @@ var is_NAN=false;
                 firstChunkOptr= "";
               }
               else{
+
+                if(firstChunk.charAt(firstChunk_i) === "-"){
+                      if(['-', '/','+','*','%'].includes(firstChunk.charAt(firstChunk_i-1))){
+                          // alert("first chunk character at first chunk i is -, and there is another operator right before it!")
+                          firstChunk_i -= 1;
+                          is_first_sec_chunk_neg=true;
+                      }
+
+                }
                 
                 firstChunkfirst=firstChunk.slice(0,firstChunk_i);
                 firstChunksecond=firstChunk.slice(firstChunk_i+1);
                 firstChunkOptr= firstChunk[firstChunk_i];
+                // alert("firstChunk splitting operator "+firstChunk[firstChunk_i]+" at index "+firstChunk_i);
               }
 
               if(secondChunk_i == -1){
@@ -175,17 +196,41 @@ var is_NAN=false;
                 secondChunksecond="";
                 secondChunkOptr= "";
               }
-              else if(secondChunk_i == 0){
-                
-                is_NAN=true;
-                break;
+              else if(secondChunk_i !== -1){
+                if(secondChunk_i === 0){
+                    if(secondChunk.charAt(0) === "-"){
+                       secondChunk_i = secondChunk.slice(1).search(all_reg)+1;
+                       is_sec_first_chunk_neg = true;
+                       if(secondChunk_i == 0){
+                          // alert("secondChunk splitting operator none index -1")
+                          secondChunkfirst=secondChunk;
+                          secondChunksecond="";
+                          secondChunkOptr= "";
+
+                       }
+                       else{
+                            secondChunkfirst=secondChunk.slice(0,secondChunk_i);
+                            secondChunksecond=secondChunk.slice(secondChunk_i+1);
+                            secondChunkOptr= secondChunk[secondChunk_i];
+                       }
+                    }
+                    else{
+                       is_NAN=true;
+                       break;
+                    }
+                }
+                else{
+
+                    secondChunkfirst=secondChunk.slice(0,secondChunk_i);
+                    secondChunksecond=secondChunk.slice(secondChunk_i+1);
+                    secondChunkOptr= secondChunk[secondChunk_i];
+
+                }
+                 // alert("secondChunk splitting operator "+secondChunk[secondChunk_i]+" at index "+secondChunk_i);
               }
-              else{
-                
-                secondChunkfirst=secondChunk.slice(0,secondChunk_i);
-                secondChunksecond=secondChunk.slice(secondChunk_i+1);
-                secondChunkOptr= secondChunk[secondChunk_i];
-              }
+              
+              // alert("firstChunksecond "+firstChunksecond);
+              // alert("secondChunkfirst "+secondChunkfirst);
               if(curOperator == "*"){
                 result= Number(firstChunksecond) * Number(secondChunkfirst);
               }
@@ -195,11 +240,15 @@ var is_NAN=false;
               else if(curOperator == "%"){
                 result= Number(firstChunksecond) % Number(secondChunkfirst);
               }     
-              revisedText=String(firstChunkfirst)+firstChunkOptr+String(result)+secondChunkOptr+String(secondChunksecond);
 
+              // alert("result "+result);
+              revisedText=String(firstChunkfirst)+firstChunkOptr+String(result)+secondChunkOptr+String(secondChunksecond);
+              // alert("revisedText"+revisedText);
+              is_first_sec_chunk_neg=false;
+              is_sec_first_chunk_neg=false;
               i=revisedText.search(multi_div_reg);
             }
-          }
+          
             curOperator="";
             firstChunkfirst="";
             firstChunksecond="";
@@ -214,25 +263,36 @@ var is_NAN=false;
             firstChunkOptr="";
             secondChunkOptr="";
             i=revisedText.search(add_sub_reg);
-
+         
             if(i!== -1){
-              if(i== 0){
-                is_NAN=true;
-              }
-              else{
-                while( i!== -1){
+              if(i === 0){
+                
+                  if(revisedText.charAt(0)!=='-'){
+                     is_NAN=true;
+                  }
+                  else{
+                      i=revisedText.slice(1).search(add_sub_reg)+1;
+                      is_first_sec_chunk_neg=true;
+                  }
                   
+               }
+              
+                while( i!== -1){
+
+                  if(is_NAN){
+                    break;
+                  }
                   
                   firstChunk= revisedText.slice(0,i);
                   curOperator= revisedText[i];
                   secondChunk = revisedText.slice(i+1);
                   firstChunksecond=firstChunk;
                   secondChunk_i=secondChunk.search(add_sub_reg);
-                  if(secondChunk_i == 0){
-                    is_NAN=true;
-                    break;
-                  }
-                  else if(secondChunk_i == -1){
+                  // alert("firstChunk "+ firstChunk);
+                  // alert("secondChunk "+secondChunk);
+                  // alert("curOperator "+curOperator);
+                  // alert("secondChunk_i "+secondChunk_i);
+                  if(secondChunk_i == -1){
                     if(curOperator=="+"){
                       result = Number(firstChunk)+Number(secondChunk);   
                     }
@@ -242,7 +302,36 @@ var is_NAN=false;
                     revisedText=String(result);
                     break;
                   }
-                  else if(secondChunk_i > 0){
+                  else{
+                      if(secondChunk_i == 0){
+                        if(secondChunk.charAt(0)=== '-'){
+                           // alert("in the right place");
+                           is_sec_first_chunk_neg=true;
+                           secondChunk_i=secondChunk.slice(1).search(add_sub_reg)+1;
+                           // alert("secondChunk in the right place "+secondChunk);
+                           // alert("secondChunk_i in the right place "+secondChunk_i);
+                           if(secondChunk_i==0){
+                               // alert("in the right right place");
+                               if(curOperator=="+"){
+                                  result = Number(firstChunk)+Number(secondChunk);   
+                                }
+                                else if(curOperator=="-"){
+                                  result = Number(firstChunk)-Number(secondChunk);
+                                }
+                                revisedText=String(result);
+                                break;
+                           }
+
+                        }
+                        else{
+                             is_NAN=true;
+                             break;
+                        }
+                        
+                      }
+                  
+
+                     // alert("secondChunk_i "+secondChunk_i);
                     secondChunkfirst = secondChunk.slice(0,secondChunk_i);
                     secondChunkOptr=secondChunk[secondChunk_i];
                     secondChunksecond = secondChunk.slice(secondChunk_i + 1);
@@ -252,26 +341,31 @@ var is_NAN=false;
                     else if(curOperator=="-"){
                       result = Number(firstChunk)-Number(secondChunkfirst);
                     }
-                    
+                    // alert("result "+result);
+                    // alert("secondChunkOptr "+secondChunkOptr);
+                    // alert("secondChunksecond "+secondChunksecond);
                     revisedText=String(result) + secondChunkOptr + secondChunksecond;
+                    // alert("revisedText "+revisedText);
+                    is_first_sec_chunk_neg=false;
+                    is_sec_first_chunk_neg=false;
+                    if(result<0){
+                        i=revisedText.slice(1).search(add_sub_reg)+1;
+                    }else{
+                        i=revisedText.search(add_sub_reg);
+                    }
                     
-                  }
-                  if(result<0){
-                    i=revisedText.slice(1).search(add_sub_reg)+1;
-                  }
-                  else{
-                    i=revisedText.search(add_sub_reg);
-                  }
                   
+                 } 
                 }
-              }
+              
             }
             if(is_NAN == true){
-              $("#input").text("NAN");
+              $("#input").text("NaN");
               soundManager.play("Error");
                // $("#Error").get(0).cloneNode().play();
             }
             else{
+
               $("#input").text(revisedText);
               soundManager.play("Result");
                // $("#Result").get(0).cloneNode().play();
