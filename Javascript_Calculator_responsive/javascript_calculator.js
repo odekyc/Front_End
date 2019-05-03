@@ -150,22 +150,22 @@ var is_sec_first_chunk_neg=false;
           i=revisedText.search(multi_div_reg);
          
             
-            while(i!== -1){
+	        while(i!== -1){
 
               if(is_NAN){
                 break;
               }
             
               firstChunk=revisedText.slice(0,i);
-              alert("firstChunk"+firstChunk);
+              // alert("firstChunk"+firstChunk);
               curOperator=revisedText.slice(i,i+1);
               secondChunk=revisedText.slice(i+1);
-              alert("secondChunk"+secondChunk);
+              // alert("secondChunk"+secondChunk);
               firstChunk_i_arr.length = 0;
               firstChunk_i_arr.push(firstChunk.lastIndexOf("+"));
               firstChunk_i_arr.push(firstChunk.lastIndexOf("-")); 
               firstChunk_i = Math.max.apply(null, firstChunk_i_arr);
-              alert(firstChunk_i_arr);
+              // alert(firstChunk_i_arr);
               secondChunk_i = secondChunk.search(all_reg);
               if(firstChunk_i == -1){
                 
@@ -182,7 +182,7 @@ var is_sec_first_chunk_neg=false;
 
                 if(firstChunk.charAt(firstChunk_i) === "-"){
                       if(['-', '/','+','*','%'].includes(firstChunk.charAt(firstChunk_i-1))){
-                          alert("first chunk character at first chunk i is -, and there is another operator right before it!")
+                          // alert("first chunk character at first chunk i is -, and there is another operator right before it!")
                           firstChunk_i -= 1;
                           is_first_sec_chunk_neg=true;
                       }
@@ -194,7 +194,7 @@ var is_sec_first_chunk_neg=false;
                 firstChunkfirst=firstChunk.slice(0,firstChunk_i);
                 firstChunksecond=firstChunk.slice(firstChunk_i+1);
                 firstChunkOptr= firstChunk[firstChunk_i];
-                alert("firstChunk splitting operator "+firstChunk[firstChunk_i]+" at index "+firstChunk_i);
+                // alert("firstChunk splitting operator "+firstChunk[firstChunk_i]+" at index "+firstChunk_i);
               }
 
               if(secondChunk_i == -1){
@@ -209,7 +209,7 @@ var is_sec_first_chunk_neg=false;
                        secondChunk_i = secondChunk.slice(1).search(all_reg)+1;
                        is_sec_first_chunk_neg = true;
                        if(secondChunk_i == 0){
-                          alert("secondChunk splitting operator none index -1")
+                          // alert("secondChunk splitting operator none index -1")
                           secondChunkfirst=secondChunk;
                           secondChunksecond="";
                           secondChunkOptr= "";
@@ -233,11 +233,11 @@ var is_sec_first_chunk_neg=false;
                     secondChunkOptr= secondChunk[secondChunk_i];
 
                 }
-                 alert("secondChunk splitting operator "+secondChunk[secondChunk_i]+" at index "+secondChunk_i);
+                 // alert("secondChunk splitting operator "+secondChunk[secondChunk_i]+" at index "+secondChunk_i);
               }
               
-              alert("firstChunksecond "+firstChunksecond);
-              alert("secondChunkfirst "+secondChunkfirst);
+              // alert("firstChunksecond "+firstChunksecond);
+              // alert("secondChunkfirst "+secondChunkfirst);
               if(curOperator == "*"){
                 result= Number(firstChunksecond) * Number(secondChunkfirst);
               }
@@ -248,9 +248,9 @@ var is_sec_first_chunk_neg=false;
                 result= Number(firstChunksecond) % Number(secondChunkfirst);
               }     
 
-              alert("result "+result);
+              // alert("result "+result);
               revisedText=String(firstChunkfirst)+firstChunkOptr+String(result)+secondChunkOptr+String(secondChunksecond);
-              alert("revisedText"+revisedText);
+              // alert("revisedText"+revisedText);
               is_first_sec_chunk_neg=false;
               is_sec_first_chunk_neg=false;
               i=revisedText.search(multi_div_reg);
